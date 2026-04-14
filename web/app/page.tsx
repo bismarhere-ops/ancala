@@ -81,7 +81,7 @@ export default async function HomePage() {
                 <TreePine className="size-5" />
               </div>
               <div className="absolute inset-x-5 bottom-5 text-white">
-                <div className="text-xs uppercase tracking-wider opacity-80">Today's focus</div>
+                <div className="text-xs uppercase tracking-wider opacity-80">Today&rsquo;s focus</div>
                 <div className="font-display text-xl font-semibold leading-tight">
                   Pine Ridge reforestation corridor
                 </div>

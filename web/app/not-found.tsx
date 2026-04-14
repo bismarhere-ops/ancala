@@ -9,7 +9,7 @@ export default function NotFound() {
         This trail leads nowhere.
       </h1>
       <p className="mt-2 max-w-md text-muted-foreground">
-        The page you tried to reach doesn't exist or has been moved. Head back to the map and try again.
+        The page you tried to reach doesn&rsquo;t exist or has been moved. Head back to the map and try again.
       </p>
       <div className="mt-6 flex gap-3">
         <Button asChild>

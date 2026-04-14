@@ -147,7 +147,7 @@ export default async function CommunityPage() {
               Become a guardian.
             </h2>
             <p className="mt-3 max-w-md text-muted-foreground">
-              Volunteer for planting days, trail clean-ups, or the Guardian Bootcamp. We'll match
+              Volunteer for planting days, trail clean-ups, or the Guardian Bootcamp. We&rsquo;ll match
               you with nearby programs.
             </p>
             <Separator className="my-6" />

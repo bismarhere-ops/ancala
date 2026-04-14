@@ -100,7 +100,7 @@ export function VolunteerForm() {
       </div>
 
       <fieldset>
-        <legend className="mb-2 text-sm font-medium">I'm interested in</legend>
+        <legend className="mb-2 text-sm font-medium">I&rsquo;m interested in</legend>
         <Controller
           control={control}
           name="interests"
