@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#2D5A3D" />
+  <meta name="description" content="Plan your hike: checklists, timeline, emergency contacts — saved on your device and available offline." />
+  <title>Hiker Dashboard · Forest Guardian</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M16 3 L27 22 H20 L16 29 L12 22 H5 Z" fill="currentColor"/>
+          <circle cx="16" cy="15" r="2" fill="#F7F5F0"/>
+        </svg>
+        <span class="brand-text">Forest<br/>Guardian</span>
+      </a>
+      <nav class="main-nav" aria-label="Main">
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="trails.html">Trails</a></li>
+          <li><a href="dashboard.html" aria-current="page">Dashboard</a></li>
+          <li><a href="program.html">Program</a></li>
+          <li><a href="community.html">Community</a></li>
+          <li><a href="community.html#volunteer" class="btn btn-sm btn-primary">Join</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Hiker Dashboard</span>
+        <h1>Plan. Pack. Move with confidence.</h1>
+        <p class="lede">Checklists, timelines and emergency info — saved on your device and ready offline.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container dash-grid">
+
+        <!-- Trip planner -->
+        <article class="panel">
+          <header class="panel-head">
+            <h2>Trip planner</h2>
+            <span class="tag">Auto-saved</span>
+          </header>
+          <div class="form-grid">
+            <label class="field labeled">
+              <span>Trail</span>
+              <select id="planTrail"></select>
+            </label>
+            <label class="field labeled">
+              <span>Date</span>
+              <input type="date" id="planDate" />
+            </label>
+            <label class="field labeled">
+              <span>Start time</span>
+              <input type="time" id="planStart" value="06:30" />
+            </label>
+            <label class="field labeled">
+              <span>Group size</span>
+              <input type="number" id="planGroup" min="1" value="2" />
+            </label>
+          </div>
+          <div id="timelineBox" class="timeline" aria-live="polite"></div>
+        </article>
+
+        <!-- Checklists -->
+        <article class="panel">
+          <header class="panel-head">
+            <h2>Checklists</h2>
+            <div class="seg" role="tablist">
+              <button class="seg-btn is-active" data-tab="trip" role="tab">Trip</button>
+              <button class="seg-btn" data-tab="gear" role="tab">Gear</button>
+            </div>
+          </header>
+          <ul class="checklist" id="listTrip"></ul>
+          <ul class="checklist" id="listGear" hidden></ul>
+          <div class="progress" aria-hidden="true">
+            <i id="listProgress" style="--v:0%"></i>
+          </div>
+          <p class="muted small" id="listProgressLabel">0% ready</p>
+        </article>
+
+        <!-- Emergency -->
+        <article class="panel accent">
+          <header class="panel-head">
+            <h2>Emergency</h2>
+            <span class="tag danger">24/7</span>
+          </header>
+          <ul class="contact-list">
+            <li>
+              <div>
+                <span class="c-name">Mountain Rescue (national)</span>
+                <span class="c-sub">Search &amp; rescue dispatch</span>
+              </div>
+              <a href="tel:112" class="btn btn-danger btn-sm">Call 112</a>
+            </li>
+            <li>
+              <div>
+                <span class="c-name">Park Ranger Hotline</span>
+                <span class="c-sub">Trail hazards &amp; closures</span>
+              </div>
+              <a href="tel:+10000000001" class="btn btn-outline btn-sm">Call</a>
+            </li>
+            <li>
+              <div>
+                <span class="c-name">Forest Guardian Support</span>
+                <span class="c-sub">Community &amp; reporting desk</span>
+              </div>
+              <a href="tel:+10000000002" class="btn btn-outline btn-sm">Call</a>
+            </li>
+          </ul>
+          <label class="field labeled">
+            <span>My emergency contact</span>
+            <input type="tel" id="myEmergency" placeholder="+00 000 000 000" />
+          </label>
+        </article>
+
+        <!-- Weather -->
+        <article class="panel">
+          <header class="panel-head">
+            <h2>Today on the mountain</h2>
+            <span class="tag">Forecast</span>
+          </header>
+          <div class="weather-row" id="weatherRow"></div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-base slim">
+      <a href="index.html" class="muted">← Back to home</a>
+      <span class="status" id="netStatus">● Online</span>
+    </div>
+  </footer>
+
+  <script src="js/trails-data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

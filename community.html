@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#2D5A3D" />
+  <meta name="description" content="Report trail condition, upload photos, and register as a Forest Guardian volunteer." />
+  <title>Community · Forest Guardian</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M16 3 L27 22 H20 L16 29 L12 22 H5 Z" fill="currentColor"/>
+          <circle cx="16" cy="15" r="2" fill="#F7F5F0"/>
+        </svg>
+        <span class="brand-text">Forest<br/>Guardian</span>
+      </a>
+      <nav class="main-nav" aria-label="Main">
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="trails.html">Trails</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="program.html">Program</a></li>
+          <li><a href="community.html" aria-current="page">Community</a></li>
+          <li><a href="#volunteer" class="btn btn-sm btn-primary">Join</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Community &amp; Reporting</span>
+        <h1>The forest needs eyes<br/>on the ground.</h1>
+        <p class="lede">Report a hazard, share a sighting, or register to volunteer. Every contribution makes the next hiker safer and the forest stronger.</p>
+      </div>
+    </section>
+
+    <!-- Report -->
+    <section class="section" id="report">
+      <div class="container panel-page">
+        <div class="panel-col">
+          <span class="eyebrow dark">Trail report</span>
+          <h2>Spotted something?</h2>
+          <p>Report damage, waste, or a hazard. Reports queue while offline and send when you regain signal.</p>
+          <ul class="dot-list">
+            <li>Geo-tag with your current position</li>
+            <li>Attach up to 4 photos</li>
+            <li>Anonymous or signed submission</li>
+          </ul>
+        </div>
+        <form class="panel form-panel" id="reportForm" novalidate>
+          <label class="field labeled">
+            <span>Type</span>
+            <select name="type" required>
+              <option value="">Select a type</option>
+              <option>Trail damage</option>
+              <option>Waste / littering</option>
+              <option>Fallen tree / obstruction</option>
+              <option>Wildlife hazard</option>
+              <option>Missing signage</option>
+              <option>Fire risk</option>
+            </select>
+          </label>
+          <label class="field labeled">
+            <span>Trail</span>
+            <select name="trail" id="reportTrail"></select>
+          </label>
+          <label class="field labeled">
+            <span>Description</span>
+            <textarea name="description" rows="4" placeholder="Describe the issue, location markers, severity…"></textarea>
+          </label>
+          <label class="field labeled">
+            <span>Photos (optional)</span>
+            <input type="file" name="photos" accept="image/*" multiple capture="environment" />
+          </label>
+          <div class="row">
+            <label class="check">
+              <input type="checkbox" name="anon" />
+              <span>Submit anonymously</span>
+            </label>
+            <button type="button" class="btn btn-outline btn-sm" id="geoBtn">Use my location</button>
+          </div>
+          <div class="muted small" id="geoStatus">Location: not set</div>
+          <button type="submit" class="btn btn-primary">Submit report</button>
+          <div class="flash" id="reportFlash" hidden></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Recent reports -->
+    <section class="section soft">
+      <div class="container">
+        <header class="section-head">
+          <h2>Recent community reports</h2>
+          <a href="#report" class="link-arrow">Add a report →</a>
+        </header>
+        <div class="report-list" id="reportList"></div>
+      </div>
+    </section>
+
+    <!-- Volunteer -->
+    <section class="section" id="volunteer">
+      <div class="container panel-page reverse">
+        <div class="panel-col">
+          <span class="eyebrow dark">Volunteer</span>
+          <h2>Become a guardian.</h2>
+          <p>Volunteer for planting days, trail clean-ups, or the Guardian Bootcamp. We'll match you with nearby programs.</p>
+          <div class="badges">
+            <span class="badge">Flexible hours</span>
+            <span class="badge">Certified training</span>
+            <span class="badge">Community events</span>
+          </div>
+        </div>
+        <form class="panel form-panel" id="volunteerForm" novalidate>
+          <label class="field labeled">
+            <span>Full name</span>
+            <input type="text" name="name" required />
+          </label>
+          <label class="field labeled">
+            <span>Email</span>
+            <input type="email" name="email" required />
+          </label>
+          <label class="field labeled">
+            <span>Mobile</span>
+            <input type="tel" name="phone" />
+          </label>
+          <label class="field labeled">
+            <span>Region</span>
+            <select name="region">
+              <option>Pine Ridge</option>
+              <option>Hawk Valley</option>
+              <option>Silverwood</option>
+              <option>Mossy Creek</option>
+              <option>Other / will travel</option>
+            </select>
+          </label>
+          <fieldset class="check-group">
+            <legend>I'm interested in</legend>
+            <label class="check"><input type="checkbox" name="interest" value="planting"/><span>Planting days</span></label>
+            <label class="check"><input type="checkbox" name="interest" value="cleanup"/><span>Trail clean-up</span></label>
+            <label class="check"><input type="checkbox" name="interest" value="bootcamp"/><span>Guardian Bootcamp</span></label>
+            <label class="check"><input type="checkbox" name="interest" value="mentor"/><span>Mentor new hikers</span></label>
+          </fieldset>
+          <button type="submit" class="btn btn-primary">Register as Guardian</button>
+          <div class="flash" id="volunteerFlash" hidden></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-base slim">
+      <a href="index.html" class="muted">← Back to home</a>
+      <span class="status" id="netStatus">● Online</span>
+    </div>
+  </footer>
+
+  <script src="js/trails-data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/community.js"></script>
+</body>
+</html>

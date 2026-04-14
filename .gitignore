@@ -1,0 +1,26 @@
+node_modules/
+.env
+.env.local
+
+# Database + runtime data (root-level only — keep server/data seed fixtures)
+/data/
+*.db
+*.db-journal
+*.sqlite
+*.sqlite-journal
+
+# Uploads
+server/uploads/*
+!server/uploads/.gitkeep
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

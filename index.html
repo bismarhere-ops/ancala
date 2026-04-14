@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#2D5A3D" />
+  <meta name="description" content="Forest Guardian — a CSR program for hikers, communities, and the forest. Plan your hike, protect the trails, plant trees." />
+  <title>Forest Guardian — Hike. Protect. Restore.</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preload" href="js/app.js" as="script" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="Forest Guardian home">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M16 3 L27 22 H20 L16 29 L12 22 H5 Z" fill="currentColor"/>
+          <circle cx="16" cy="15" r="2" fill="#F7F5F0"/>
+        </svg>
+        <span class="brand-text">Forest<br/>Guardian</span>
+      </a>
+      <nav class="main-nav" aria-label="Main">
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="trails.html">Trails</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="program.html">Program</a></li>
+          <li><a href="community.html">Community</a></li>
+          <li><a href="community.html#volunteer" class="btn btn-sm btn-primary">Join</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <span class="eyebrow">CSR Initiative · Est. 2024</span>
+        <h1 class="hero-title">Hike the wild.<br/><em>Guard the forest.</em></h1>
+        <p class="hero-lede">
+          A connected platform for hikers and communities to prepare safely,
+          discover trails, and turn every step into measurable impact for the forest.
+        </p>
+        <div class="hero-actions">
+          <a href="trails.html" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L20 20 L4 20 Z" fill="currentColor"/></svg>
+            Plan Your Hike
+          </a>
+          <a href="community.html#volunteer" class="btn btn-ghost">Join as Guardian</a>
+        </div>
+        <div class="hero-meta">
+          <div><strong>42,380</strong><span>Trees planted</span></div>
+          <div><strong>1,250</strong><span>Active guardians</span></div>
+          <div><strong>87</strong><span>Trails protected</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="section quick-actions">
+      <div class="container">
+        <div class="quick-grid">
+          <a href="trails.html" class="quick-card">
+            <div class="quick-icon green">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18 L9 8 L14 14 L18 9 L21 18 Z" fill="currentColor"/></svg>
+            </div>
+            <h3>Trails</h3>
+            <p>Distances, elevation, checkpoints and risk.</p>
+          </a>
+          <a href="dashboard.html" class="quick-card">
+            <div class="quick-icon amber">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v3H4z M4 11h16v3H4z M4 16h10v3H4z" fill="currentColor"/></svg>
+            </div>
+            <h3>Dashboard</h3>
+            <p>Checklists, timeline, emergency contacts.</p>
+          </a>
+          <a href="program.html" class="quick-card">
+            <div class="quick-icon forest">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L20 14 H15 V22 H9 V14 H4 Z" fill="currentColor"/></svg>
+            </div>
+            <h3>Program</h3>
+            <p>Plant &amp; Protect, bootcamps, impact.</p>
+          </a>
+          <a href="community.html" class="quick-card">
+            <div class="quick-icon rust">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="10" r="4" fill="currentColor"/><path d="M4 21c1-4 5-6 8-6s7 2 8 6z" fill="currentColor"/></svg>
+            </div>
+            <h3>Report</h3>
+            <p>Damage, waste, hazards — with photos.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Storytelling -->
+    <section class="section story">
+      <div class="container story-grid">
+        <div class="story-media" aria-hidden="true">
+          <div class="story-stack">
+            <div class="story-leaf l1"></div>
+            <div class="story-leaf l2"></div>
+            <div class="story-leaf l3"></div>
+          </div>
+        </div>
+        <div class="story-copy">
+          <span class="eyebrow dark">Our commitment</span>
+          <h2>Furniture that lives — a forest that lasts.</h2>
+          <p>
+            For every piece we craft, we give back to the forests that give us timber,
+            air, and awe. Forest Guardian is our long-term commitment to reforestation,
+            responsible trail access, and the communities that care for both.
+          </p>
+          <ul class="pill-list">
+            <li>Certified timber sourcing</li>
+            <li>Local reforestation partners</li>
+            <li>Transparent impact reports</li>
+          </ul>
+          <a href="program.html" class="link-arrow">Read our program →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured trails -->
+    <section class="section featured">
+      <div class="container">
+        <header class="section-head">
+          <h2>Featured trails</h2>
+          <a href="trails.html" class="link-arrow">See all →</a>
+        </header>
+        <div class="trail-rail" id="featuredTrails">
+          <!-- populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Impact -->
+    <section class="section impact">
+      <div class="container">
+        <header class="section-head light">
+          <h2>Impact, in numbers.</h2>
+          <p>Live figures from our 2024–2026 programs.</p>
+        </header>
+        <div class="impact-grid">
+          <div class="impact-card">
+            <span class="impact-num" data-count="42380">0</span>
+            <span class="impact-label">Trees planted</span>
+            <div class="bar"><i style="--v:78%"></i></div>
+          </div>
+          <div class="impact-card">
+            <span class="impact-num" data-count="1250">0</span>
+            <span class="impact-label">Active guardians</span>
+            <div class="bar"><i style="--v:62%"></i></div>
+          </div>
+          <div class="impact-card">
+            <span class="impact-num" data-count="9450">0</span>
+            <span class="impact-label">Kg waste collected</span>
+            <div class="bar"><i style="--v:54%"></i></div>
+          </div>
+          <div class="impact-card">
+            <span class="impact-num" data-count="87">0</span>
+            <span class="impact-label">Trails protected</span>
+            <div class="bar"><i style="--v:88%"></i></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta-band">
+      <div class="container cta-inner">
+        <div>
+          <h2>Become a Forest Guardian.</h2>
+          <p>Volunteer for a planting day, a trail clean-up, or a guided bootcamp.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="community.html#volunteer" class="btn btn-primary">Join as Guardian</a>
+          <a href="community.html#report" class="btn btn-outline">Report Condition</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="brand footer-brand">
+          <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M16 3 L27 22 H20 L16 29 L12 22 H5 Z" fill="currentColor"/>
+          </svg>
+          <span class="brand-text">Forest<br/>Guardian</span>
+        </div>
+        <p class="muted">A corporate social responsibility program<br/>by a furniture brand rooted in the forest.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="trails.html">Trails</a></li>
+          <li><a href="dashboard.html">Hiker Dashboard</a></li>
+          <li><a href="program.html">Program</a></li>
+          <li><a href="community.html">Community</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Engage</h4>
+        <ul>
+          <li><a href="community.html#volunteer">Volunteer</a></li>
+          <li><a href="community.html#report">Report a trail</a></li>
+          <li><a href="program.html#impact">Impact report</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Offline ready</h4>
+        <p class="muted">Install this site as an app from your browser menu to access trail guides without signal.</p>
+        <button id="installBtn" class="btn btn-outline btn-sm" hidden>Install app</button>
+      </div>
+    </div>
+    <div class="container footer-base">
+      <span>© 2026 Forest Guardian CSR</span>
+      <span class="status" id="netStatus">● Online</span>
+    </div>
+  </footer>
+
+  <script src="js/trails-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
