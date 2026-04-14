@@ -67,21 +67,16 @@ app.use('/uploads', express.static(config.uploads.dir, {
   maxAge: '30d',
 }));
 
-// --- PWA frontend (static) -----------------------------------------------
-// Serves index.html, trails.html, etc. from the project root.
-app.use(express.static(config.paths.publicDir, {
-  extensions: ['html'],
-  maxAge: '1h',
-  setHeaders(res, filePath) {
-    if (filePath.endsWith('service-worker.js')) {
-      // Service worker must never be cached.
-      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
-    }
-    if (filePath.endsWith('manifest.json')) {
-      res.setHeader('Cache-Control', 'public, max-age=300');
-    }
-  },
-}));
+// --- Root --------------------------------------------------------------
+// The Next.js frontend in /web is the canonical site; this API only exposes
+// a friendly pointer at the root.
+app.get('/', (_req, res) => {
+  res.json({
+    service: 'forest-guardian-api',
+    docs: '/api/health',
+    frontend: 'Run the Next.js app in /web (npm --prefix web run dev)',
+  });
+});
 
 // --- Errors ---------------------------------------------------------------
 app.use(notFound);

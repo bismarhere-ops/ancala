@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 20% 97%;
+    --foreground: 140 20% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 140 20% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 140 20% 10%;
+
+    --primary: 146 34% 26%;
+    --primary-foreground: 40 30% 97%;
+
+    --secondary: 144 20% 94%;
+    --secondary-foreground: 146 34% 20%;
+
+    --muted: 144 15% 94%;
+    --muted-foreground: 140 10% 40%;
+
+    --accent: 30 45% 70%;
+    --accent-foreground: 140 30% 15%;
+
+    --destructive: 0 65% 45%;
+    --destructive-foreground: 40 30% 97%;
+
+    --border: 140 12% 86%;
+    --input: 140 12% 88%;
+    --ring: 146 34% 32%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 145 20% 7%;
+    --foreground: 40 20% 95%;
+    --card: 145 20% 9%;
+    --card-foreground: 40 20% 95%;
+    --popover: 145 20% 9%;
+    --popover-foreground: 40 20% 95%;
+    --primary: 146 40% 55%;
+    --primary-foreground: 145 30% 10%;
+    --secondary: 145 15% 14%;
+    --secondary-foreground: 40 20% 95%;
+    --muted: 145 15% 14%;
+    --muted-foreground: 140 10% 65%;
+    --accent: 30 35% 55%;
+    --accent-foreground: 145 20% 8%;
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 40 30% 97%;
+    --border: 145 15% 18%;
+    --input: 145 15% 18%;
+    --ring: 146 40% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .bg-topo {
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(45,90,61,0.08) 0 2px, transparent 3px),
+      radial-gradient(circle at 70% 60%, rgba(45,90,61,0.06) 0 2px, transparent 3px),
+      radial-gradient(circle at 40% 80%, rgba(45,90,61,0.05) 0 2px, transparent 3px);
+    background-size: 220px 220px;
+  }
+}

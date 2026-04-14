@@ -3,10 +3,30 @@
 A CSR platform for hikers and forest communities — trail information, hiker dashboards,
 volunteer registration, and transparent impact reporting.
 
-This repository currently contains:
+This repository is a small monorepo:
 
 - **Backend API** (`server/`) — Node.js + Express + SQLite
-- **Frontend pages** (`*.html`) — a lightweight, mobile-first PWA served statically by the API
+- **Frontend app** (`web/`) — Next.js 14 (App Router) + Tailwind CSS + shadcn/ui
+
+The Next.js app talks to the API via same-origin `/api/*` rewrites configured in
+`web/next.config.mjs`, so you can point it at any backend with a single env var.
+
+## Running the full stack locally
+
+Open two terminals:
+
+```bash
+# 1) API (port 3000)
+cp .env.example .env
+npm install
+npm start
+
+# 2) Frontend (port 3001)
+cd web
+cp .env.local.example .env.local
+npm install
+npm run dev   # http://localhost:3001
+```
 
 ## Tech stack
 
@@ -126,9 +146,32 @@ server/
 - **Validation at the edge.** All request bodies/queries are validated with Zod —
   the handlers below that point can assume well-formed input.
 
+## Frontend (`web/`)
+
+Built with **Next.js 14 App Router**, **Tailwind CSS**, and **shadcn/ui** primitives.
+Pages:
+
+| Route                 | Purpose                                                        |
+| --------------------- | -------------------------------------------------------------- |
+| `/`                   | Hero, quick actions, featured trails, live impact, join CTA   |
+| `/trails`             | Filterable trail list (search, difficulty, sort)              |
+| `/trails/[slug]`      | Checkpoints, hazards, 5-day weather, downloadable offline guide |
+| `/dashboard`          | Trip planner, checklists, emergency contacts — saved locally   |
+| `/program`            | Pillars, Plant & Protect tracker, bootcamp, impact dashboard  |
+| `/community`          | Report form (photos + GPS), recent reports, volunteer sign-up |
+
+Design notes:
+- **Mobile-first, offline-friendly.** System font stacks (no Google Fonts), small
+  route bundles (~103–170 kB first load), every trail page exposes a JSON offline
+  guide.
+- **Server components by default**, with client components only where interactivity
+  demands it (planner, checklists, forms, geolocation).
+- **Forms** use `react-hook-form` + `zod` for validation and `sonner` for toasts.
+- **Persistence** for the planner, checklists, and emergency contact uses
+  `localStorage`, so data survives reloads and works without signal.
+
 ## Next steps
 
-- Front-end assets: stylesheet, JS modules, PWA manifest, and service worker are
-  referenced by the HTML pages and will be added in the next iteration.
 - Auth for an admin surface to update impact metrics and change report status.
+- Service worker + install-prompt for true PWA install.
 - Background job to refresh the weather cache for popular trails.
