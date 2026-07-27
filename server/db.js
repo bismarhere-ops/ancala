@@ -86,6 +86,65 @@ CREATE TABLE IF NOT EXISTS impact_metrics (
   unit        TEXT,
   updated_at  TEXT NOT NULL DEFAULT (datetime('now'))
 );
+
+-- Extended profile for trails sourced from the mountains dataset. Holds the
+-- fields that don't fit the generic trails shape: logistics, conservation,
+-- and safety data. NULL means "Unknown" in the source data — never guessed.
+CREATE TABLE IF NOT EXISTS mountain_profiles (
+  trail_id                        INTEGER PRIMARY KEY REFERENCES trails(id) ON DELETE CASCADE,
+  access_status                   TEXT NOT NULL DEFAULT 'open' CHECK (access_status IN ('open','conditional','closed')),
+  elevation_m                     INTEGER,
+  nearest_city                    TEXT,
+  basecamp_name                   TEXT,
+  basecamp_access                 TEXT,
+  basecamp_lat                    REAL,
+  basecamp_lng                    REAL,
+  summit_lat                      REAL,
+  summit_lng                      REAL,
+  distance_one_way_km             TEXT,
+  distance_round_trip_km          TEXT,
+  ascent_time_hours               TEXT,
+  descent_time_hours              TEXT,
+  num_pos                         TEXT,
+  pos_breakdown                   TEXT,
+  elevation_gain_segments         TEXT,
+  trail_type                      TEXT,
+  difficulty_raw                  TEXT,
+  risk_raw                        TEXT,
+  key_hazards                     TEXT,
+  critical_points                 TEXT,
+  distance_from_surabaya_km       TEXT,
+  travel_time_from_surabaya_hours TEXT,
+  recommended_transport           TEXT,
+  registration_method             TEXT,
+  permit_required                 TEXT,
+  entry_fee_idr                   TEXT,
+  water_sources                   TEXT,
+  camping_area                    TEXT,
+  emergency_shelter               TEXT,
+  signal_coverage                 TEXT,
+  toilet_warung                   TEXT,
+  environmental_condition         TEXT,
+  common_issues                   TEXT,
+  reforestation_activity          TEXT,
+  csr_potential                   TEXT,
+  recommended_conservation        TEXT,
+  best_time_months                TEXT,
+  sunrise_sunset_rating           INTEGER,
+  unique_selling_point            TEXT,
+  crowd_level                     TEXT,
+  minimum_gear                    TEXT,
+  water_requirement_liters        TEXT,
+  emergency_contact               TEXT,
+  common_accident_types           TEXT,
+  offline_map_available           TEXT,
+  data_reliability                TEXT,
+  source_last_updated             TEXT,
+  imported_at                     TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS idx_profiles_csr         ON mountain_profiles(csr_potential);
+CREATE INDEX IF NOT EXISTS idx_profiles_reliability ON mountain_profiles(data_reliability);
+CREATE INDEX IF NOT EXISTS idx_profiles_status      ON mountain_profiles(access_status);
 `;
 
 db.exec(SCHEMA);
@@ -180,6 +239,7 @@ function seed({ force = false } = {}) {
 
 function reset() {
   db.exec(`
+    DROP TABLE IF EXISTS mountain_profiles;
     DROP TABLE IF EXISTS checkpoints;
     DROP TABLE IF EXISTS reports;
     DROP TABLE IF EXISTS volunteers;

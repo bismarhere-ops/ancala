@@ -57,17 +57,41 @@ Fees are 2024 estimates and drift. Treat as indicative, re-verify per season.
 ### Digital
 `offline_map_available`, `data_reliability`, `last_updated`
 
-## Integration notes
+## Importing into the database
 
-- `id` is designed to match the `slug` field in `seed-trails.json` conventions.
-- `pos_breakdown` and `elevation_gain_segments` are semicolon-delimited and can be split into checkpoint records.
-- Volcanic mountains (Merapi, Kelud, Slamet, Agung, Sinabung, Guntur) carry conditional access — the platform should surface a PVMBG/BPPTKG status check before allowing trip planning.
-- Sinabung is recorded as **closed to hikers** (active eruption cycle, exclusion zone enforced). It is retained in the dataset as an observation-only and CSR-relevant entry, not a hikeable trail.
+```bash
+npm run seed:mountains:dry   # parse + report, writes nothing (no DB needed)
+npm run seed:mountains       # upsert into the database
+```
+
+`server/import-mountains.js` writes to three tables:
+
+| Table | What it gets |
+|---|---|
+| `trails` | Core shape — slug, name, region, distance, difficulty, risk, popularity, coords |
+| `checkpoints` | Parsed from `pos_breakdown`, with cumulative km and ETA |
+| `mountain_profiles` | The remaining 48 columns, 1:1 with the CSV |
+
+The import is idempotent — `trails` upserts on `slug`, checkpoints are rebuilt per trail, and profiles upsert on `trail_id`. It coexists with the original `seed-trails.json` demo data rather than replacing it.
+
+### Transformations applied
+
+- **`Unknown` / `N/A` become `NULL`**, including when followed by an explanation (`"Unknown — limited reporting"`). Nothing is guessed to fill a required column.
+- **Difficulty** maps to the `trails` constraint: Beginner→`easy`, Intermediate→`moderate`, Advanced→`hard`. Where the source gives two (`"Beginner (rim only) / Intermediate (crater descent)"`) the first is used. The raw value is preserved in `mountain_profiles.difficulty_raw`.
+- **Risk** clamps `Extreme`→`high`, since `trails.risk` only allows low/medium/high. Raw value preserved in `risk_raw`.
+- **Ranges** (`"5-7"`, `"12-16 (2 days recommended)"`) reduce to their midpoint for `estimated_min` only. The verbatim string stays in `mountain_profiles`.
+- **`access_status`** is derived, not a CSV column. `closed` for Sinabung; `conditional` for the five volcanoes whose access depends on alert level (Merapi, Kelud, Slamet, Guntur, Agung). The platform should gate trip planning on this and surface a PVMBG/BPPTKG status check.
+
+### Known lossy conversions
+
+- `elevation_gain_m` is stored as **0 for 21 mountains** where the source has no gain figure. Read `mountain_profiles.elevation_gain_segments` (NULL when genuinely unknown) rather than trusting a 0.
+- **20 mountains produce no checkpoints** because `pos_breakdown` is `Unknown`. They import fine but can't drive a dashboard timeline.
+- Multi-node segments (`"A>B>C: ~3km/2-3h"`, Pangrango only) keep endpoints and drop the middle node, since the distance covers the whole chain.
 
 ## Known gaps
 
 Priority for field verification:
-1. GPS coordinates — only 4 mountains have verified basecamp/summit coordinates.
-2. Entry fees — many marked `Unknown` or estimated; needs per-basecamp survey.
-3. Emergency contacts — most rows list only the regional BASARNAS, not a basecamp-level number.
-4. Low-reliability East Java rows (Kawi, Anjasmoro, Liman, Lemongan, Ranti, Merapi/Ijen complex) need on-the-ground trail survey before use in safety-critical features.
+1. **GPS coordinates — only 3 of 50** (Semeru, Bromo, Ijen) have verified basecamp and summit coordinates. This is the largest gap and the one that needs field capture rather than desk research.
+2. **Entry fees** — 27 of 50 are `Unknown`; the rest are 2024 estimates that drift each season.
+3. **Emergency contacts** — 14 of 50 are `Unknown`, and most of the rest name only the regional BASARNAS rather than a basecamp-level number. Weakest field for a safety platform.
+4. **18 rows are graded `Low` reliability.** Gate safety-critical features on `data_reliability != 'Low'` rather than treating all 50 equally. The East Java low-confidence set (Kawi, Anjasmoro, Liman, Lemongan, Ranti, Merapi/Ijen complex) needs on-the-ground survey.
