@@ -10,6 +10,83 @@ export interface Checkpoint {
   notes: string | null;
 }
 
+export type AccessStatus = "open" | "conditional" | "closed";
+
+export interface Coordinates {
+  lat: number;
+  lng: number;
+}
+
+/**
+ * Extended data imported from the mountains dataset. Every field is nullable:
+ * null means the source recorded "Unknown", which the UI should state
+ * explicitly rather than hiding.
+ */
+export interface MountainProfile {
+  accessStatus: AccessStatus;
+  dataReliability: string | null;
+  sourceLastUpdated: string | null;
+  elevationM: number | null;
+  nearestCity: string | null;
+  basecamp: {
+    name: string | null;
+    access: string | null;
+    coordinates: Coordinates | null;
+  };
+  summitCoordinates: Coordinates | null;
+  route: {
+    distanceOneWayKm: string | null;
+    distanceRoundTripKm: string | null;
+    ascentTimeHours: string | null;
+    descentTimeHours: string | null;
+    numPos: string | null;
+    posBreakdown: string | null;
+    elevationGainSegments: string | null;
+    trailType: string[];
+  };
+  assessment: {
+    difficultyRaw: string | null;
+    riskRaw: string | null;
+    keyHazards: string[];
+    criticalPoints: string | null;
+  };
+  logistics: {
+    distanceFromSurabayaKm: string | null;
+    travelTimeFromSurabayaHours: string | null;
+    recommendedTransport: string | null;
+    registrationMethod: string | null;
+    permitRequired: string | null;
+    entryFeeIdr: string | null;
+  };
+  facilities: {
+    waterSources: string | null;
+    campingArea: string | null;
+    emergencyShelter: string | null;
+    signalCoverage: string | null;
+    toiletWarung: string | null;
+  };
+  conservation: {
+    environmentalCondition: string | null;
+    commonIssues: string[];
+    reforestationActivity: string | null;
+    csrPotential: string | null;
+    recommendedConservation: string[];
+  };
+  experience: {
+    bestTimeMonths: string | null;
+    sunriseSunsetRating: number | null;
+    uniqueSellingPoint: string | null;
+    crowdLevel: string | null;
+  };
+  safety: {
+    minimumGear: string[];
+    waterRequirementLiters: string | null;
+    emergencyContact: string | null;
+    commonAccidentTypes: string[];
+  };
+  offlineMapAvailable: string | null;
+}
+
 export interface Trail {
   id: number;
   slug: string;
@@ -22,10 +99,14 @@ export interface Trail {
   difficulty: Difficulty;
   risk: Risk;
   popularity: number;
-  coordinates: { lat: number; lng: number } | null;
+  coordinates: Coordinates | null;
   tags: string[];
   hazards: string[];
+  /** Null for legacy seed trails with no imported profile. */
+  accessStatus: AccessStatus | null;
+  dataReliability: string | null;
   checkpoints: Checkpoint[];
+  profile: MountainProfile | null;
   createdAt: string;
   updatedAt: string;
 }

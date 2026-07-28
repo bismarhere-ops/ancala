@@ -8,6 +8,7 @@ import {
   Download,
   MapPin,
   Mountain,
+  OctagonAlert,
   Route,
   TriangleAlert,
 } from "lucide-react";
@@ -16,6 +17,8 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { WeatherCard } from "@/components/weather-card";
+import { AccessBanner } from "@/components/access-banner";
+import { TrailProfile } from "@/components/trail-profile";
 import { getTrail, getWeather } from "@/lib/api";
 import { cn, difficultyColor, formatMinutes, riskColor } from "@/lib/utils";
 
@@ -92,9 +95,17 @@ export default async function TrailDetailPage({
                   <Download /> Offline guide
                 </a>
               </Button>
-              <Button asChild variant="outline" className="border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white">
-                <Link href="/dashboard">Plan this hike</Link>
-              </Button>
+              {/* Planning is withheld for closed mountains — Sinabung sits in an
+                  enforced exclusion zone, so offering a planner would be wrong. */}
+              {trail.accessStatus === "closed" ? (
+                <span className="inline-flex items-center gap-2 rounded-md border border-red-300/40 bg-red-500/15 px-3 py-2 text-sm text-red-100">
+                  <OctagonAlert className="size-4" /> Closed — planning disabled
+                </span>
+              ) : (
+                <Button asChild variant="outline" className="border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white">
+                  <Link href="/dashboard">Plan this hike</Link>
+                </Button>
+              )}
             </div>
           </div>
 
@@ -120,6 +131,12 @@ export default async function TrailDetailPage({
           </dl>
         </div>
       </section>
+
+      {trail.accessStatus && trail.accessStatus !== "open" && (
+        <div className="container pt-6">
+          <AccessBanner status={trail.accessStatus} />
+        </div>
+      )}
 
       {/* Body */}
       <section className="container grid gap-8 py-10 lg:grid-cols-3 lg:py-14">
@@ -178,6 +195,12 @@ export default async function TrailDetailPage({
               </CardContent>
             </Card>
           )}
+
+          {trail.profile && (
+            <div className="mt-6">
+              <TrailProfile profile={trail.profile} />
+            </div>
+          )}
         </div>
 
         <aside className="space-y-6">
@@ -199,8 +222,16 @@ export default async function TrailDetailPage({
             </CardHeader>
             <CardContent className="space-y-3 text-sm">
               <p>• Tell someone your plan and expected return time.</p>
-              <p>• Carry 2L of water minimum; filter if refilling.</p>
+              <p>
+                •{" "}
+                {trail.profile?.safety.waterRequirementLiters
+                  ? `Carry ${trail.profile.safety.waterRequirementLiters} L of water for this route.`
+                  : "Carry 2L of water minimum; filter if refilling."}
+              </p>
               <p>• Turn back if weather deteriorates — summit optional, return mandatory.</p>
+              {trail.profile?.facilities.signalCoverage && (
+                <p>• Signal: {trail.profile.facilities.signalCoverage}</p>
+              )}
               <Separator />
               <div className="flex flex-wrap gap-2">
                 <Button asChild size="sm" variant="outline">
@@ -210,6 +241,11 @@ export default async function TrailDetailPage({
                   <Link href="/community#report">Report condition</Link>
                 </Button>
               </div>
+              {trail.profile?.safety.emergencyContact && (
+                <p className="text-xs text-muted-foreground">
+                  Local rescue: {trail.profile.safety.emergencyContact}
+                </p>
+              )}
             </CardContent>
           </Card>
         </aside>

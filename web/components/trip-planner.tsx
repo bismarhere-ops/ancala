@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import type { Trail } from "@/lib/types";
+import { AccessBanner } from "@/components/access-banner";
 import { formatMinutes } from "@/lib/utils";
 
 type Plan = {
@@ -57,7 +58,14 @@ export function TripPlanner({ trails }: { trails: Trail[] }) {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(plan));
   }, [plan]);
 
-  const trail = trails.find((t) => t.slug === plan.slug) || trails[0];
+  // Closed mountains are excluded outright — a planner for an enforced
+  // exclusion zone should not exist. Conditional ones stay selectable but
+  // carry an alert-level warning.
+  const plannable = React.useMemo(
+    () => trails.filter((t) => t.accessStatus !== "closed"),
+    [trails]
+  );
+  const trail = plannable.find((t) => t.slug === plan.slug) || plannable[0];
 
   return (
     <Card>
@@ -66,6 +74,9 @@ export function TripPlanner({ trails }: { trails: Trail[] }) {
         <Badge variant="secondary">Auto-saved</Badge>
       </CardHeader>
       <CardContent className="space-y-5">
+        {trail?.accessStatus === "conditional" && (
+          <AccessBanner status="conditional" />
+        )}
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="space-y-1.5">
             <Label htmlFor="plan-trail">Trail</Label>
@@ -74,7 +85,7 @@ export function TripPlanner({ trails }: { trails: Trail[] }) {
                 <SelectValue placeholder="Choose a trail" />
               </SelectTrigger>
               <SelectContent>
-                {trails.map((t) => (
+                {plannable.map((t) => (
                   <SelectItem key={t.slug} value={t.slug}>
                     {t.name} · {t.region}
                   </SelectItem>
