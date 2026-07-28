@@ -17,13 +17,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { parseRecords } = require('./lib/csv');
-
-// Required lazily so --dry-run can parse and validate without opening (and
-// implicitly seeding) the database.
-function getDb() {
-  return require('./db').db;
-}
+const { parseRecords, splitList } = require('./lib/csv');
 
 const CSV_PATH = path.join(__dirname, 'data', 'mountains.csv');
 
@@ -38,10 +32,8 @@ function clean(v) {
   if (v === undefined || v === null) return null;
   const s = String(v).trim();
   if (s === '') return null;
-  const lower = s.toLowerCase();
-  if (lower === 'unknown' || lower === 'n/a') return null;
-  if (/^unknown\s*[—\-–(]/.test(lower)) return null;
-  if (/^n\/a\s*[—\-–(]/.test(lower)) return null;
+  // "Unknown", "N/A", and either followed by an explanation.
+  if (/^(unknown|n\/a)\s*([—\-–(]|$)/i.test(s)) return null;
   return s;
 }
 
@@ -77,68 +69,63 @@ function totalGain(v) {
   return null;
 }
 
+/**
+ * Maps free-text source vocabulary onto a constrained value by matching the
+ * first recognised term. Source cells often carry qualifiers ("Beginner (rim
+ * only) / Intermediate (crater descent)"), so first-match-wins is deliberate.
+ */
+function mapEnum(raw, table, fallback) {
+  const s = clean(raw);
+  if (s === null) return fallback;
+  const pattern = new RegExp(Object.keys(table).join('|'), 'i');
+  const m = s.match(pattern);
+  return m ? table[m[0].toLowerCase()] : fallback;
+}
+
 // trails.difficulty is constrained to easy|moderate|hard|expert.
-const DIFFICULTY_MAP = {
-  beginner: 'easy',
-  intermediate: 'moderate',
-  advanced: 'hard',
-  expert: 'expert',
-};
-
-function mapDifficulty(raw, closed) {
-  if (closed) return 'expert';
-  const s = clean(raw);
-  if (s === null) return 'moderate';
-  // "Beginner (rim only) / Intermediate (crater descent)" -> take the first.
-  const first = s.toLowerCase().match(/beginner|intermediate|advanced|expert/);
-  return first ? DIFFICULTY_MAP[first[0]] : 'moderate';
-}
-
-// trails.risk is constrained to low|medium|high. "Extreme" clamps to high.
-function mapRisk(raw, closed) {
-  if (closed) return 'high';
-  const s = clean(raw);
-  if (s === null) return 'medium';
-  const lower = s.toLowerCase();
-  if (lower.includes('extreme')) return 'high';
-  if (lower.includes('high')) return 'high';
-  if (lower.includes('low')) return 'low';
-  return 'medium';
-}
-
+const DIFFICULTY = { beginner: 'easy', intermediate: 'moderate', advanced: 'hard', expert: 'expert' };
+// trails.risk is constrained to low|medium|high, so "Extreme" clamps to high.
+const RISK = { extreme: 'high', high: 'high', medium: 'medium', low: 'low' };
 const CROWD_POPULARITY = { high: 90, medium: 60, low: 30 };
-function mapPopularity(crowd) {
-  const s = clean(crowd);
-  if (s === null) return 0;
-  const m = s.toLowerCase().match(/high|medium|low/);
-  return m ? CROWD_POPULARITY[m[0]] : 0;
-}
+// data_reliability stores prose with qualifiers ("High (well-monitored by
+// PVMBG)"); consumers switch on this normalised tier instead of re-parsing.
+const RELIABILITY = { high: 'high', medium: 'medium', low: 'low' };
 
 /**
- * Access status drives whether the platform lets a user plan a trip.
+ * Access status decides whether the platform lets a user plan a trip, so it is
+ * declared explicitly in the `access_status` column rather than inferred.
  *
- * Volcanoes whose access depends on the current alert level are "conditional"
- * — the UI must surface a PVMBG/BPPTKG status check before planning. The
- * source data phrases this inconsistently ("Conditional — ...", "closures
- * during elevated alert", "check PVMBG status"), so several fields are
- * scanned rather than relying on one prefix.
+ * The prose heuristic below is retained only as a cross-check: if a copy edit
+ * to permit or season text starts implying a restriction the declared value
+ * does not carry, the import fails loudly instead of silently downgrading a
+ * volcano to "open".
  */
-const CONDITIONAL_RE = /conditional|closure|closed during|elevated alert|pvmbg|bpptkg/i;
+const ACCESS_STATUSES = new Set(['open', 'conditional', 'closed']);
+const RESTRICTED_RE = /conditional|closure|closed during|elevated alert|pvmbg|bpptkg|prohibited/i;
 
 function mapAccessStatus(row) {
-  const basecamp = (row.basecamp_name || '').toLowerCase();
-  const permit = (row.permit_required || '').toLowerCase();
-  if (basecamp.includes('closed') || permit.includes('prohibited')) return 'closed';
+  const declared = (clean(row.access_status) || '').toLowerCase();
+  if (!ACCESS_STATUSES.has(declared)) {
+    throw new Error(
+      `${row.id}: access_status must be one of open|conditional|closed, got "${row.access_status}"`
+    );
+  }
+  return declared;
+}
 
-  const scanned = [
-    row.permit_required,
-    row.registration_method,
-    row.best_time_months,
-    row.minimum_gear,
+/** Returns a message when the prose contradicts the declared status. */
+function checkAccessStatus(row) {
+  const declared = mapAccessStatus(row);
+  if (declared !== 'open') return null;
+
+  const prose = [
+    row.basecamp_name, row.permit_required, row.registration_method,
+    row.best_time_months, row.minimum_gear,
   ].join(' ');
-  if (CONDITIONAL_RE.test(scanned)) return 'conditional';
 
-  return 'open';
+  return RESTRICTED_RE.test(prose)
+    ? `${row.id}: declared "open" but the source prose implies restricted access`
+    : null;
 }
 
 // --- Checkpoint extraction -------------------------------------------------
@@ -207,21 +194,9 @@ function segmentsToCheckpoints(segments) {
 
 // --- Import ----------------------------------------------------------------
 
-const PROFILE_COLUMNS = [
-  'access_status', 'elevation_m', 'nearest_city', 'basecamp_name', 'basecamp_access',
-  'basecamp_lat', 'basecamp_lng', 'summit_lat', 'summit_lng',
-  'distance_one_way_km', 'distance_round_trip_km', 'ascent_time_hours', 'descent_time_hours',
-  'num_pos', 'pos_breakdown', 'elevation_gain_segments', 'trail_type',
-  'difficulty_raw', 'risk_raw', 'key_hazards', 'critical_points',
-  'distance_from_surabaya_km', 'travel_time_from_surabaya_hours', 'recommended_transport',
-  'registration_method', 'permit_required', 'entry_fee_idr',
-  'water_sources', 'camping_area', 'emergency_shelter', 'signal_coverage', 'toilet_warung',
-  'environmental_condition', 'common_issues', 'reforestation_activity',
-  'csr_potential', 'recommended_conservation',
-  'best_time_months', 'sunrise_sunset_rating', 'unique_selling_point', 'crowd_level',
-  'minimum_gear', 'water_requirement_liters', 'emergency_contact', 'common_accident_types',
-  'offline_map_available', 'data_reliability', 'source_last_updated',
-];
+// Derived from buildProfile so the column list and the object can never drift.
+// `clean`/`num` tolerate undefined, so an empty row yields the full key set.
+let PROFILE_COLUMNS;
 
 function buildTrail(row) {
   const closed = mapAccessStatus(row) === 'closed';
@@ -256,9 +231,9 @@ function buildTrail(row) {
     distanceKm,
     elevationGainM: totalGain(row.elevation_gain_segments) ?? 0,
     estimatedMinutes: ascentHours !== null ? Math.round(ascentHours * 60) : 0,
-    difficulty: mapDifficulty(row.difficulty, closed),
-    risk: mapRisk(row.risk_level, closed),
-    popularity: mapPopularity(row.crowd_level),
+    difficulty: closed ? 'expert' : mapEnum(row.difficulty, DIFFICULTY, 'moderate'),
+    risk: closed ? 'high' : mapEnum(row.risk_level, RISK, 'medium'),
+    popularity: mapEnum(row.crowd_level, CROWD_POPULARITY, 0),
     lat: num(row.basecamp_gps_lat),
     lng: num(row.basecamp_gps_lng),
     tags: JSON.stringify(tags),
@@ -315,11 +290,14 @@ function buildProfile(row) {
     common_accident_types: clean(row.common_accident_types),
     offline_map_available: clean(row.offline_map_available),
     data_reliability: clean(row.data_reliability),
+    data_reliability_tier: mapEnum(row.data_reliability, RELIABILITY, null),
     source_last_updated: clean(row.last_updated),
   };
 }
 
-function importMountains({ dryRun = false, csvPath = CSV_PATH } = {}) {
+PROFILE_COLUMNS = Object.keys(buildProfile({ id: '', access_status: 'open' }));
+
+function importMountains({ db, dryRun = false, csvPath = CSV_PATH } = {}) {
   const rows = parseRecords(fs.readFileSync(csvPath, 'utf-8'));
 
   const prepared = rows.map((row) => ({
@@ -328,8 +306,11 @@ function importMountains({ dryRun = false, csvPath = CSV_PATH } = {}) {
     checkpoints: segmentsToCheckpoints(parseSegments(row.pos_breakdown)),
   }));
 
+  const warnings = rows.map(checkAccessStatus).filter(Boolean);
+
   const stats = {
     rows: prepared.length,
+    warnings,
     checkpoints: prepared.reduce((n, p) => n + p.checkpoints.length, 0),
     withoutCheckpoints: prepared.filter((p) => p.checkpoints.length === 0).map((p) => p.trail.slug),
     withoutCoords: prepared.filter((p) => p.trail.lat === null).length,
@@ -345,8 +326,6 @@ function importMountains({ dryRun = false, csvPath = CSV_PATH } = {}) {
   }
 
   if (dryRun) return { ...stats, written: false };
-
-  const db = getDb();
 
   const insertTrail = db.prepare(`
     INSERT INTO trails (slug, name, region, summary, distance_km, elevation_gain_m,
@@ -395,11 +374,21 @@ function importMountains({ dryRun = false, csvPath = CSV_PATH } = {}) {
   return { ...stats, written: true };
 }
 
+// Assigned before the CLI block below: requiring ./db there triggers its boot
+// seed, which requires this module back.
+module.exports = {
+  importMountains,
+  // exported for tests
+  clean, num, rangeMid, totalGain, parseSegments, segmentsToCheckpoints,
+  mapAccessStatus, checkAccessStatus, mapEnum,
+};
+
 // --- CLI -------------------------------------------------------------------
 
 if (require.main === module) {
   const dryRun = process.argv.includes('--dry-run');
-  const res = importMountains({ dryRun });
+  const db = dryRun ? null : require('./db').db;
+  const res = importMountains({ db, dryRun });
 
   /* eslint-disable no-console */
   console.log(`\n${dryRun ? 'DRY RUN — nothing written' : 'Imported'}`);
@@ -414,12 +403,10 @@ if (require.main === module) {
   if (res.withoutCheckpoints.length) {
     console.log(`    ${res.withoutCheckpoints.join(', ')}`);
   }
+  if (res.warnings.length) {
+    console.log('Access-status cross-check:');
+    res.warnings.forEach((w) => console.log(`  ! ${w}`));
+  }
   console.log('');
   /* eslint-enable no-console */
 }
-
-module.exports = {
-  importMountains,
-  // exported for tests
-  clean, num, rangeMid, totalGain, parseSegments, segmentsToCheckpoints, mapAccessStatus,
-};

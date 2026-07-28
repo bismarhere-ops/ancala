@@ -34,12 +34,12 @@ test('GET /api/trails returns the imported mountains', async () => {
   assert.strictEqual(body.data.length, 50);
 });
 
-test('GET /api/trails contains no fictional demo trails', async () => {
+// Every served trail must originate from the mountains dataset; anything
+// without a profile is demo data that should have been pruned.
+test('GET /api/trails serves only trails backed by the dataset', async () => {
   const { body } = await request('/api/trails?limit=100');
-  const demo = ['pine-ridge-summit', 'hawk-valley-loop', 'silverwood-traverse',
-    'mossy-creek-falls', 'cedar-ridge-overnight', 'larchfield-meadow'];
-  const found = body.data.filter((t) => demo.includes(t.slug));
-  assert.deepStrictEqual(found, [], 'fictional seed trails must not be served');
+  const unbacked = body.data.filter((t) => t.accessStatus === null);
+  assert.deepStrictEqual(unbacked.map((t) => t.slug), []);
 });
 
 test('GET /api/trails every trail carries an access status', async () => {
@@ -60,12 +60,23 @@ test('GET /api/trails?access=conditional finds the alert-gated volcanoes', async
   assert.deepStrictEqual(slugs, ['agung', 'guntur', 'kelud', 'merapi', 'slamet']);
 });
 
-test('GET /api/trails?reliability=High matches prefixed qualifiers', async () => {
-  const { body } = await request('/api/trails?reliability=High&limit=100');
+test('GET /api/trails?reliability=high uses the normalised tier', async () => {
+  const { body } = await request('/api/trails?reliability=high&limit=100');
   assert.ok(body.data.length > 0);
-  assert.ok(body.data.every((t) => t.dataReliability.startsWith('High')));
-  // Sinabung is stored as "High (well-monitored by PVMBG)".
+  assert.ok(body.data.every((t) => t.dataReliabilityTier === 'high'));
+  // Sinabung's prose is "High (well-monitored by PVMBG)" — the tier normalises it.
   assert.ok(body.data.some((t) => t.slug === 'sinabung'));
+});
+
+test('list rows carry derived access policy so clients need no rules', async () => {
+  const { body } = await request('/api/trails?limit=100');
+  const sinabung = body.data.find((t) => t.slug === 'sinabung');
+  assert.strictEqual(sinabung.plannable, false);
+  const kelud = body.data.find((t) => t.slug === 'kelud');
+  assert.strictEqual(kelud.plannable, true);
+  assert.strictEqual(kelud.requiresAlertCheck, true);
+  const ijen = body.data.find((t) => t.slug === 'ijen');
+  assert.strictEqual(ijen.requiresAlertCheck, false);
 });
 
 test('GET /api/trails supports offset pagination without overlap', async () => {

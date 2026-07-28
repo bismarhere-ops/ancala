@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { usePlan } from "@/components/plan-provider";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -41,6 +42,21 @@ function loadState(): Record<string, boolean> {
 }
 
 export function Checklists() {
+  const { trail } = usePlan();
+
+  // The dataset carries a per-mountain water figure; using the generic 2L here
+  // would contradict the trail page for the same hike.
+  const litres = trail?.profile?.safety.waterRequirementLiters;
+  const gear = React.useMemo(
+    () =>
+      GEAR.map((g) =>
+        g.id === "water" && litres
+          ? { ...g, label: `Water — ${litres} L for ${trail?.name ?? "this route"}` }
+          : g
+      ),
+    [litres, trail?.name]
+  );
+
   const [state, setState] = React.useState<Record<string, boolean>>({});
 
   React.useEffect(() => setState(loadState()), []);
@@ -72,7 +88,7 @@ export function Checklists() {
             <CheckGroup items={TRIP} state={state} onToggle={toggle} />
           </TabsContent>
           <TabsContent value="gear">
-            <CheckGroup items={GEAR} state={state} onToggle={toggle} />
+            <CheckGroup items={gear} state={state} onToggle={toggle} />
           </TabsContent>
         </Tabs>
         <div className="mt-5">

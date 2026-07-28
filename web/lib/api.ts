@@ -48,6 +48,34 @@ export async function listTrails(params: Record<string, string | number | undefi
   return req<TrailListResponse>(`/api/trails${suffix}`, { revalidate: 60 });
 }
 
+/** Page size for the public trail list. */
+export const TRAIL_PAGE_SIZE = 24;
+
+/** Empty list response, for callers that degrade gracefully when the API is down. */
+export const EMPTY_TRAIL_LIST: TrailListResponse = {
+  data: [],
+  pagination: { total: 0, limit: 0, offset: 0 },
+};
+
+/**
+ * Every trail, paging until the total is exhausted. Callers that need a
+ * complete set (the planner, the report picker) must use this rather than
+ * guessing a limit — a hardcoded cap silently omits trails as the dataset grows.
+ */
+export async function listAllTrails(
+  params: Record<string, string | number | undefined> = {}
+): Promise<Trail[]> {
+  const PER_PAGE = 100; // the API's maximum
+  const all: Trail[] = [];
+
+  for (let offset = 0; ; offset += PER_PAGE) {
+    const page = await listTrails({ ...params, limit: PER_PAGE, offset });
+    all.push(...page.data);
+    if (all.length >= page.pagination.total || page.data.length === 0) break;
+  }
+  return all;
+}
+
 export async function getTrail(slug: string) {
   const json = await req<{ data: Trail }>(`/api/trails/${encodeURIComponent(slug)}`, {
     revalidate: 60,

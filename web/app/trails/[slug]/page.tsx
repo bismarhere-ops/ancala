@@ -97,7 +97,7 @@ export default async function TrailDetailPage({
               </Button>
               {/* Planning is withheld for closed mountains — Sinabung sits in an
                   enforced exclusion zone, so offering a planner would be wrong. */}
-              {trail.accessStatus === "closed" ? (
+              {!trail.plannable ? (
                 <span className="inline-flex items-center gap-2 rounded-md border border-red-300/40 bg-red-500/15 px-3 py-2 text-sm text-red-100">
                   <OctagonAlert className="size-4" /> Closed — planning disabled
                 </span>

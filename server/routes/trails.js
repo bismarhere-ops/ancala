@@ -5,21 +5,14 @@ const { z } = require('zod');
 const { db } = require('../db');
 const { HttpError } = require('../middleware/error');
 
+const { splitList } = require('../lib/csv');
+const { coords } = require('../lib/geo');
+
 const router = express.Router();
 
 // --- Helpers --------------------------------------------------------------
 function parseJson(col) {
   try { return col ? JSON.parse(col) : []; } catch { return []; }
-}
-
-/** Semicolon-delimited source fields become arrays for the client. */
-function splitList(value) {
-  if (!value) return [];
-  return String(value).split(';').map((s) => s.trim()).filter(Boolean);
-}
-
-function coords(lat, lng) {
-  return lat != null && lng != null ? { lat, lng } : null;
 }
 
 /**
@@ -32,6 +25,7 @@ function mapProfile(p) {
   return {
     accessStatus: p.access_status,
     dataReliability: p.data_reliability,
+    dataReliabilityTier: p.data_reliability_tier,
     sourceLastUpdated: p.source_last_updated,
     elevationM: p.elevation_m,
     nearestCity: p.nearest_city,
@@ -112,11 +106,14 @@ function mapTrail(row, checkpoints = [], profile = null) {
     tags: parseJson(row.tags),
     hazards: parseJson(row.hazards),
     // Denormalised onto the trail so list views can badge without the full
-    // profile payload. The list query supplies these via JOIN; the detail
-    // query does not, so fall back to the profile row. Null only when the
-    // trail has no imported profile at all.
-    accessStatus: row.access_status ?? profile?.access_status ?? null,
-    dataReliability: row.data_reliability ?? profile?.data_reliability ?? null,
+    // profile payload. Both queries LEFT JOIN the profile, so there is one
+    // input contract; null only when a trail has no profile at all.
+    accessStatus: row.access_status ?? null,
+    dataReliability: row.data_reliability ?? null,
+    dataReliabilityTier: row.data_reliability_tier ?? null,
+    // Derived policy, so the clients never re-implement the rule.
+    plannable: row.access_status !== 'closed',
+    requiresAlertCheck: row.access_status === 'conditional',
     checkpoints: checkpoints.map((c) => ({
       position: c.position,
       name: c.name,
@@ -137,11 +134,37 @@ const listQuery = z.object({
   difficulty: z.enum(['easy', 'moderate', 'hard', 'expert']).optional(),
   region: z.string().trim().max(80).optional(),
   access: z.enum(['open', 'conditional', 'closed']).optional(),
-  reliability: z.enum(['High', 'Medium', 'Low']).optional(),
+  reliability: z.enum(['high', 'medium', 'low']).optional(),
   sort: z.enum(['popular', 'distance', 'elevation', 'time', 'name']).optional(),
   limit: z.coerce.number().int().min(1).max(100).optional(),
   offset: z.coerce.number().int().min(0).optional(),
 });
+
+// --- Prepared statements ---------------------------------------------------
+// better-sqlite3 does not cache compiled statements, so anything on a request
+// path is prepared once here. The list query's SQL varies with the filter and
+// sort combination, of which there is a small finite set, so it is memoised by
+// its own text.
+const SELECT_TRAIL_BY_SLUG = db.prepare(`
+  SELECT t.*, p.access_status, p.data_reliability, p.data_reliability_tier
+  FROM trails t
+  LEFT JOIN mountain_profiles p ON p.trail_id = t.id
+  WHERE t.slug = ?
+`);
+const SELECT_CHECKPOINTS = db.prepare(
+  'SELECT * FROM checkpoints WHERE trail_id = ? ORDER BY position ASC'
+);
+const SELECT_PROFILE = db.prepare('SELECT * FROM mountain_profiles WHERE trail_id = ?');
+
+const statementCache = new Map();
+function cachedPrepare(sql) {
+  let stmt = statementCache.get(sql);
+  if (!stmt) {
+    stmt = db.prepare(sql);
+    statementCache.set(sql, stmt);
+  }
+  return stmt;
+}
 
 // --- Routes ---------------------------------------------------------------
 
@@ -168,10 +191,8 @@ router.get('/', (req, res) => {
     params.access = q.access;
   }
   if (q.reliability) {
-    // Reliability is stored with occasional qualifiers ("High (well-monitored
-    // by PVMBG)"), so match on prefix rather than equality.
-    where.push('p.data_reliability LIKE @reliability');
-    params.reliability = `${q.reliability}%`;
+    where.push('p.data_reliability_tier = @reliability');
+    params.reliability = q.reliability;
   }
 
   const sortMap = {
@@ -193,14 +214,14 @@ router.get('/', (req, res) => {
     ${where.length ? 'WHERE ' + where.join(' AND ') : ''}
   `;
 
-  const rows = db.prepare(`
-    SELECT t.*, p.access_status, p.data_reliability
+  const rows = cachedPrepare(`
+    SELECT t.*, p.access_status, p.data_reliability, p.data_reliability_tier
     ${from}
     ORDER BY ${orderBy}
     LIMIT @limit OFFSET @offset
   `).all({ ...params, limit, offset });
 
-  const total = db.prepare(`SELECT COUNT(*) AS n ${from}`).get(params).n;
+  const total = cachedPrepare(`SELECT COUNT(*) AS n ${from}`).get(params).n;
 
   res.json({
     data: rows.map((r) => mapTrail(r)),
@@ -210,17 +231,14 @@ router.get('/', (req, res) => {
 
 /** Loads a trail with its checkpoints and mountain profile, or 404s. */
 function loadTrail(slug) {
-  const row = db.prepare('SELECT * FROM trails WHERE slug = ?').get(slug);
+  const row = SELECT_TRAIL_BY_SLUG.get(slug);
   if (!row) throw new HttpError(404, `Trail not found: ${slug}`);
 
-  const checkpoints = db
-    .prepare('SELECT * FROM checkpoints WHERE trail_id = ? ORDER BY position ASC')
-    .all(row.id);
-  const profile = db
-    .prepare('SELECT * FROM mountain_profiles WHERE trail_id = ?')
-    .get(row.id);
-
-  return { row, checkpoints, profile };
+  return {
+    row,
+    checkpoints: SELECT_CHECKPOINTS.all(row.id),
+    profile: SELECT_PROFILE.get(row.id),
+  };
 }
 
 // GET /api/trails/:slug  — detail (with checkpoints + full profile)

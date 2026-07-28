@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { ReportForm } from "@/components/report-form";
 import { VolunteerForm } from "@/components/volunteer-form";
-import { listReports, listTrails } from "@/lib/api";
+import { listAllTrails, listReports } from "@/lib/api";
 import { cn, riskColor } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -17,12 +17,9 @@ export const metadata: Metadata = {
 export const revalidate = 30;
 
 export default async function CommunityPage() {
-  const [trailsRes, reportsRes] = await Promise.all([
-    // Every trail must be reportable, so fetch beyond the first page.
-    listTrails({ sort: "name", limit: 100 }).catch(() => ({
-      data: [],
-      pagination: { total: 0, limit: 100, offset: 0 },
-    })),
+  const [trails, reportsRes] = await Promise.all([
+    // Every trail must be reportable, so page through the whole set.
+    listAllTrails({ sort: "name" }).catch(() => []),
     listReports({ limit: 6 }).catch(() => ({ data: [] })),
   ]);
 
@@ -71,7 +68,7 @@ export default async function CommunityPage() {
           </div>
           <Card>
             <CardContent className="p-6">
-              <ReportForm trails={trailsRes.data} />
+              <ReportForm trails={trails} />
             </CardContent>
           </Card>
         </div>

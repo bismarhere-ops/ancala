@@ -24,6 +24,8 @@ const {
   parseSegments,
   segmentsToCheckpoints,
   mapAccessStatus,
+  checkAccessStatus,
+  mapEnum,
 } = require('./import-mountains');
 
 // --- CSV parser -----------------------------------------------------------
@@ -164,43 +166,64 @@ test('segmentsToCheckpoints: no segments yields no checkpoints', () => {
 
 // --- Access status --------------------------------------------------------
 
-test('mapAccessStatus: an exclusion zone is closed', () => {
-  const row = { basecamp_name: 'CLOSED — no official access', permit_required: 'N/A — access prohibited' };
-  assert.strictEqual(mapAccessStatus(row), 'closed');
+test('mapAccessStatus: reads the declared column', () => {
+  assert.strictEqual(mapAccessStatus({ id: 'x', access_status: 'closed' }), 'closed');
+  assert.strictEqual(mapAccessStatus({ id: 'x', access_status: 'conditional' }), 'conditional');
+  assert.strictEqual(mapAccessStatus({ id: 'x', access_status: 'open' }), 'open');
 });
 
-test('mapAccessStatus: an explicit Conditional prefix is detected', () => {
-  const row = { permit_required: 'Conditional — closed during elevated volcanic alert levels' };
-  assert.strictEqual(mapAccessStatus(row), 'conditional');
+test('mapAccessStatus: rejects an unrecognised value rather than guessing', () => {
+  assert.throws(() => mapAccessStatus({ id: 'x', access_status: 'maybe' }), /access_status/);
+  assert.throws(() => mapAccessStatus({ id: 'x', access_status: '' }), /access_status/);
 });
 
-// Regression: Merapi and Agung phrase their closures differently and were
-// previously treated as freely open.
-test('mapAccessStatus: detects alert-level wording outside permit_required', () => {
+// Regression: Merapi and Agung phrase their restrictions differently. The
+// cross-check exists so a copy edit cannot silently downgrade a volcano.
+test('checkAccessStatus: flags prose that contradicts a declared "open"', () => {
   const merapi = {
+    id: 'merapi',
+    access_status: 'open',
     permit_required: 'Yes (TNGM); closures during elevated alert',
     registration_method: 'Basecamp registration; mandatory BPPTKG activity level check',
   };
-  assert.strictEqual(mapAccessStatus(merapi), 'conditional');
+  assert.match(checkAccessStatus(merapi), /implies restricted access/);
 
   const agung = {
-    permit_required: 'Yes (guide mandatory)',
+    id: 'agung',
+    access_status: 'open',
     best_time_months: 'April-October (check PVMBG status)',
   };
-  assert.strictEqual(mapAccessStatus(agung), 'conditional');
+  assert.match(checkAccessStatus(agung), /implies restricted access/);
 });
 
-test('mapAccessStatus: an ordinary trail stays open', () => {
-  const row = { permit_required: 'Yes (Perhutani)', registration_method: 'Basecamp registration' };
-  assert.strictEqual(mapAccessStatus(row), 'open');
+test('checkAccessStatus: silent for an ordinary open trail', () => {
+  const row = {
+    id: 'panderman',
+    access_status: 'open',
+    permit_required: 'Yes (Perhutani)',
+    registration_method: 'Basecamp registration',
+  };
+  assert.strictEqual(checkAccessStatus(row), null);
+});
+
+test('dataset: no row contradicts its declared access status', () => {
+  const warnings = ROWS.map(checkAccessStatus).filter(Boolean);
+  assert.deepStrictEqual(warnings, []);
+});
+
+test('mapEnum: matches the first recognised term and falls back', () => {
+  const table = { beginner: 'easy', intermediate: 'moderate' };
+  assert.strictEqual(mapEnum('Beginner (rim only) / Intermediate', table, 'x'), 'easy');
+  assert.strictEqual(mapEnum('Unknown', table, 'x'), 'x');
 });
 
 // --- Dataset integrity ----------------------------------------------------
 
 const CSV = path.join(__dirname, 'data', 'mountains.csv');
+const ROWS = parseRecords(fs.readFileSync(CSV, 'utf-8'));
 
 test('dataset: has 50 rows and a stable unique key', () => {
-  const rows = parseRecords(fs.readFileSync(CSV, 'utf-8'));
+  const rows = ROWS;
   assert.strictEqual(rows.length, 50);
   const ids = new Set(rows.map((r) => r.id));
   assert.strictEqual(ids.size, 50, 'ids must be unique');
@@ -208,8 +231,7 @@ test('dataset: has 50 rows and a stable unique key', () => {
 });
 
 test('dataset: every pos_breakdown segment parses', () => {
-  const rows = parseRecords(fs.readFileSync(CSV, 'utf-8'));
-  for (const row of rows) {
+  for (const row of ROWS) {
     const raw = row.pos_breakdown || '';
     if (clean(raw) === null) continue;
     const chunks = raw.split(';').filter((c) => c.includes('>'));
@@ -223,8 +245,7 @@ test('dataset: every pos_breakdown segment parses', () => {
 });
 
 test('dataset: difficulty and risk use the documented vocabulary', () => {
-  const rows = parseRecords(fs.readFileSync(CSV, 'utf-8'));
-  for (const row of rows) {
+  for (const row of ROWS) {
     const d = row.difficulty || '';
     assert.ok(
       /Beginner|Intermediate|Advanced|N\/A/i.test(d),

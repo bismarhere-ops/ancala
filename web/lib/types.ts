@@ -22,9 +22,12 @@ export interface Coordinates {
  * null means the source recorded "Unknown", which the UI should state
  * explicitly rather than hiding.
  */
+export type ReliabilityTier = "high" | "medium" | "low";
+
 export interface MountainProfile {
   accessStatus: AccessStatus;
   dataReliability: string | null;
+  dataReliabilityTier: ReliabilityTier | null;
   sourceLastUpdated: string | null;
   elevationM: number | null;
   nearestCity: string | null;
@@ -102,9 +105,13 @@ export interface Trail {
   coordinates: Coordinates | null;
   tags: string[];
   hazards: string[];
-  /** Null for legacy seed trails with no imported profile. */
+  /** Null for trails with no imported profile. */
   accessStatus: AccessStatus | null;
   dataReliability: string | null;
+  dataReliabilityTier: ReliabilityTier | null;
+  /** Derived server-side so clients never re-implement access policy. */
+  plannable: boolean;
+  requiresAlertCheck: boolean;
   checkpoints: Checkpoint[];
   profile: MountainProfile | null;
   createdAt: string;
@@ -161,7 +168,6 @@ export interface ImpactResponse {
   data: {
     updatedAt: string;
     metrics: ImpactMetric[];
-    live: { reports: number; volunteers: number; trails: number };
   };
 }
 

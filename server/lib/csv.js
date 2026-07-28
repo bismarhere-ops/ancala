@@ -84,4 +84,13 @@ function parseRecords(text) {
   });
 }
 
-module.exports = { parse, parseRecords };
+/**
+ * Semicolon-delimited list cells ("a; b; c") are the source format for several
+ * columns. Shared so the import and read paths cannot drift on trimming.
+ */
+function splitList(value) {
+  if (!value) return [];
+  return String(value).split(';').map((s) => s.trim()).filter(Boolean);
+}
+
+module.exports = { parse, parseRecords, splitList };

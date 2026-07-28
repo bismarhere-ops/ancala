@@ -10,6 +10,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import type { MountainProfile } from "@/lib/types";
+import { isLowReliability } from "@/lib/access";
 
 /**
  * A single label/value row. A null value means the source data recorded
@@ -149,7 +150,7 @@ export function TrailProfile({ profile }: { profile: MountainProfile }) {
           {profile.dataReliability ?? "Unknown"}
         </Badge>{" "}
         {profile.sourceLastUpdated && <>· Source last updated {profile.sourceLastUpdated}</>}
-        {profile.dataReliability?.startsWith("Low") && (
+        {isLowReliability(profile.dataReliabilityTier) && (
           <> · Verify these figures locally before relying on them.</>
         )}
       </p>

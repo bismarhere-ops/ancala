@@ -1,19 +1,6 @@
 import { OctagonAlert, TriangleAlert } from "lucide-react";
 import type { AccessStatus } from "@/lib/types";
-
-const COPY: Record<
-  Exclude<AccessStatus, "open">,
-  { title: string; body: string }
-> = {
-  closed: {
-    title: "Closed to hikers",
-    body: "This mountain is inside an enforced exclusion zone. Do not attempt to climb it. It is listed here for conservation and awareness only.",
-  },
-  conditional: {
-    title: "Access depends on the volcanic alert level",
-    body: "This route closes without notice when activity rises. Check the current PVMBG/BPPTKG status before you travel, and again before you set off.",
-  },
-};
+import { ACCESS_COPY } from "@/lib/access";
 
 /**
  * Surfaced above the fold on trail pages. `open` renders nothing so the
@@ -22,7 +9,7 @@ const COPY: Record<
 export function AccessBanner({ status }: { status: AccessStatus | null }) {
   if (!status || status === "open") return null;
 
-  const { title, body } = COPY[status];
+  const { title, body } = ACCESS_COPY[status];
   const closed = status === "closed";
   const Icon = closed ? OctagonAlert : TriangleAlert;
 
@@ -43,5 +30,22 @@ export function AccessBanner({ status }: { status: AccessStatus | null }) {
         </div>
       </div>
     </div>
+  );
+}
+
+/** Compact form for cards and list rows. */
+export function AccessBadge({ status }: { status: AccessStatus | null }) {
+  if (!status || status === "open") return null;
+  const closed = status === "closed";
+  return (
+    <span
+      className={
+        closed
+          ? "rounded-full bg-red-600 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-white"
+          : "rounded-full bg-amber-500 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-amber-950"
+      }
+    >
+      {ACCESS_COPY[status].badge}
+    </span>
   );
 }

@@ -3,6 +3,8 @@ import { ArrowUpRight, Clock, Mountain, Route } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import type { Trail } from "@/lib/types";
+import { AccessBadge } from "@/components/access-banner";
+import { isLowReliability } from "@/lib/access";
 import { cn, difficultyColor, formatMinutes, riskColor } from "@/lib/utils";
 
 export function TrailCard({ trail, compact = false }: { trail: Trail; compact?: boolean }) {
@@ -24,16 +26,9 @@ export function TrailCard({ trail, compact = false }: { trail: Trail; compact?: 
             </div>
           </div>
           <ArrowUpRight className="absolute right-4 top-4 size-5 opacity-70 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          {trail.accessStatus === "closed" && (
-            <span className="absolute left-4 top-4 rounded-full bg-red-600 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wider">
-              Closed
-            </span>
-          )}
-          {trail.accessStatus === "conditional" && (
-            <span className="absolute left-4 top-4 rounded-full bg-amber-500 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-amber-950">
-              Check alert level
-            </span>
-          )}
+          <span className="absolute left-4 top-4">
+            <AccessBadge status={trail.accessStatus} />
+          </span>
         </div>
         <CardHeader>
           <div className="flex flex-wrap items-center gap-2">
@@ -44,7 +39,7 @@ export function TrailCard({ trail, compact = false }: { trail: Trail; compact?: 
               <span className={cn("size-1.5 rounded-full", riskColor(trail.risk))} />
               {trail.risk} risk
             </span>
-            {trail.dataReliability?.startsWith("Low") && (
+            {isLowReliability(trail.dataReliabilityTier) && (
               <span className="text-xs italic text-muted-foreground/70">unverified data</span>
             )}
           </div>

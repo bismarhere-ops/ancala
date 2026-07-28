@@ -79,14 +79,6 @@ CREATE TABLE IF NOT EXISTS volunteers (
 );
 CREATE UNIQUE INDEX IF NOT EXISTS idx_volunteers_email ON volunteers(email);
 
-CREATE TABLE IF NOT EXISTS impact_metrics (
-  key         TEXT PRIMARY KEY,
-  value       INTEGER NOT NULL,
-  label       TEXT NOT NULL,
-  unit        TEXT,
-  updated_at  TEXT NOT NULL DEFAULT (datetime('now'))
-);
-
 -- Extended profile for trails sourced from the mountains dataset. Holds the
 -- fields that don't fit the generic trails shape: logistics, conservation,
 -- and safety data. NULL means "Unknown" in the source data — never guessed.
@@ -139,118 +131,64 @@ CREATE TABLE IF NOT EXISTS mountain_profiles (
   common_accident_types           TEXT,
   offline_map_available           TEXT,
   data_reliability                TEXT,
+  data_reliability_tier           TEXT CHECK (data_reliability_tier IN ('high','medium','low')),
   source_last_updated             TEXT,
   imported_at                     TEXT NOT NULL DEFAULT (datetime('now'))
 );
-CREATE INDEX IF NOT EXISTS idx_profiles_csr         ON mountain_profiles(csr_potential);
-CREATE INDEX IF NOT EXISTS idx_profiles_reliability ON mountain_profiles(data_reliability);
 CREATE INDEX IF NOT EXISTS idx_profiles_status      ON mountain_profiles(access_status);
+CREATE INDEX IF NOT EXISTS idx_profiles_reliability ON mountain_profiles(data_reliability_tier);
 `;
 
 db.exec(SCHEMA);
 
 // --- Migrations -----------------------------------------------------------
-// Lightweight additive migrations for databases created before a column
-// existed. SQLite cannot drop/alter columns easily, so we only ever add.
-function addColumnIfMissing(table, column, definition) {
-  const cols = db.prepare(`PRAGMA table_info(${table})`).all();
-  if (cols.some((c) => c.name === column)) return;
-  db.exec(`ALTER TABLE ${table} ADD COLUMN ${column} ${definition}`);
+// SQLite cannot easily drop or alter columns, so migrations are additive and
+// keyed off user_version. Bump SCHEMA_VERSION and add a numbered step.
+const SCHEMA_VERSION = 1;
+
+const MIGRATIONS = [
+  // 1 — the fictional demo trails predate the real mountains dataset. They were
+  //     served alongside real ones with difficulty and risk ratings, so they are
+  //     removed once rather than on every boot.
+  () => {
+    db.exec(`
+      DROP TABLE IF EXISTS impact_metrics;
+      DELETE FROM trails WHERE slug IN (
+        'pine-ridge-summit', 'hawk-valley-loop', 'silverwood-traverse',
+        'mossy-creek-falls', 'cedar-ridge-overnight', 'larchfield-meadow'
+      );
+    `);
+  },
+];
+
+function migrate() {
+  const current = db.pragma('user_version', { simple: true });
+  if (current >= SCHEMA_VERSION) return 0;
+
+  const applied = db.transaction(() => {
+    for (let v = current; v < SCHEMA_VERSION; v += 1) MIGRATIONS[v]();
+    db.pragma(`user_version = ${SCHEMA_VERSION}`);
+    return SCHEMA_VERSION - current;
+  });
+  return applied();
 }
 
-addColumnIfMissing('impact_metrics', 'target', 'INTEGER');
-addColumnIfMissing('impact_metrics', 'kind', "TEXT NOT NULL DEFAULT 'reported'");
+migrate();
 
 // --- Seeding --------------------------------------------------------------
-
-/**
- * Slugs from the original fictional demo dataset. They were seeded before the
- * real Indonesian mountain data existed and are removed on boot so invented
- * trails ("Pine Ridge Summit") can never appear alongside real ones.
- */
-const LEGACY_DEMO_SLUGS = [
-  'pine-ridge-summit',
-  'hawk-valley-loop',
-  'silverwood-traverse',
-  'mossy-creek-falls',
-  'cedar-ridge-overnight',
-  'larchfield-meadow',
-];
-
-function pruneLegacyDemoTrails() {
-  const del = db.prepare('DELETE FROM trails WHERE slug = ?');
-  const tx = db.transaction((slugs) => slugs.reduce((n, s) => n + del.run(s).changes, 0));
-  return tx(LEGACY_DEMO_SLUGS);
-}
-
-/**
- * Impact metrics.
- *
- * `measured` metrics are recomputed from the database on every seed — they are
- * facts about this system. `reported` metrics have no data source yet, so they
- * carry value 0 and a target; the UI must present them as goals not
- * achievements. Publishing invented numbers on a CSR platform is the fastest
- * way to lose a sponsor's trust.
- */
-function measuredMetrics() {
-  const mountains = db.prepare('SELECT COUNT(*) AS n FROM mountain_profiles').get().n;
-  const volunteers = db
-    .prepare("SELECT COUNT(*) AS n FROM volunteers WHERE status IN ('active','confirmed','pending')")
-    .get().n;
-  const reports = db.prepare('SELECT COUNT(*) AS n FROM reports').get().n;
-
-  return [
-    { key: 'mountains_mapped', value: mountains, target: 100, label: 'Mountains mapped', unit: 'mountains', kind: 'measured' },
-    { key: 'active_guardians', value: volunteers, target: 2000, label: 'Registered guardians', unit: 'people', kind: 'measured' },
-    { key: 'field_reports', value: reports, target: 500, label: 'Field reports filed', unit: 'reports', kind: 'measured' },
-  ];
-}
-
-const REPORTED_METRICS = [
-  { key: 'trees_planted', value: 0, target: 60000, label: 'Trees planted', unit: 'trees', kind: 'reported' },
-  { key: 'waste_collected', value: 0, target: 18000, label: 'Waste collected', unit: 'kg', kind: 'reported' },
-  { key: 'bootcamp_graduates', value: 0, target: 650, label: 'Bootcamp graduates', unit: 'people', kind: 'reported' },
-  { key: 'partner_ngos', value: 0, target: 60, label: 'Partner NGOs', unit: 'orgs', kind: 'reported' },
-];
-
-function syncMetrics() {
-  const upsert = db.prepare(`
-    INSERT INTO impact_metrics (key, value, target, label, unit, kind)
-    VALUES (@key, @value, @target, @label, @unit, @kind)
-    ON CONFLICT(key) DO UPDATE SET
-      value=excluded.value, target=excluded.target, label=excluded.label,
-      unit=excluded.unit, kind=excluded.kind, updated_at=datetime('now')
-  `);
-  // Keys that existed only in the old fabricated seed.
-  const dropStale = db.prepare('DELETE FROM impact_metrics WHERE key = ?');
-
-  const items = [...measuredMetrics(), ...REPORTED_METRICS];
-  const tx = db.transaction(() => {
-    ['trails_protected'].forEach((k) => dropStale.run(k));
-    items.forEach((m) => upsert.run(m));
-  });
-  tx();
-  return items.length;
-}
 
 /**
  * Seeds trail data from the real mountains dataset. `import-mountains` is
  * required lazily to avoid a circular dependency at module load.
  */
 function seed({ force = false } = {}) {
-  pruneLegacyDemoTrails();
-
   const trailCount = db.prepare('SELECT COUNT(*) AS n FROM trails').get().n;
-  if (trailCount > 0 && !force) {
-    syncMetrics();
-    return { seeded: false, trails: trailCount };
-  }
+  if (trailCount > 0 && !force) return { seeded: false, trails: trailCount };
 
   const { importMountains } = require('./import-mountains');
-  const res = importMountains();
-  const metrics = syncMetrics();
+  const res = importMountains({ db });
 
-  return { seeded: true, trails: res.rows, checkpoints: res.checkpoints, metrics };
+  return { seeded: true, trails: res.rows, checkpoints: res.checkpoints };
 }
 
 function reset() {
@@ -259,17 +197,13 @@ function reset() {
     DROP TABLE IF EXISTS checkpoints;
     DROP TABLE IF EXISTS reports;
     DROP TABLE IF EXISTS volunteers;
-    DROP TABLE IF EXISTS impact_metrics;
     DROP TABLE IF EXISTS trails;
   `);
   db.exec(SCHEMA);
-  addColumnIfMissing('impact_metrics', 'target', 'INTEGER');
-  addColumnIfMissing('impact_metrics', 'kind', "TEXT NOT NULL DEFAULT 'reported'");
+  db.pragma(`user_version = ${SCHEMA_VERSION}`);
 }
 
-// Exported before the boot seed runs so the lazy require inside
-// import-mountains resolves against a fully-populated module.
-module.exports = { db, seed, reset, syncMetrics, LEGACY_DEMO_SLUGS };
+module.exports = { db, seed, reset };
 
 // Always seed on boot if the DB is empty (idempotent).
 seed();

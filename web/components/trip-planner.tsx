@@ -30,9 +30,7 @@ export function TripPlanner() {
         <Badge variant="secondary">Auto-saved</Badge>
       </CardHeader>
       <CardContent className="space-y-5">
-        {trail?.accessStatus === "conditional" && (
-          <AccessBanner status="conditional" />
-        )}
+        {trail?.requiresAlertCheck && <AccessBanner status="conditional" />}
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="space-y-1.5">
             <Label htmlFor="plan-trail">Trail</Label>

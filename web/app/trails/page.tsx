@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { listTrails } from "@/lib/api";
+import { EMPTY_TRAIL_LIST, TRAIL_PAGE_SIZE, listTrails } from "@/lib/api";
 import { TrailCard } from "@/components/trail-card";
 import { TrailFilter } from "@/components/trail-filter";
 import { Button } from "@/components/ui/button";
@@ -15,30 +15,43 @@ export const revalidate = 60;
 export default async function TrailsPage({
   searchParams,
 }: {
-  searchParams: { q?: string; difficulty?: string; sort?: string; page?: string };
+  searchParams: Record<string, string | undefined>;
 }) {
-  const PAGE_SIZE = 24;
   const page = Math.max(1, Number(searchParams.page) || 1);
-  const offset = (page - 1) * PAGE_SIZE;
+  const offset = (page - 1) * TRAIL_PAGE_SIZE;
 
   const res = await listTrails({
     q: searchParams.q,
     difficulty: searchParams.difficulty,
     sort: searchParams.sort || "popular",
-    limit: PAGE_SIZE,
+    limit: TRAIL_PAGE_SIZE,
     offset,
-  }).catch(() => ({ data: [], pagination: { total: 0, limit: PAGE_SIZE, offset } }));
+  }).catch(() => EMPTY_TRAIL_LIST);
 
-  const totalPages = Math.max(1, Math.ceil(res.pagination.total / PAGE_SIZE));
+  const totalPages = Math.max(1, Math.ceil(res.pagination.total / TRAIL_PAGE_SIZE));
+
+  // Copy every incoming param so filters added later survive pagination.
   const pageHref = (n: number) => {
-    const sp = new URLSearchParams();
-    if (searchParams.q) sp.set("q", searchParams.q);
-    if (searchParams.difficulty) sp.set("difficulty", searchParams.difficulty);
-    if (searchParams.sort) sp.set("sort", searchParams.sort);
+    const sp = new URLSearchParams(
+      Object.entries(searchParams).filter(([k, v]) => v && k !== "page") as [string, string][]
+    );
     if (n > 1) sp.set("page", String(n));
     const qs = sp.toString();
     return qs ? `/trails?${qs}` : "/trails";
   };
+
+  const PageLink = ({ to, label, disabled }: { to: number; label: string; disabled: boolean }) => (
+    <Button asChild variant="outline" size="sm">
+      <Link
+        href={pageHref(to)}
+        aria-disabled={disabled}
+        tabIndex={disabled ? -1 : undefined}
+        className={disabled ? "pointer-events-none opacity-50" : undefined}
+      >
+        {label}
+      </Link>
+    </Button>
+  );
 
   return (
     <>
@@ -85,27 +98,11 @@ export default async function TrailsPage({
                 aria-label="Trail list pagination"
                 className="mt-10 flex items-center justify-center gap-2"
               >
-                <Button asChild variant="outline" size="sm" disabled={page <= 1}>
-                  <Link
-                    href={pageHref(page - 1)}
-                    aria-disabled={page <= 1}
-                    className={page <= 1 ? "pointer-events-none opacity-50" : undefined}
-                  >
-                    Previous
-                  </Link>
-                </Button>
+                <PageLink to={page - 1} label="Previous" disabled={page <= 1} />
                 <span className="px-3 text-sm text-muted-foreground">
                   Page {page} of {totalPages}
                 </span>
-                <Button asChild variant="outline" size="sm" disabled={page >= totalPages}>
-                  <Link
-                    href={pageHref(page + 1)}
-                    aria-disabled={page >= totalPages}
-                    className={page >= totalPages ? "pointer-events-none opacity-50" : undefined}
-                  >
-                    Next
-                  </Link>
-                </Button>
+                <PageLink to={page + 1} label="Next" disabled={page >= totalPages} />
               </nav>
             )}
           </>
