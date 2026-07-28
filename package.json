@@ -7,6 +7,7 @@
   "scripts": {
     "start": "node server/server.js",
     "dev": "node --watch server/server.js",
+    "test": "node --test server/**/*.test.js server/*.test.js",
     "seed": "node server/db.js --seed",
     "seed:mountains": "node server/import-mountains.js",
     "seed:mountains:dry": "node server/import-mountains.js --dry-run",

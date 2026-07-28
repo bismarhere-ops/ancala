@@ -6,29 +6,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import type { Trail } from "@/lib/types";
 import { AccessBanner } from "@/components/access-banner";
+import { usePlan } from "@/components/plan-provider";
 import { formatMinutes } from "@/lib/utils";
-
-type Plan = {
-  slug: string;
-  date: string;
-  start: string;
-  group: number;
-};
-
-const STORAGE_KEY = "fg.plan.v1";
-
-function loadPlan(fallback: Plan): Plan {
-  if (typeof window === "undefined") return fallback;
-  try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
-    if (!raw) return fallback;
-    return { ...fallback, ...(JSON.parse(raw) as Partial<Plan>) };
-  } catch {
-    return fallback;
-  }
-}
 
 function addMinutes(time: string, minutesToAdd: number) {
   const [hh, mm] = time.split(":").map(Number);
@@ -38,34 +18,10 @@ function addMinutes(time: string, minutesToAdd: number) {
   return base.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 }
 
-export function TripPlanner({ trails }: { trails: Trail[] }) {
-  const today = new Date().toISOString().slice(0, 10);
-  const [plan, setPlan] = React.useState<Plan>({
-    slug: trails[0]?.slug || "",
-    date: today,
-    start: "06:30",
-    group: 2,
-  });
-
-  // Hydrate from localStorage once on mount
-  React.useEffect(() => {
-    setPlan((p) => loadPlan(p));
-  }, []);
-
-  // Persist on change
-  React.useEffect(() => {
-    if (typeof window === "undefined") return;
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(plan));
-  }, [plan]);
-
-  // Closed mountains are excluded outright — a planner for an enforced
-  // exclusion zone should not exist. Conditional ones stay selectable but
-  // carry an alert-level warning.
-  const plannable = React.useMemo(
-    () => trails.filter((t) => t.accessStatus !== "closed"),
-    [trails]
-  );
-  const trail = plannable.find((t) => t.slug === plan.slug) || plannable[0];
+export function TripPlanner() {
+  // Plan state lives in PlanProvider so the emergency panel can react to the
+  // selected mountain.
+  const { plan, setPlan, plannable, trail } = usePlan();
 
   return (
     <Card>

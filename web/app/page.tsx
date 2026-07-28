@@ -26,9 +26,16 @@ export default async function HomePage() {
   ]);
 
   const featured = trailsRes.data;
-  const treesPlanted = impact?.data.metrics.find((m) => m.key === "trees_planted")?.value ?? 42380;
-  const guardians = impact?.data.metrics.find((m) => m.key === "active_guardians")?.value ?? 1250;
-  const trails = impact?.data.metrics.find((m) => m.key === "trails_protected")?.value ?? 87;
+
+  // Only `measured` metrics belong in the hero — these are facts about the
+  // platform, not programme aspirations. Falls back to 0, never to an
+  // invented figure.
+  const metric = (key: string) =>
+    impact?.data.metrics.find((m) => m.key === key && m.kind === "measured")?.value ?? 0;
+
+  const mountains = metric("mountains_mapped");
+  const guardians = metric("active_guardians");
+  const reports = metric("field_reports");
 
   return (
     <>
@@ -61,9 +68,9 @@ export default async function HomePage() {
             </div>
             <dl className="mt-10 grid max-w-lg grid-cols-3 gap-6">
               {[
-                { n: treesPlanted, l: "Trees planted" },
-                { n: guardians, l: "Active guardians" },
-                { n: trails, l: "Trails protected" },
+                { n: mountains, l: "Mountains mapped" },
+                { n: guardians, l: "Registered guardians" },
+                { n: reports, l: "Field reports" },
               ].map((s) => (
                 <div key={s.l}>
                   <dt className="font-display text-2xl font-semibold md:text-3xl">

@@ -3,6 +3,7 @@ import { TripPlanner } from "@/components/trip-planner";
 import { Checklists } from "@/components/checklists";
 import { EmergencyPanel } from "@/components/emergency-panel";
 import { WeatherCard } from "@/components/weather-card";
+import { PlanProvider } from "@/components/plan-provider";
 import { getWeather, listTrails } from "@/lib/api";
 
 export const metadata: Metadata = {
@@ -13,9 +14,10 @@ export const metadata: Metadata = {
 export const revalidate = 60;
 
 export default async function DashboardPage() {
-  const trailsRes = await listTrails({ sort: "popular", limit: 50 }).catch(() => ({
+  // The planner needs every trail, not the first page of them.
+  const trailsRes = await listTrails({ sort: "popular", limit: 100 }).catch(() => ({
     data: [],
-    pagination: { total: 0, limit: 50, offset: 0 },
+    pagination: { total: 0, limit: 100, offset: 0 },
   }));
   const trails = trailsRes.data;
 
@@ -40,12 +42,14 @@ export default async function DashboardPage() {
       </section>
 
       <section className="container py-10">
-        <div className="grid gap-6 lg:grid-cols-2">
-          <TripPlanner trails={trails} />
-          <Checklists />
-          <EmergencyPanel />
-          {weather && <WeatherCard weather={weather} />}
-        </div>
+        <PlanProvider trails={trails}>
+          <div className="grid gap-6 lg:grid-cols-2">
+            <TripPlanner />
+            <Checklists />
+            <EmergencyPanel />
+            {weather && <WeatherCard weather={weather} />}
+          </div>
+        </PlanProvider>
       </section>
     </>
   );

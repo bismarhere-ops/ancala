@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { listTrails } from "@/lib/api";
 import { TrailCard } from "@/components/trail-card";
 import { TrailFilter } from "@/components/trail-filter";
+import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Trails",
@@ -13,14 +15,30 @@ export const revalidate = 60;
 export default async function TrailsPage({
   searchParams,
 }: {
-  searchParams: { q?: string; difficulty?: string; sort?: string };
+  searchParams: { q?: string; difficulty?: string; sort?: string; page?: string };
 }) {
+  const PAGE_SIZE = 24;
+  const page = Math.max(1, Number(searchParams.page) || 1);
+  const offset = (page - 1) * PAGE_SIZE;
+
   const res = await listTrails({
     q: searchParams.q,
     difficulty: searchParams.difficulty,
     sort: searchParams.sort || "popular",
-    limit: 50,
-  }).catch(() => ({ data: [], pagination: { total: 0, limit: 50, offset: 0 } }));
+    limit: PAGE_SIZE,
+    offset,
+  }).catch(() => ({ data: [], pagination: { total: 0, limit: PAGE_SIZE, offset } }));
+
+  const totalPages = Math.max(1, Math.ceil(res.pagination.total / PAGE_SIZE));
+  const pageHref = (n: number) => {
+    const sp = new URLSearchParams();
+    if (searchParams.q) sp.set("q", searchParams.q);
+    if (searchParams.difficulty) sp.set("difficulty", searchParams.difficulty);
+    if (searchParams.sort) sp.set("sort", searchParams.sort);
+    if (n > 1) sp.set("page", String(n));
+    const qs = sp.toString();
+    return qs ? `/trails?${qs}` : "/trails";
+  };
 
   return (
     <>
@@ -43,7 +61,8 @@ export default async function TrailsPage({
         <TrailFilter />
 
         <div className="mt-6 text-sm text-muted-foreground">
-          Showing <strong>{res.data.length}</strong> of {res.pagination.total} trails
+          Showing <strong>{res.data.length === 0 ? 0 : offset + 1}–{offset + res.data.length}</strong>{" "}
+          of {res.pagination.total} trails
         </div>
 
         {res.data.length === 0 ? (
@@ -54,11 +73,42 @@ export default async function TrailsPage({
             </p>
           </div>
         ) : (
-          <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {res.data.map((t) => (
-              <TrailCard key={t.slug} trail={t} />
-            ))}
-          </div>
+          <>
+            <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {res.data.map((t) => (
+                <TrailCard key={t.slug} trail={t} />
+              ))}
+            </div>
+
+            {totalPages > 1 && (
+              <nav
+                aria-label="Trail list pagination"
+                className="mt-10 flex items-center justify-center gap-2"
+              >
+                <Button asChild variant="outline" size="sm" disabled={page <= 1}>
+                  <Link
+                    href={pageHref(page - 1)}
+                    aria-disabled={page <= 1}
+                    className={page <= 1 ? "pointer-events-none opacity-50" : undefined}
+                  >
+                    Previous
+                  </Link>
+                </Button>
+                <span className="px-3 text-sm text-muted-foreground">
+                  Page {page} of {totalPages}
+                </span>
+                <Button asChild variant="outline" size="sm" disabled={page >= totalPages}>
+                  <Link
+                    href={pageHref(page + 1)}
+                    aria-disabled={page >= totalPages}
+                    className={page >= totalPages ? "pointer-events-none opacity-50" : undefined}
+                  >
+                    Next
+                  </Link>
+                </Button>
+              </nav>
+            )}
+          </>
         )}
       </section>
     </>

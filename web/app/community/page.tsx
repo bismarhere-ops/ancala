@@ -18,9 +18,10 @@ export const revalidate = 30;
 
 export default async function CommunityPage() {
   const [trailsRes, reportsRes] = await Promise.all([
-    listTrails({ sort: "name", limit: 50 }).catch(() => ({
+    // Every trail must be reportable, so fetch beyond the first page.
+    listTrails({ sort: "name", limit: 100 }).catch(() => ({
       data: [],
-      pagination: { total: 0, limit: 50, offset: 0 },
+      pagination: { total: 0, limit: 100, offset: 0 },
     })),
     listReports({ limit: 6 }).catch(() => ({ data: [] })),
   ]);

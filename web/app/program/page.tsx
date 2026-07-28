@@ -42,11 +42,16 @@ const PILLARS = [
   },
 ];
 
+/**
+ * Placeholder schedule — no bootcamp dates are confirmed yet. Locations are
+ * real basecamps from the mountains dataset so the page never invents a place,
+ * but the dates are illustrative and the page says so.
+ */
 const SCHEDULE = [
-  { when: "May 10–11", where: "Pine Ridge Base", status: "open" as const },
-  { when: "Jun 14–15", where: "Hawk Valley", status: "open" as const },
-  { when: "Jul 19–20", where: "Silverwood", status: "waitlist" as const },
-  { when: "Sep 06–07", where: "Mossy Creek", status: "open" as const },
+  { when: "Dates TBC", where: "Ranu Pani (Semeru)", status: "planned" as const },
+  { when: "Dates TBC", where: "Cemoro Lawang (Bromo)", status: "planned" as const },
+  { when: "Dates TBC", where: "Paltuding (Ijen)", status: "planned" as const },
+  { when: "Dates TBC", where: "Tamiajeng (Penanggungan)", status: "planned" as const },
 ];
 
 export default async function ProgramPage() {
@@ -154,17 +159,19 @@ export default async function ProgramPage() {
           </p>
           <ul className="mt-6 divide-y rounded-xl border">
             {SCHEDULE.map((s) => (
-              <li key={s.when} className="flex items-center justify-between gap-3 p-4">
+              <li key={s.where} className="flex items-center justify-between gap-3 p-4">
                 <div>
-                  <div className="font-medium">{s.when}</div>
-                  <div className="text-xs text-muted-foreground">{s.where}</div>
+                  <div className="font-medium">{s.where}</div>
+                  <div className="text-xs text-muted-foreground">{s.when}</div>
                 </div>
-                <Badge variant={s.status === "open" ? "default" : "secondary"}>
-                  {s.status === "open" ? "Open" : "Waitlist"}
-                </Badge>
+                <Badge variant="outline">Planned</Badge>
               </li>
             ))}
           </ul>
+          <p className="mt-3 text-xs text-muted-foreground">
+            Locations are confirmed basecamps; dates are not yet scheduled. Register your interest
+            and we will contact you when a session opens.
+          </p>
           <Button asChild className="mt-6">
             <Link href="/community#volunteer">Apply to the bootcamp</Link>
           </Button>

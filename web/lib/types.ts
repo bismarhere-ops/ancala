@@ -140,16 +140,27 @@ export interface WeatherResponse {
   cached: boolean;
 }
 
+/**
+ * `measured` values are derived from the database and are facts about the
+ * platform. `reported` values have no data source yet — render them as goals,
+ * never as achievements.
+ */
+export type MetricKind = "measured" | "reported";
+
+export interface ImpactMetric {
+  key: string;
+  value: number;
+  target: number | null;
+  label: string;
+  unit: string;
+  kind: MetricKind;
+  updatedAt: string;
+}
+
 export interface ImpactResponse {
   data: {
     updatedAt: string;
-    metrics: Array<{
-      key: string;
-      value: number;
-      label: string;
-      unit: string;
-      updatedAt: string;
-    }>;
+    metrics: ImpactMetric[];
     live: { reports: number; volunteers: number; trails: number };
   };
 }
