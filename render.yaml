@@ -1,0 +1,46 @@
+# Render Blueprint — deploys the Forest Guardian platform as two live services.
+#
+# One-time setup (only you can do this — it needs your Render account):
+#   1. Sign in at https://render.com with GitHub.
+#   2. New  ->  Blueprint  ->  pick the bismarhere-ops/ancala repo.
+#   3. Apply. Render reads this file and creates both services.
+#
+# The web service's public URL is your shareable link. The API re-seeds the 50
+# mountains from mountains.csv on every boot, so the free tier's ephemeral
+# disk is fine — only user-submitted reports/volunteers reset on redeploy.
+services:
+  # --- Express + SQLite API -------------------------------------------------
+  - type: web
+    name: forest-guardian-api
+    runtime: node
+    branch: claude/forest-guardian-website-XwOXh
+    plan: free
+    buildCommand: npm install
+    startCommand: node server/server.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: "22.11.0"
+      # PORT is injected by Render; config.js already reads it.
+
+  # --- Next.js frontend -----------------------------------------------------
+  - type: web
+    name: forest-guardian-web
+    runtime: node
+    branch: claude/forest-guardian-website-XwOXh
+    plan: free
+    buildCommand: cd web && npm install && npm run build
+    startCommand: cd web && npx next start -p $PORT
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: "22.11.0"
+      # Injects the API service's hostname; the code prepends https://.
+      - key: API_BASE_URL
+        fromService:
+          type: web
+          name: forest-guardian-api
+          property: host

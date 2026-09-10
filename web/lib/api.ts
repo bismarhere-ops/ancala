@@ -6,10 +6,13 @@ import type {
   WeatherResponse,
 } from "./types";
 
-// Server-side default — can be reached from server components.
+// Server-side default — reached from server components.
 // Client-side requests hit same-origin and get rewritten by next.config.mjs.
-const SERVER_BASE =
-  process.env.API_BASE_URL || "http://localhost:3000";
+// A host without a scheme (e.g. Render's fromService `host`) defaults to https.
+const RAW_SERVER_BASE = process.env.API_BASE_URL || "http://localhost:3000";
+const SERVER_BASE = /^https?:\/\//.test(RAW_SERVER_BASE)
+  ? RAW_SERVER_BASE
+  : `https://${RAW_SERVER_BASE}`;
 
 function baseUrl() {
   // On the server, go direct to the API to skip the rewrite hop.

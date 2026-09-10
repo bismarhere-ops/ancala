@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
-const API_BASE = process.env.API_BASE_URL || 'http://localhost:3000';
+// A hosting platform may inject just the API hostname (e.g. Render's
+// fromService `host` property), so default the scheme to https when absent.
+const RAW_API_BASE = process.env.API_BASE_URL || 'http://localhost:3000';
+const API_BASE = /^https?:\/\//.test(RAW_API_BASE) ? RAW_API_BASE : `https://${RAW_API_BASE}`;
 
 const nextConfig = {
   reactStrictMode: true,
