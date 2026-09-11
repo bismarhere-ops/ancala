@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { AccessBanner } from "@/components/access-banner";
+import { AdvisoryBanner } from "@/components/advisory-banner";
 import { usePlan } from "@/components/plan-provider";
 import { formatMinutes } from "@/lib/utils";
 
@@ -30,6 +31,9 @@ export function TripPlanner() {
         <Badge variant="secondary">Auto-saved</Badge>
       </CardHeader>
       <CardContent className="space-y-5">
+        {trail?.advisories && trail.advisories.length > 0 && (
+          <AdvisoryBanner advisories={trail.advisories} />
+        )}
         {trail?.requiresAlertCheck && <AccessBanner status="conditional" />}
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="space-y-1.5">

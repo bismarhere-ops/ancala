@@ -17,6 +17,24 @@ export interface Coordinates {
   lng: number;
 }
 
+export type AdvisoryType =
+  | "fire" | "flood" | "landslide" | "volcanic"
+  | "weather" | "earthquake" | "closure" | "other";
+export type AdvisorySeverity = "info" | "warning" | "danger";
+
+/** A live, time-bound condition on a trail — fire, flood, closure, etc. */
+export interface Advisory {
+  id: string;
+  type: AdvisoryType;
+  severity: AdvisorySeverity;
+  headline: string;
+  detail: string | null;
+  source: string | null;
+  effectiveFrom: string | null;
+  effectiveUntil: string | null;
+  trail?: { slug: string };
+}
+
 /**
  * Extended data imported from the mountains dataset. Every field is nullable:
  * null means the source recorded "Unknown", which the UI should state
@@ -112,6 +130,9 @@ export interface Trail {
   /** Derived server-side so clients never re-implement access policy. */
   plannable: boolean;
   requiresAlertCheck: boolean;
+  /** Live conditions and their highest severity (null when none active). */
+  advisories: Advisory[];
+  advisoryLevel: AdvisorySeverity | null;
   checkpoints: Checkpoint[];
   profile: MountainProfile | null;
   createdAt: string;
@@ -187,4 +208,8 @@ export interface Report {
 
 export interface ReportListResponse {
   data: Report[];
+}
+
+export interface AdvisoryListResponse {
+  data: Advisory[];
 }

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "semeru-fire-2026-08",
+    "trail": "semeru",
+    "type": "fire",
+    "severity": "danger",
+    "headline": "Wildfire near Kalimati — all routes closed",
+    "detail": "TNBTS has closed every route pending containment and damage assessment. Do not attempt the climb.",
+    "status": "active",
+    "effectiveFrom": "2026-08-20",
+    "effectiveUntil": null,
+    "source": "TNBTS (Balai Besar TNBTS)"
+  },
+  {
+    "id": "lawu-flood-approach-2026-09",
+    "trail": "lawu",
+    "type": "flood",
+    "severity": "warning",
+    "headline": "Flooding on the Cemoro Sewu approach road",
+    "detail": "Heavy rain has flooded the access road below the basecamp. The trail is open but reaching it may be difficult; check locally before travelling.",
+    "status": "active",
+    "effectiveFrom": "2026-09-05",
+    "effectiveUntil": "2026-09-20",
+    "source": "Local ranger report"
+  },
+  {
+    "id": "merbabu-fire-2025-example",
+    "trail": "merbabu",
+    "type": "fire",
+    "severity": "info",
+    "headline": "Savanna fire — fully contained, trail reopened",
+    "detail": "An example of a resolved advisory. Kept here to show the format; not shown to hikers because its status is resolved.",
+    "status": "resolved",
+    "effectiveFrom": "2025-09-01",
+    "effectiveUntil": "2025-09-10",
+    "source": "Example"
+  }
+]

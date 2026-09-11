@@ -18,6 +18,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { WeatherCard } from "@/components/weather-card";
 import { AccessBanner } from "@/components/access-banner";
+import { AdvisoryBanner } from "@/components/advisory-banner";
 import { TrailProfile } from "@/components/trail-profile";
 import { getTrail, getWeather } from "@/lib/api";
 import { cn, difficultyColor, formatMinutes, riskColor } from "@/lib/utils";
@@ -132,8 +133,11 @@ export default async function TrailDetailPage({
         </div>
       </section>
 
-      {trail.accessStatus && trail.accessStatus !== "open" && (
-        <div className="container pt-6">
+      {(trail.advisories.length > 0 ||
+        (trail.accessStatus && trail.accessStatus !== "open")) && (
+        <div className="container space-y-3 pt-6">
+          {/* Live conditions first — they are the most time-sensitive. */}
+          <AdvisoryBanner advisories={trail.advisories} />
           <AccessBanner status={trail.accessStatus} />
         </div>
       )}

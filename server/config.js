@@ -15,6 +15,12 @@ const config = {
     path: path.resolve(ROOT, process.env.DB_PATH || './data/forest-guardian.db'),
   },
 
+  // Live trail advisories (fire, flood, closures). File is the source of truth
+  // so entries survive redeploys on ephemeral hosting.
+  advisories: {
+    path: path.resolve(ROOT, process.env.ADVISORIES_PATH || './server/data/advisories.json'),
+  },
+
   uploads: {
     dir: path.resolve(ROOT, process.env.UPLOAD_DIR || './server/uploads'),
     maxMb: parseInt(process.env.MAX_UPLOAD_MB, 10) || 8,

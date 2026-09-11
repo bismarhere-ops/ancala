@@ -1,4 +1,5 @@
 import type {
+  AdvisoryListResponse,
   ImpactResponse,
   ReportListResponse,
   Trail,
@@ -98,6 +99,17 @@ export async function getWeather(params: { slug?: string; lat?: number; lng?: nu
 // --- Impact ----------------------------------------------------------------
 export async function getImpact() {
   return req<ImpactResponse>(`/api/impact`, { revalidate: 300 });
+}
+
+// --- Advisories ------------------------------------------------------------
+export async function listAdvisories(params: { status?: string; type?: string } = {}) {
+  const qs = new URLSearchParams();
+  Object.entries(params).forEach(([k, v]) => {
+    if (v) qs.set(k, String(v));
+  });
+  const suffix = qs.toString() ? `?${qs.toString()}` : "";
+  // Short revalidate: conditions change, so the feed must not go stale for long.
+  return req<AdvisoryListResponse>(`/api/advisories${suffix}`, { revalidate: 60 });
 }
 
 // --- Reports ---------------------------------------------------------------

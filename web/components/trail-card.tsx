@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import type { Trail } from "@/lib/types";
 import { AccessBadge } from "@/components/access-banner";
+import { AdvisoryBadge } from "@/components/advisory-banner";
 import { isLowReliability } from "@/lib/access";
 import { cn, difficultyColor, formatMinutes, riskColor } from "@/lib/utils";
 
@@ -26,7 +27,8 @@ export function TrailCard({ trail, compact = false }: { trail: Trail; compact?: 
             </div>
           </div>
           <ArrowUpRight className="absolute right-4 top-4 size-5 opacity-70 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          <span className="absolute left-4 top-4">
+          <span className="absolute left-4 top-4 flex flex-wrap gap-1.5">
+            <AdvisoryBadge level={trail.advisoryLevel} />
             <AccessBadge status={trail.accessStatus} />
           </span>
         </div>

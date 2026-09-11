@@ -7,12 +7,40 @@ const { HttpError } = require('../middleware/error');
 
 const { splitList } = require('../lib/csv');
 const { coords } = require('../lib/geo');
+const { SEVERITY_RANK } = require('../lib/advisories');
 
 const router = express.Router();
 
 // --- Helpers --------------------------------------------------------------
 function parseJson(col) {
   try { return col ? JSON.parse(col) : []; } catch { return []; }
+}
+
+function mapAdvisory(a) {
+  return {
+    id: a.id,
+    type: a.type,
+    severity: a.severity,
+    headline: a.headline,
+    detail: a.detail,
+    source: a.source,
+    effectiveFrom: a.effective_from,
+    effectiveUntil: a.effective_until,
+  };
+}
+
+/** The most severe level among a trail's active advisories, or null. */
+function highestSeverity(advisories) {
+  let level = null;
+  let rank = 0;
+  for (const a of advisories) {
+    const r = SEVERITY_RANK[a.severity] || 0;
+    if (r > rank) {
+      rank = r;
+      level = a.severity;
+    }
+  }
+  return level;
 }
 
 /**
@@ -89,7 +117,12 @@ function mapProfile(p) {
   };
 }
 
-function mapTrail(row, checkpoints = [], profile = null) {
+function mapTrail(row, checkpoints = [], profile = null, advisories = []) {
+  const active = advisories.map(mapAdvisory);
+  // A live danger advisory (fire, flood, eruption) overrides the permanent
+  // record and takes the trail out of planning until it is resolved.
+  const hasDanger = active.some((a) => a.severity === 'danger');
+
   return {
     id: row.id,
     slug: row.slug,
@@ -111,8 +144,11 @@ function mapTrail(row, checkpoints = [], profile = null) {
     accessStatus: row.access_status ?? null,
     dataReliability: row.data_reliability ?? null,
     dataReliabilityTier: row.data_reliability_tier ?? null,
-    // Derived policy, so the clients never re-implement the rule.
-    plannable: row.access_status !== 'closed',
+    // Live conditions, and the derived policy the clients render without
+    // re-implementing the rules.
+    advisories: active,
+    advisoryLevel: highestSeverity(active),
+    plannable: row.access_status !== 'closed' && !hasDanger,
     requiresAlertCheck: row.access_status === 'conditional',
     checkpoints: checkpoints.map((c) => ({
       position: c.position,
@@ -155,6 +191,29 @@ const SELECT_CHECKPOINTS = db.prepare(
   'SELECT * FROM checkpoints WHERE trail_id = ? ORDER BY position ASC'
 );
 const SELECT_PROFILE = db.prepare('SELECT * FROM mountain_profiles WHERE trail_id = ?');
+
+// An advisory is showing when active and today is within its effective window.
+// Ordered most-severe first so index 0 is the headline condition.
+const ADVISORY_ACTIVE = `
+  status = 'active'
+  AND (effective_from IS NULL OR effective_from <= @today)
+  AND (effective_until IS NULL OR effective_until >= @today)
+`;
+const ADVISORY_ORDER = `
+  ORDER BY CASE severity WHEN 'danger' THEN 3 WHEN 'warning' THEN 2 ELSE 1 END DESC,
+           updated_at DESC
+`;
+const SELECT_ACTIVE_ADVISORIES = db.prepare(
+  `SELECT * FROM advisories WHERE ${ADVISORY_ACTIVE} ${ADVISORY_ORDER}`
+);
+const SELECT_ACTIVE_ADVISORIES_FOR_TRAIL = db.prepare(
+  `SELECT * FROM advisories WHERE trail_id = @trail_id AND ${ADVISORY_ACTIVE} ${ADVISORY_ORDER}`
+);
+
+/** Today as YYYY-MM-DD, used to evaluate advisory effective windows. */
+function today() {
+  return new Date().toISOString().slice(0, 10);
+}
 
 const statementCache = new Map();
 function cachedPrepare(sql) {
@@ -223,8 +282,17 @@ router.get('/', (req, res) => {
 
   const total = cachedPrepare(`SELECT COUNT(*) AS n ${from}`).get(params).n;
 
+  // One query for every active advisory, grouped in memory — the table is
+  // small and this avoids a per-trail query on the list path.
+  const byTrail = new Map();
+  for (const a of SELECT_ACTIVE_ADVISORIES.all({ today: today() })) {
+    const arr = byTrail.get(a.trail_id);
+    if (arr) arr.push(a);
+    else byTrail.set(a.trail_id, [a]);
+  }
+
   res.json({
-    data: rows.map((r) => mapTrail(r)),
+    data: rows.map((r) => mapTrail(r, [], null, byTrail.get(r.id) || [])),
     pagination: { total, limit, offset },
   });
 });
@@ -238,14 +306,15 @@ function loadTrail(slug) {
     row,
     checkpoints: SELECT_CHECKPOINTS.all(row.id),
     profile: SELECT_PROFILE.get(row.id),
+    advisories: SELECT_ACTIVE_ADVISORIES_FOR_TRAIL.all({ trail_id: row.id, today: today() }),
   };
 }
 
 // GET /api/trails/:slug  — detail (with checkpoints + full profile)
 router.get('/:slug', (req, res) => {
   const slug = String(req.params.slug).toLowerCase();
-  const { row, checkpoints, profile } = loadTrail(slug);
-  res.json({ data: mapTrail(row, checkpoints, profile) });
+  const { row, checkpoints, profile, advisories } = loadTrail(slug);
+  res.json({ data: mapTrail(row, checkpoints, profile, advisories) });
 });
 
 // GET /api/trails/:slug/guide  — downloadable/offline guide (plain JSON)
@@ -254,9 +323,9 @@ router.get('/:slug', (req, res) => {
 // safety-critical profile fields rather than linking back to the API.
 router.get('/:slug/guide', (req, res) => {
   const slug = String(req.params.slug).toLowerCase();
-  const { row, checkpoints, profile } = loadTrail(slug);
+  const { row, checkpoints, profile, advisories } = loadTrail(slug);
 
-  const trail = mapTrail(row, checkpoints, profile);
+  const trail = mapTrail(row, checkpoints, profile, advisories);
   const p = trail.profile;
 
   const guide = {
@@ -285,6 +354,9 @@ router.get('/:slug/guide', (req, res) => {
     route: p?.route ?? null,
     checkpoints: trail.checkpoints,
     hazards: trail.hazards,
+    // Live conditions travel with the offline guide so a hiker who downloaded
+    // it before losing signal still sees the fire/flood warning.
+    advisories: trail.advisories,
     criticalPoints: p?.assessment.criticalPoints ?? null,
     facilities: p?.facilities ?? null,
     preparation: {
@@ -313,7 +385,11 @@ router.get('/:slug/guide', (req, res) => {
     ],
   };
 
-  if (p?.accessStatus === 'closed') {
+  // A live danger advisory is the most urgent thing to say, so it wins.
+  const danger = trail.advisories.find((a) => a.severity === 'danger');
+  if (danger) {
+    guide.warning = `ACTIVE ${danger.type.toUpperCase()} ADVISORY — ${danger.headline}. Do not attempt.`;
+  } else if (p?.accessStatus === 'closed') {
     guide.warning = 'This mountain is CLOSED to hikers. Do not attempt.';
   } else if (p?.accessStatus === 'conditional') {
     guide.warning =

@@ -16,6 +16,7 @@ const weatherRouter    = require('./routes/weather');
 const reportsRouter    = require('./routes/reports');
 const volunteersRouter = require('./routes/volunteers');
 const impactRouter     = require('./routes/impact');
+const advisoriesRouter = require('./routes/advisories');
 
 const app = express();
 
@@ -59,6 +60,7 @@ app.use('/api/weather',    weatherRouter);
 app.use('/api/reports',    reportsRouter);
 app.use('/api/volunteers', volunteersRouter);
 app.use('/api/impact',     impactRouter);
+app.use('/api/advisories', advisoriesRouter);
 
 // --- Uploaded photos (public) --------------------------------------------
 app.use('/uploads', express.static(config.uploads.dir, {

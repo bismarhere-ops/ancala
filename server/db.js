@@ -137,6 +137,24 @@ CREATE TABLE IF NOT EXISTS mountain_profiles (
 );
 CREATE INDEX IF NOT EXISTS idx_profiles_status      ON mountain_profiles(access_status);
 CREATE INDEX IF NOT EXISTS idx_profiles_reliability ON mountain_profiles(data_reliability_tier);
+
+-- Live conditions (fire, flood, closures). Rebuilt from advisories.json on
+-- every boot — the file, not this table, is the source of truth.
+CREATE TABLE IF NOT EXISTS advisories (
+  id              TEXT PRIMARY KEY,
+  trail_id        INTEGER REFERENCES trails(id) ON DELETE CASCADE,
+  trail_slug      TEXT NOT NULL,
+  type            TEXT NOT NULL,
+  severity        TEXT NOT NULL CHECK (severity IN ('info','warning','danger')),
+  headline        TEXT NOT NULL,
+  detail          TEXT,
+  status          TEXT NOT NULL DEFAULT 'active' CHECK (status IN ('active','resolved')),
+  effective_from  TEXT,
+  effective_until TEXT,
+  source          TEXT,
+  updated_at      TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS idx_advisories_trail ON advisories(trail_id);
 `;
 
 db.exec(SCHEMA);
@@ -144,7 +162,7 @@ db.exec(SCHEMA);
 // --- Migrations -----------------------------------------------------------
 // SQLite cannot easily drop or alter columns, so migrations are additive and
 // keyed off user_version. Bump SCHEMA_VERSION and add a numbered step.
-const SCHEMA_VERSION = 1;
+const SCHEMA_VERSION = 2;
 
 const MIGRATIONS = [
   // 1 — the fictional demo trails predate the real mountains dataset. They were
@@ -159,6 +177,10 @@ const MIGRATIONS = [
       );
     `);
   },
+  // 2 — the advisories table is created by SCHEMA above on fresh DBs; this step
+  //     is a no-op placeholder so existing databases advance their version.
+  //     CREATE TABLE IF NOT EXISTS already ran, so nothing more is needed.
+  () => {},
 ];
 
 function migrate() {
@@ -191,8 +213,24 @@ function seed({ force = false } = {}) {
   return { seeded: true, trails: res.rows, checkpoints: res.checkpoints };
 }
 
+/**
+ * Rebuilds the advisories table from the JSON file. Runs on every boot (after
+ * trails exist) because the file is the source of truth and trail IDs must be
+ * resolved fresh. Safe to call repeatedly.
+ */
+function loadAdvisories() {
+  const { loadAdvisories: load } = require('./lib/advisories');
+  const res = load(db, config.advisories.path);
+  if (res.skipped.length) {
+    // eslint-disable-next-line no-console
+    console.warn(`Advisories skipped (unknown trail slug): ${res.skipped.join(', ')}`);
+  }
+  return res;
+}
+
 function reset() {
   db.exec(`
+    DROP TABLE IF EXISTS advisories;
     DROP TABLE IF EXISTS mountain_profiles;
     DROP TABLE IF EXISTS checkpoints;
     DROP TABLE IF EXISTS reports;
@@ -203,10 +241,12 @@ function reset() {
   db.pragma(`user_version = ${SCHEMA_VERSION}`);
 }
 
-module.exports = { db, seed, reset };
+module.exports = { db, seed, reset, loadAdvisories };
 
-// Always seed on boot if the DB is empty (idempotent).
+// Always seed on boot if the DB is empty (idempotent), then refresh advisories
+// from their file — the file is authoritative, so this runs every boot.
 seed();
+loadAdvisories();
 
 // CLI helpers: `node server/db.js --seed` / `--reset`
 if (require.main === module) {
