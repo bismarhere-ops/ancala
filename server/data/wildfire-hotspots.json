@@ -1,0 +1,4 @@
+{
+  "_comment": "Active-fire hotspots used to raise wildfire advisories. Shape mirrors NASA FIRMS rows: {latitude, longitude, confidence ('l'|'n'|'h' or 0-100), acq_date 'YYYY-MM-DD'}. Ships empty because hotspots cannot be fabricated. Fill this (by hand, or by wiring the FIRMS fetch in sync-wildfire-advisories.js — needs a free MAP_KEY) to raise warnings. Only trails that have GPS coordinates in mountains.csv can be matched; today that is Semeru, Bromo, and Ijen.",
+  "hotspots": []
+}

@@ -1,21 +1,22 @@
-name: Volcano advisories
+name: Sync advisories
 
-# Regenerates volcano advisories from PVMBG alert levels and commits any change.
-# Runs on a daily schedule and can be triggered by hand. Currently a no-op until
-# server/data/volcano-levels.json carries real levels (or a fetch step fills it
-# in) — the machinery runs daily so a level change takes effect within a day.
+# Regenerates automatic advisories from their data sources and commits any
+# change. One workflow (not two) owns advisories.json so runs never race.
+#   - volcano: PVMBG alert levels  -> server/data/volcano-levels.json
+#   - wildfire: satellite hotspots -> server/data/wildfire-hotspots.json
+# Currently a no-op until those files carry real data (or their fetch steps are
+# wired); the machinery runs daily so a change takes effect within a day.
 
 on:
   schedule:
     - cron: '0 21 * * *' # 04:00 WIB (UTC+7), daily
   workflow_dispatch:
 
-# Allow the job to commit the regenerated advisories back to the branch.
 permissions:
   contents: write
 
 concurrency:
-  group: volcano-advisories
+  group: sync-advisories
   cancel-in-progress: true
 
 jobs:
@@ -28,10 +29,12 @@ jobs:
         with:
           node-version: '22'
 
-      # No dependencies needed — the generator uses only Node built-ins and
-      # repo files — so skip npm install for speed.
+      # Both generators use only Node built-ins and repo files — no install.
       - name: Regenerate volcano advisories
         run: node server/jobs/sync-volcano-advisories.js
+
+      - name: Regenerate wildfire advisories
+        run: node server/jobs/sync-wildfire-advisories.js
 
       - name: Commit if changed
         run: |
@@ -39,7 +42,7 @@ jobs:
             git config user.name  "forest-guardian-bot"
             git config user.email "bot@users.noreply.github.com"
             git add server/data/advisories.json
-            git commit -m "chore: sync volcano advisories from PVMBG levels [skip ci]"
+            git commit -m "chore: sync advisories from live sources [skip ci]"
             git push
           else
             echo "No advisory change."

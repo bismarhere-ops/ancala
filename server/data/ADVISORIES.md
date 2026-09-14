@@ -81,6 +81,28 @@ never touched. Levels ship as `null` because a current level cannot be
 fabricated — set the real number (or wire the MAGMA fetch, see the job file) to
 activate one.
 
+## Wildfires: the satellite feed
+
+Wildfire advisories can be raised from active-fire satellite hotspots (NASA
+FIRMS). Put hotspots in `server/data/wildfire-hotspots.json`; the generator
+(`npm run sync:wildfire`, and the daily Action) raises a **warning** on any
+trail with a recent, confident hotspot within 5 km.
+
+Two deliberate choices:
+
+- **Always a warning, never an auto-close.** A satellite hotspot is raw sensor
+  data — it might be farmland burning or several km off. It informs ("verify
+  before you go"); it never closes a trail on its own. A real closure is a
+  hand-written `danger` advisory, or comes from the review agent.
+- **Only trails with GPS coordinates can be matched** — currently Semeru,
+  Bromo, and Ijen (3 of 50). Adding coordinates to more trails in
+  `mountains.csv` widens the coverage.
+
+Auto entries have ids starting `auto-fire-` and are rebuilt every run, so a
+fire clearing removes its advisory. Like the volcano feed, hotspots ship empty
+because they cannot be fabricated; wiring the FIRMS fetch (a free MAP_KEY) is
+the remaining step, documented in the job file.
+
 ## Rules the site enforces
 
 - An unknown `trail` slug is skipped (and logged), so a typo can't crash the
