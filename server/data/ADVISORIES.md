@@ -103,6 +103,32 @@ fire clearing removes its advisory. Like the volcano feed, hotspots ship empty
 because they cannot be fabricated; wiring the FIRMS fetch (a free MAP_KEY) is
 the remaining step, documented in the job file.
 
+## The review agent (proposes; never publishes)
+
+`.github/workflows/review-advisories.yml` runs Claude weekly to check for
+real-world conditions (fire, flood, landslide, closures) affecting the trails
+and **open a pull request** proposing advisory changes. It never edits the live
+data directly — you merge the PR, or ignore it. On a safety dataset the agent
+proposes and a person decides.
+
+It is told to: only add conditions backed by a citable source, default to
+`warning` and reserve `danger` for an official closure, never touch the
+`auto-pvmbg-`/`auto-fire-` feed entries, and resolve (not delete) conditions
+that are over. Every PR lists each change with its source so you can verify.
+
+**One-time setup (only you can do it):**
+1. Install the Claude GitHub App — https://github.com/apps/claude — on the repo.
+2. Add a repo secret `ANTHROPIC_API_KEY` (Settings → Secrets and variables →
+   Actions) from https://platform.claude.com.
+
+Then run it from the Actions tab ("Advisory review agent" → Run workflow) to
+test, or wait for the Monday schedule. Costs Claude API tokens per run.
+
+**Unverified:** whether the Action's environment allows the web search the agent
+needs to check live conditions. Check the first run's log — if WebSearch/WebFetch
+are blocked, the agent can't see fresh news and this route is limited; fall back
+to updating advisories by hand (or just ask the chat agent).
+
 ## Rules the site enforces
 
 - An unknown `trail` slug is skipped (and logged), so a typo can't crash the

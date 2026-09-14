@@ -1,0 +1,83 @@
+name: Advisory review agent
+
+# A weekly Claude run that checks for real-world conditions (fire, flood,
+# landslide, closures) affecting the trails and OPENS A PULL REQUEST proposing
+# advisory changes. It never publishes directly — a human merges the PR. This is
+# the deliberate design for a safety dataset: an agent proposes, a person decides.
+#
+# ONE-TIME SETUP (only the repo owner can do this):
+#   1. Install the Claude GitHub App: https://github.com/apps/claude  (add the
+#      ancala repo).
+#   2. Add a repository secret ANTHROPIC_API_KEY (Settings -> Secrets and
+#      variables -> Actions), from https://platform.claude.com.
+# Until the secret exists the workflow runs but the Claude step fails clearly.
+#
+# Run it on demand from the Actions tab ("Run workflow") to test before the
+# schedule. Scheduled runs fire only from the repository's default branch.
+
+on:
+  schedule:
+    - cron: '0 22 * * 1' # 05:00 WIB (UTC+7) every Monday
+  workflow_dispatch:
+
+permissions:
+  contents: write        # commit the advisories.json change on a branch
+  pull-requests: write   # open the PR
+  id-token: write        # authenticate as the Claude GitHub App
+  issues: read
+
+concurrency:
+  group: advisory-review
+  cancel-in-progress: false
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_args: |
+            --max-turns 20
+            --allowedTools "WebSearch,WebFetch,Read,Edit,Write,Bash,mcp__github__create_pull_request,mcp__github__search_code,mcp__github__list_commits"
+          prompt: |
+            You maintain live trail advisories for the Forest Guardian hiking
+            platform. Read server/data/ADVISORIES.md for the advisory format and
+            rules, and server/data/advisories.json for what is already published.
+            The trails and their slugs are in server/data/mountains.csv (50
+            Indonesian mountains).
+
+            TASK: check for CURRENT, CREDIBLE real-world conditions affecting any
+            of these mountains — wildfire, flood, landslide, eruption, or an
+            official trail/park closure — using web search of authoritative
+            sources (national park offices e.g. TNBTS, PVMBG / MAGMA Indonesia,
+            BNPB, and reputable news). Then propose changes to
+            server/data/advisories.json.
+
+            SAFETY RULES — this data decides whether people hike into danger:
+            - Only add a condition you can back with a specific, citable source.
+              Put the source in the advisory's "source" field. If you are not
+              sure, DO NOT invent it — leave it out.
+            - Default to severity "warning". Use "danger" (which closes the trail
+              to planning) ONLY when an official authority has explicitly closed
+              the mountain or declared its highest alert. Cite that authority.
+            - NEVER edit or remove advisories whose id begins with "auto-pvmbg-"
+              or "auto-fire-" — those are owned by automated feeds.
+            - If a source shows a previously-reported condition is over, set that
+              advisory's "status" to "resolved" (do not delete it).
+            - Give each new advisory a unique id like "<slug>-<type>-<yyyy-mm>".
+
+            VALIDATE before finishing: run `npm install` then `npm test` and make
+            sure it passes; the advisory tests will reject a malformed file.
+
+            OUTPUT: if you made any change, open a pull request titled
+            "Advisory review: <today's date>" whose description lists each
+            advisory you added, changed, or resolved, with the source URL and a
+            one-line reason for the severity you chose, so a human can verify
+            before merging. Do NOT push to the default branch directly.
+            If you found nothing credible to change, make no changes, say so in
+            the run log, and exit without opening a PR.
