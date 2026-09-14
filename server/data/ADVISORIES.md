@@ -56,6 +56,31 @@ pushes; the live site updates in a few minutes.
   approach road, a damaged section, deteriorating weather.
 - **info** — blue note for minor, non-blocking information.
 
+## Volcanoes: the automatic feed
+
+Volcano advisories can be driven from official **PVMBG alert levels** instead of
+being written by hand. Set a level in `server/data/volcano-levels.json`:
+
+```json
+"levels": { "merapi": 3, "kelud": null }
+```
+
+`1` Normal · `2` Waspada · `3` Siaga · `4` Awas · `null` unknown.
+
+The generator (`npm run sync:volcano`, and a daily GitHub Action) turns each
+level into the right advisory automatically:
+
+- **2 (Waspada)** → warning, trail stays plannable
+- **3 (Siaga)** and **4 (Awas)** → danger, trail drops out of planning
+- **1 or null** → no advisory (for the conditional volcanoes, their standing
+  "check PVMBG" access notice keeps doing the job)
+
+These auto entries have ids starting `auto-pvmbg-` and are rebuilt on every run,
+so lowering a level removes its advisory by itself. Hand-written advisories are
+never touched. Levels ship as `null` because a current level cannot be
+fabricated — set the real number (or wire the MAGMA fetch, see the job file) to
+activate one.
+
 ## Rules the site enforces
 
 - An unknown `trail` slug is skipped (and logged), so a typo can't crash the

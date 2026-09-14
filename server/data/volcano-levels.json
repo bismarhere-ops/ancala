@@ -1,0 +1,18 @@
+{
+  "_comment": "Official PVMBG alert level per volcano. 1=Normal, 2=Waspada, 3=Siaga, 4=Awas. Use null when the level is unverified — no advisory is generated for null or 1, and the trail's standing 'check PVMBG' notice (its conditional access status) keeps doing its job. Source of truth: https://magma.esdm.go.id. Levels ship as null because they cannot be fabricated; set a number here (or wire the MAGMA fetch — see server/jobs/sync-volcano-advisories.js) to activate an advisory.",
+  "levels": {
+    "semeru": null,
+    "merapi": null,
+    "kelud": null,
+    "slamet": null,
+    "guntur": null,
+    "agung": null,
+    "raung": null,
+    "ijen": null,
+    "bromo": null,
+    "kerinci": null,
+    "tambora": null,
+    "batur": null,
+    "dempo": null
+  }
+}

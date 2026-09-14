@@ -11,6 +11,7 @@
     "seed": "node server/db.js --seed",
     "seed:mountains": "node server/import-mountains.js",
     "seed:mountains:dry": "node server/import-mountains.js --dry-run",
+    "sync:volcano": "node server/jobs/sync-volcano-advisories.js",
     "reset-db": "node server/db.js --reset"
   },
   "engines": {

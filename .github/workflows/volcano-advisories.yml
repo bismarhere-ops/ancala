@@ -1,0 +1,46 @@
+name: Volcano advisories
+
+# Regenerates volcano advisories from PVMBG alert levels and commits any change.
+# Runs on a daily schedule and can be triggered by hand. Currently a no-op until
+# server/data/volcano-levels.json carries real levels (or a fetch step fills it
+# in) — the machinery runs daily so a level change takes effect within a day.
+
+on:
+  schedule:
+    - cron: '0 21 * * *' # 04:00 WIB (UTC+7), daily
+  workflow_dispatch:
+
+# Allow the job to commit the regenerated advisories back to the branch.
+permissions:
+  contents: write
+
+concurrency:
+  group: volcano-advisories
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # No dependencies needed — the generator uses only Node built-ins and
+      # repo files — so skip npm install for speed.
+      - name: Regenerate volcano advisories
+        run: node server/jobs/sync-volcano-advisories.js
+
+      - name: Commit if changed
+        run: |
+          if [[ -n "$(git status --porcelain server/data/advisories.json)" ]]; then
+            git config user.name  "forest-guardian-bot"
+            git config user.email "bot@users.noreply.github.com"
+            git add server/data/advisories.json
+            git commit -m "chore: sync volcano advisories from PVMBG levels [skip ci]"
+            git push
+          else
+            echo "No advisory change."
+          fi
