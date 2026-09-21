@@ -5,6 +5,10 @@
  *
  * Boots the Express app on an ephemeral port once, then issues real requests
  * against it so middleware, validation and error handling are all exercised.
+ *
+ *   request('/api/trails')                                  → GET
+ *   request('/api/volunteers', { method: 'POST', body: {…} }) → JSON POST
+ *   request('/api/reports', { method: 'POST', body: buf, headers: {…} }) → raw
  */
 
 const http = require('http');
@@ -26,29 +30,45 @@ function start() {
   return serverPromise;
 }
 
-/** GET `path`, resolving to { status, body }. Body is parsed as JSON when possible. */
-module.exports = async function request(path) {
+/**
+ * Issues a request and resolves to { status, headers, body }. Body is parsed as
+ * JSON when possible. `opts.body` may be a Buffer/string (sent verbatim) or a
+ * plain object (JSON-encoded with a JSON content-type).
+ */
+module.exports = async function request(path, opts = {}) {
   const server = await start();
   const { port } = server.address();
 
+  const method = opts.method || 'GET';
+  const headers = { ...(opts.headers || {}) };
+  let body = opts.body;
+  if (body != null && !Buffer.isBuffer(body) && typeof body !== 'string') {
+    body = JSON.stringify(body);
+    if (!headers['content-type']) headers['content-type'] = 'application/json';
+  }
+  if (body != null && !headers['content-length']) {
+    headers['content-length'] = Buffer.byteLength(body);
+  }
+
   return new Promise((resolve, reject) => {
-    http
-      .get({ host: '127.0.0.1', port, path }, (res) => {
-        let raw = '';
-        res.setEncoding('utf-8');
-        res.on('data', (c) => {
-          raw += c;
-        });
-        res.on('end', () => {
-          let body = raw;
-          try {
-            body = JSON.parse(raw);
-          } catch {
-            /* leave as text */
-          }
-          resolve({ status: res.statusCode, headers: res.headers, body });
-        });
-      })
-      .on('error', reject);
+    const req = http.request({ host: '127.0.0.1', port, path, method, headers }, (res) => {
+      let raw = '';
+      res.setEncoding('utf-8');
+      res.on('data', (c) => {
+        raw += c;
+      });
+      res.on('end', () => {
+        let parsed = raw;
+        try {
+          parsed = JSON.parse(raw);
+        } catch {
+          /* leave as text */
+        }
+        resolve({ status: res.statusCode, headers: res.headers, body: parsed });
+      });
+    });
+    req.on('error', reject);
+    if (body != null) req.write(body);
+    req.end();
   });
 };
