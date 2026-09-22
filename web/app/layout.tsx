@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Toaster } from "@/components/ui/sonner";
+import { ServiceWorkerRegister } from "@/components/service-worker-register";
 import "./globals.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3001";
@@ -25,6 +26,17 @@ export const metadata: Metadata = {
     siteName: "Forest Guardian",
     type: "website",
   },
+  manifest: "/manifest.webmanifest",
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/icon.svg",
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Forest Guardian",
+  },
 };
 
 export const viewport: Viewport = {
@@ -43,6 +55,7 @@ export default function RootLayout({
         <main id="main">{children}</main>
         <SiteFooter />
         <Toaster position="bottom-right" richColors />
+        <ServiceWorkerRegister />
       </body>
     </html>
   );
