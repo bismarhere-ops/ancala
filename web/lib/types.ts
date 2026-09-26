@@ -108,6 +108,22 @@ export interface MountainProfile {
   offlineMapAvailable: string | null;
 }
 
+/** Visitor-facing content layered on a trail's safety record (see server/lib/stories.js). */
+export interface MountainStory {
+  /** "owner": the organiser's own material. "research": sourced web research. */
+  origin: "owner" | "research";
+  tagline: string | null;
+  highlights: { title: string; body: string; source?: string }[];
+  stats: { value: string; label: string; note?: string }[];
+  packing: { item: string; why: string }[];
+  assessment: { title: string; body: string }[];
+  gallery: { src: string; caption: string }[];
+  sources: { title: string; url?: string }[];
+  /** Sections that could not be verified and are intentionally empty. */
+  unknown: string[];
+  updated: string | null;
+}
+
 export interface Trail {
   id: number;
   slug: string;
@@ -123,6 +139,10 @@ export interface Trail {
   coordinates: Coordinates | null;
   tags: string[];
   hazards: string[];
+  /** First gallery photo, or null when the mountain has no photos yet. */
+  coverImage: string | null;
+  /** Only on the detail endpoint; null when no story has been written. */
+  story?: MountainStory | null;
   /** Null for trails with no imported profile. */
   accessStatus: AccessStatus | null;
   dataReliability: string | null;

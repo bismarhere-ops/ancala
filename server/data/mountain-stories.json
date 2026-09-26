@@ -1,0 +1,50 @@
+{
+  "bromo": {
+    "origin": "owner",
+    "updated": "2026-09",
+    "tagline": "One epic sunrise. Five smoking volcanoes. Zero hiking experience required.",
+    "highlights": [
+      {
+        "title": "5 volcanoes, 1 view",
+        "body": "Bromo, Batok, Kursi, Watangan and Widodaren all sit inside one crater, with Java's highest volcano, Semeru, smoking quietly in the background."
+      },
+      {
+        "title": "Higher than Bromo itself",
+        "body": "Your sunrise viewpoint sits at roughly 2,770 m, about 440 m above Bromo's own summit. You'll be looking down into the crater you're about to walk into."
+      },
+      {
+        "title": "A sacred sunrise",
+        "body": "Local Tenggerese legend says a prince sacrificed everything to save his kingdom here. Locals still throw offerings into the crater every year at Yadnya Kasada."
+      }
+    ],
+    "stats": [
+      { "value": "2,329 m", "label": "Summit altitude", "note": "Chilly alpine air and views above the clouds" },
+      { "value": "~2,770 m", "label": "Sunrise viewpoint", "note": "About 440 m above Bromo's own summit" },
+      { "value": "10 km", "label": "Sea of Sand", "note": "A vast, ancient caldera with a moon-like landscape" },
+      { "value": "~5°C", "label": "Pre-dawn temperature", "note": "Summit wind gets cold before sunrise" }
+    ],
+    "packing": [
+      { "item": "Warm layers", "why": "Heavy jacket or windbreaker, beanie and gloves. Summit wind gets cold before sunrise." },
+      { "item": "Dust mask", "why": "A buff or mask protects your lungs from fine volcanic ash." },
+      { "item": "Comfy sneakers", "why": "Standard athletic shoes work great. Heavy mountaineering boots are not required." },
+      { "item": "Head lamp", "why": "It's pitch dark for most of the walk. Cold air drains batteries fast, so keep a power bank ready." }
+    ],
+    "assessment": [
+      { "title": "The jeep does the heavy lifting", "body": "No technical climbing or heavy gear. A 4x4 jeep carries you almost all the way to the top viewpoints." },
+      { "title": "Flat sand, then stairs", "body": "From the jeep park it's flat sand, then concrete steps with handrails up to the crater rim. Pace yourself." },
+      { "title": "Chilly morning air", "body": "Pre-dawn temperatures drop to about 5°C. Staying warm and waking up at 2 AM are your biggest obstacles." }
+    ],
+    "gallery": [
+      { "src": "/mountains/bromo/penanjakan-sunrise.jpg", "caption": "Penanjakan sunrise" },
+      { "src": "/mountains/bromo/sea-of-sand.jpg", "caption": "Sea of Sand" },
+      { "src": "/mountains/bromo/sea-of-sand-jeep.jpg", "caption": "Jeep across the Sea of Sand" },
+      { "src": "/mountains/bromo/crater-stairs.jpg", "caption": "Stairs to Bromo crater" },
+      { "src": "/mountains/bromo/horse-ride.jpg", "caption": "Horseback below Mount Batok" },
+      { "src": "/mountains/bromo/pura-luhur-poten.jpg", "caption": "Pura Luhur Poten" },
+      { "src": "/mountains/bromo/kasada-procession.jpg", "caption": "Yadnya Kasada procession" },
+      { "src": "/mountains/bromo/kasada-offerings.jpg", "caption": "Kasada offerings at the crater rim" },
+      { "src": "/mountains/bromo/crater-ganesha.jpg", "caption": "Ganesha statue at the crater" }
+    ],
+    "sources": [{ "title": "Mount Bromo Sunrise Trek deck (Forest Guardian, 2026)" }]
+  }
+}

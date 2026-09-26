@@ -8,8 +8,14 @@ const { HttpError } = require('../middleware/error');
 const { splitList } = require('../lib/csv');
 const { coords } = require('../lib/geo');
 const { SEVERITY_RANK } = require('../lib/advisories');
+const { readStories, mapStory } = require('../lib/stories');
+const config = require('../config');
 
 const router = express.Router();
+
+// Static content, validated once at startup: a malformed file fails the boot
+// (and the tests) rather than a page view.
+const STORIES = readStories(config.stories.path);
 
 // --- Helpers --------------------------------------------------------------
 function parseJson(col) {
@@ -138,6 +144,8 @@ function mapTrail(row, checkpoints = [], profile = null, advisories = []) {
     coordinates: coords(row.lat, row.lng),
     tags: parseJson(row.tags),
     hazards: parseJson(row.hazards),
+    // First gallery photo, for cards. Null until the mountain has photos.
+    coverImage: STORIES.get(row.slug)?.gallery?.[0]?.src ?? null,
     // Denormalised onto the trail so list views can badge without the full
     // profile payload. Both queries LEFT JOIN the profile, so there is one
     // input contract; null only when a trail has no profile at all.
@@ -314,7 +322,9 @@ function loadTrail(slug) {
 router.get('/:slug', (req, res) => {
   const slug = String(req.params.slug).toLowerCase();
   const { row, checkpoints, profile, advisories } = loadTrail(slug);
-  res.json({ data: mapTrail(row, checkpoints, profile, advisories) });
+  res.json({
+    data: { ...mapTrail(row, checkpoints, profile, advisories), story: mapStory(STORIES.get(slug)) },
+  });
 });
 
 // GET /api/trails/:slug/guide  — downloadable/offline guide (plain JSON)

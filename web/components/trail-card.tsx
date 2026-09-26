@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Clock, Mountain, Route } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -19,7 +20,21 @@ export function TrailCard({ trail, compact = false }: { trail: Trail; compact?: 
             compact ? "h-28" : "h-36"
           )}
         >
-          <MountainArt slug={trail.slug} elevationGainM={trail.elevationGainM} />
+          {trail.coverImage ? (
+            <>
+              <Image
+                src={trail.coverImage}
+                alt=""
+                fill
+                sizes="(min-width: 768px) 33vw, 100vw"
+                className="object-cover"
+              />
+              {/* Keeps white text readable over bright photos. */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+            </>
+          ) : (
+            <MountainArt slug={trail.slug} elevationGainM={trail.elevationGainM} />
+          )}
           <div className="relative">
             <div className="text-[11px] uppercase tracking-wider text-forest-100/80">
               {trail.region}

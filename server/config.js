@@ -21,6 +21,12 @@ const config = {
     path: path.resolve(ROOT, process.env.ADVISORIES_PATH || './server/data/advisories.json'),
   },
 
+  // Mountain "story" content (highlights, stats, packing, gallery). Static,
+  // hand-curated or sourced research; read once at startup.
+  stories: {
+    path: path.resolve(ROOT, process.env.STORIES_PATH || './server/data/mountain-stories.json'),
+  },
+
   uploads: {
     dir: path.resolve(ROOT, process.env.UPLOAD_DIR || './server/uploads'),
     maxMb: parseInt(process.env.MAX_UPLOAD_MB, 10) || 8,

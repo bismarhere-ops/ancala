@@ -20,6 +20,7 @@ import { WeatherCard } from "@/components/weather-card";
 import { AccessBanner } from "@/components/access-banner";
 import { AdvisoryBanner } from "@/components/advisory-banner";
 import { TrailProfile } from "@/components/trail-profile";
+import { MountainStory } from "@/components/mountain-story";
 import { getTrail, getWeather } from "@/lib/api";
 import { cn, difficultyColor, formatMinutes, riskColor } from "@/lib/utils";
 
@@ -74,6 +75,11 @@ export default async function TrailDetailPage({
               <h1 className="font-display text-4xl font-semibold tracking-tight text-balance md:text-5xl">
                 {trail.name}
               </h1>
+              {trail.story?.tagline && (
+                <p className="mt-3 max-w-2xl font-display text-xl italic text-amber-200">
+                  {trail.story.tagline}
+                </p>
+              )}
               <p className="mt-3 max-w-2xl text-forest-100">{trail.summary}</p>
               <div className="mt-4 flex flex-wrap items-center gap-2">
                 <Badge variant="outline" className={cn("capitalize", difficultyColor(trail.difficulty))}>
@@ -144,6 +150,8 @@ export default async function TrailDetailPage({
           <AccessBanner status={trail.accessStatus} />
         </div>
       )}
+
+      {trail.story && <MountainStory story={trail.story} name={trail.name} />}
 
       {/* Body */}
       <section className="container grid gap-8 py-10 lg:grid-cols-3 lg:py-14">

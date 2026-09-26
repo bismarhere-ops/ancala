@@ -182,3 +182,22 @@ test('GET /api/impact separates measured facts from goals', async () => {
   assert.ok(reported.every((m) => m.value === 0), 'reported metrics must not carry invented values');
   assert.ok(reported.every((m) => m.target > 0), 'reported metrics need a target');
 });
+
+// --- Stories --------------------------------------------------------------
+
+test('GET /api/trails/bromo includes its story and cover image', async () => {
+  const res = await request('/api/trails/bromo');
+  assert.strictEqual(res.status, 200);
+  const { story, coverImage } = res.body.data;
+  assert.strictEqual(coverImage, '/mountains/bromo/penanjakan-sunrise.jpg');
+  assert.ok(story.tagline);
+  assert.strictEqual(story.highlights.length, 3);
+  assert.ok(story.gallery.length > 0);
+});
+
+test('list items carry coverImage but not the full story', async () => {
+  const res = await request('/api/trails?limit=100');
+  const bromo = res.body.data.find((t) => t.slug === 'bromo');
+  assert.ok(bromo.coverImage);
+  assert.strictEqual(bromo.story, undefined);
+});
