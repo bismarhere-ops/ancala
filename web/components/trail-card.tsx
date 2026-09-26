@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import type { Trail } from "@/lib/types";
 import { AccessBadge } from "@/components/access-banner";
 import { AdvisoryBadge } from "@/components/advisory-banner";
+import { MountainArt } from "@/components/mountain-art";
 import { isLowReliability } from "@/lib/access";
 import { cn, difficultyColor, formatMinutes, riskColor } from "@/lib/utils";
 
@@ -18,7 +19,8 @@ export function TrailCard({ trail, compact = false }: { trail: Trail; compact?: 
             compact ? "h-28" : "h-36"
           )}
         >
-          <div>
+          <MountainArt slug={trail.slug} elevationGainM={trail.elevationGainM} />
+          <div className="relative">
             <div className="text-[11px] uppercase tracking-wider text-forest-100/80">
               {trail.region}
             </div>

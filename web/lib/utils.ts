@@ -1,5 +1,12 @@
 import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
+import { extendTailwindMerge } from "tailwind-merge";
+
+// Our custom pattern utilities (globals.css) are background *images*. Without
+// this, tailwind-merge reads them as background colours and drops the real
+// colour next to them (e.g. "bg-forest-700 bg-topo" lost its green).
+const twMerge = extendTailwindMerge({
+  extend: { classGroups: { "bg-image": ["bg-topo", "bg-hero-grain"] } },
+});
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
