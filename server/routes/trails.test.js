@@ -15,6 +15,10 @@ const path = require('path');
 
 const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'fg-test-'));
 process.env.DB_PATH = path.join(tmpDir, 'test.db');
+// Live advisories change with real-world events; these tests pin their own
+// (empty) file so a fire or eruption in the news can't change the results.
+process.env.ADVISORIES_PATH = path.join(tmpDir, 'advisories.json');
+fs.writeFileSync(process.env.ADVISORIES_PATH, '[]');
 process.env.NODE_ENV = 'test';
 // The suite makes more requests than the production window allows.
 process.env.RATE_LIMIT_MAX = '10000';

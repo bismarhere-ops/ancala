@@ -18,33 +18,4861 @@
       }
     ],
     "stats": [
-      { "value": "2,329 m", "label": "Summit altitude", "note": "Chilly alpine air and views above the clouds" },
-      { "value": "~2,770 m", "label": "Sunrise viewpoint", "note": "About 440 m above Bromo's own summit" },
-      { "value": "10 km", "label": "Sea of Sand", "note": "A vast, ancient caldera with a moon-like landscape" },
-      { "value": "~5°C", "label": "Pre-dawn temperature", "note": "Summit wind gets cold before sunrise" }
+      {
+        "value": "2,329 m",
+        "label": "Summit altitude",
+        "note": "Chilly alpine air and views above the clouds"
+      },
+      {
+        "value": "~2,770 m",
+        "label": "Sunrise viewpoint",
+        "note": "About 440 m above Bromo's own summit"
+      },
+      {
+        "value": "10 km",
+        "label": "Sea of Sand",
+        "note": "A vast, ancient caldera with a moon-like landscape"
+      },
+      {
+        "value": "~5°C",
+        "label": "Pre-dawn temperature",
+        "note": "Summit wind gets cold before sunrise"
+      }
     ],
     "packing": [
-      { "item": "Warm layers", "why": "Heavy jacket or windbreaker, beanie and gloves. Summit wind gets cold before sunrise." },
-      { "item": "Dust mask", "why": "A buff or mask protects your lungs from fine volcanic ash." },
-      { "item": "Comfy sneakers", "why": "Standard athletic shoes work great. Heavy mountaineering boots are not required." },
-      { "item": "Head lamp", "why": "It's pitch dark for most of the walk. Cold air drains batteries fast, so keep a power bank ready." }
+      {
+        "item": "Warm layers",
+        "why": "Heavy jacket or windbreaker, beanie and gloves. Summit wind gets cold before sunrise."
+      },
+      {
+        "item": "Dust mask",
+        "why": "A buff or mask protects your lungs from fine volcanic ash."
+      },
+      {
+        "item": "Comfy sneakers",
+        "why": "Standard athletic shoes work great. Heavy mountaineering boots are not required."
+      },
+      {
+        "item": "Head lamp",
+        "why": "It's pitch dark for most of the walk. Cold air drains batteries fast, so keep a power bank ready."
+      }
     ],
     "assessment": [
-      { "title": "The jeep does the heavy lifting", "body": "No technical climbing or heavy gear. A 4x4 jeep carries you almost all the way to the top viewpoints." },
-      { "title": "Flat sand, then stairs", "body": "From the jeep park it's flat sand, then concrete steps with handrails up to the crater rim. Pace yourself." },
-      { "title": "Chilly morning air", "body": "Pre-dawn temperatures drop to about 5°C. Staying warm and waking up at 2 AM are your biggest obstacles." }
+      {
+        "title": "The jeep does the heavy lifting",
+        "body": "No technical climbing or heavy gear. A 4x4 jeep carries you almost all the way to the top viewpoints."
+      },
+      {
+        "title": "Flat sand, then stairs",
+        "body": "From the jeep park it's flat sand, then concrete steps with handrails up to the crater rim. Pace yourself."
+      },
+      {
+        "title": "Chilly morning air",
+        "body": "Pre-dawn temperatures drop to about 5°C. Staying warm and waking up at 2 AM are your biggest obstacles."
+      }
     ],
     "gallery": [
-      { "src": "/mountains/bromo/penanjakan-sunrise.jpg", "caption": "Penanjakan sunrise" },
-      { "src": "/mountains/bromo/sea-of-sand.jpg", "caption": "Sea of Sand" },
-      { "src": "/mountains/bromo/sea-of-sand-jeep.jpg", "caption": "Jeep across the Sea of Sand" },
-      { "src": "/mountains/bromo/crater-stairs.jpg", "caption": "Stairs to Bromo crater" },
-      { "src": "/mountains/bromo/horse-ride.jpg", "caption": "Horseback below Mount Batok" },
-      { "src": "/mountains/bromo/pura-luhur-poten.jpg", "caption": "Pura Luhur Poten" },
-      { "src": "/mountains/bromo/kasada-procession.jpg", "caption": "Yadnya Kasada procession" },
-      { "src": "/mountains/bromo/kasada-offerings.jpg", "caption": "Kasada offerings at the crater rim" },
-      { "src": "/mountains/bromo/crater-ganesha.jpg", "caption": "Ganesha statue at the crater" }
+      {
+        "src": "/mountains/bromo/penanjakan-sunrise.jpg",
+        "caption": "Penanjakan sunrise"
+      },
+      {
+        "src": "/mountains/bromo/sea-of-sand.jpg",
+        "caption": "Sea of Sand"
+      },
+      {
+        "src": "/mountains/bromo/sea-of-sand-jeep.jpg",
+        "caption": "Jeep across the Sea of Sand"
+      },
+      {
+        "src": "/mountains/bromo/crater-stairs.jpg",
+        "caption": "Stairs to Bromo crater"
+      },
+      {
+        "src": "/mountains/bromo/horse-ride.jpg",
+        "caption": "Horseback below Mount Batok"
+      },
+      {
+        "src": "/mountains/bromo/pura-luhur-poten.jpg",
+        "caption": "Pura Luhur Poten"
+      },
+      {
+        "src": "/mountains/bromo/kasada-procession.jpg",
+        "caption": "Yadnya Kasada procession"
+      },
+      {
+        "src": "/mountains/bromo/kasada-offerings.jpg",
+        "caption": "Kasada offerings at the crater rim"
+      },
+      {
+        "src": "/mountains/bromo/crater-ganesha.jpg",
+        "caption": "Ganesha statue at the crater"
+      }
     ],
-    "sources": [{ "title": "Mount Bromo Sunrise Trek deck (Forest Guardian, 2026)" }]
+    "sources": [
+      {
+        "title": "Mount Bromo Sunrise Trek deck (Forest Guardian, 2026)"
+      }
+    ]
+  },
+  "semeru": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "Java's highest volcano, with a lake camp and a savanna on the way up.",
+    "highlights": [
+      {
+        "title": "The roof of Java",
+        "body": "Mahameru, the summit of Semeru, stands at 3,676 m. It is the highest point on Java and the top of the island's highest active volcano.",
+        "source": "https://www.indonesia.travel/us/en/destination/java/east-java/gunung-semeru"
+      },
+      {
+        "title": "Ranu Kumbolo lake camp",
+        "body": "A mountain lake inside Bromo Tengger Semeru National Park, about 4 hours' walk from Ranu Pani. Nights here are cold and frost is common.",
+        "source": "https://en.wikipedia.org/wiki/Ranu_Kumbolo"
+      },
+      {
+        "title": "Oro-oro Ombo savanna",
+        "body": "After the lake the trail crosses Oro-oro Ombo, a wide savanna that fills with purple verbena flowers in season.",
+        "source": "https://www.indonesia.travel/us/en/destination/java/east-java/gunung-semeru"
+      }
+    ],
+    "stats": [
+      {
+        "value": "3,676 m",
+        "label": "Summit elevation",
+        "note": "Highest point on Java"
+      },
+      {
+        "value": "30 km",
+        "label": "Round trip",
+        "note": "From Ranu Pani and back"
+      },
+      {
+        "value": "12–16 h",
+        "label": "Ascent time",
+        "note": "2 days recommended"
+      },
+      {
+        "value": "-5°C",
+        "label": "Summit temperature",
+        "note": "Expect frost at camp and freezing air on top"
+      }
+    ],
+    "packing": [
+      {
+        "item": "-5°C sleeping bag",
+        "why": "Summit temperatures reach -5°C and frost is common at Ranu Kumbolo at night."
+      },
+      {
+        "item": "Gaiters",
+        "why": "The final climb from Arcopodo is loose sand and scree that fills your boots."
+      },
+      {
+        "item": "Water filter",
+        "why": "Ranu Kumbolo lake water must be treated before you drink it."
+      },
+      {
+        "item": "Balaclava and gloves",
+        "why": "The summit push starts in the dark, in the coldest hours of the night."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "The summit push is the crux",
+        "body": "From Arcopodo the path is a 45° slope of loose sand and scree. Most hikers leave camp around 2 AM. Falls and rockfall are the main risks here."
+      },
+      {
+        "title": "Plan your water",
+        "body": "Treat water from Ranu Kumbolo. Above it, water is not reliable. Carry 4–5 L for the high camp and summit day."
+      },
+      {
+        "title": "This is an active volcano",
+        "body": "Semeru can erupt and the summit crater gives off toxic gas. Check the official status before you go and turn back if told to."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Indonesia Travel: Gunung Semeru",
+        "url": "https://www.indonesia.travel/us/en/destination/java/east-java/gunung-semeru"
+      },
+      {
+        "title": "Wikipedia: Ranu Kumbolo",
+        "url": "https://en.wikipedia.org/wiki/Ranu_Kumbolo"
+      },
+      {
+        "title": "Gunung Bagging: Semeru",
+        "url": "https://www.gunungbagging.com/semeru/"
+      },
+      {
+        "title": "Kompas: Semeru closed 7-18 Aug 2026",
+        "url": "https://surabaya.kompas.com/read/2026/07/02/185634978/pendakian-gunung-semeru-ditutup-7-18-agustus-2026-ini-alasannya"
+      },
+      {
+        "title": "Antara Jatim: Semeru closed after Ranu Kembang fire",
+        "url": "https://jatim.antaranews.com/berita/1093436/pendakian-semeru-ditutup-total-usai-kebakaran-di-blok-ranu-kembang"
+      },
+      {
+        "title": "Kompas: Semeru closed, 1,235 hikers affected",
+        "url": "https://surabaya.kompas.com/read/2026/08/31/153818278/gunung-semeru-ditutup-akibat-kebakaran-1235-pendaki-terdampak-bisa-refund"
+      },
+      {
+        "title": "Kompas Travel: Semeru and Bromo closure schedule 2026",
+        "url": "https://travel.kompas.com/read/2026/04/26/091000427/awas-kecele-ini-jadwal-penutupan-gunung-semeru-dan-gunung-bromo-2026"
+      }
+    ],
+    "unknown": []
+  },
+  "arjuno": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "A 3,339 m peak with a high meadow camp, twinned with sulfur-steaming Welirang.",
+    "highlights": [
+      {
+        "title": "Twin peaks with Welirang",
+        "body": "Arjuno (about 3,339 m) and Welirang (about 3,156 m) form one twin volcano complex, about 50 km south of Surabaya and 20 km north of Malang.",
+        "source": "https://en.wikipedia.org/wiki/Arjuno-Welirang"
+      },
+      {
+        "title": "Lalijiwo plateau camp",
+        "body": "Lalijiwo Plateau (Lembah Kijang) sits at 2,530 m below the summit. It is the usual camp on the Tretes route and has a water source.",
+        "source": "https://www.gunungbagging.com/arjuno/"
+      },
+      {
+        "title": "Old stone steps on Purwosari",
+        "body": "The Purwosari route passes many remains from the Majapahit era, including old stone steps and spiritual sites.",
+        "source": "https://www.eigeradventure.com/blog/jalur-pendakian-gunung-arjuno-via-purwosari/"
+      }
+    ],
+    "stats": [
+      {
+        "value": "3,339 m",
+        "label": "Summit elevation",
+        "note": "Higher of the Arjuno-Welirang twin peaks"
+      },
+      {
+        "value": "~24 km",
+        "label": "Round trip",
+        "note": "Long day or overnight trip"
+      },
+      {
+        "value": "8–10 h",
+        "label": "Ascent time",
+        "note": "Most hikers camp on the way up"
+      },
+      {
+        "value": "2,530 m",
+        "label": "Lalijiwo camp",
+        "note": "Meadow camp below the summit"
+      }
+    ],
+    "packing": [
+      {
+        "item": "Offline map or GPS",
+        "why": "Above Pos 2 the forest trail is easy to lose in fog."
+      },
+      {
+        "item": "Rain gear",
+        "why": "Fog is common and the trail gets slippery when wet."
+      },
+      {
+        "item": "0°C sleeping bag",
+        "why": "Nights and the summit are cold, and the ridge is exposed to wind."
+      },
+      {
+        "item": "3–4 L water capacity",
+        "why": "Springs are found at Pos 1–2 but are unreliable above Pos 3."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Fog is the main danger",
+        "body": "Above Pos 2 the forest path is easy to lose when fog rolls in. Stay together and check your map often."
+      },
+      {
+        "title": "Steep and long",
+        "body": "Expect steep climbs and 8–10 hours up. Most people split it over two days with a night at Lalijiwo."
+      },
+      {
+        "title": "Windy summit ridge",
+        "body": "The ridge near the top is open to wind and cold. Bring a warm layer even on a sunny day."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia: Arjuno-Welirang",
+        "url": "https://en.wikipedia.org/wiki/Arjuno-Welirang"
+      },
+      {
+        "title": "Gunung Bagging: Arjuno",
+        "url": "https://www.gunungbagging.com/arjuno/"
+      },
+      {
+        "title": "Eiger Adventure: Arjuno via Purwosari",
+        "url": "https://www.eigeradventure.com/blog/jalur-pendakian-gunung-arjuno-via-purwosari/"
+      },
+      {
+        "title": "Malang Times: Arjuno-Welirang reopens 26 Sep 2026",
+        "url": "https://malangtimes.com/baca/3331350819/20260924/125800/mulai-26-september-pendakian-arjuno-welirang-kembali-dibuka-pasca-karhutla"
+      },
+      {
+        "title": "IDN Times: mountains closed by forest fires, Sep 2026",
+        "url": "https://www.idntimes.com/travel/destination/daftar-gunung-yang-ditutup-akibat-karhutla-per-september-2026-00-mk1yf-lb5zkz"
+      }
+    ],
+    "unknown": []
+  },
+  "welirang": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "A working sulfur volcano, where miners still haul sulfur off the summit.",
+    "highlights": [
+      {
+        "title": "Named after sulfur",
+        "body": "Welirang means sulfur in Javanese. Below the 3,156 m summit an active crater still gives off sulfur smoke.",
+        "source": "https://www.catatankaki.org/2024/04/29/keindahan-belerang-di-gunung-welirang/"
+      },
+      {
+        "title": "Sulfur miners at work",
+        "body": "Miners carry loads of sulfur, often over 100 kg, from the summit down to Pondokan by cart. From there jeeps take it down the mountain.",
+        "source": "https://www.kompasiana.com/riza23050/6357fa04633ebc4a8f60e3d2/sejarah-para-penambang-belerang-di-gunung-welirang"
+      },
+      {
+        "title": "Twin of Arjuno",
+        "body": "Welirang is the sulfur-bearing half of the Arjuno-Welirang twin volcano, so many hikers climb both peaks on one trip.",
+        "source": "https://en.wikipedia.org/wiki/Arjuno-Welirang"
+      }
+    ],
+    "stats": [
+      {
+        "value": "3,156 m",
+        "label": "Summit elevation",
+        "note": "Active crater just below the top"
+      },
+      {
+        "value": "~20 km",
+        "label": "Round trip",
+        "note": "Usually from Tretes"
+      },
+      {
+        "value": "7–9 h",
+        "label": "Ascent time",
+        "note": "Rocky scramble near the summit"
+      },
+      {
+        "value": "3–4 L",
+        "label": "Water to carry",
+        "note": "No water near the summit"
+      }
+    ],
+    "packing": [
+      {
+        "item": "Mask or bandana",
+        "why": "The sulfur mining area has toxic fumes. Cover your nose and mouth and do not linger."
+      },
+      {
+        "item": "Rain gear",
+        "why": "Dense fog is common on this mountain."
+      },
+      {
+        "item": "0°C sleeping bag",
+        "why": "It gets cold at camp and on the summit."
+      },
+      {
+        "item": "Trekking poles",
+        "why": "Steep, rocky sections near the top are hard on knees and balance."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Move fast through the fumes",
+        "body": "Sulfur gas near the crater and mining area is toxic. Walk through without stopping, and turn back if the wind blows it onto the trail."
+      },
+      {
+        "title": "Rocky last stretch",
+        "body": "The final climb is a rocky scramble. Take it slow and keep three points of contact where it gets steep."
+      },
+      {
+        "title": "Carry your water",
+        "body": "Springs are only on the lower trail. Fill up there, since there is no water near the summit."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Catatan Kaki: Keindahan Belerang di Gunung Welirang",
+        "url": "https://www.catatankaki.org/2024/04/29/keindahan-belerang-di-gunung-welirang/"
+      },
+      {
+        "title": "Kompasiana: Sejarah Para Penambang Belerang di Gunung Welirang",
+        "url": "https://www.kompasiana.com/riza23050/6357fa04633ebc4a8f60e3d2/sejarah-para-penambang-belerang-di-gunung-welirang"
+      },
+      {
+        "title": "Wikipedia: Arjuno-Welirang",
+        "url": "https://en.wikipedia.org/wiki/Arjuno-Welirang"
+      },
+      {
+        "title": "Cozzy.id: Wisata Pendakian Gunung Welirang",
+        "url": "https://cozzy.id/en/news/wisata-pendakian-gunung-welirang-jalur-daya-tarik-dan-tips-pendakian"
+      },
+      {
+        "title": "Malang Times: Arjuno-Welirang reopens 26 Sep 2026",
+        "url": "https://malangtimes.com/baca/3331350819/20260924/125800/mulai-26-september-pendakian-arjuno-welirang-kembali-dibuka-pasca-karhutla"
+      }
+    ],
+    "unknown": []
+  },
+  "raung": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "A remote volcano with a huge caldera and a knife-edge rim to the true summit.",
+    "highlights": [
+      {
+        "title": "A 2 km wide caldera",
+        "body": "Raung is one of Java's most active volcanoes. Its summit caldera is about 2 km wide and 500 m deep, ringed by a grey rim.",
+        "source": "https://en.wikipedia.org/wiki/Raung"
+      },
+      {
+        "title": "Puncak Sejati, the true top",
+        "body": "The highest point of the rim, Puncak Sejati, is reached from Kalibaru. It takes 3 long days and includes short sections of roped rock climbing.",
+        "source": "https://www.gunungbagging.com/raung/"
+      },
+      {
+        "title": "Razor-thin ridge",
+        "body": "The Kalibaru route crosses the narrow Sirothol Mustaqim ridge and sheer rock faces where hikers use ropes and harnesses.",
+        "source": "https://kelilingnusantara.com/hiking-mount-raung-the-complete-guide-to-one-of-javas-most-extreme-volcano-expeditions/"
+      }
+    ],
+    "stats": [
+      {
+        "value": "3,332 m",
+        "label": "Summit elevation",
+        "note": "Puncak Sejati, highest point of the rim"
+      },
+      {
+        "value": "~36 km",
+        "label": "Round trip",
+        "note": "A true multi-day expedition"
+      },
+      {
+        "value": "14–18 h",
+        "label": "Ascent time",
+        "note": "Spread over 2–3 days"
+      },
+      {
+        "value": "5–6 L",
+        "label": "Water to carry",
+        "note": "Only reliable spring is at Pos 1"
+      }
+    ],
+    "packing": [
+      {
+        "item": "Helmet",
+        "why": "Rockfall is a real risk on the rim and the technical sections."
+      },
+      {
+        "item": "Harness and rope",
+        "why": "The route to Puncak Sejati has short roped climbing sections."
+      },
+      {
+        "item": "-5°C sleeping bag",
+        "why": "Nights are cold and the ridge takes extreme wind."
+      },
+      {
+        "item": "5–6 L water capacity",
+        "why": "Water is reliable only at Pos 1. Carry enough for the rest of the climb."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Not for beginners",
+        "body": "The crater rim has 300 m+ drops on both sides and needs rope work. Go only with experienced guides and real climbing skills."
+      },
+      {
+        "title": "Two routes, two goals",
+        "body": "The Sumber Wringin route from the north reaches the rim. Only the Kalibaru route goes on to Puncak Sejati, the true summit."
+      },
+      {
+        "title": "Wind and isolation",
+        "body": "There is no phone signal above Pos 1. Avoid the rainy season, when wind on the rim is extreme."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia: Raung",
+        "url": "https://en.wikipedia.org/wiki/Raung"
+      },
+      {
+        "title": "Gunung Bagging: Raung – Puncak Sejati",
+        "url": "https://www.gunungbagging.com/raung/"
+      },
+      {
+        "title": "Keliling Nusantara: Hiking Mount Raung complete guide",
+        "url": "https://kelilingnusantara.com/hiking-mount-raung-the-complete-guide-to-one-of-javas-most-extreme-volcano-expeditions/"
+      },
+      {
+        "title": "Volcano Live: Raung",
+        "url": "https://volcanolive.com/raung.html"
+      },
+      {
+        "title": "Mounture: Raung via Kalibaru reopens 14 Sep 2026",
+        "url": "https://mounture.com/berita/jalur-pendakian-gunung-raung-via-kalibaru-dibuka-kembali-14-september-2026/"
+      },
+      {
+        "title": "Mounture: Raung via Kalibaru closed from 3 Mar 2026",
+        "url": "https://mounture.com/berita/jalur-pendakian-gunung-raung-via-kalibaru-ditutup-sementara-mulai-3-maret-2026/"
+      },
+      {
+        "title": "Mounture: Raung via Sumberwringin closed until 25 Mar 2026",
+        "url": "https://mounture.com/berita/jalur-pendakian-gunung-raung-via-sumberwringin-ditutup-sementara-hingga-25-maret-2026/"
+      }
+    ],
+    "unknown": []
+  },
+  "argopuro": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "Java's longest hiking trail: days of forest, savanna and old temple ruins.",
+    "highlights": [
+      {
+        "title": "Longest trail in Java",
+        "body": "Argopuro is known for the longest hiking route on Java. The two main routes start from Bremi and Baderan, and Baderan is gentler but longer.",
+        "source": "https://www.eigeradventure.com/blog/profil-gunung-argopuro-gunung-paling-lama-didaki-di-indonesia/"
+      },
+      {
+        "title": "Temple ruins on Rengganis",
+        "body": "Rengganis peak (3,059 m), next to the 3,088 m Argopuro summit, holds the ruins of a Hindu temple. The rock is sulfurous and the smell is strong.",
+        "source": "https://www.gunungbagging.com/argopuro/"
+      },
+      {
+        "title": "Danau Taman Hidup",
+        "body": "Hikers on the Bremi route pass Danau Taman Hidup, a lake at about 1,980 m in the Hyang Highland Wildlife Sanctuary.",
+        "source": "https://mounture.com/cerita-petualang/danau-taman-hidup-gunung-argopuro-pesona-alam-hingga-legenda-dewi-rengganis/"
+      }
+    ],
+    "stats": [
+      {
+        "value": "3,088 m",
+        "label": "Summit elevation",
+        "note": "Puncak Argopuro, highest of three peaks"
+      },
+      {
+        "value": "~30 km",
+        "label": "One-way traverse",
+        "note": "~40 km if you return the same way"
+      },
+      {
+        "value": "18–24 h",
+        "label": "Ascent time",
+        "note": "Spread over a 3–4 day traverse"
+      },
+      {
+        "value": "2–3 L",
+        "label": "Water per day",
+        "note": "Carry 3+ days of water capacity"
+      }
+    ],
+    "packing": [
+      {
+        "item": "Water purifier",
+        "why": "Water near Rengganis is sulfurous and must be filtered carefully."
+      },
+      {
+        "item": "GPS device",
+        "why": "Forest between Pos 1 and Pos 3 is easy to get lost in, and there is no signal on the whole trail."
+      },
+      {
+        "item": "3–4 days of food",
+        "why": "This is a multi-day traverse with no resupply on the trail."
+      },
+      {
+        "item": "-5°C sleeping bag",
+        "why": "Several cold nights at altitude on the plateau."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "An endurance test",
+        "body": "Plan 3–4 days on the trail. Food, water and pacing matter more than speed."
+      },
+      {
+        "title": "You are on your own",
+        "body": "There is no phone signal on the entire trail. Leave your plan with someone and carry a GPS."
+      },
+      {
+        "title": "Gas near Rengganis",
+        "body": "The Rengganis area has pockets of sulfurous gas. Do not camp in low hollows there."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Eiger Adventure: Profil Gunung Argopuro",
+        "url": "https://www.eigeradventure.com/blog/profil-gunung-argopuro-gunung-paling-lama-didaki-di-indonesia/"
+      },
+      {
+        "title": "Gunung Bagging: Argopuro",
+        "url": "https://www.gunungbagging.com/argopuro/"
+      },
+      {
+        "title": "Mounture: Danau Taman Hidup Gunung Argopuro",
+        "url": "https://mounture.com/cerita-petualang/danau-taman-hidup-gunung-argopuro-pesona-alam-hingga-legenda-dewi-rengganis/"
+      },
+      {
+        "title": "Kompas: Argopuro registration halted 1 Sep 2026",
+        "url": "https://surabaya.kompas.com/read/2026/09/02/211924978/antisipasi-karhutla-pendaftaran-pendakian-gunung-argopuro-dihentikan-1"
+      }
+    ],
+    "unknown": []
+  },
+  "ijen": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "A short pre-dawn hike to the world's largest acidic crater lake.",
+    "highlights": [
+      {
+        "title": "The largest acid lake",
+        "body": "Kawah Ijen holds the world's largest highly acidic lake. Its turquoise water has a pH as low as 0.5, about as strong as battery acid.",
+        "source": "https://geology.com/volcanoes/kawah-ijen/"
+      },
+      {
+        "title": "Blue fire",
+        "body": "The blue flames are sulfur gases that catch fire as they escape from cracks and meet the air. They are not blue lava.",
+        "source": "https://www.nationalgeographic.com/science/article/140130-kawah-ijen-blue-flame-volcanoes-sulfur-indonesia-pictures"
+      },
+      {
+        "title": "Sulfur miners",
+        "body": "Miners work through the night, breaking yellow sulfur off the crater floor with metal poles, often with only a wet cloth against the fumes.",
+        "source": "https://www.nationalgeographic.com/science/article/140130-kawah-ijen-blue-flame-volcanoes-sulfur-indonesia-pictures"
+      }
+    ],
+    "stats": [
+      {
+        "value": "2,799 m",
+        "label": "Crater elevation",
+        "note": "Cold before dawn, so bring a warm layer"
+      },
+      {
+        "value": "~6 km",
+        "label": "Round trip",
+        "note": "Plus about 1 km down into the crater"
+      },
+      {
+        "value": "1.5–2 h",
+        "label": "Ascent time",
+        "note": "Wide path that gets steeper near the top"
+      },
+      {
+        "value": "1–2 L",
+        "label": "Water to carry",
+        "note": "No water on the trail"
+      }
+    ],
+    "packing": [
+      {
+        "item": "Gas mask",
+        "why": "Sulfur gas in the crater can spike suddenly when the wind shifts, and it can be lethal."
+      },
+      {
+        "item": "Headlamp",
+        "why": "The hike starts in the dark, around 1–3 AM."
+      },
+      {
+        "item": "Warm jacket and gloves",
+        "why": "The rim is cold in the hours before sunrise."
+      },
+      {
+        "item": "Shoes with good grip",
+        "why": "The path into the crater is steep, rocky and slippery, with no barriers."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Easy to the rim",
+        "body": "The path from Paltuding is about 3 km with 500 m of climbing. No technical skills are needed, but the top part is steep."
+      },
+      {
+        "title": "The crater is the risky part",
+        "body": "Gas levels inside the crater can rise fast. Keep your mask on, follow ranger instructions and turn back if it gets hard to breathe."
+      },
+      {
+        "title": "Blue fire is not guaranteed",
+        "body": "Since 2025 the big blue flames are rarely seen, and access to the lower crater has been limited. Go for the lake and sunrise."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Geology.com: Kawah Ijen",
+        "url": "https://geology.com/volcanoes/kawah-ijen/"
+      },
+      {
+        "title": "Wikipedia: Ijen",
+        "url": "https://en.wikipedia.org/wiki/Ijen"
+      },
+      {
+        "title": "National Geographic: Electric-blue flames",
+        "url": "https://www.nationalgeographic.com/science/article/140130-kawah-ijen-blue-flame-volcanoes-sulfur-indonesia-pictures"
+      },
+      {
+        "title": "Backindo: Kawah Ijen guide 2026",
+        "url": "https://www.backindo.com/ijen-crater-guide/"
+      },
+      {
+        "title": "Panorama Lens Trip: Ijen blue fire temporarily closed",
+        "url": "https://panoramalenstrip.com/ijen-blue-fire-temporarily-closed-travel-update/"
+      },
+      {
+        "title": "Ijen Expedition Tour: Ijen reopens 26 Feb 2026",
+        "url": "https://ijenexpeditiontour.com/mount-ijen-reopens-february-26-2026-official-update/"
+      },
+      {
+        "title": "Ijen Plateau: Ijen closed to visitors 2026",
+        "url": "https://ijenplateau.com/mt-ijen-crater-is-closed-to-visitors-2025/"
+      },
+      {
+        "title": "IDN Times: mountains closed by forest fires, Sep 2026",
+        "url": "https://www.idntimes.com/travel/destination/daftar-gunung-yang-ditutup-akibat-karhutla-per-september-2026-00-mk1yf-lb5zkz"
+      }
+    ],
+    "unknown": []
+  },
+  "penanggungan": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "A short climb up a sacred mountain lined with centuries-old temple sites.",
+    "highlights": [
+      {
+        "title": "Over 130 old sites",
+        "body": "In 2013 a Ubaya survey team counted 131 archaeological sites here: temples, bathing places, cave hermitages, walls and old roads.",
+        "source": "https://core.ac.uk/download/288223904.pdf"
+      },
+      {
+        "title": "A sacred mountain",
+        "body": "Known as Pawitra, the mountain has been sacred since the 10th century and was a spiritual heartland of the Majapahit empire.",
+        "source": "https://lifeasartasia.art/2026/06/29/javanese-sacred-sites-in-danger-ring-of-pawitra-a-fascinating-yet-poignant-community-art-research-project-highlights-artjog-2026/"
+      },
+      {
+        "title": "Close to Surabaya",
+        "body": "At 1,653 m, Penanggungan sits about 50 km south of Surabaya, so it works as a day trip from the city.",
+        "source": "https://core.ac.uk/download/288223904.pdf"
+      }
+    ],
+    "stats": [
+      {
+        "value": "1,653 m",
+        "label": "Summit elevation",
+        "note": "A small peak with a big history"
+      },
+      {
+        "value": "~10 km",
+        "label": "Round trip",
+        "note": "Doable in a day"
+      },
+      {
+        "value": "3–4 h",
+        "label": "Ascent time",
+        "note": "Rocky near the top"
+      },
+      {
+        "value": "2 L",
+        "label": "Water to carry",
+        "note": "Little shade on the upper trail"
+      }
+    ],
+    "packing": [
+      {
+        "item": "Rain jacket",
+        "why": "The trail gets slippery in the wet season."
+      },
+      {
+        "item": "Sun hat",
+        "why": "The upper section has little shade."
+      },
+      {
+        "item": "2 L of water",
+        "why": "Springs are only near the lower pos, so carry your own."
+      },
+      {
+        "item": "Shoes with good grip",
+        "why": "The rocky section near the summit has loose stones."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "A good first real climb",
+        "body": "The trail is short and has phone signal at most points. The hardest part is the loose, rocky stretch near the top."
+      },
+      {
+        "title": "Heat, not cold",
+        "body": "The upper trail is open and hot. Start early and carry enough water."
+      },
+      {
+        "title": "Respect the ruins",
+        "body": "Many old sites are along or near the trail. Do not climb on them, move stones or leave rubbish."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Penanggungan Mountain: Economic Improvement Through the Preservation of Archaeological Sites (PDF)",
+        "url": "https://core.ac.uk/download/288223904.pdf"
+      },
+      {
+        "title": "Life as Art Asia: Ring of Pawitra, ArtJog 2026",
+        "url": "https://lifeasartasia.art/2026/06/29/javanese-sacred-sites-in-danger-ring-of-pawitra-a-fascinating-yet-poignant-community-art-research-project-highlights-artjog-2026/"
+      },
+      {
+        "title": "Ubaya: Ada Ratusan Situs, Penanggungan Layak Mendunia",
+        "url": "https://www.ubaya.ac.id/2016/04/14/ada-ratusan-situs-penanggungan-layak-mendunia/"
+      },
+      {
+        "title": "Jelajahlagi: Info buka tutup jalur pendakian 2026",
+        "url": "https://www.jelajahlagi.id/2021/04/update-info-buka-tutup-jalur-pendakian-gunung.html"
+      }
+    ],
+    "unknown": []
+  },
+  "panderman": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "A short, steep climb above Batu with wide views of Arjuno and Welirang.",
+    "highlights": [
+      {
+        "title": "A beginner's mountain",
+        "body": "Panderman rises above Kota Batu, with its main peak Basundara at 2,045 m. It is known as a good climb for beginners and weekend hikers.",
+        "source": "https://id.wikipedia.org/wiki/Gunung_Panderman"
+      },
+      {
+        "title": "Views from Basundara",
+        "body": "From Puncak Basundara you can see Kota Batu, Gunung Arjuno, Gunung Welirang and Gunung Banyak.",
+        "source": "https://www.traveloka.com/id-id/explore/destination/gunung-panderman-destinasi-pendakian/1007425"
+      },
+      {
+        "title": "Camp at Latar Ombo",
+        "body": "The trail climbs through pine forest to Latar Ombo, a clearing about 2–3 hours up where many hikers rest or pitch tents.",
+        "source": "https://www.traveloka.com/id-id/explore/destination/gunung-panderman-destinasi-pendakian/1007425"
+      }
+    ],
+    "stats": [
+      {
+        "value": "2,045 m",
+        "label": "Summit elevation",
+        "note": "Puncak Basundara"
+      },
+      {
+        "value": "~8 km",
+        "label": "Round trip",
+        "note": "A half-day hike"
+      },
+      {
+        "value": "2–3 h",
+        "label": "Ascent time",
+        "note": "Steepest part is the final push"
+      },
+      {
+        "value": "1.5 L",
+        "label": "Water to carry",
+        "note": "Bring your own"
+      }
+    ],
+    "packing": [
+      {
+        "item": "1.5 L of water",
+        "why": "Carry your own water for the climb."
+      },
+      {
+        "item": "Sun hat and sunscreen",
+        "why": "Open sections get strong sun. Start early to avoid the heat."
+      },
+      {
+        "item": "Light jacket",
+        "why": "The summit can be windy and cold."
+      },
+      {
+        "item": "Rain jacket",
+        "why": "Mountain weather changes fast and the trail is slippery when wet."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Short but steep",
+        "body": "The last 30 minutes from Watu Gede to the summit are very steep. Use your hands and go slowly."
+      },
+      {
+        "title": "Go early",
+        "body": "Start in the early morning to beat the sun on open sections and reach the top while the sky is clear."
+      },
+      {
+        "title": "Slippery after rain",
+        "body": "The trail turns slippery when wet. Avoid the heavy-rain months of December to February."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia (ID): Gunung Panderman",
+        "url": "https://id.wikipedia.org/wiki/Gunung_Panderman"
+      },
+      {
+        "title": "Traveloka: Gunung Panderman Batu",
+        "url": "https://www.traveloka.com/id-id/explore/destination/gunung-panderman-destinasi-pendakian/1007425"
+      },
+      {
+        "title": "Smartine: Climbing Mount Panderman",
+        "url": "https://smartine-indonesiatravel.com/en/your-tour/long-tours/take-a-break?id=134"
+      },
+      {
+        "title": "Kompas: Buthak, Panderman and Bokong closed",
+        "url": "https://surabaya.kompas.com/read/2026/09/01/190410778/gunung-buthak-panderman-dan-bokong-ditutup-sementara-pendaki-bisa-ajukan"
+      },
+      {
+        "title": "Disway Malang: Panderman still fully closed",
+        "url": "https://malang.disway.id/malang-melintang/read/22580/kebakaran-gunung-kawi-meluas-jalur-pendakian-panderman-masih-ditutup-total"
+      }
+    ],
+    "unknown": []
+  },
+  "butak": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "The high point of the Kawi massif, crowned by a wide summit savanna.",
+    "highlights": [
+      {
+        "title": "Wide summit savanna",
+        "body": "Near the summit a broad savanna opens up where the Panderman route ends. It is roomy enough for camping.",
+        "source": "https://www.orami.co.id/magazine/gunung-butak"
+      },
+      {
+        "title": "Four ways up",
+        "body": "Routes start from Gunung Panderman, Batu, the Sirah Kencong tea estate in Blitar, and Desa Wonosari. Wonosari is the longest.",
+        "source": "https://astacala.org/2016/09/gunung-butak-2868-mdpl-via-wonosari/"
+      },
+      {
+        "title": "Top of the Kawi massif",
+        "body": "At 2,868 m, Butak is the higher of the Kawi-Butak twin stratovolcanoes, on the border of Malang and Blitar.",
+        "source": "https://en.wikipedia.org/wiki/Mount_Butak"
+      }
+    ],
+    "stats": [
+      {
+        "value": "2,868 m",
+        "label": "Summit elevation",
+        "note": "Highest point of the Kawi-Butak massif"
+      },
+      {
+        "value": "~20 km",
+        "label": "Round trip",
+        "note": "Long traverse with no easy way down"
+      },
+      {
+        "value": "7–9 h",
+        "label": "Ascent time",
+        "note": "Most hikers camp on the savanna"
+      },
+      {
+        "value": "4–5 L",
+        "label": "Water to carry",
+        "note": "No water on the Sirah Kencong route"
+      }
+    ],
+    "packing": [
+      {
+        "item": "Windproof jacket",
+        "why": "The ridge is exposed to wind and weather, with no shelter."
+      },
+      {
+        "item": "4 L+ water capacity",
+        "why": "Water is limited, and the Sirah Kencong route has none at all."
+      },
+      {
+        "item": "0°C sleeping bag",
+        "why": "Nights on the open savanna are cold."
+      },
+      {
+        "item": "Headlamp",
+        "why": "Long traverse days and pre-dawn starts for sunrise."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Exposed ridge",
+        "body": "The ridge between Panderman and Butak has no shelter from wind or lightning. Turn back if storms build."
+      },
+      {
+        "title": "Dry season only",
+        "body": "Climb between May and September. In rain the ridge becomes too dangerous."
+      },
+      {
+        "title": "Water depends on route",
+        "body": "Carry all your water on the Sirah Kencong route. On the Panderman route, ask at basecamp about water on the savanna."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Orami: Gunung Butak",
+        "url": "https://www.orami.co.id/magazine/gunung-butak"
+      },
+      {
+        "title": "Astacala: Gunung Butak via Wonosari",
+        "url": "https://astacala.org/2016/09/gunung-butak-2868-mdpl-via-wonosari/"
+      },
+      {
+        "title": "Wikipedia: Mount Butak",
+        "url": "https://en.wikipedia.org/wiki/Mount_Butak"
+      },
+      {
+        "title": "Manusia Lembah: Butak via Sirah Kencong",
+        "url": "https://www.manusialembah.com/2015/03/pendakian-gnbuthak-2868-mpdl-sirah.html"
+      },
+      {
+        "title": "Kompas: Buthak, Panderman and Bokong closed",
+        "url": "https://surabaya.kompas.com/read/2026/09/01/190410778/gunung-buthak-panderman-dan-bokong-ditutup-sementara-pendaki-bisa-ajukan"
+      },
+      {
+        "title": "Teropong Rakyat: Kawi fire reaches 1,534 ha",
+        "url": "https://teropongrakyat.co/kebakaran-gunung-kawi-capai-1-534-hektare-tim-gabungan-terus-pantau-dan-lakukan-pendinginan/"
+      },
+      {
+        "title": "Suara: Karhutla di Kawi-Butak",
+        "url": "https://yoursay.suara.com/news/2026/09/20/095000/memahami-bencana-karhutla-di-kawi-butak-saat-eksotisme-alam-berubah-jadi-tantangan-berbahaya"
+      }
+    ],
+    "unknown": []
+  },
+  "kawi": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "A quiet forest climb on the body of the 'sleeping princess' beside Butak.",
+    "highlights": [
+      {
+        "title": "Twin of Butak",
+        "body": "Kawi (2,551 m) and its higher neighbour Butak (2,868 m) form the Kawi-Butak twin stratovolcano complex in East Java.",
+        "source": "https://en.wikipedia.org/wiki/Mount_Kawi"
+      },
+      {
+        "title": "The sleeping princess",
+        "body": "Seen from afar, the massif looks like a sleeping woman: Kawi forms the body and Butak the head on the west side.",
+        "source": "https://astacala.org/2016/07/mengusap-ubun-ubun-sang-putri-tidur/"
+      }
+    ],
+    "stats": [
+      {
+        "value": "2,551 m",
+        "label": "Summit elevation",
+        "note": "Lower twin of Butak"
+      },
+      {
+        "value": "~14 km",
+        "label": "Round trip",
+        "note": "A long day or one night out"
+      },
+      {
+        "value": "5–7 h",
+        "label": "Ascent time",
+        "note": "Mostly dense forest"
+      },
+      {
+        "value": "3 L",
+        "label": "Water to carry",
+        "note": "Springs unreliable above Pos 2"
+      }
+    ],
+    "packing": [
+      {
+        "item": "GPS or offline map",
+        "why": "The forest trail is poorly marked and easy to lose."
+      },
+      {
+        "item": "Rain gear",
+        "why": "The summit approach is steep and slippery, worse when wet."
+      },
+      {
+        "item": "Warm layer",
+        "why": "The summit is cold and windy."
+      },
+      {
+        "item": "3 L water capacity",
+        "why": "Springs are only lower down and are unreliable above Pos 2."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Navigation is the challenge",
+        "body": "Trail markers are few in the forest. Go with someone who knows the route, and track your position."
+      },
+      {
+        "title": "Steep, slippery top",
+        "body": "The final approach to the summit is steep. Take extra care after rain."
+      },
+      {
+        "title": "Check fire status first",
+        "body": "Large fires hit the Kawi-Butak massif in 2026. Confirm the route is open before you plan a trip."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia: Mount Kawi",
+        "url": "https://en.wikipedia.org/wiki/Mount_Kawi"
+      },
+      {
+        "title": "Astacala: Mengusap Ubun-ubun Sang Putri Tidur",
+        "url": "https://astacala.org/2016/07/mengusap-ubun-ubun-sang-putri-tidur/"
+      },
+      {
+        "title": "Astacala: Gunung Butak via Wonosari",
+        "url": "https://astacala.org/2016/09/gunung-butak-2868-mdpl-via-wonosari/"
+      },
+      {
+        "title": "Unpam: Ekspedisi Gunung Kawi 2603 mdpl & Butak",
+        "url": "https://kemahasiswaan.unpam.ac.id/ekspedisi-rimba-gunung-angkatan-xiv-gunung-kawi-2603-mdpl-butak-2868-mdpl/"
+      },
+      {
+        "title": "Cozzy.id: Panduan pendakian Gunung Kawi",
+        "url": "https://cozzy.id/news/panduan-lengkap-pendakian-gunung-kawi-malang-rute-mitos-dan-tips-berwisata"
+      },
+      {
+        "title": "Beritajatim: Kawi via Sirah Kencong still closed",
+        "url": "https://beritajatim.com/kebakaran-padam-jalur-pendakian-gunung-kawi-via-sirah-kencong-blitar-masih-ditutup"
+      },
+      {
+        "title": "Persada Blitar: Kawi via Sirah Kencong closed 2x24 h",
+        "url": "https://persadablitar.id/imbas-kebakaran-hutan-gunung-kawi-jalur-pendakian-via-sirah-kencong-blitar-ditutup-2-x-24-jam/"
+      },
+      {
+        "title": "Teropong Rakyat: Kawi fire reaches 1,534 ha",
+        "url": "https://teropongrakyat.co/kebakaran-gunung-kawi-capai-1-534-hektare-tim-gabungan-terus-pantau-dan-lakukan-pendinginan/"
+      }
+    ],
+    "unknown": []
+  },
+  "anjasmoro": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "A forested range of about 40 peaks, protected as a conservation area.",
+    "highlights": [
+      {
+        "title": "About 40 peaks",
+        "body": "The Anjasmoro range has about 40 peaks and spreads across Jombang, Kediri, Mojokerto, Malang and Batu.",
+        "source": "https://www.detik.com/jatim/wisata/d-7420730/7-fakta-menarik-pegunungan-anjasmoro-yang-memiliki-40-puncak"
+      },
+      {
+        "title": "A protected forest",
+        "body": "Anjasmoro sits inside Tahura Raden Soerjo, a conservation forest set up to protect its plants, animals and water catchment.",
+        "source": "https://travel.kompas.com/read/2022/02/19/180600327/gunung-anjasmoro-di-jawa-timur-bukan-untuk-pendakian-ini-alasannya"
+      }
+    ],
+    "stats": [
+      {
+        "value": "2,282 m",
+        "label": "Highest point",
+        "note": "Tallest of about 40 peaks in the range"
+      },
+      {
+        "value": "~40",
+        "label": "Peaks in the range",
+        "note": "Spread over five regencies and cities"
+      }
+    ],
+    "packing": [],
+    "assessment": [
+      {
+        "title": "Few trail markers",
+        "body": "Trails have few clear markers, push through deep wet brush, and cross steep, rugged ground. Getting lost is a real risk."
+      }
+    ],
+    "sources": [
+      {
+        "title": "detikJatim: 7 fakta Pegunungan Anjasmoro (40 puncak)",
+        "url": "https://www.detik.com/jatim/wisata/d-7420730/7-fakta-menarik-pegunungan-anjasmoro-yang-memiliki-40-puncak"
+      },
+      {
+        "title": "detikTravel: Anjasmoro punya 40 puncak, tapi tak boleh didaki",
+        "url": "https://travel.detik.com/domestic-destination/d-7441671/tahukah-kamu-pegunungan-anjasmoro-punya-40-puncak-tapi-tak-boleh-didaki"
+      },
+      {
+        "title": "Kompas Travel: Gunung Anjasmoro bukan untuk pendakian (2022)",
+        "url": "https://travel.kompas.com/read/2022/02/19/180600327/gunung-anjasmoro-di-jawa-timur-bukan-untuk-pendakian-ini-alasannya"
+      },
+      {
+        "title": "Suara Mojokerto: Pendakian Gunung Anjasmoro ditutup (2022)",
+        "url": "https://suaramojokerto.com/2022/02/18/masuk-wilayah-konservasi-pendakian-gunung-anjasmoro-ditutup/"
+      },
+      {
+        "title": "beritajatim: Pendakian Bukit Cendono ditutup akibat kebakaran",
+        "url": "https://beritajatim.com/pendakian-bukit-cendono-ditutup-sementara-akibat-kebakaran-hutan"
+      }
+    ],
+    "unknown": [
+      "packing"
+    ]
+  },
+  "wilis": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "A dormant volcano range with coffee farms low down and misty forest above.",
+    "highlights": [
+      {
+        "title": "Sleeping volcano",
+        "body": "Wilis has not erupted in historic times, but hot springs and warm ground water show there is still heat below.",
+        "source": "https://en.wikipedia.org/wiki/Mount_Wilis"
+      },
+      {
+        "title": "Coffee farms and fog",
+        "body": "On the Kare route, the first post is a coffee plantation. Thin fog often covers the slopes in the morning.",
+        "source": "https://www.detik.com/jatim/wisata/d-7592037/4-fakta-menarik-gunung-wilis-surga-tersembunyi-bagi-pendaki"
+      },
+      {
+        "title": "A road in history",
+        "body": "General Sudirman crossed the Wilis area during the independence war, before the battle of 11 March 1949.",
+        "source": "https://www.liputan6.com/lifestyle/read/5434100/6-fakta-menarik-gunung-wilis-yang-sempat-dilalui-jenderal-sudirman-sebelum-pertempuran-11-maret-1949"
+      }
+    ],
+    "stats": [
+      {
+        "value": "5-7 h",
+        "label": "Ascent time",
+        "note": "Plus 4-5 h to come back down"
+      },
+      {
+        "value": "~16-20 km",
+        "label": "Round trip",
+        "note": "Depends on the route you pick"
+      },
+      {
+        "value": "3-4 L",
+        "label": "Water to carry",
+        "note": "Springs only low down; carry your own higher up"
+      },
+      {
+        "value": "May-Oct",
+        "label": "Best months",
+        "note": "Dry season, firmer trails"
+      }
+    ],
+    "packing": [
+      {
+        "item": "GPS or offline map",
+        "why": "Several peaks sit on one ridge and fog rolls in. It is easy to head for the wrong top."
+      },
+      {
+        "item": "3-4 L of water",
+        "why": "Springs are only at lower elevations. Carry your own for the upper sections."
+      },
+      {
+        "item": "Warm layer",
+        "why": "Nights on the ridge get cold, especially if you camp."
+      },
+      {
+        "item": "Rain jacket",
+        "why": "Dense fog and damp forest will soak you, even outside the rainy season."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Navigation is the challenge",
+        "body": "The range has many peaks. On the ridge between them, in fog, you need a track to follow and should check it often."
+      },
+      {
+        "title": "Quiet trails",
+        "body": "Few people hike here. Tell someone your route. Phone signal fades at lower elevations and is gone near the top."
+      },
+      {
+        "title": "Moderate but long",
+        "body": "Some sections are steep. Plan 5-7 hours up and 4-5 hours down."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia: Mount Wilis",
+        "url": "https://en.wikipedia.org/wiki/Mount_Wilis"
+      },
+      {
+        "title": "detikJatim: 4 fakta menarik Gunung Wilis",
+        "url": "https://www.detik.com/jatim/wisata/d-7592037/4-fakta-menarik-gunung-wilis-surga-tersembunyi-bagi-pendaki"
+      },
+      {
+        "title": "Liputan6: Gunung Wilis dan Jenderal Sudirman",
+        "url": "https://www.liputan6.com/lifestyle/read/5434100/6-fakta-menarik-gunung-wilis-yang-sempat-dilalui-jenderal-sudirman-sebelum-pertempuran-11-maret-1949"
+      },
+      {
+        "title": "Gunung Bagging: Gunung Liman (Liman, Limas, Wilis peaks)",
+        "url": "https://www.gunungbagging.com/liman/"
+      }
+    ],
+    "unknown": []
+  },
+  "liman": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "The highest point of the Wilis range, reached by long, quiet forest trails.",
+    "highlights": [
+      {
+        "title": "Top of the Wilis range",
+        "body": "Liman, also called Trogati or Ngliman, is the highest peak of the Wilis range at 2,563 m.",
+        "source": "https://www.liputan6.com/lifestyle/read/5518181/6-fakta-menarik-gunung-liman-bagian-dari-deretan-pegunungan-wilis-di-nganjuk-jawa-timur"
+      },
+      {
+        "title": "Where five paths meet",
+        "body": "The name is said to come from the Javanese 'proliman', a meeting of five paths or five areas.",
+        "source": "https://www.liputan6.com/lifestyle/read/5518181/6-fakta-menarik-gunung-liman-bagian-dari-deretan-pegunungan-wilis-di-nganjuk-jawa-timur"
+      },
+      {
+        "title": "Coffee farms to forest",
+        "body": "The Kare route starts in a coffee plantation, then climbs past Bukit Teletubbies into the forest.",
+        "source": "https://www.detik.com/jatim/wisata/d-7592037/4-fakta-menarik-gunung-wilis-surga-tersembunyi-bagi-pendaki"
+      }
+    ],
+    "stats": [
+      {
+        "value": "2,563 m",
+        "label": "Summit elevation",
+        "note": "Highest point of the Wilis range"
+      },
+      {
+        "value": "7-9 h",
+        "label": "Ascent time",
+        "note": "Plus 5-7 h to come back down"
+      },
+      {
+        "value": "~24 km",
+        "label": "Round trip",
+        "note": "A long day or an overnight trip"
+      },
+      {
+        "value": "4-5 L",
+        "label": "Water to carry",
+        "note": "No water higher up on the trail"
+      }
+    ],
+    "packing": [
+      {
+        "item": "4-5 L of water",
+        "why": "There is water low on the Wates route, but none higher up and none on the Pulosari route."
+      },
+      {
+        "item": "GPS device",
+        "why": "Dense forest makes the trail hard to follow, and you may meet nobody."
+      },
+      {
+        "item": "Full food supply",
+        "why": "It is a long trail far from villages. Pack enough for the whole trip."
+      },
+      {
+        "item": "Trekking poles",
+        "why": "The trail is long. Poles save your knees on 5-7 hours of descent."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Long and remote",
+        "body": "Plan 7-9 hours up. The area is isolated, so tell someone your route and return time."
+      },
+      {
+        "title": "Water is the limit",
+        "body": "Fill up low down. Above that, you only have what you carry."
+      },
+      {
+        "title": "Forest navigation",
+        "body": "Thick forest hides the path. Follow a GPS track and turn back if you lose it."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Liputan6: 6 fakta menarik Gunung Liman",
+        "url": "https://www.liputan6.com/lifestyle/read/5518181/6-fakta-menarik-gunung-liman-bagian-dari-deretan-pegunungan-wilis-di-nganjuk-jawa-timur"
+      },
+      {
+        "title": "Wikipedia (id): Gunung Liman",
+        "url": "https://id.wikipedia.org/wiki/Gunung_Liman"
+      },
+      {
+        "title": "detikJatim: 4 fakta menarik Gunung Wilis (Kare route)",
+        "url": "https://www.detik.com/jatim/wisata/d-7592037/4-fakta-menarik-gunung-wilis-surga-tersembunyi-bagi-pendaki"
+      },
+      {
+        "title": "Gunung Bagging: Gunung Liman",
+        "url": "https://www.gunungbagging.com/liman/"
+      }
+    ],
+    "unknown": []
+  },
+  "kelud": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "An active volcano whose crater was reshaped by the 2014 eruption.",
+    "highlights": [
+      {
+        "title": "Where 'lahar' comes from",
+        "body": "The 1919 eruption killed about 5,000 people, mostly by hot mudflows. After it, 'lahar' became the world's term for a volcanic mudflow.",
+        "source": "https://en.wikipedia.org/wiki/Kelud"
+      },
+      {
+        "title": "A dome made and lost",
+        "body": "In 2007 a lava dome filled the crater. The 13 February 2014 eruption destroyed it and threw ash as far as West Java, about 500 km away.",
+        "source": "https://en.wikipedia.org/wiki/Kelud"
+      },
+      {
+        "title": "Tunnels against floods",
+        "body": "After the 1966 eruption, the Ampera tunnels were cut to lower the crater lake and cut the lahar risk.",
+        "source": "https://en.wikipedia.org/wiki/Kelud"
+      }
+    ],
+    "stats": [
+      {
+        "value": "1,731 m",
+        "label": "Summit elevation",
+        "note": "Low, but one of Java's most dangerous volcanoes"
+      },
+      {
+        "value": "2014",
+        "label": "Last eruption",
+        "note": "13 February 2014"
+      },
+      {
+        "value": "3-4 h",
+        "label": "Ascent time",
+        "note": "About ~10 km round trip"
+      },
+      {
+        "value": "2 L",
+        "label": "Water to carry",
+        "note": "No water on the trail"
+      }
+    ],
+    "packing": [
+      {
+        "item": "Dust or gas mask",
+        "why": "Volcanic gas and fine dust can hang around the crater area."
+      },
+      {
+        "item": "2 L of water",
+        "why": "There is no water on the trail. Carry all you need."
+      },
+      {
+        "item": "Sturdy shoes",
+        "why": "Eruption debris makes the ground loose and unstable."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Check the alert level",
+        "body": "Kelud can erupt with little warning. Only go when PVMBG has it at Level I (Normal), and follow any crater distance limits."
+      },
+      {
+        "title": "Short but loose",
+        "body": "The walk is short for a beginner, but the ground near the crater is unstable. Stay on the path."
+      },
+      {
+        "title": "No water, little shade",
+        "body": "Bring all your water and start early."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia: Kelud",
+        "url": "https://en.wikipedia.org/wiki/Kelud"
+      },
+      {
+        "title": "Poskota: Status gunung September 2026 (Kelud)",
+        "url": "https://www.poskota.co.id/2026/09/07/apakah-gunung-gede-kelud-salak-tambora-hingga-toba-masih-aktif-pada-september-2026"
+      },
+      {
+        "title": "Kompas: Pemkab Kediri restorasi wisata air panas Kelud (Jul 2026)",
+        "url": "https://regional.kompas.com/read/2026/07/31/113622978/pemkab-kediri-restorasi-wisata-air-panas-gunung-kelud-begini-kata-pvmbg?page=all"
+      },
+      {
+        "title": "memo.co.id: wisatawan dilarang dekati kawah radius 1 km",
+        "url": "https://memo.co.id/gempa-tektonik-jauh-terekam-dua-kali-di-gunung-kelud-kediri-wisatawan-dilarang-dekati-kawah-dalam-radius-1-kilometer-99253/"
+      }
+    ],
+    "unknown": []
+  },
+  "lemongan": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "A steep, sandy volcano cone above the Ranu Klakah crater lake.",
+    "highlights": [
+      {
+        "title": "Lake at the trailhead",
+        "body": "Ranu Klakah, at the foot of the trail, is a lake-filled maar: a crater left by a steam blast.",
+        "source": "https://www.volcanodiscovery.com/lamongan.html"
+      },
+      {
+        "title": "Ringed by craters",
+        "body": "Up to 27 maars and about 60 small cinder and spatter cones surround the volcano.",
+        "source": "https://www.volcanodiscovery.com/lamongan.html"
+      },
+      {
+        "title": "Busy past",
+        "body": "From 1799 to 1898 Lemongan poured out up to 15 lava flows. Its last confirmed eruption was in 1898.",
+        "source": "https://www.volcanodiscovery.com/lamongan.html"
+      }
+    ],
+    "stats": [
+      {
+        "value": "1,651 m",
+        "label": "Summit elevation",
+        "note": "Small, but the climb is steep"
+      },
+      {
+        "value": "3-4 h",
+        "label": "Ascent time",
+        "note": "Plus 2-3 h to come back down"
+      },
+      {
+        "value": "~10 km",
+        "label": "Round trip",
+        "note": "From the Ranu Klakah side"
+      },
+      {
+        "value": "1898",
+        "label": "Last eruption",
+        "note": "Quiet since then"
+      }
+    ],
+    "packing": [
+      {
+        "item": "At least 3 L of water",
+        "why": "There is only one small water point on the mountain. Guides say bring at least two large bottles each."
+      },
+      {
+        "item": "Grippy trekking shoes",
+        "why": "The upper trail is loose sand and stone on steep slopes."
+      },
+      {
+        "item": "Headlamp",
+        "why": "Many hikers climb at night to avoid the midday heat on the open slopes."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Short but steep",
+        "body": "The upper slopes are steep, with loose sand and rock. Expect to use your hands in places."
+      },
+      {
+        "title": "Carry your water",
+        "body": "Water on the trail is scarce. Fill up at the base and ration it."
+      },
+      {
+        "title": "Few trail markers",
+        "body": "Markers are limited in the forest. Keep a GPS track handy."
+      }
+    ],
+    "sources": [
+      {
+        "title": "VolcanoDiscovery: Lamongan volcano",
+        "url": "https://www.volcanodiscovery.com/lamongan.html"
+      },
+      {
+        "title": "Wikipedia: Mount Lamongan",
+        "url": "https://en.wikipedia.org/wiki/Mount_Lamongan"
+      },
+      {
+        "title": "Ambisius Wiki: Tips dan panduan Gunung Lamongan",
+        "url": "https://wiki.ambisius.com/gunung/gunung-lamongan/tips-dan-panduan"
+      },
+      {
+        "title": "Manusia Lembah: Pendakian Gunung Lemongan via Klakah",
+        "url": "https://www.manusialembah.com/2017/05/pendakian-gunung-lemongan-1676-mdpl-via.html"
+      },
+      {
+        "title": "Sobat Hiking: Informasi pendakian Gunung Lemongan",
+        "url": "https://www.sobathiking.com/2021/05/informasi-pendakian-gunung-lemongan-lumajang.html"
+      }
+    ],
+    "unknown": []
+  },
+  "pundak": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "A short beginner hike to a grassy ridge of Welirang, above Pacet.",
+    "highlights": [
+      {
+        "title": "A shoulder of Welirang",
+        "body": "Pundak ('shoulder') is one of the ridges of Gunung Welirang. A small plaque and flagpole mark the top.",
+        "source": "https://www.fikriamiruddin.com/2018/11/ekspedisi-gunung-pundak-1585-mdpl.html"
+      },
+      {
+        "title": "Three-mountain view",
+        "body": "From the grassy top you see Penanggungan to the north, Welirang to the south and the Anjasmoro range to the west.",
+        "source": "https://www.kelumajang.com/wisata/98115484067/ketinggian-sekitar-1585-mdpl-gunung-pundak-mojokerto-ramai-dikunjungi-pendaki-pemula-saat-liburan-sekolah"
+      },
+      {
+        "title": "Beginner favourite",
+        "body": "It is a popular first climb for beginners, especially in the school holidays.",
+        "source": "https://www.kelumajang.com/wisata/98115484067/ketinggian-sekitar-1585-mdpl-gunung-pundak-mojokerto-ramai-dikunjungi-pendaki-pemula-saat-liburan-sekolah"
+      }
+    ],
+    "stats": [
+      {
+        "value": "1,585 m",
+        "label": "Summit elevation",
+        "note": "Grassy top with open views"
+      },
+      {
+        "value": "2-3 h",
+        "label": "Ascent time",
+        "note": "Plus 1.5-2 h back down"
+      },
+      {
+        "value": "~8 km",
+        "label": "Round trip",
+        "note": "Easy to fit in a morning"
+      },
+      {
+        "value": "1.5 L",
+        "label": "Water to carry",
+        "note": "Bring your own"
+      }
+    ],
+    "packing": [
+      {
+        "item": "1.5 L of water",
+        "why": "There is no water to rely on along the trail. Carry your own."
+      },
+      {
+        "item": "Shoes with good grip",
+        "why": "The trail is slippery in the wet season and has some steep sections."
+      },
+      {
+        "item": "Rain jacket",
+        "why": "Rain is common in the wet season, and the top is open grassland."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Easy, with steep bits",
+        "body": "Most of the trail is gentle forest walking. A few sections are steep and get slippery after rain."
+      },
+      {
+        "title": "Good first mountain",
+        "body": "It is short, close to Pacet town, and has phone signal. A good place to learn the basics."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Tahura Raden Soerjo: Gunung Pundak",
+        "url": "https://tahurarsoerjo.dishut.jatimprov.go.id/sub/owa/pundak.php"
+      },
+      {
+        "title": "fikriamiruddin.com: Pendakian Gunung Pundak 1585 mdpl",
+        "url": "https://www.fikriamiruddin.com/2018/11/ekspedisi-gunung-pundak-1585-mdpl.html"
+      },
+      {
+        "title": "Kelumajang: Gunung Pundak ramai pendaki pemula",
+        "url": "https://www.kelumajang.com/wisata/98115484067/ketinggian-sekitar-1585-mdpl-gunung-pundak-mojokerto-ramai-dikunjungi-pendaki-pemula-saat-liburan-sekolah"
+      }
+    ],
+    "unknown": []
+  },
+  "ranti": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "A short, steep climb beside Ijen, with views down to the crater.",
+    "highlights": [
+      {
+        "title": "Next door to Ijen",
+        "body": "The Ranti trailhead is about two minutes' walk from the Kawah Ijen trailhead at Paltuding.",
+        "source": "https://www.gunungbagging.com/ijen/"
+      },
+      {
+        "title": "Crater and cloud views",
+        "body": "Hikers climb Ranti for sunrise, a sea of clouds and a view over Kawah Ijen.",
+        "source": "https://radarbanyuwangi.jawapos.com/travelling/756463334/gunung-ranti-pilihan-pendakian-seru-buat-nikmatin-sunrise-lautan-awan-dan-view-kawah-ijen"
+      },
+      {
+        "title": "Two tops",
+        "body": "Most hikers stop at the north top (2,578 m). The true summit (2,626 m) is overgrown and hard to reach.",
+        "source": "https://www.gunungbagging.com/ijen/"
+      }
+    ],
+    "stats": [
+      {
+        "value": "~2 h",
+        "label": "To the viewpoint",
+        "note": "Less time to come down"
+      },
+      {
+        "value": "2,578 m",
+        "label": "North top",
+        "note": "Where most hikers stop"
+      },
+      {
+        "value": "4 L",
+        "label": "Water to carry",
+        "note": "No confirmed water on the trail"
+      }
+    ],
+    "packing": [
+      {
+        "item": "Shoes with good grip",
+        "why": "The trail is steeper than Ijen's and sandy. Poor shoes lead to falls."
+      },
+      {
+        "item": "Warm layer",
+        "why": "You start from Paltuding, high on the Ijen plateau, often before sunrise."
+      },
+      {
+        "item": "Headlamp",
+        "why": "Most people climb in the dark to reach the top for sunrise."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Short but steep",
+        "body": "About two hours up on a steep, sandy path. Take it slow on the way down."
+      },
+      {
+        "title": "Stop at the north top",
+        "body": "The true summit is overgrown and needs a machete. The north top is the usual goal."
+      },
+      {
+        "title": "Check Ijen status first",
+        "body": "Ranti shares its trailhead with Ijen. If Ijen is closed for gas or fire, do not go."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Gunung Bagging: Ijen - Merapi (incl. Ranti)",
+        "url": "https://www.gunungbagging.com/ijen/"
+      },
+      {
+        "title": "Radar Banyuwangi: Gunung Ranti, sunrise, lautan awan, view Kawah Ijen",
+        "url": "https://radarbanyuwangi.jawapos.com/travelling/756463334/gunung-ranti-pilihan-pendakian-seru-buat-nikmatin-sunrise-lautan-awan-dan-view-kawah-ijen"
+      },
+      {
+        "title": "Radar Banyuwangi: Gunung Ranti alternatif pendakian dekat Ijen",
+        "url": "https://radarbanyuwangi.jawapos.com/travelling/755143019/gunung-ranti-jadi-alternatif-pendakian-paling-dekat-gunung-ijen-banyuwangi"
+      },
+      {
+        "title": "Liputan6: 6 fakta menarik Gunung Ranti",
+        "url": "https://www.liputan6.com/lifestyle/read/5543825/6-fakta-menarik-gunung-ranti-yang-bersebelahan-dengan-kawasan-ijen-di-banyuwangi-jawa-timur"
+      },
+      {
+        "title": "Times Indonesia: TWA Kawah Ijen dibuka kembali 28 September 2026",
+        "url": "https://timesindonesia.co.id/peristiwa-daerah/610153/usai-kebakaran-twa-kawah-ijen-kembali-dibuka-28-september-2026"
+      }
+    ],
+    "unknown": []
+  },
+  "merapi-ungup": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "The highest peak of the Ijen range, inside a strict nature reserve.",
+    "highlights": [
+      {
+        "title": "Crescent-moon crater",
+        "body": "The summit crater is extinct. A mound in its middle is shaped like a crescent moon, which gives it the name Kawah Bulan Sabit.",
+        "source": "https://banyuwangi.jatimnetwork.com/banyuwangi/33210325138/kawah-di-banyuwangi-ini-terlarang-bagi-pendaki-miliki-ketinggian-2800-mdpl-bukan-kawah-ijen-melainkan"
+      },
+      {
+        "title": "East of Kawah Ijen",
+        "body": "Merapi, also called Merapi Ungup-ungup, rises east of Kawah Ijen in the Ijen range.",
+        "source": "https://id.wikipedia.org/wiki/Gunung_Merapi_(Jawa_Timur)"
+      }
+    ],
+    "stats": [
+      {
+        "value": "2,800 m",
+        "label": "Summit elevation",
+        "note": "Highest point of the Ijen range"
+      }
+    ],
+    "packing": [],
+    "assessment": [
+      {
+        "title": "Not an open trail",
+        "body": "The crater route is unclear, very steep and prone to landslides. It is not open to the public."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia (id): Gunung Merapi (Jawa Timur)",
+        "url": "https://id.wikipedia.org/wiki/Gunung_Merapi_(Jawa_Timur)"
+      },
+      {
+        "title": "Banyuwangi Network: Kawah terlarang bagi pendaki, 2.800 mdpl",
+        "url": "https://banyuwangi.jatimnetwork.com/banyuwangi/33210325138/kawah-di-banyuwangi-ini-terlarang-bagi-pendaki-miliki-ketinggian-2800-mdpl-bukan-kawah-ijen-melainkan"
+      },
+      {
+        "title": "Gunung Bagging: Ijen - Merapi",
+        "url": "https://www.gunungbagging.com/ijen/"
+      },
+      {
+        "title": "Suara: Gunung Merapi Ungup-ungup terbakar (4 Sep 2026)",
+        "url": "https://www.suara.com/foto/2026/09/04/193000/gunung-merapi-ungup-ungup-terbakar-api-mendekati-jalur-kawah-ijen"
+      },
+      {
+        "title": "Times Indonesia: TWA Kawah Ijen dibuka kembali 28 September 2026",
+        "url": "https://timesindonesia.co.id/peristiwa-daerah/610153/usai-kebakaran-twa-kawah-ijen-kembali-dibuka-28-september-2026"
+      }
+    ],
+    "unknown": [
+      "packing"
+    ]
+  },
+  "lawu": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "Java's sacred mountain: temples, stone stairs and cold sunrises at 3,265 m.",
+    "highlights": [
+      {
+        "title": "Mountain of the last king",
+        "body": "Legend says Brawijaya V, the last king of Majapahit, fled to Lawu when his kingdom fell and built places for meditation there.",
+        "source": "https://medium.com/@lonelytraveler616/the-fascinating-mystery-of-mount-lawu-and-the-majapahit-kingdom-668b72338b7c"
+      },
+      {
+        "title": "Temple start",
+        "body": "The Candi Cetho route starts at a Hindu-Javanese temple. Its slopes are gentler and grassier than the stony Cemoro Sewu route.",
+        "source": "https://observerid.com/climbing-the-sacred-mount-lawu/"
+      },
+      {
+        "title": "Night of 1 Suro",
+        "body": "On the night of 1 Suro (1 Muharram) many people climb to the top to pray and make pilgrimages.",
+        "source": "https://medium.com/@lonelytraveler616/how-to-get-to-the-sacred-peak-of-mount-lawu-indonesia-d7e2f5555d71"
+      }
+    ],
+    "stats": [
+      {
+        "value": "3,265 m",
+        "label": "Summit elevation",
+        "note": "Hargo Dumilah, the highest of three peaks"
+      },
+      {
+        "value": "6-8 h",
+        "label": "Ascent time",
+        "note": "Plus 4-5 h to come back down"
+      },
+      {
+        "value": "-5°C",
+        "label": "Summit cold",
+        "note": "Frost is possible at the top"
+      },
+      {
+        "value": "3",
+        "label": "Main routes",
+        "note": "Cemoro Sewu, Cemoro Kandang, Candi Cetho"
+      }
+    ],
+    "packing": [
+      {
+        "item": "Warm layers",
+        "why": "The summit can drop to -5°C. You need a fleece, down jacket, hat and gloves."
+      },
+      {
+        "item": "0°C sleeping bag",
+        "why": "Nights at the camps are cold, especially in the dry season."
+      },
+      {
+        "item": "Trekking poles",
+        "why": "The stone stairs above Pos 3 are steep and slippery when wet."
+      },
+      {
+        "item": "Headlamp",
+        "why": "Most people start the summit push before dawn for sunrise."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Stairs above Pos 3",
+        "body": "On Cemoro Sewu the trail becomes natural stone steps. They are steep and slippery when wet. Take it slow."
+      },
+      {
+        "title": "Cold and wind",
+        "body": "The summit area is exposed and can reach -5°C. Cold, not the trail, is the main risk."
+      },
+      {
+        "title": "Avoid 1 Suro crowds",
+        "body": "Pilgrim nights get very busy. For a quiet climb, go on a weekday in the dry season."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Gunung Bagging: Gunung Lawu",
+        "url": "https://www.gunungbagging.com/lawu/"
+      },
+      {
+        "title": "Observer: Climbing the sacred Mount Lawu",
+        "url": "https://observerid.com/climbing-the-sacred-mount-lawu/"
+      },
+      {
+        "title": "Medium: The Mystery of Mount Lawu and the Majapahit Kingdom",
+        "url": "https://medium.com/@lonelytraveler616/the-fascinating-mystery-of-mount-lawu-and-the-majapahit-kingdom-668b72338b7c"
+      },
+      {
+        "title": "Medium: How to get to the sacred peak of Mount Lawu",
+        "url": "https://medium.com/@lonelytraveler616/how-to-get-to-the-sacred-peak-of-mount-lawu-indonesia-d7e2f5555d71"
+      },
+      {
+        "title": "CNN Indonesia: Jalur pendakian Gunung Lawu ditutup sementara (Sep 2026)",
+        "url": "https://www.cnnindonesia.com/gaya-hidup/20260915133546-269-1404170/karhutla-belum-padam-jalur-pendakian-gunung-lawu-ditutup-sementara"
+      },
+      {
+        "title": "ANTARA: Perhutani tutup jalur pendakian Gunung Lawu",
+        "url": "https://www.antaranews.com/berita/5744620/perhutani-tutup-jalur-pendakian-gunung-lawu-karena-kebakaran-hutan"
+      }
+    ],
+    "unknown": []
+  },
+  "merbabu": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "Wide savanna ridges and a close-up view of Merapi at 3,145 m.",
+    "highlights": [
+      {
+        "title": "Savanna after Pos 3",
+        "body": "Selo, the most popular route, crosses open savanna with wide views toward Merapi.",
+        "source": "https://tngunungmerbabu.org/jalur-selo/"
+      },
+      {
+        "title": "Merapi up close",
+        "body": "From the high camps you can see Lawu to the east, Telomoyo and Ungaran to the north and Merapi to the south.",
+        "source": "https://www.gunungbagging.com/merbabu/"
+      },
+      {
+        "title": "Five official routes",
+        "body": "Hikers can choose Selo, Thekelan, Cuntel, Suwanting or Wekas. Each route crosses different landscapes.",
+        "source": "https://travel.kompas.com/read/2026/07/02/121919727/2-jalur-pendakian-gunung-merbabu-ini-tutup-sementara"
+      }
+    ],
+    "stats": [
+      {
+        "value": "3,145 m",
+        "label": "Summit elevation",
+        "note": "Cold and windy at the top"
+      },
+      {
+        "value": "7-9 h",
+        "label": "Ascent time",
+        "note": "Plus 5-6 h to come back down"
+      },
+      {
+        "value": "~18 km",
+        "label": "Round trip",
+        "note": "Usually done with one night camping"
+      },
+      {
+        "value": "3-4 L",
+        "label": "Water to carry",
+        "note": "No water on the savanna"
+      }
+    ],
+    "packing": [
+      {
+        "item": "Windproof jacket",
+        "why": "The savanna is fully exposed to wind, sun and storms."
+      },
+      {
+        "item": "Warm layers",
+        "why": "The summit can drop to -5°C before dawn."
+      },
+      {
+        "item": "3 L+ of water",
+        "why": "Springs are only near Pos 1-2. There is none on the savanna."
+      },
+      {
+        "item": "Sun hat and sunscreen",
+        "why": "There is no shade on the open savanna."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Exposed savanna",
+        "body": "Above the forest there is no cover. Wind, sun and storms hit hard. Turn back if a storm builds."
+      },
+      {
+        "title": "Steep, rocky summit",
+        "body": "The final push is steep and rocky. Leave early and watch your footing in fog."
+      },
+      {
+        "title": "Fire season care",
+        "body": "From August to October the grass is dry and burns easily. No open fires, and check the park's status."
+      }
+    ],
+    "sources": [
+      {
+        "title": "TN Gunung Merbabu: Jalur Selo",
+        "url": "https://tngunungmerbabu.org/jalur-selo/"
+      },
+      {
+        "title": "Gunung Bagging: Gunung Merbabu",
+        "url": "https://www.gunungbagging.com/merbabu/"
+      },
+      {
+        "title": "Kompas Travel: 2 jalur pendakian Merbabu tutup sementara (Jul 2026)",
+        "url": "https://travel.kompas.com/read/2026/07/02/121919727/2-jalur-pendakian-gunung-merbabu-ini-tutup-sementara"
+      },
+      {
+        "title": "Kementerian Kehutanan: status pendakian di kawasan konservasi",
+        "url": "https://www.kehutanan.go.id/news/antisipasi-puncak-kemarau-kemenhut-atur-status-pendakian-gunung-di-kawasan-konservasi-berbasis-manajemen-risiko"
+      },
+      {
+        "title": "Mounture: Kuota Gunung Merbabu September 2026",
+        "url": "https://mounture.com/berita/kuota-gunung-merbabu-september-2026-dibuka-ini-rincian-tiap-jalur/"
+      }
+    ],
+    "unknown": []
+  },
+  "merapi": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "Indonesia's most active volcano, climbed only when the volcano allows it.",
+    "highlights": [
+      {
+        "title": "Indonesia's most active volcano",
+        "body": "Merapi sits on the border of Central Java and Yogyakarta and has erupted regularly since 1548.",
+        "source": "https://en.wikipedia.org/wiki/Mount_Merapi"
+      },
+      {
+        "title": "The 2010 eruption zone",
+        "body": "The 2010 eruption was Merapi's largest since 1872. Over 350,000 people were evacuated and the summit dome was blown apart.",
+        "source": "https://en.wikipedia.org/wiki/2010_eruptions_of_Mount_Merapi"
+      },
+      {
+        "title": "Pasar Bubrah plateau",
+        "body": "From New Selo the trail climbs to Pasar Bubrah, a bare, lunar plateau at about 2,640 m. Above it is a steep 300 m climb on loose scree to the crater.",
+        "source": "https://www.summitpost.org/volcano-merapi-via-selo-route/787492"
+      }
+    ],
+    "stats": [
+      {
+        "value": "2,930 m",
+        "label": "Summit elevation",
+        "note": "Height changes as the lava dome grows and collapses"
+      },
+      {
+        "value": "5-7 h",
+        "label": "Ascent time",
+        "note": "Most hikers start around midnight"
+      },
+      {
+        "value": "3 L",
+        "label": "Water to carry",
+        "note": "No water sources on the volcanic trail"
+      },
+      {
+        "value": "High",
+        "label": "Risk level",
+        "note": "Active zone above Pasar Bubrah"
+      }
+    ],
+    "packing": [
+      {
+        "item": "Helmet",
+        "why": "Volcanic bombs and falling rock are real hazards on the upper slopes."
+      },
+      {
+        "item": "Gas mask",
+        "why": "Toxic volcanic gas can collect near the summit and fumarole field."
+      },
+      {
+        "item": "3 L of water",
+        "why": "There is no water on the trail. Carry everything you drink."
+      },
+      {
+        "item": "Warm jacket and headlamp",
+        "why": "Night starts in the cold and dark are normal for a sunrise push."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Check status first",
+        "body": "Only climb when BPPTKG says the volcano is at Level I (Normal). The summit is never guaranteed to be open."
+      },
+      {
+        "title": "Loose final climb",
+        "body": "Above Pasar Bubrah the path is steep volcanic sand and scree. It is tiring and unstable, and the summit shape changes after eruptions."
+      },
+      {
+        "title": "No signal up high",
+        "body": "Phone signal is patchy low down and gone above Pos 2. Tell someone your plan before you start."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Mount Merapi - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Mount_Merapi"
+      },
+      {
+        "title": "2010 eruptions of Mount Merapi - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/2010_eruptions_of_Mount_Merapi"
+      },
+      {
+        "title": "Volcano Merapi via Selo Route - SummitPost",
+        "url": "https://www.summitpost.org/volcano-merapi-via-selo-route/787492"
+      },
+      {
+        "title": "Hiking Indonesia's Most Active Volcano - Travel Lexx",
+        "url": "https://travelexx.com/hiking-indonesia-mount-merapi/"
+      },
+      {
+        "title": "Mount Merapi Hiking Ban Stays - Tempo",
+        "url": "https://en.tempo.co/read/2114078/mount-merapi-hiking-ban-stays-amid-explosive-eruption-risks"
+      },
+      {
+        "title": "TN Gunung Merapi: pendakian masih ditutup 2026 - Mounture",
+        "url": "https://mounture.com/berita/pendakian-gunung-merapi-masih-ditutup-2026/"
+      },
+      {
+        "title": "Status Siaga Bertahan - Radar Jogja",
+        "url": "https://radarjogja.jawapos.com/sleman/2609240011/status-siaga-bertahan-merapi-catat-68-kali-luncuran-dan-guguran-lava-pijar-sehari"
+      }
+    ],
+    "unknown": []
+  },
+  "sumbing": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "Sindoro's taller twin, with one of Java's hardest summit pushes.",
+    "highlights": [
+      {
+        "title": "Twin of Sindoro",
+        "body": "Sumbing and Sindoro are two cone volcanoes facing each other across the Kledung Pass (about 1,400 m). Many hikers climb both.",
+        "source": "https://en.wikivoyage.org/wiki/Sindoro-Sumbing"
+      },
+      {
+        "title": "One of Java's highest",
+        "body": "At 3,371 m, Sumbing is one of the highest mountains in Java. It is an active stratovolcano.",
+        "source": "https://en.wikipedia.org/wiki/Mount_Sumbing"
+      },
+      {
+        "title": "Garung, the classic route",
+        "body": "Garung is the normal route. The basecamp sits around 1,500 m and hikers must start before 12:00 because the trail is long and steep.",
+        "source": "https://muncak.id/en/hiking-trail/gunung-sumbing-via-garung"
+      }
+    ],
+    "stats": [
+      {
+        "value": "3,371 m",
+        "label": "Summit elevation",
+        "note": "Taller than its twin, Sindoro"
+      },
+      {
+        "value": "8-10 h",
+        "label": "Ascent time",
+        "note": "Long day with big elevation gain"
+      },
+      {
+        "value": "-5°C",
+        "label": "Summit cold",
+        "note": "Pack for freezing nights"
+      },
+      {
+        "value": "3-4 L",
+        "label": "Water to carry",
+        "note": "Springs near Pos 1; unreliable above Pos 2"
+      }
+    ],
+    "packing": [
+      {
+        "item": "-5°C sleeping bag",
+        "why": "Night temperatures near the summit can drop to about -5°C."
+      },
+      {
+        "item": "Trekking poles",
+        "why": "The final push is very steep, with loose soil, rock and slippery sand."
+      },
+      {
+        "item": "Windproof layers and gloves",
+        "why": "The upper ridge and summit are exposed to wind and fog."
+      },
+      {
+        "item": "3-4 L of water",
+        "why": "Water above Pos 2 is unreliable. Fill up low on the mountain."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "A long, steep day",
+        "body": "Plan 8-10 hours up. From Pos 3 the path is very steep loose soil and rock, and it gets sandy and slippery near the top."
+      },
+      {
+        "title": "Real cold and wind",
+        "body": "Expect temperatures down to about -5°C, strong wind and fog. Good layers matter more than speed."
+      },
+      {
+        "title": "Start early",
+        "body": "Garung asks hikers to leave basecamp before 12:00. Late starts mean finishing in the dark."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Mount Sumbing - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Mount_Sumbing"
+      },
+      {
+        "title": "Sindoro-Sumbing - Wikivoyage",
+        "url": "https://en.wikivoyage.org/wiki/Sindoro-Sumbing"
+      },
+      {
+        "title": "Hiking Trail Sumbing via Garung - muncak.id",
+        "url": "https://muncak.id/en/hiking-trail/gunung-sumbing-via-garung"
+      },
+      {
+        "title": "Mount Sumbing via Garung - AllTrails",
+        "url": "https://www.alltrails.com/trail/indonesia/central-java/mount-sumbing-via-garung"
+      },
+      {
+        "title": "Gunung Sumbing via Banaran ditutup sementara - Mounture",
+        "url": "https://mounture.com/berita/gunung-sumbing-via-banaran-ditutup-sementara-pendaki-diminta-pilih-jalur-lain/"
+      },
+      {
+        "title": "Sumbing via Gajah Mungkur ditutup mulai 18 Mei 2026 - Mounture",
+        "url": "https://mounture.com/berita/jalur-pendakian-gunung-sumbing-via-gajah-mungkur-ditutup-sementara-mulai-18-mei-2026/"
+      }
+    ],
+    "unknown": []
+  },
+  "sindoro": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "A sandy volcano cone above tea gardens, facing Sumbing across Kledung.",
+    "highlights": [
+      {
+        "title": "The northern twin",
+        "body": "Sindoro faces its slightly taller twin, Sumbing, across the Kledung Pass. The two cones look almost alike.",
+        "source": "https://www.gunungbagging.com/sindoro/"
+      },
+      {
+        "title": "Start in the tea gardens",
+        "body": "The Tambi tea plantation, running since Dutch colonial times, covers Sindoro's lower slopes. One route climbs from Sigedang through it.",
+        "source": "https://www.backindo.com/tambi-tea-plantation/"
+      },
+      {
+        "title": "Kledung, the easy start",
+        "body": "Kledung is the favourite route: easy public transport, and local motorbike rides can take you and your gear to Pos 1.",
+        "source": "https://www.gaiagps.com/hike/532080/mount-sindoro-via-jalur-pendakian-gunung-sindoro-via-kledung/"
+      }
+    ],
+    "stats": [
+      {
+        "value": "3,153 m",
+        "label": "Summit elevation",
+        "note": "An active stratovolcano"
+      },
+      {
+        "value": "7-9 h",
+        "label": "Ascent time",
+        "note": "Sandy upper slope slows you down"
+      },
+      {
+        "value": "3-4 L",
+        "label": "Water to carry",
+        "note": "Springs only at the lower pos"
+      },
+      {
+        "value": "0°C",
+        "label": "Sleeping bag rating",
+        "note": "Cold, windy nights near the top"
+      }
+    ],
+    "packing": [
+      {
+        "item": "Gaiters",
+        "why": "The upper slope is loose volcanic sand that gets into your boots."
+      },
+      {
+        "item": "Trekking poles",
+        "why": "On the sand it is two steps forward, one step back. Poles save your legs."
+      },
+      {
+        "item": "Windproof jacket",
+        "why": "The summit is exposed to very strong wind and fog."
+      },
+      {
+        "item": "3-4 L of water",
+        "why": "Springs are only on the lower pos. Carry all water for the upper section."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Sandy and tiring",
+        "body": "Near the summit the trail is steep, slippery sand. Expect slow progress and sore legs."
+      },
+      {
+        "title": "Exposed summit",
+        "body": "The top has no shelter. Wind can be extreme, so turn back if the weather turns."
+      },
+      {
+        "title": "Cold nights",
+        "body": "Pack a sleeping bag rated to about 0°C and warm layers for the pre-dawn summit push."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Gunung Sindoro - Gunung Bagging",
+        "url": "https://www.gunungbagging.com/sindoro/"
+      },
+      {
+        "title": "Mount Sindoro - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Mount_Sindoro"
+      },
+      {
+        "title": "Tambi Tea Plantation - Backindo",
+        "url": "https://www.backindo.com/tambi-tea-plantation/"
+      },
+      {
+        "title": "Mount Sindoro via Kledung - Gaia GPS",
+        "url": "https://www.gaiagps.com/hike/532080/mount-sindoro-via-jalur-pendakian-gunung-sindoro-via-kledung/"
+      },
+      {
+        "title": "Mount Sindoro via Kledung - AllTrails",
+        "url": "https://www.alltrails.com/trail/indonesia/central-java/gunung-sindoro-via-kledung"
+      },
+      {
+        "title": "Sindoro via Ndoro Arum ditutup Juni 2026 - Mounture",
+        "url": "https://mounture.com/berita/pendakian-gunung-sindoro-via-ndoro-arum-ditutup-sementara-juni-2026/"
+      },
+      {
+        "title": "Sindoro via Sigedang ditutup untuk perawatan - Mounture",
+        "url": "https://mounture.com/berita/info-pendakian-jalur-gunung-sindoro-via-sigedang-ditutup-untuk-perawatan/"
+      }
+    ],
+    "unknown": []
+  },
+  "slamet": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "The roof of Central Java: a long, remote climb on an active volcano.",
+    "highlights": [
+      {
+        "title": "Highest in Central Java",
+        "body": "Slamet is the highest mountain in Central Java. It sits between five regencies: Brebes, Banyumas, Purbalingga, Tegal and Pemalang.",
+        "source": "https://en.wikipedia.org/wiki/Mount_Slamet"
+      },
+      {
+        "title": "Bambangan, the main route",
+        "body": "Bambangan is the best-known and best-managed route, with the shortest climb. It starts at about 1,510 m, some 90 minutes from Purwokerto.",
+        "source": "https://www.gunungbagging.com/slamet/"
+      },
+      {
+        "title": "A volcano that still breathes",
+        "body": "Slamet has been at Level II (Waspada) since October 2023. PVMBG sets a no-go radius around the crater that changes with activity.",
+        "source": "https://muncak.id/en/article/Gunung-slamet"
+      }
+    ],
+    "stats": [
+      {
+        "value": "3,428 m",
+        "label": "Summit elevation",
+        "note": "Highest point in Central Java"
+      },
+      {
+        "value": "10-14 h",
+        "label": "Ascent time",
+        "note": "2 days recommended"
+      },
+      {
+        "value": "4-5 L",
+        "label": "Water to carry",
+        "note": "Last spring at Samarantu (Pos 4)"
+      },
+      {
+        "value": "~28 km",
+        "label": "Round trip",
+        "note": "Long and remote"
+      }
+    ],
+    "packing": [
+      {
+        "item": "Gas mask",
+        "why": "Toxic gas pockets sit near the crater above Pos 4."
+      },
+      {
+        "item": "-5°C sleeping bag",
+        "why": "Extreme cold high on the mountain, and most people camp one night."
+      },
+      {
+        "item": "4-5 L of water",
+        "why": "There is no water above the Samarantu spring at Pos 4."
+      },
+      {
+        "item": "Rain gear",
+        "why": "Dense forest and a long exposed summit area mean you can get wet and chilled."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Check PVMBG first",
+        "body": "Slamet is an active volcano. Only go when the status allows, and respect the crater no-go radius set by PVMBG."
+      },
+      {
+        "title": "Very long climb",
+        "body": "Plan two days. The ascent takes 10-14 hours, and altitude sickness is possible near 3,400 m."
+      },
+      {
+        "title": "Loose volcanic top",
+        "body": "Above Pos 4 (Samarantu) the ground is loose rock and sand, with gas pockets near the crater."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Mount Slamet - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Mount_Slamet"
+      },
+      {
+        "title": "Gunung Slamet - Gunung Bagging",
+        "url": "https://www.gunungbagging.com/slamet/"
+      },
+      {
+        "title": "Gunung Slamet: Atap Jawa Tengah - muncak.id",
+        "url": "https://muncak.id/en/article/Gunung-slamet"
+      },
+      {
+        "title": "Pendakian Gunung Slamet ditutup sementara 4 April 2026 - Kompas",
+        "url": "https://travel.kompas.com/read/2026/04/04/160400127/pendakian-gunung-slamet-ditutup-sementara-4-april-2026-ini-sebabnya"
+      },
+      {
+        "title": "Pendakian Gunung Slamet dibuka, batas aman hanya sampai Pelawangan - Kompas",
+        "url": "https://travel.kompas.com/read/2026/06/09/060027127/pendakian-gunung-slamet-dibuka-batas-aman-hanya-sampai-pelawangan"
+      },
+      {
+        "title": "Jalur Slamet via Bambangan dan Dipajaya tutup 15-17 Sep 2026 - Tabloid Elemen",
+        "url": "https://tabloidelemen.com/jalur-pendakian-gunung-slamet-via-bambangan-dan-dipajaya-tutup-sementara-15-17-september-2026/"
+      }
+    ],
+    "unknown": []
+  },
+  "prau": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "An easy climb to a wide summit meadow with sunrise over Sindoro and Sumbing.",
+    "highlights": [
+      {
+        "title": "Sunrise between two volcanoes",
+        "body": "From the summit ridge the sun rises behind Sindoro and Sumbing, often above a sea of clouds.",
+        "source": "https://www.backindo.com/hiking-mount-prau/"
+      },
+      {
+        "title": "Camp on the meadow",
+        "body": "Many hikers pitch a tent on the open summit and wait for sunrise the next morning.",
+        "source": "https://muncak.id/en/hiking-trail/gunung-prau-parahu-via-patak-banteng"
+      },
+      {
+        "title": "Patak Banteng, the short way",
+        "body": "Patak Banteng is the favourite and closest route to the top: about 3.9 km with 554 m of climbing.",
+        "source": "https://www.alltrails.com/en-gb/trail/indonesia/central-java/gunung-prau-via-patak-banteng"
+      }
+    ],
+    "stats": [
+      {
+        "value": "2,590 m",
+        "label": "Summit elevation",
+        "note": "On the edge of the Dieng Plateau"
+      },
+      {
+        "value": "3-4 h",
+        "label": "Ascent time",
+        "note": "Good first overnight hike"
+      },
+      {
+        "value": "0°C",
+        "label": "Night low",
+        "note": "Cold and windy on the open meadow"
+      },
+      {
+        "value": "2 L",
+        "label": "Water to carry",
+        "note": "Buy water in Dieng before you start"
+      }
+    ],
+    "packing": [
+      {
+        "item": "0°C sleeping bag",
+        "why": "Nights on the summit meadow can drop to about 0°C."
+      },
+      {
+        "item": "Warm, windproof jacket",
+        "why": "The open meadow has no shelter from the wind."
+      },
+      {
+        "item": "2 L of water",
+        "why": "There is no water on the trail. Buy it in Dieng first."
+      },
+      {
+        "item": "Sun hat and sunscreen",
+        "why": "The grassland has little shade once the sun is up."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Gentle but uphill",
+        "body": "The trail is short and steady uphill, with small rocks and red soil. Most beginners can manage it."
+      },
+      {
+        "title": "Slippery when wet",
+        "body": "In the rainy season the red soil turns very slippery. Dry season hikes are much easier."
+      },
+      {
+        "title": "Cold is the challenge",
+        "body": "The hardest part is a cold, windy night on the summit. Good layers and a warm bag solve most of it."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Hiking Mount Prau, Dieng - Backindo",
+        "url": "https://www.backindo.com/hiking-mount-prau/"
+      },
+      {
+        "title": "Hiking Trail Prau via Patak Banteng - muncak.id",
+        "url": "https://muncak.id/en/hiking-trail/gunung-prau-parahu-via-patak-banteng"
+      },
+      {
+        "title": "Mount Prau via Patak Banteng - AllTrails",
+        "url": "https://www.alltrails.com/en-gb/trail/indonesia/central-java/gunung-prau-via-patak-banteng"
+      },
+      {
+        "title": "Dieng (Prau) - Gunung Bagging",
+        "url": "https://www.gunungbagging.com/dieng/"
+      },
+      {
+        "title": "Pendakian Gunung Prau ditutup mulai 19 Januari 2026 - Kompas",
+        "url": "https://travel.kompas.com/read/2026/01/02/130916227/pendakian-gunung-prau-ditutup-mulai-19-januari-2026-hingga-maret-2026"
+      }
+    ],
+    "unknown": []
+  },
+  "ungaran": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "Semarang's home mountain: tea gardens, forest and an easy summit.",
+    "highlights": [
+      {
+        "title": "Four ways up",
+        "body": "Ungaran can be climbed from Basecamp Mawar, Candi Gedong Songo, Promasan and Perantunan. Mawar is the most popular.",
+        "source": "https://www.eigeradventure.com/blog/jalur-pendakian-gunung-ungaran/"
+      },
+      {
+        "title": "Tea gardens at Promasan",
+        "body": "Around 1,450 m the trail reaches Promasan hamlet, with springs, a camp area and wide green tea gardens.",
+        "source": "https://visitjawatengah.jatengprov.go.id/en/article/hiking-mount-ungaran-mawar-basecamp-trailbase"
+      },
+      {
+        "title": "9th-century temples nearby",
+        "body": "Candi Gedong Songo, a Hindu temple complex from the Medang Kingdom, sits on Ungaran's slopes at about 1,200 m.",
+        "source": "https://www.gunungbagging.com/ungaran/"
+      }
+    ],
+    "stats": [
+      {
+        "value": "2,050 m",
+        "label": "Summit elevation",
+        "note": "Closest big mountain to Semarang"
+      },
+      {
+        "value": "3-4 h",
+        "label": "Ascent time",
+        "note": "Doable as a day trip"
+      },
+      {
+        "value": "~8 km",
+        "label": "Round trip",
+        "note": "Pine plantation and mixed forest"
+      },
+      {
+        "value": "1.5 L",
+        "label": "Water to carry",
+        "note": "Springs only at lower elevations"
+      }
+    ],
+    "packing": [
+      {
+        "item": "Rain jacket",
+        "why": "The trail gets slippery in the wet season and fog is common at the summit."
+      },
+      {
+        "item": "1.5 L of water",
+        "why": "Springs are only low on the mountain. Carry your own for the top."
+      },
+      {
+        "item": "Shoes with good grip",
+        "why": "Some sections are steep and rocky, and slick after rain."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Beginner-friendly",
+        "body": "No major danger points. It is a good first mountain if you can walk uphill for a few hours."
+      },
+      {
+        "title": "Some steep, rocky bits",
+        "body": "Expect short steep and rocky sections. Take them slowly, especially when wet."
+      },
+      {
+        "title": "Fog at the top",
+        "body": "The summit often clouds over. Stay on the marked path when visibility drops."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Gunung Ungaran - Gunung Bagging",
+        "url": "https://www.gunungbagging.com/ungaran/"
+      },
+      {
+        "title": "Hiking Mount Ungaran, Mawar Basecamp - Visit Jawa Tengah",
+        "url": "https://visitjawatengah.jatengprov.go.id/en/article/hiking-mount-ungaran-mawar-basecamp-trailbase"
+      },
+      {
+        "title": "Gunung Ungaran: jalur pendakian - Eiger Adventure",
+        "url": "https://www.eigeradventure.com/blog/jalur-pendakian-gunung-ungaran/"
+      }
+    ],
+    "unknown": []
+  },
+  "andong": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "A short beginner hike to a ridge with views of Merapi, Merbabu and more.",
+    "highlights": [
+      {
+        "title": "Mountains all around",
+        "body": "From the top you can see Merapi, Merbabu, Sindoro, Sumbing, Prau, Ungaran and Telomoyo just by turning around.",
+        "source": "https://en.wikipedia.org/wiki/Mount_Andong"
+      },
+      {
+        "title": "Four little peaks",
+        "body": "Andong has four peaks in a row from west to east. The highest is Andong peak itself.",
+        "source": "https://en.wikipedia.org/wiki/Mount_Andong"
+      },
+      {
+        "title": "Up one way, down another",
+        "body": "A popular plan is to climb from Dusun Pendem (shorter, steeper) and come down via Sawit (longer, gentler). The two are about 700 m apart.",
+        "source": "https://travel.kompas.com/read/2023/08/14/170705627/rute-ke-basecamp-gunung-andong-via-pendem-antara-jalur-sawit-dan-gogik"
+      }
+    ],
+    "stats": [
+      {
+        "value": "1,726 m",
+        "label": "Summit elevation",
+        "note": "Figure used by local hikers"
+      },
+      {
+        "value": "2-3 h",
+        "label": "Ascent time",
+        "note": "Short enough for a sunrise trip"
+      },
+      {
+        "value": "~7 km",
+        "label": "Round trip",
+        "note": "Pine forest, then open grassland"
+      },
+      {
+        "value": "1.5 L",
+        "label": "Water to carry",
+        "note": "No water on the trail"
+      }
+    ],
+    "packing": [
+      {
+        "item": "1.5 L of water",
+        "why": "There is no water source on the trail. Carry your own."
+      },
+      {
+        "item": "Hat and sunscreen",
+        "why": "The upper grassland is open and sunny once the sun is up."
+      },
+      {
+        "item": "Shoes with good grip",
+        "why": "The path gets slippery when wet, and the Pendem route is steep."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Easy for beginners",
+        "body": "No major danger points. Most people reach the top in 2-3 hours."
+      },
+      {
+        "title": "Busy on weekends",
+        "body": "Weekends get crowded, especially for sunrise. Go on a weekday for a quieter summit."
+      },
+      {
+        "title": "Watch the wet trail",
+        "body": "After rain the path turns slippery. Take the gentler Sawit route down if unsure."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Mount Andong - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Mount_Andong"
+      },
+      {
+        "title": "Rute ke basecamp Gunung Andong via Pendem - Kompas",
+        "url": "https://travel.kompas.com/read/2023/08/14/170705627/rute-ke-basecamp-gunung-andong-via-pendem-antara-jalur-sawit-dan-gogik"
+      },
+      {
+        "title": "Gunung Andong 1726 mdpl - Petualang Muda",
+        "url": "https://petualangmuda.com/gunung-andong/"
+      },
+      {
+        "title": "Gunung Andong - peakery",
+        "url": "https://peakery.com/gunung-andong-indonesia-1737m/"
+      },
+      {
+        "title": "Pendakian Gunung Andong via Temu Kidul ditutup 18-19 Juli 2026 - Kompas",
+        "url": "https://travel.kompas.com/read/2026/07/17/150300027/pendakian-gunung-andong-via-temu-kidul-ditutup-sementara-18-19-juli-2026"
+      },
+      {
+        "title": "Seluruh jalur pendakian Gunung Andong ditutup selama Ramadan 2026 - Tribun Jogja",
+        "url": "https://jogja.tribunnews.com/news/1208583/seluruh-jalur-pendakian-gunung-andong-ditutup-selama-ramadan-2026"
+      }
+    ],
+    "unknown": []
+  },
+  "telomoyo": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "A quiet volcano between big peaks, with views over Rawa Pening lake.",
+    "highlights": [
+      {
+        "title": "Views over Rawa Pening",
+        "body": "The summit looks out to Merapi, Merbabu, Sumbing and Ungaran, and down over Rawa Pening lake.",
+        "source": "https://timesindonesia.co.id/english/541182/no-hiking-boots-needed-explore-the-peak-of-mount-telomoyo-by-road"
+      },
+      {
+        "title": "Hike it or ride it",
+        "body": "A paved road runs almost to the top, so you can also go up by motorbike or jeep. Walkers can use the Arsal basecamp trail.",
+        "source": "https://visitjawatengah.jatengprov.go.id/en/destinations/mount-telomoyo-hike-via-arsal-basecamp"
+      },
+      {
+        "title": "Paragliding launch",
+        "body": "The summit area is a known take-off spot for paragliding and hang-gliding.",
+        "source": "https://timesindonesia.co.id/english/541182/no-hiking-boots-needed-explore-the-peak-of-mount-telomoyo-by-road"
+      }
+    ],
+    "stats": [
+      {
+        "value": "1,894 m",
+        "label": "Summit elevation",
+        "note": "Dormant stratovolcano"
+      },
+      {
+        "value": "2.5-3.5 h",
+        "label": "Ascent time",
+        "note": "Easy day hike"
+      },
+      {
+        "value": "~8 km",
+        "label": "Round trip",
+        "note": "Pine forest and open grassland"
+      },
+      {
+        "value": "1.5 L",
+        "label": "Water to carry",
+        "note": "No water on the trail"
+      }
+    ],
+    "packing": [
+      {
+        "item": "1.5 L of water",
+        "why": "There is no water on the trail. Carry your own."
+      },
+      {
+        "item": "Wind layer",
+        "why": "The summit is windy, even on a clear day."
+      },
+      {
+        "item": "Shoes with good grip",
+        "why": "The path gets slippery when wet."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Easy and short",
+        "body": "No major danger points. It is a relaxed beginner hike."
+      },
+      {
+        "title": "Share the summit",
+        "body": "Because a road reaches the top, expect vehicles and visitors who did not walk up."
+      },
+      {
+        "title": "Wet and windy",
+        "body": "Take care on slippery ground after rain, and bring a layer for the wind on top."
+      }
+    ],
+    "sources": [
+      {
+        "title": "No Hiking Boots Needed: Mount Telomoyo by Road - TIMES Indonesia",
+        "url": "https://timesindonesia.co.id/english/541182/no-hiking-boots-needed-explore-the-peak-of-mount-telomoyo-by-road"
+      },
+      {
+        "title": "Mount Telomoyo Hike via Arsal Basecamp - Visit Jawa Tengah",
+        "url": "https://visitjawatengah.jatengprov.go.id/en/destinations/mount-telomoyo-hike-via-arsal-basecamp"
+      },
+      {
+        "title": "Gunung Telomoyo - Gunung Bagging",
+        "url": "https://www.gunungbagging.com/telomoyo/"
+      },
+      {
+        "title": "Mount Telomoyo: The Easiest Peak in Central Java - Backindo",
+        "url": "https://www.backindo.com/mount-telomoyo/"
+      }
+    ],
+    "unknown": []
+  },
+  "sikunir": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "A 30-minute walk from Java's highest village to a golden Dieng sunrise.",
+    "highlights": [
+      {
+        "title": "Java's highest village",
+        "body": "The walk starts in Sembungan, known as the highest village in Java at about 2,350 m.",
+        "source": "https://visitjawatengah.jatengprov.go.id/en/regency/kabupaten-wonosobo/destinasi-wisata/bukit-sikunir"
+      },
+      {
+        "title": "Named after turmeric",
+        "body": "'Sikunir' comes from the Javanese 'kunir', turmeric, for the yellow colour the sky turns at sunrise.",
+        "source": "https://www.backindo.com/sikunir-dieng-sunrise/"
+      },
+      {
+        "title": "Sindoro at dawn",
+        "body": "The hilltop gives clear views over the Dieng Plateau and Mount Sindoro as the sun comes up.",
+        "source": "https://visitjawatengah.jatengprov.go.id/en/article/hypnotized-by-the-magnificent-golden-sunrise-in-sikunir-hill"
+      }
+    ],
+    "stats": [
+      {
+        "value": "2,263 m",
+        "label": "Viewpoint elevation",
+        "note": "Above the Dieng Plateau"
+      },
+      {
+        "value": "0.5-1 h",
+        "label": "Ascent time",
+        "note": "Short walk from Sembungan"
+      },
+      {
+        "value": "0-5°C",
+        "label": "Pre-dawn temperature",
+        "note": "Cold before sunrise"
+      },
+      {
+        "value": "~3 km",
+        "label": "Round trip",
+        "note": "Farm path and open hillside"
+      }
+    ],
+    "packing": [
+      {
+        "item": "Warm jacket",
+        "why": "Pre-dawn temperatures are around 0-5°C while you wait for sunrise."
+      },
+      {
+        "item": "Headlamp",
+        "why": "You walk in the dark and the path has little lighting."
+      },
+      {
+        "item": "Shoes with good grip",
+        "why": "The farm path can be slippery."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Very easy walk",
+        "body": "The climb takes 30-45 minutes on a farm path. No real danger points."
+      },
+      {
+        "title": "The cold is the hard part",
+        "body": "You start around 3-4 AM in near-freezing air. Dress warmly and bring a light."
+      },
+      {
+        "title": "Dry season is clearer",
+        "body": "Fog is less likely in the dry months, so sunrise views are more reliable."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Sikunir Hill - Visit Jawa Tengah",
+        "url": "https://visitjawatengah.jatengprov.go.id/en/regency/kabupaten-wonosobo/destinasi-wisata/bukit-sikunir"
+      },
+      {
+        "title": "Hypnotized by the Golden Sunrise in Sikunir Hill - Visit Jawa Tengah",
+        "url": "https://visitjawatengah.jatengprov.go.id/en/article/hypnotized-by-the-magnificent-golden-sunrise-in-sikunir-hill"
+      },
+      {
+        "title": "Sikunir Hill, Dieng - Backindo",
+        "url": "https://www.backindo.com/sikunir-dieng-sunrise/"
+      },
+      {
+        "title": "Sembungan - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Sembungan"
+      }
+    ],
+    "unknown": []
+  },
+  "gede": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "Rainforest, hot springs and an edelweiss meadow, about 70 km from Jakarta.",
+    "highlights": [
+      {
+        "title": "UNESCO Biosphere Reserve",
+        "body": "Gede and Pangrango form a national park named a UNESCO Biosphere Reserve in 1977, about 70 km south of Jakarta.",
+        "source": "https://national-parks.org/indonesia/mount-gede-pangrango-national-park/"
+      },
+      {
+        "title": "Surya Kencana meadow",
+        "body": "Alun-Alun Surya Kencana is a high savanna below the summit, covered in Javan edelweiss. It is protected, so look but do not pick.",
+        "source": "https://en.wikipedia.org/wiki/Mount_Gede_Pangrango_National_Park"
+      },
+      {
+        "title": "Walk through hot water",
+        "body": "On the Cibodas route the path crosses warm volcanic water flowing over rocks. Hikers hold a rope and walk slowly.",
+        "source": "https://infogepang.com/panduan-lengkap-pendakian-gunung-gede-via-cibodas/"
+      }
+    ],
+    "stats": [
+      {
+        "value": "2,958 m",
+        "label": "Summit elevation",
+        "note": "Twin peak Pangrango is 3,019 m"
+      },
+      {
+        "value": "7-9 h",
+        "label": "Ascent time",
+        "note": "Most hikers camp a night"
+      },
+      {
+        "value": "~18 km",
+        "label": "Round trip",
+        "note": "Rainforest to crater rim"
+      },
+      {
+        "value": "3 L",
+        "label": "Water to carry",
+        "note": "Cibodas route has springs along the way"
+      }
+    ],
+    "packing": [
+      {
+        "item": "Rain gear",
+        "why": "It is rainforest. The trail is slippery in the wet season and fog is common."
+      },
+      {
+        "item": "Warm layers",
+        "why": "The summit is cold, especially at night and before dawn."
+      },
+      {
+        "item": "Trekking poles",
+        "why": "Help on slippery trail and on the hot-water crossing."
+      },
+      {
+        "item": "Headlamp",
+        "why": "Most hikers start or finish in the dark, and fog can cut visibility on the upper trail."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Moderate, not technical",
+        "body": "An intermediate climb. The Cibodas route is gentler, with many rest posts and a big camp at Kandang Badak (about 2,400 m)."
+      },
+      {
+        "title": "Gas at the crater",
+        "body": "Sulfur gas pockets sit around the crater. Keep to the rim path and do not linger in smelly hollows."
+      },
+      {
+        "title": "Busy on weekends",
+        "body": "Permits fill fast on holidays and the summit can have queues. Weekdays are calmer."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Mount Gede Pangrango National Park - GANP",
+        "url": "https://national-parks.org/indonesia/mount-gede-pangrango-national-park/"
+      },
+      {
+        "title": "Mount Gede Pangrango National Park - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Mount_Gede_Pangrango_National_Park"
+      },
+      {
+        "title": "Panduan pendakian Gunung Gede via Cibodas (2026) - infogepang",
+        "url": "https://infogepang.com/panduan-lengkap-pendakian-gunung-gede-via-cibodas/"
+      },
+      {
+        "title": "Mount Gede Pangrango National Park - Wikivoyage",
+        "url": "https://en.wikivoyage.org/wiki/Mount_Gede_Pangrango_National_Park"
+      },
+      {
+        "title": "Pendakian Gunung Gede Pangrango ditutup hingga waktu tak ditentukan - Kompas",
+        "url": "https://bandung.kompas.com/read/2026/09/01/071553078/pendakian-gunung-gede-pangrango-ditutup-hingga-waktu-tak-ditentukan-ini"
+      },
+      {
+        "title": "Kemenhut tutup sementara pendakian 9 taman nasional - periskop.id",
+        "url": "https://periskop.id/nasional/20260831/kemenhut-tutup-sementara-pendakian-9-taman-nasional"
+      },
+      {
+        "title": "Pendakian Gede Pangrango ditutup hingga 31 Agustus 2026 - detik",
+        "url": "https://www.detik.com/jabar/wisata/d-8624477/pendakian-gede-pangrango-ditutup-hingga-31-agustus-2026"
+      }
+    ],
+    "unknown": []
+  },
+  "pangrango": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "West Java's second-highest peak, with an edelweiss meadow just below the top.",
+    "highlights": [
+      {
+        "title": "Edelweiss at Mandalawangi",
+        "body": "Alun-alun Mandalawangi is an alpine meadow less than 10 minutes' walk down from the summit. Its wide fields of edelweiss grow among the grass.",
+        "source": "https://www.gunungbagging.com/pangrango/"
+      },
+      {
+        "title": "Second-highest in West Java",
+        "body": "At 3,019 m, Pangrango stands second in West Java, after Ciremai. Its summit is called Mandalawangi.",
+        "source": "https://en.wikipedia.org/wiki/Mount_Pangrango"
+      },
+      {
+        "title": "Close to Jakarta",
+        "body": "The mountain sits about 80 km south of Jakarta, inside Gunung Gede Pangrango National Park.",
+        "source": "https://en.wikipedia.org/wiki/Mount_Pangrango"
+      }
+    ],
+    "stats": [
+      {
+        "value": "3,019 m",
+        "label": "Summit elevation",
+        "note": "Cold, wet cloud forest near the top"
+      },
+      {
+        "value": "~24 km",
+        "label": "Round trip",
+        "note": "Full Gede-Pangrango traverse"
+      },
+      {
+        "value": "10-12 h",
+        "label": "Ascent time",
+        "note": "For the Gede-Pangrango traverse"
+      },
+      {
+        "value": "3-4 L",
+        "label": "Water per person",
+        "note": "Little water between Gede and Pangrango"
+      }
+    ],
+    "packing": [
+      {
+        "item": "GPS device",
+        "why": "The Gede-Pangrango saddle is easy to lose in fog, and there is no phone signal on the traverse."
+      },
+      {
+        "item": "Rain gear",
+        "why": "The cloud forest is wet almost all the time, and the trail gets slippery."
+      },
+      {
+        "item": "Warm layers",
+        "why": "The ridge is cold, and fog and wet clothes make it colder."
+      },
+      {
+        "item": "Extra water",
+        "why": "Water is limited past Gede. Fill up at Kandang Badak and carry 3-4 L."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Fog on the saddle",
+        "body": "Between Gede and Pangrango the trail is easy to lose when fog rolls in. Stay together and check your GPS often."
+      },
+      {
+        "title": "Long, wet days",
+        "body": "The traverse takes 10-12 hours up and 7-9 hours down on a muddy, slippery trail. Fitness matters more than skill."
+      },
+      {
+        "title": "On your own up there",
+        "body": "Once past Gede, you are isolated and have no signal. Tell someone your plan before you go."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Gunung Pangrango | Gunung Bagging",
+        "url": "https://www.gunungbagging.com/pangrango/"
+      },
+      {
+        "title": "Mount Pangrango - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Mount_Pangrango"
+      },
+      {
+        "title": "Mandalawangi Valley | AllTrails",
+        "url": "https://www.alltrails.com/trail/indonesia/west-java/lembah-mandalawangi"
+      },
+      {
+        "title": "Pendakian Gunung Pangrango Ditutup Sementara Imbas Cuaca Ekstrem (Kompas)",
+        "url": "https://lestari.kompas.com/read/2026/02/03/163217686/pendakian-gunung-pangrango-ditutup-sementara-imbas-cuaca-ekstrem"
+      },
+      {
+        "title": "Pendakian Gunung Gede Pangrango Ditutup hingga 12 April 2026 (Kompas)",
+        "url": "https://travel.kompas.com/read/2026/03/14/180000427/pendakian-gunung-gede-pangrango-masih-tutup-sampai-12-april-2026-"
+      },
+      {
+        "title": "Pendakian Gede Pangrango Ditutup hingga 31 Agustus 2026 (detik)",
+        "url": "https://www.detik.com/jabar/wisata/d-8624477/pendakian-gede-pangrango-ditutup-hingga-31-agustus-2026"
+      },
+      {
+        "title": "Pendakian Gunung Gede Pangrango Ditutup Total Mulai 1 September 2026 (Media Indonesia)",
+        "url": "https://mediaindonesia.com/nusantara/928486/pendakian-gunung-gede-pangrango-ditutup-total-mulai-1-september-2026"
+      },
+      {
+        "title": "Menhut tutup sementara pendakian 9 taman nasional (ANTARA)",
+        "url": "https://gorontalo.antaranews.com/berita/421873/menhut-tutup-sementara-pendakian-9-taman-nasional-rawan-karhutla"
+      }
+    ],
+    "unknown": []
+  },
+  "ciremai": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "The roof of West Java: a lone 3,078 m cone with a crater at the top.",
+    "highlights": [
+      {
+        "title": "Highest point in West Java",
+        "body": "Ciremai is a symmetrical stratovolcano and the highest point in West Java, at 3,078 m. It rises southwest of Cirebon.",
+        "source": "https://en.wikipedia.org/wiki/Mount_Ciremai"
+      },
+      {
+        "title": "Crater at the summit",
+        "body": "The summit holds a crater about 0.5 km wide. The last recorded eruption was in 1951.",
+        "source": "https://en.wikipedia.org/wiki/Mount_Ciremai"
+      },
+      {
+        "title": "History at Linggarjati",
+        "body": "At the foot of the mountain, the Linggarjati museum marks the 1946 talks between Indonesia and the Netherlands.",
+        "source": "https://www.indonesia.travel/us/en/destination/java/west-java/linggarjati-negotiation-building-museum/"
+      }
+    ],
+    "stats": [
+      {
+        "value": "3,078 m",
+        "label": "Summit elevation",
+        "note": "Highest point in West Java"
+      },
+      {
+        "value": "8-10 h",
+        "label": "Ascent time",
+        "note": "Steep, almost nonstop climbing"
+      },
+      {
+        "value": "~18 km",
+        "label": "Round trip",
+        "note": "Via Palutungan, Apuy or Linggarjati"
+      },
+      {
+        "value": "4 L",
+        "label": "Water per person",
+        "note": "Carry all water above Pos 3"
+      }
+    ],
+    "packing": [
+      {
+        "item": "0°C sleeping bag",
+        "why": "The summit area is cold, and most hikers camp on the mountain."
+      },
+      {
+        "item": "Trekking poles",
+        "why": "The ascent is steep and long. Poles save your knees on the way down."
+      },
+      {
+        "item": "4 L of water",
+        "why": "Springs are only at Pos 1-2. You must carry all water above Pos 3."
+      },
+      {
+        "item": "Rain gear",
+        "why": "Fog and cold are common on the upper slopes."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Relentless climbing",
+        "body": "The trail climbs steeply for 8-10 hours with few flat breaks. Train your legs before you go."
+      },
+      {
+        "title": "Exposed above Pos 4",
+        "body": "The upper sections and the crater rim are steep and exposed. Fog can roll in fast."
+      },
+      {
+        "title": "Plan your water",
+        "body": "There is no water above Pos 3. Dehydration is a real risk on this climb."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Mount Ciremai - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Mount_Ciremai"
+      },
+      {
+        "title": "Mount Ciremai National Park - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Mount_Ciremai_National_Park"
+      },
+      {
+        "title": "Linggarjati Negotiation Building Museum",
+        "url": "https://www.indonesia.travel/us/en/destination/java/west-java/linggarjati-negotiation-building-museum/"
+      },
+      {
+        "title": "Cegah Karhutla, Jalur Pendakian Gunung Ciremai Ditutup Mulai 6 September (Kompas)",
+        "url": "https://bandung.kompas.com/read/2026/09/01/194335578/cegah-karhutla-jalur-pendakian-gunung-ciremai-ditutup-mulai-6-september"
+      },
+      {
+        "title": "Pendakian Gunung Ciremai Ditutup gegara Cuaca Ekstrem hingga Longsor (detik)",
+        "url": "https://news.detik.com/berita/d-8330164/pendakian-gunung-ciremai-ditutup-gegara-cuaca-ekstrem-hingga-longsor"
+      },
+      {
+        "title": "Menhut tutup sementara pendakian 9 taman nasional (ANTARA)",
+        "url": "https://gorontalo.antaranews.com/berita/421873/menhut-tutup-sementara-pendakian-9-taman-nasional-rawan-karhutla"
+      }
+    ],
+    "unknown": []
+  },
+  "papandayan": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "A dead forest, a steaming crater and an edelweiss meadow on one short trail.",
+    "highlights": [
+      {
+        "title": "Hutan Mati, the dead forest",
+        "body": "The 2002 eruption burned the vegetation here. Dry, bare trees still stand upright on pale sulfur ground.",
+        "source": "https://www.goersapp.com/blog/gunung-papandayan/"
+      },
+      {
+        "title": "Tegal Alun edelweiss",
+        "body": "About an hour's walk from Hutan Mati, Tegal Alun is a wide meadow full of edelweiss.",
+        "source": "https://janitra-hendra.medium.com/mount-papandayan-the-death-forest-edelweiss-flower-field-and-the-crater-1f77690de87"
+      },
+      {
+        "title": "An active crater",
+        "body": "Papandayan has four large summit craters. The youngest holds active fumarole fields that you walk past on the trail.",
+        "source": "https://volcano.si.edu/volcano.cfm?vn=263100"
+      }
+    ],
+    "stats": [
+      {
+        "value": "2,665 m",
+        "label": "Summit elevation",
+        "note": "Cold nights at the summit camp"
+      },
+      {
+        "value": "3-4 h",
+        "label": "Ascent time",
+        "note": "Beginner-friendly"
+      },
+      {
+        "value": "~10 km",
+        "label": "Round trip",
+        "note": "From Camp David basecamp"
+      },
+      {
+        "value": "2002",
+        "label": "Last eruption",
+        "note": "11 November - 8 December 2002"
+      }
+    ],
+    "packing": [
+      {
+        "item": "Mask or bandana",
+        "why": "The trail passes active sulfur fumaroles. Gas levels change with the wind."
+      },
+      {
+        "item": "Warm jacket",
+        "why": "It gets cold at the summit camp at night."
+      },
+      {
+        "item": "2-3 L of water",
+        "why": "Carry your own. Water is sold only at the basecamp."
+      },
+      {
+        "item": "Tent and sleeping bag",
+        "why": "Many hikers camp overnight near the Tegal Alun meadow."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Stay on the marked path",
+        "body": "In the fumarole field, do not leave the path. Toxic gas can build up where the wind drops."
+      },
+      {
+        "title": "Easy on the legs",
+        "body": "The climb is only 3-4 hours, and paths through the dead forest are clear. Good for first-timers."
+      },
+      {
+        "title": "Cold after dark",
+        "body": "Nights at camp are chilly. Bring warm layers even if the day feels mild."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Mount Papandayan | Medium (Janitra Hendra)",
+        "url": "https://janitra-hendra.medium.com/mount-papandayan-the-death-forest-edelweiss-flower-field-and-the-crater-1f77690de87"
+      },
+      {
+        "title": "Gunung Papandayan | Gunung Bagging",
+        "url": "https://www.gunungbagging.com/papandayan/"
+      },
+      {
+        "title": "Global Volcanism Program | Papandayan",
+        "url": "https://volcano.si.edu/volcano.cfm?vn=263100"
+      },
+      {
+        "title": "Gunung Papandayan | Goers",
+        "url": "https://www.goersapp.com/blog/gunung-papandayan/"
+      },
+      {
+        "title": "Ground deformation of Papandayan volcano ... 2002 eruption (ResearchGate)",
+        "url": "https://www.researchgate.net/publication/226545413_Ground_deformation_of_Papandayan_volcano_before_during_and_after_the_2002_eruption_as_detected_by_GPS_surveys"
+      },
+      {
+        "title": "Blue Fire Muncul di Gunung Papandayan, Aktivitas Wisatawan Dibatasi (Kompas)",
+        "url": "https://bandung.kompas.com/read/2026/09/25/160832178/blue-fire-muncul-di-gunung-papandayan-aktivitas-wisatawan-dibatasi"
+      },
+      {
+        "title": "Fenomena Api Biru Muncul di Kawah, Jalur Pendakian Gunung Papandayan Ditutup Sementara (Media Indonesia)",
+        "url": "https://mediaindonesia.com/jabar/berita/937497/fenomena-api-biru-muncul-di-kawah-jalur-pendakian-gunung-papandayan-ditutup-sementara"
+      }
+    ],
+    "unknown": []
+  },
+  "salak": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "Deep rainforest next to Bogor, and one of Java's easiest places to get lost.",
+    "highlights": [
+      {
+        "title": "Kawah Ratu crater",
+        "body": "Kawah Ratu is a field of small steaming craters at about 1,338 m, formed in the 1938 eruption. It sits 4.5 km along the Salak trail.",
+        "source": "https://salakhalimunmountain.com/mystical-journey-into-the-hidden-crater-of-mount-salak/"
+      },
+      {
+        "title": "Java's big rainforest",
+        "body": "Halimun Salak protects the largest remaining rainforest in Java. Javan leopards, Javan gibbons and Javan langurs live here.",
+        "source": "https://www.jakartaexpats.com/kawah-ratu-gn-salak.html"
+      },
+      {
+        "title": "A 2,211 m park icon",
+        "body": "Salak is one of two main peaks in Mount Halimun Salak National Park, between Bogor and Sukabumi.",
+        "source": "https://national-parks.org/indonesia/mount-halimun-salak-national-park/"
+      }
+    ],
+    "stats": [
+      {
+        "value": "2,211 m",
+        "label": "Summit elevation",
+        "note": "Under a thick rainforest canopy"
+      },
+      {
+        "value": "6-8 h",
+        "label": "Ascent time",
+        "note": "Steep ravines and river crossings"
+      },
+      {
+        "value": "~14 km",
+        "label": "Round trip",
+        "note": "Via Cidahu, Cimelati or Curug Nangka"
+      },
+      {
+        "value": "3-4 L",
+        "label": "Water per person",
+        "note": "Streams exist but must be treated"
+      }
+    ],
+    "packing": [
+      {
+        "item": "GPS device",
+        "why": "The trail has many unmarked forks, and the canopy blocks phone signal."
+      },
+      {
+        "item": "Whistle",
+        "why": "Salak is known for lost hikers. A whistle helps rescuers find you."
+      },
+      {
+        "item": "Bright clothing",
+        "why": "Makes you easier to spot for search-and-rescue teams in dense forest."
+      },
+      {
+        "item": "Water filter",
+        "why": "Streams run along the trail, but the water must be treated before drinking."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Navigation is the real test",
+        "body": "The trail system is one of Java's most confusing, with many unmarked forks. Carry a GPS track and never walk alone."
+      },
+      {
+        "title": "Wet, steep ground",
+        "body": "Expect mud, stone, roots and small river crossings. Good boots make a big difference."
+      },
+      {
+        "title": "Watch the rain",
+        "body": "Heavy rain can cause flash floods in the ravines. Avoid the wet months and turn back if it pours."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Gunung Salak | Gunung Bagging",
+        "url": "https://www.gunungbagging.com/salak/"
+      },
+      {
+        "title": "Kawah Ratu Gunung Salak - Jakarta Expats",
+        "url": "https://www.jakartaexpats.com/kawah-ratu-gn-salak.html"
+      },
+      {
+        "title": "Mount Halimun Salak National Park - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Mount_Halimun_Salak_National_Park"
+      },
+      {
+        "title": "Mystical Journey into the Hidden Crater of Mount Salak",
+        "url": "https://salakhalimunmountain.com/mystical-journey-into-the-hidden-crater-of-mount-salak/"
+      },
+      {
+        "title": "Mount Halimun Salak National Park (GANP)",
+        "url": "https://national-parks.org/indonesia/mount-halimun-salak-national-park/"
+      },
+      {
+        "title": "Pendakian Gunung Salak Ditutup Sementara per 2 September (Kompas)",
+        "url": "https://travel.kompas.com/read/2026/09/04/193450127/pendakian-gunung-salak-ditutup-sementara-per-2-september"
+      },
+      {
+        "title": "Pendakian Gunung Salak Ditutup Hingga 30 Juni 2026 (Mounture)",
+        "url": "https://mounture.com/berita/pendakian-gunung-salak-ditutup-hingga-30-juni-2026-semua-jalur-resmi-tnghs-tidak-dibuka/"
+      },
+      {
+        "title": "Pendakian Gunung Salak Resmi Dibuka Kembali (Mounture)",
+        "url": "https://mounture.com/berita/pendakian-gunung-salak-dibuka-kembali-juli-2026/"
+      }
+    ],
+    "unknown": []
+  },
+  "cikuray": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "The tall cone above Garut, with sunrise views across West Java's volcanoes.",
+    "highlights": [
+      {
+        "title": "Top of the Priangan highlands",
+        "body": "Cikuray is the highest peak in the Parahyangan/Priangan highlands, a dormant cone that dominates the land around Garut.",
+        "source": "https://www.gunungbagging.com/cikuray/"
+      },
+      {
+        "title": "Views to many volcanoes",
+        "body": "On a clear day the summit looks out to Ciremai, Guntur and Papandayan. Sunrise and sunset give the best views.",
+        "source": "https://www.gunungbagging.com/cikuray/"
+      },
+      {
+        "title": "Start among the tea",
+        "body": "From Pos Pemancar, the trail begins through tea plantations before entering the forest.",
+        "source": "https://www.gunungbagging.com/cikuray/"
+      }
+    ],
+    "stats": [
+      {
+        "value": "2,821 m",
+        "label": "Summit elevation",
+        "note": "Fourth-highest mountain in West Java"
+      },
+      {
+        "value": "6-8 h",
+        "label": "Ascent time",
+        "note": "Steep, slippery upper forest"
+      },
+      {
+        "value": "~14 km",
+        "label": "Round trip",
+        "note": "Most start from Pemancar"
+      },
+      {
+        "value": "3 L",
+        "label": "Water per person",
+        "note": "No water in the upper sections"
+      }
+    ],
+    "packing": [
+      {
+        "item": "Water for the top",
+        "why": "Springs are only at the lower pos. There is no water higher up."
+      },
+      {
+        "item": "Warm layers",
+        "why": "The summit is cold, especially at sunrise."
+      },
+      {
+        "item": "Trekking poles",
+        "why": "The upper forest is steep and slippery, with some erosion."
+      },
+      {
+        "item": "Dust mask",
+        "why": "In the dry season the tea plantation section becomes bare and dusty."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Steep upper forest",
+        "body": "The upper forest section is steep and slippery. Take it slow, especially on the way down."
+      },
+      {
+        "title": "Long for its height",
+        "body": "Plan for 6-8 hours up. Some fit hikers do it as a day hike by starting very early."
+      },
+      {
+        "title": "Wild boars about",
+        "body": "Wild boars on the slopes are used to hikers. Keep food packed away at camp."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Gunung Cikuray | Gunung Bagging",
+        "url": "https://www.gunungbagging.com/cikuray/"
+      },
+      {
+        "title": "Informasi Gunung Cikuray | Datagunung",
+        "url": "https://datagunung.com/gunung/Cikuray/info"
+      },
+      {
+        "title": "Gunung Cikuray Jalur Cintanagara Ditutup 16 Februari-20 Maret 2026 (Mounture)",
+        "url": "https://mounture.com/berita/gunung-cikuray-jalur-cintanagara-ditutup-16-februari-20-maret-2026-ini-alasannya/"
+      }
+    ],
+    "unknown": []
+  },
+  "guntur": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "An active volcano near Garut whose 1847 lava reached the Cipanas hot springs.",
+    "highlights": [
+      {
+        "title": "24 eruptions since 1690",
+        "body": "Guntur has at least 24 recorded eruptions since 1690. The largest in historic times was in 1843.",
+        "source": "https://www.volcanodiscovery.com/guntur.html"
+      },
+      {
+        "title": "Lava that reached Cipanas",
+        "body": "The 1847 eruption sent lava flows to the Cipanas area, about 4 km from the summit. It has been quiet on the surface since.",
+        "source": "https://www.mdpi.com/2075-163X/16/9/890"
+      },
+      {
+        "title": "Still alive below",
+        "body": "Ongoing quakes under the volcano point to an active, melt-bearing magma system, despite no eruption since 1847.",
+        "source": "https://www.mdpi.com/2075-163X/16/9/890"
+      }
+    ],
+    "stats": [
+      {
+        "value": "2,249 m",
+        "label": "Summit elevation",
+        "note": "Part of a complex of overlapping volcanoes"
+      },
+      {
+        "value": "1847",
+        "label": "Last eruption",
+        "note": "Lava reached Cipanas, about 4 km away"
+      },
+      {
+        "value": "10 km",
+        "label": "From Garut",
+        "note": "The complex lies about 10 km NW of the city"
+      }
+    ],
+    "packing": [
+      {
+        "item": "Gas mask",
+        "why": "Sulfur gas collects around the crater area."
+      },
+      {
+        "item": "Sturdy boots",
+        "why": "Loose volcanic ground is hard on ankles, going up and coming down."
+      },
+      {
+        "item": "3 L of water",
+        "why": "There is no water on the trail. Carry all you need."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Check if it's legal first",
+        "body": "Guntur is a nature reserve (cagar alam). Officials say climbing has no permit, so routes may be closed at any time."
+      },
+      {
+        "title": "Check PVMBG alerts",
+        "body": "Volcanic quakes rose in March 2026. Always check the alert level before you plan a trip."
+      },
+      {
+        "title": "Loose ground near the top",
+        "body": "The crater area has unstable, loose volcanic terrain and gas. Keep to the known path."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Guntur Volcano | VolcanoDiscovery",
+        "url": "https://www.volcanodiscovery.com/guntur.html"
+      },
+      {
+        "title": "Mount Guntur - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Mount_Guntur"
+      },
+      {
+        "title": "Evolution of the Magmatic System at Mt. Guntur (MDPI Minerals)",
+        "url": "https://www.mdpi.com/2075-163X/16/9/890"
+      },
+      {
+        "title": "Pendakian Gunung Guntur via Citiis Tak Berizin, Statusnya Cagar Alam (Kompas)",
+        "url": "https://travel.kompas.com/read/2025/07/07/080800327/pendakian-gunung-guntur-via-citiis-tak-berizin-statusnya-cagar-alam"
+      },
+      {
+        "title": "BBKSDA Jabar Tutup Sementara Pendakian Gunung Guntur (Radar Garut)",
+        "url": "https://radargarut.id/2026/03/30/bbksda-jabar-tutup-sementara-pendakian-gunung-guntur-pendaki-luar-kota-tetap-nekat-naik/"
+      },
+      {
+        "title": "Gunung Guntur Ditutup Sampai Waktu Tak Ditentukan (Mounture)",
+        "url": "https://mounture.com/berita/gunung-guntur-ditutup-sampai-waktu-tak-ditentukan-ini-alasan-resminya/"
+      },
+      {
+        "title": "Pendakian Gunung Guntur Disebut Buka Kembali H+1 Lebaran 2026 (Kabar Alam)",
+        "url": "https://www.kabaralam.com/wisata-alam/59316893412/pendakian-gunung-guntur-disebut-buka-kembali-h1-lebaran-2026-ini-informasi-lengkapnya"
+      }
+    ],
+    "unknown": []
+  },
+  "burangrang": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "A short pine-forest climb on the rim of an ancient volcano near Bandung.",
+    "highlights": [
+      {
+        "title": "Remnant of old Mount Sunda",
+        "body": "Burangrang, Tangkuban Perahu and Bukit Tunggul are what remain of ancient Mount Sunda after its caldera collapsed.",
+        "source": "https://en.wikipedia.org/wiki/Tangkuban_Perahu"
+      },
+      {
+        "title": "Pine forest start",
+        "body": "From Legok Haji, the trail starts in gentle pine forest, then climbs over roots and steep ground to the top.",
+        "source": "https://mounture.com/catatan-perjalanan/pendakian-gunung-burangrang-via-legok-haji-ini-informasi-lengkapnya/"
+      },
+      {
+        "title": "Waterfall on the way",
+        "body": "Near Pos 1 a side path leads to Curug Cipalasari, a waterfall you can visit on the Legok Haji route.",
+        "source": "https://mounture.com/catatan-perjalanan/pendakian-gunung-burangrang-via-legok-haji-ini-informasi-lengkapnya/"
+      }
+    ],
+    "stats": [
+      {
+        "value": "2,064 m",
+        "label": "Summit elevation",
+        "note": "Above Bandung Barat"
+      },
+      {
+        "value": "4-5 h",
+        "label": "Ascent time",
+        "note": "Doable as a day hike"
+      },
+      {
+        "value": "~10 km",
+        "label": "Round trip",
+        "note": "From Legok Haji"
+      },
+      {
+        "value": "1,250 m",
+        "label": "Basecamp altitude",
+        "note": "Legok Haji basecamp, Desa Nyalindung"
+      }
+    ],
+    "packing": [
+      {
+        "item": "Rain jacket",
+        "why": "Dense fog and rain are common on the upper trail."
+      },
+      {
+        "item": "Shoes with grip",
+        "why": "The trail is slippery, with roots and some steep sections."
+      },
+      {
+        "item": "2 L of water",
+        "why": "There is no water source on the trail. Carry your own."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Steeper after Pos 1",
+        "body": "The start is gentle, but from Pos 1 to Pos 2 the trail gets steep and rooty. Take your time."
+      },
+      {
+        "title": "Good first day hike",
+        "body": "With a short route and phone signal close to Bandung, it suits hikers building experience."
+      },
+      {
+        "title": "Slippery when wet",
+        "body": "Fog and rain make the roots and soil slick. Watch your footing on the way down."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Pendakian Gunung Burangrang via Legok Haji (Mounture)",
+        "url": "https://mounture.com/catatan-perjalanan/pendakian-gunung-burangrang-via-legok-haji-ini-informasi-lengkapnya/"
+      },
+      {
+        "title": "Mount Sunda - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Mount_Sunda"
+      },
+      {
+        "title": "Tangkuban Perahu - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Tangkuban_Perahu"
+      },
+      {
+        "title": "Gunung Burangrang | Gunung Bagging",
+        "url": "https://www.gunungbagging.com/burangrang/"
+      },
+      {
+        "title": "Pendakian Gunung Burangrang-Manglayang Ditutup Gubernur Dedi Mulyadi (detik)",
+        "url": "https://travel.detik.com/travel-news/d-8656903/pendakian-gunung-burangrang-manglayang-ditutup-gubernur-dedi-mulyadi"
+      },
+      {
+        "title": "4 Gunung Bandung Utara Ditutup (Jabar Ekspres)",
+        "url": "https://jabarekspres.com/berita/2026/09/10/4-gunung-bandung-utara-ditutup-pendaki-diminta-tunda-aktivitas/"
+      },
+      {
+        "title": "Longsor Cisarua Bandung Barat, 2 Jalur Pendakian Gunung Burangrang Ditutup (Liputan6)",
+        "url": "https://www.liputan6.com/lifestyle/read/6264864/longsor-cisarua-bandung-barat-2-jalur-pendakian-gunung-burangrang-ditutup"
+      }
+    ],
+    "unknown": []
+  },
+  "kerinci": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "Sumatra's highest point and Southeast Asia's highest active volcano.",
+    "highlights": [
+      {
+        "title": "Highest volcano in the region",
+        "body": "At 3,805 m, Kerinci is the highest point in Sumatra and the highest volcano in Indonesia and Southeast Asia.",
+        "source": "https://en.wikipedia.org/wiki/Mount_Kerinci"
+      },
+      {
+        "title": "World Heritage rainforest",
+        "body": "Kerinci Seblat National Park is part of UNESCO's Tropical Rainforest Heritage of Sumatra site.",
+        "source": "https://whc.unesco.org/en/list/1167/"
+      },
+      {
+        "title": "Tiger country",
+        "body": "The park is one of the most important places in the world for Sumatran tiger conservation.",
+        "source": "https://www.aseanbiodiversity.org/asean-heritage-parks/kerinci-seblat-national-park/"
+      }
+    ],
+    "stats": [
+      {
+        "value": "3,805 m",
+        "label": "Summit elevation",
+        "note": "Nights can drop to -10°C at the top"
+      },
+      {
+        "value": "10-14 h",
+        "label": "Ascent time",
+        "note": "Most take 2-3 days"
+      },
+      {
+        "value": "~22 km",
+        "label": "Round trip",
+        "note": "From Kersik Tuo village"
+      },
+      {
+        "value": "5-6 L",
+        "label": "Water per person",
+        "note": "Last stream is near Shelter 1"
+      }
+    ],
+    "packing": [
+      {
+        "item": "-10°C sleeping bag",
+        "why": "Summit temperatures can drop to -10°C."
+      },
+      {
+        "item": "Gaiters",
+        "why": "Leeches are common in the lower rainforest."
+      },
+      {
+        "item": "Extra water bottles",
+        "why": "The last stream is near Shelter 1. Carry all water above it, 5-6 L."
+      },
+      {
+        "item": "Gas mask or buff",
+        "why": "The summit crater gives off volcanic gas."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "An expedition, not a day hike",
+        "body": "Plan 2-3 days. Hire a local guide: people have gone missing after trekking alone."
+      },
+      {
+        "title": "Hard summit push",
+        "body": "From Shelter 3 the final climb is on steep volcanic sand and scree. Start early and turn back if gas is strong."
+      },
+      {
+        "title": "Altitude and cold",
+        "body": "At 3,805 m, altitude sickness is possible. Go slowly and watch for headaches or nausea."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Mount Kerinci - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Mount_Kerinci"
+      },
+      {
+        "title": "Tropical Rainforest Heritage of Sumatra - UNESCO",
+        "url": "https://whc.unesco.org/en/list/1167/"
+      },
+      {
+        "title": "Kerinci-Seblat National Park - ASEAN Centre for Biodiversity",
+        "url": "https://www.aseanbiodiversity.org/asean-heritage-parks/kerinci-seblat-national-park/"
+      },
+      {
+        "title": "Mount Kerinci info, trekking, tips (Journey Beyond Horizon)",
+        "url": "https://journeybeyondhorizon.com/mount-kerinci-indonesia-info-trekking-tips/"
+      },
+      {
+        "title": "Aktivitas Vulkanik Meningkat, Pendakian Gunung Kerinci Ditutup Mulai 6 Januari 2026 (Jambi Update)",
+        "url": "https://www.jambiupdate.co/read/2026/01/06/121134/aktivitas-vulkanik-meningkat-pendakian-gunung-kerinci-ditutup-mulai-6-januari-2026"
+      },
+      {
+        "title": "Pendakian Gunung Kerinci Resmi Dibuka Hari Ini (Kompas)",
+        "url": "https://regional.kompas.com/read/2026/02/12/163700778/pendakian-gunung-kerinci-resmi-dibuka-hari-ini-pendaki-diminta-penuhi-sop"
+      },
+      {
+        "title": "Jalur Pendakian Gunung Kerinci Ditutup Mulai 1 September 2026 (Suara Surabaya)",
+        "url": "https://www.suarasurabaya.net/kelanakota/2026/jalur-pendakian-gunung-kerinci-ditutup-mulai-1-september-2026-untuk-antisipasi-karhutla/"
+      }
+    ],
+    "unknown": []
+  },
+  "sibayak": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "A short sunrise hike to a steaming crater, with hot springs waiting below.",
+    "highlights": [
+      {
+        "title": "The 'King's Mountain'",
+        "body": "Sibayak's name comes from the Karo Batak language and means 'King's Mountain'. It sits just outside Berastagi, about 70 km from Medan.",
+        "source": "https://www.laurewanders.com/climbing-mount-sibayak/"
+      },
+      {
+        "title": "Steaming crater",
+        "body": "At the top, fumaroles push out hot, sulfurous gas. The crater is just over an hour's walk from the nearest road.",
+        "source": "https://travelynnfamily.com/hiking-mount-sibayak-berastagi/"
+      },
+      {
+        "title": "Hot springs after",
+        "body": "Natural hot springs lie about 5 km from the trailhead, a good place to rest tired legs.",
+        "source": "https://www.laurewanders.com/climbing-mount-sibayak/"
+      }
+    ],
+    "stats": [
+      {
+        "value": "2,212 m",
+        "label": "Summit elevation",
+        "note": "Cool, windy Karo highland air"
+      },
+      {
+        "value": "2-3 h",
+        "label": "Ascent time",
+        "note": "Many start at 4 AM for sunrise"
+      },
+      {
+        "value": "~8 km",
+        "label": "Round trip",
+        "note": "Stairs and forest trail"
+      },
+      {
+        "value": "17+",
+        "label": "Minimum age",
+        "note": "Younger hikers need a parent or guide"
+      }
+    ],
+    "packing": [
+      {
+        "item": "Mask or bandana",
+        "why": "The crater gives off sulfur gas."
+      },
+      {
+        "item": "Warm jacket",
+        "why": "The summit is cold and windy, especially before sunrise."
+      },
+      {
+        "item": "Headlamp",
+        "why": "Most hikers start around 4 AM to catch the sunrise."
+      },
+      {
+        "item": "Rain jacket",
+        "why": "The climate is wet, and fog is common near the top."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Easy but not trivial",
+        "body": "The hike is short and well-trodden. Slippery steps and fog are the main challenges."
+      },
+      {
+        "title": "Respect the vents",
+        "body": "Do not step into fumarole holes. Steam vents can be dangerously hot and gas builds up in low spots."
+      },
+      {
+        "title": "Cold at dawn",
+        "body": "Sunrise hikers face a cold, windy summit. Bring a warm layer even if Berastagi feels mild."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Mount Sibayak | Gunung Bagging",
+        "url": "https://www.gunungbagging.com/sibayak/"
+      },
+      {
+        "title": "Hiking Mount Sibayak (Travelynn Family)",
+        "url": "https://travelynnfamily.com/hiking-mount-sibayak-berastagi/"
+      },
+      {
+        "title": "Climbing Mount Sibayak: The Ultimate Guide (Laure Wanders)",
+        "url": "https://www.laurewanders.com/climbing-mount-sibayak/"
+      },
+      {
+        "title": "Gunung Sibayak: Panduan Lengkap (Traveloka)",
+        "url": "https://www.traveloka.com/id-id/explore/activities/panduan-lengkap-gunung-sibayak-ta/1004988"
+      }
+    ],
+    "unknown": []
+  },
+  "sinabung": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "Closed to climbers. An active volcano best seen from a safe distance.",
+    "highlights": [
+      {
+        "title": "Woke after 400 years",
+        "body": "Sinabung was quiet for about 400 years before it erupted on 29 August 2010.",
+        "source": "https://en.wikipedia.org/wiki/Mount_Sinabung"
+      },
+      {
+        "title": "Thousands evacuated",
+        "body": "Eruptions in August and September 2010 forced 26,137 people to leave their homes.",
+        "source": "https://reliefweb.int/disaster/vo-2010-000170-idn"
+      },
+      {
+        "title": "Years of activity",
+        "body": "More eruptive periods followed: 2013-2018, 2019 and from August 2020.",
+        "source": "https://en.wikipedia.org/wiki/Mount_Sinabung"
+      }
+    ],
+    "stats": [
+      {
+        "value": "2,460 m",
+        "label": "Summit elevation",
+        "note": "Do not climb: exclusion zone in force"
+      },
+      {
+        "value": "2010",
+        "label": "First eruption in 400 years",
+        "note": "29 August 2010"
+      },
+      {
+        "value": "26,137",
+        "label": "People evacuated in 2010",
+        "note": "During the August-September eruptions"
+      }
+    ],
+    "packing": [],
+    "assessment": [
+      {
+        "title": "Do not climb",
+        "body": "The whole mountain is an exclusion zone. Pyroclastic flows, lahars and ash falls have killed people here."
+      },
+      {
+        "title": "Watch from afar",
+        "body": "Viewpoints around Berastagi give a safe look at the volcano. Follow PVMBG and local guidance."
+      },
+      {
+        "title": "Ash can travel",
+        "body": "Wind can carry ash to nearby towns. A mask helps if ash is falling where you are."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Mount Sinabung - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Mount_Sinabung"
+      },
+      {
+        "title": "Indonesia: Mt. Sinabung Volcano - Aug 2010 | ReliefWeb",
+        "url": "https://reliefweb.int/disaster/vo-2010-000170-idn"
+      },
+      {
+        "title": "Mount Sinabung Erupts, Alert Level Raised to Level III (RRI)",
+        "url": "https://rri.co.id/en/archipelago/2698441/mount-sinabung-in-north-sumatra-erupts-alert-level-raised-to-level-iii"
+      },
+      {
+        "title": "PVMBG Perbarui Zona Rekomendasi Gunung Sinabung (RRI)",
+        "url": "https://rri.co.id/medan/info-pemda/2710833/pvmbg-perbarui-zona-rekomendasi-gunung-sinabung-radius-sektoral-jadi-5-kilometer"
+      },
+      {
+        "title": "Status Transisi Darurat Erupsi Gunung Sinabung Berlaku hingga 5 Oktober 2026 (Media Indonesia)",
+        "url": "https://mediaindonesia.com/nusantara/928048/status-transisi-darurat-erupsi-gunung-sinabung-berlaku-hingga-5-oktober-2026"
+      },
+      {
+        "title": "Sinabung Erupts for First Time in Five Years (Tech Times)",
+        "url": "https://www.techtimes.com/articles/326185/20260901/sinabung-erupts-first-time-five-years-authorities-warn-larger-blast.htm"
+      }
+    ],
+    "unknown": [
+      "packing"
+    ]
+  },
+  "dempo": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "South Sumatra's highest volcano, climbed from the tea gardens above Pagar Alam.",
+    "highlights": [
+      {
+        "title": "Start in the tea gardens",
+        "body": "The climb begins on gravel roads through a tea plantation. After 20-30 minutes you reach the forest edge, where the trail turns uphill.",
+        "source": "https://idbackpacker.com/mount-dempo-the-highest-peak-in-south-sumatra/"
+      },
+      {
+        "title": "Seven craters and a lake",
+        "body": "Seven craters sit around the summit. A lake about 400 m wide lies at the north-west end of the crater complex.",
+        "source": "https://en.wikipedia.org/wiki/Mount_Dempo"
+      },
+      {
+        "title": "A volcano that is still awake",
+        "body": "Dempo is an active stratovolcano. It erupted on 7 April 2026, and the trail was closed until late May.",
+        "source": "https://regional.kompas.com/read/2026/04/07/151817078/gunung-dempo-di-sumsel-erupsi-jalur-pendakian-ditutup-dan-pendaki-di-puncak"
+      }
+    ],
+    "stats": [
+      {
+        "value": "3,173 m",
+        "label": "Summit elevation",
+        "note": "Highest peak in South Sumatra"
+      },
+      {
+        "value": "~14 km",
+        "label": "Round trip",
+        "note": "From the Rimau / TVRI relay basecamp"
+      },
+      {
+        "value": "6-8 h",
+        "label": "Ascent time",
+        "note": "Descent takes another 4-6 h"
+      },
+      {
+        "value": "4 L",
+        "label": "Water to carry",
+        "note": "No known water sources, so carry it all"
+      }
+    ],
+    "packing": [
+      {
+        "item": "Gas mask",
+        "why": "Volcanic gas collects around the crater area."
+      },
+      {
+        "item": "All your water (4 L)",
+        "why": "No reliable water source is known on the trail."
+      },
+      {
+        "item": "Warm layers and rain gear",
+        "why": "The summit is cold, and dense fog and rain are common."
+      },
+      {
+        "item": "GPS device",
+        "why": "Dense fog and limited rescue access make navigation harder."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Active crater",
+        "body": "Gas and unstable ground at the crater are the main dangers. Check the PVMBG status before you go, as the trail closes after eruptions."
+      },
+      {
+        "title": "Long, remote day",
+        "body": "Expect 6-8 hours up and 4-6 hours down. Rescue access is limited, so a local guide is recommended."
+      },
+      {
+        "title": "Cold and fog",
+        "body": "The top is cold and often wrapped in fog. Bring layers and rain gear even in the dry season (May-September)."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Mount Dempo - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Mount_Dempo"
+      },
+      {
+        "title": "Gunung Dempo (3,173 m) - PeakVisor",
+        "url": "https://peakvisor.com/peak/gunung-dempo-2rqvlw.html"
+      },
+      {
+        "title": "Mount Dempo, the highest peak in South Sumatra - idbackpacker",
+        "url": "https://idbackpacker.com/mount-dempo-the-highest-peak-in-south-sumatra/"
+      },
+      {
+        "title": "Gunung Dempo erupsi, jalur pendakian ditutup - Kompas",
+        "url": "https://regional.kompas.com/read/2026/04/07/151817078/gunung-dempo-di-sumsel-erupsi-jalur-pendakian-ditutup-dan-pendaki-di-puncak"
+      },
+      {
+        "title": "Brigade kembali buka jalur pendakian Gunung Dempo - ANTARA Sumsel",
+        "url": "https://sumsel.antaranews.com/berita/819013/brigade-kembali-buka-jalur-pendakian-gunung-dempo"
+      },
+      {
+        "title": "Jalur Pendakian Gunung Dempo Kembali Dibuka - Koran Jakarta",
+        "url": "https://koran-jakarta.com/2026-05-24/jalur-pendakian-gunung-dempo-kembali-dibuka"
+      }
+    ],
+    "unknown": []
+  },
+  "rinjani": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "Indonesia's second-highest volcano, with a crater lake and a young volcano inside.",
+    "highlights": [
+      {
+        "title": "A lake inside the crater",
+        "body": "Segara Anak ('Child of the Sea') sits at about 2,000 m. Volcanic heat keeps the water just above 22°C, and pilgrims bring offerings to it.",
+        "source": "https://rinjaninationalpark.com/rinjani-national-park-lombok-island-indonesia/fact-and-history-about-mount-rinjani/"
+      },
+      {
+        "title": "A volcano within a volcano",
+        "body": "Gunung Barujari, a small active cone, rises from the lake. It grew during a burst of activity in 1994-1995.",
+        "source": "https://rinjaninationalpark.com/rinjani-national-park-lombok-island-indonesia/fact-and-history-about-mount-rinjani/"
+      },
+      {
+        "title": "Hot springs by the lake",
+        "body": "Hot springs near Segara Anak are a place to rest tired legs. Three of them hold spiritual meaning for local people.",
+        "source": "https://www.nomadtravellers.com/travel-advice/hot-springs-rinjani-lake-segara"
+      }
+    ],
+    "stats": [
+      {
+        "value": "3,726 m",
+        "label": "Summit elevation",
+        "note": "Second-highest volcano in Indonesia"
+      },
+      {
+        "value": "2,639 m",
+        "label": "Pelawangan Sembalun",
+        "note": "Crater-rim camp before the summit push"
+      },
+      {
+        "value": "0-5°C",
+        "label": "Summit temperature",
+        "note": "Wind can make it feel colder"
+      },
+      {
+        "value": "2-3 days",
+        "label": "Typical trek",
+        "note": "10-14 h of ascent in total"
+      }
+    ],
+    "packing": [
+      {
+        "item": "Warm, windproof layers",
+        "why": "The summit can drop to 0-5°C before dawn, with cold wind."
+      },
+      {
+        "item": "Headlamp",
+        "why": "The summit push starts around 2-3 AM in the dark."
+      },
+      {
+        "item": "Gaiters and trekking poles",
+        "why": "The final climb is on loose volcanic scree."
+      },
+      {
+        "item": "3 L water for summit day",
+        "why": "Water sources are limited above camp; bring 3 L+ for the summit push."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Hard summit push",
+        "body": "From Pelawangan you climb about 1,087 m in 3 hours on loose sand. It often feels like two steps up, one step back."
+      },
+      {
+        "title": "Cold nights",
+        "body": "The crater-rim camp can fall to 7-8°C at night and the summit to 0-5°C. A warm sleeping bag matters."
+      },
+      {
+        "title": "Steep lake descent",
+        "body": "The path down to Segara Anak is steep and slippery. Take it slowly, especially when tired."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Fact & History Mt Rinjani - Rinjani National Park",
+        "url": "https://rinjaninationalpark.com/rinjani-national-park-lombok-island-indonesia/fact-and-history-about-mount-rinjani/"
+      },
+      {
+        "title": "Hot springs and crater Lake Segara Anak - Nomad Travellers",
+        "url": "https://www.nomadtravellers.com/travel-advice/hot-springs-rinjani-lake-segara"
+      },
+      {
+        "title": "Plawangan Sembalun crater rim - trekkingrinjani.com",
+        "url": "https://www.trekkingrinjani.com/images-plawangan-sembalun-crater-rim.htm"
+      },
+      {
+        "title": "How cold is Mount Rinjani? - hikingmountrinjani.com",
+        "url": "https://hikingmountrinjani.com/how-cold-is-mount-rinjani/"
+      },
+      {
+        "title": "Mount Rinjani trek summit Sembalun route - lombokagent",
+        "url": "https://lombokagent.com/mount-rinjani-trek-summit/"
+      },
+      {
+        "title": "Mount Rinjani hiking trails to close until March 2026 - Tempo",
+        "url": "https://en.tempo.co/read/2075305/mount-rinjani-hiking-trails-to-close-until-march-2026"
+      },
+      {
+        "title": "Indonesia temporarily closes hiking trails in nine national parks - Malay Mail",
+        "url": "https://www.malaymail.com/news/world/2026/09/01/indonesia-temporarily-closes-hiking-trails-in-nine-national-parks-over-wildfire-risk/233449"
+      },
+      {
+        "title": "Fire breaks out on Mount Rinjani's Torean hiking trail - Tempo",
+        "url": "https://en.tempo.co/read/2120179/fire-breaks-out-on-mount-rinjanis-torean-hiking-trail"
+      },
+      {
+        "title": "Rinjani closure update - Rinjani Trekking Center",
+        "url": "https://rinjanitrekkingcenter.com/rinjani-closure-update"
+      },
+      {
+        "title": "Mount Rinjani booking update - Green Rinjani",
+        "url": "https://greenrinjani.com/mount-rinjani-booking-update/"
+      }
+    ],
+    "unknown": []
+  },
+  "agung": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "Bali's highest and holiest mountain, climbed at night for sunrise.",
+    "highlights": [
+      {
+        "title": "Bali's spiritual centre",
+        "body": "Balinese people believe ancestral spirits dwell on Agung. Pura Besakih, the Mother Temple, and Pura Pasar Agung sit on its slopes.",
+        "source": "https://www.roughguides.com/indonesia/bali/mount-agung/"
+      },
+      {
+        "title": "Two routes, two temples",
+        "body": "One trail starts at Pura Besakih, the other at Pura Pasar Agung. Both start in the middle of the night to reach the top for sunrise.",
+        "source": "https://www.roughguides.com/indonesia/bali/mount-agung/"
+      },
+      {
+        "title": "Highest point in Bali",
+        "body": "At 3,031 m, Agung is the tallest peak on the island. Clouds often cover the view by late morning.",
+        "source": "https://www.roughguides.com/indonesia/bali/mount-agung/"
+      }
+    ],
+    "stats": [
+      {
+        "value": "3,031 m",
+        "label": "Summit elevation",
+        "note": "Highest point in Bali"
+      },
+      {
+        "value": "5-7 h",
+        "label": "Ascent via Pasar Agung",
+        "note": "8-12 h via Besakih"
+      },
+      {
+        "value": "~12 km",
+        "label": "Round trip (Pasar Agung)",
+        "note": "~24 km via Besakih"
+      },
+      {
+        "value": "3 L",
+        "label": "Water to carry",
+        "note": "No water on the trail"
+      }
+    ],
+    "packing": [
+      {
+        "item": "Headlamp",
+        "why": "The ascent is done at night to reach the top for sunrise."
+      },
+      {
+        "item": "Warm layers",
+        "why": "The summit is very cold before dawn."
+      },
+      {
+        "item": "All your water (3 L)",
+        "why": "There is no water source on the trail."
+      },
+      {
+        "item": "Temple attire",
+        "why": "Both trails start at temples; this is a sacred site."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Steep and unmarked up high",
+        "body": "The upper third is very steep and loose, with no trail markers or protection. Go with a guide."
+      },
+      {
+        "title": "Active and sacred",
+        "body": "Agung can close at short notice for volcanic activity or ceremonies. Check the PVMBG alert level the day before."
+      },
+      {
+        "title": "Night start, long day",
+        "body": "You set off in the middle of the night. Plan for cold, darkness and a tiring descent on loose ground."
+      }
+    ],
+    "sources": [
+      {
+        "title": "How to climb Mount Agung - Rough Guides",
+        "url": "https://www.roughguides.com/indonesia/bali/mount-agung/"
+      },
+      {
+        "title": "Hiking routes of Mount Agung - Bali Jungle Trekking",
+        "url": "https://balijungletrekking.com/hiking-routes-of-mount-agung-bali-volcano/"
+      },
+      {
+        "title": "Mount Agung closed for 28 days - Hey Bali",
+        "url": "https://heybali.info/news/mount-agung-closed-for-28-days-what-balis-sacred-ceremony-means-for-travelers/"
+      },
+      {
+        "title": "Mount Agung hike full guide (2026) - Bali Travel Guide Plus",
+        "url": "https://balitravelguideplus.com/activities/agung-hike"
+      }
+    ],
+    "unknown": []
+  },
+  "batur": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "Bali's easiest sunrise volcano, with a caldera lake below the summit.",
+    "highlights": [
+      {
+        "title": "A UNESCO Global Geopark",
+        "body": "The Batur caldera is part of the UNESCO Global Geoparks network for its volcanic landscape.",
+        "source": "https://theworldtravelguy.com/mount-batur-bali-hike-sunrise-trekking-at-gunung-batur-volcano/"
+      },
+      {
+        "title": "Breakfast from the volcano",
+        "body": "Steam vents near the top still cook the eggs served at sunrise. Lava fields from eruptions between 1804 and 2000 lie below.",
+        "source": "https://coitraveler.com/mount-batur-sunrise-hike-guide/"
+      },
+      {
+        "title": "Sunrise over the lake",
+        "body": "Batur sits inside a double caldera beside a lake. At dawn the light spreads across the caldera and the water below.",
+        "source": "https://coitraveler.com/mount-batur-sunrise-hike-guide/"
+      }
+    ],
+    "stats": [
+      {
+        "value": "1,717 m",
+        "label": "Summit elevation",
+        "note": "Short climb from the Kintamani highlands"
+      },
+      {
+        "value": "1.5-2 h",
+        "label": "Ascent time",
+        "note": "Descent takes 1-1.5 h"
+      },
+      {
+        "value": "~6 km",
+        "label": "Round trip",
+        "note": "Well-trodden tourist path"
+      },
+      {
+        "value": "~3:30 AM",
+        "label": "Typical start",
+        "note": "Timed to reach the top for sunrise"
+      }
+    ],
+    "packing": [
+      {
+        "item": "Warm jacket",
+        "why": "The summit is cold before dawn, much colder than the Bali coast."
+      },
+      {
+        "item": "Headlamp",
+        "why": "You hike up in pre-dawn darkness."
+      },
+      {
+        "item": "Closed-toe shoes",
+        "why": "Loose volcanic rock makes the path slippery, especially going down."
+      },
+      {
+        "item": "1 L water",
+        "why": "Carry your own; the hike is short but steep."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Good first volcano",
+        "body": "About 2 hours up on a clear path. It is steep in places but safe if you stay on the trail."
+      },
+      {
+        "title": "Slippery way down",
+        "body": "The descent on loose volcanic rock and the lava field crossing are where most slips happen. Go slowly."
+      },
+      {
+        "title": "Chilly at the top",
+        "body": "People dressed for tropical Bali get cold while waiting for sunrise. A jacket makes the stop enjoyable."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Mount Batur hike in Bali - The World Travel Guy",
+        "url": "https://theworldtravelguy.com/mount-batur-bali-hike-sunrise-trekking-at-gunung-batur-volcano/"
+      },
+      {
+        "title": "Mount Batur sunrise hike complete guide - COI Traveler",
+        "url": "https://coitraveler.com/mount-batur-sunrise-hike-guide/"
+      },
+      {
+        "title": "Mount Batur - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Mount_Batur"
+      },
+      {
+        "title": "Pendakian Gunung Batur ditutup saat Nyepi 2026 - VIVA",
+        "url": "https://wisata.viva.co.id/wisata/26914-pendakian-gunung-batur-ditutup-sementara-saat-nyepi-2026-wisatawan-bisa-kembali-trekking-mulai-21-maret"
+      },
+      {
+        "title": "Bali News: Mount Batur forest fire - Go Bali Go",
+        "url": "https://gobaligo.id/en/blog/bali-news-2026-08-31/"
+      }
+    ],
+    "unknown": []
+  },
+  "tambora": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "The volcano behind the largest eruption in recorded history, and its huge caldera.",
+    "highlights": [
+      {
+        "title": "The 1815 eruption",
+        "body": "Tambora's 1815 eruption was the most powerful in recorded history. It cut the peak from about 4,300 m to its current height.",
+        "source": "https://en.wikipedia.org/wiki/Mount_Tambora"
+      },
+      {
+        "title": "A 6-7 km wide caldera",
+        "body": "The eruption left a caldera 6-7 km across and 600-700 m deep. Hikers look down into it from the rim.",
+        "source": "https://en.wikipedia.org/wiki/Mount_Tambora"
+      },
+      {
+        "title": "Jungle to ash",
+        "body": "Day one crosses humid jungle with plenty of leeches. Near the top, plants thin out to ash and volcanic rock.",
+        "source": "https://en.wikipedia.org/wiki/Mount_Tambora"
+      }
+    ],
+    "stats": [
+      {
+        "value": "2,722 m",
+        "label": "Summit elevation",
+        "note": "Once about 4,300 m before 1815"
+      },
+      {
+        "value": "~28 km",
+        "label": "Round trip",
+        "note": "2 days recommended"
+      },
+      {
+        "value": "5-6 L",
+        "label": "Water to carry",
+        "note": "Lower forest springs are unreliable"
+      },
+      {
+        "value": "6-7 km",
+        "label": "Caldera width",
+        "note": "600-700 m deep"
+      }
+    ],
+    "packing": [
+      {
+        "item": "Leech protection",
+        "why": "Leeches are common on low plants and near water in the forest."
+      },
+      {
+        "item": "5-6 L water",
+        "why": "Springs in the lower forest are unreliable; carry all you need."
+      },
+      {
+        "item": "GPS device",
+        "why": "Remote area, dense forest navigation and no signal on the trail."
+      },
+      {
+        "item": "Tent and sleeping bag",
+        "why": "The trek usually needs at least one night on the mountain."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Remote and long",
+        "body": "About 28 km round trip with no phone signal and limited rescue. A local guide is required."
+      },
+      {
+        "title": "Careful at the rim",
+        "body": "The caldera rim has sheer drops and unstable edges. Keep well back from the edge."
+      },
+      {
+        "title": "Dry season only",
+        "body": "Hike May-September. The trail is impassable in the wet season, and it can close for fire risk in the dry season."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Mount Tambora - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Mount_Tambora"
+      },
+      {
+        "title": "Indonesia closes Mount Tambora hiking routes over forest fire threat - ANTARA",
+        "url": "https://en.antaranews.com/news/429433/indonesia-closes-mount-tambora-hiking-routes-over-forest-fire-threat"
+      },
+      {
+        "title": "Indonesia temporarily closes hiking trails in nine national parks - Malay Mail",
+        "url": "https://www.malaymail.com/news/world/2026/09/01/indonesia-temporarily-closes-hiking-trails-in-nine-national-parks-over-wildfire-risk/233449"
+      }
+    ],
+    "unknown": []
+  },
+  "inerie": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "A near-perfect volcanic cone above Bajawa and the Ngada villages of Flores.",
+    "highlights": [
+      {
+        "title": "A cone above Bena",
+        "body": "Inerie rises over Bena, one of the best-preserved traditional villages in Flores, and looks out over the coast.",
+        "source": "https://theworldtravelguy.com/mount-inerie-hike/"
+      },
+      {
+        "title": "Sunrise behind Ebulobo",
+        "body": "On a clear day the summit shows Bajawa, the Savu Sea and the sun rising behind Ebulobo, an active volcano.",
+        "source": "https://theworldtravelguy.com/mount-inerie-hike/"
+      },
+      {
+        "title": "Close to town",
+        "body": "The trailhead at Watumeze village is about 30 minutes' drive from Bajawa.",
+        "source": "https://indonesiakaya.com/pustaka-indonesia/gunung-inerie-menengok-piramida-alam-di-pulau-flores/"
+      }
+    ],
+    "stats": [
+      {
+        "value": "2,245 m",
+        "label": "Summit elevation",
+        "note": "Steep cone near Bajawa"
+      },
+      {
+        "value": "~10 km",
+        "label": "Round trip",
+        "note": "From Watumeze / Ngoranale"
+      },
+      {
+        "value": "4 L",
+        "label": "Water to carry",
+        "note": "No water on the trail"
+      },
+      {
+        "value": "April-October",
+        "label": "Best season",
+        "note": "Wet-season trail is dangerous"
+      }
+    ],
+    "packing": [
+      {
+        "item": "4 L water",
+        "why": "There is no water and no shade on the trail."
+      },
+      {
+        "item": "Sun protection",
+        "why": "Most of the climb is exposed grass and ridge with no tree cover."
+      },
+      {
+        "item": "Wind jacket",
+        "why": "Strong wind hits the summit ridge."
+      },
+      {
+        "item": "Trekking poles",
+        "why": "The summit cone is steep, loose gravel, and the descent is hard."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "No real path up top",
+        "body": "The upper trail goes straight up steep, loose gravel with no clear path or signs. Go with a local guide."
+      },
+      {
+        "title": "Fully exposed",
+        "body": "No shade low down and hard wind up high. Start before dawn to avoid the midday heat."
+      },
+      {
+        "title": "Hard descent",
+        "body": "Loose rock and small ravines make the way down slow and tiring. Leave energy for it."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Climbing Mount Inerie volcano in Flores - The World Travel Guy",
+        "url": "https://theworldtravelguy.com/mount-inerie-hike/"
+      },
+      {
+        "title": "Gunung Inerie: Si Piramida Vulkanik dari Flores - Indonesia Kaya",
+        "url": "https://indonesiakaya.com/pustaka-indonesia/gunung-inerie-menengok-piramida-alam-di-pulau-flores/"
+      },
+      {
+        "title": "Gunung Inerie - Portal Ngada",
+        "url": "https://portal.ngadakab.go.id/gunung-inerie/"
+      }
+    ],
+    "unknown": []
+  },
+  "latimojong": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "The roof of Sulawesi: a multi-day climb through moss forest to Rante Mario.",
+    "highlights": [
+      {
+        "title": "The roof of Sulawesi",
+        "body": "Rante Mario is the highest point in Sulawesi and one of Indonesia's Seven Summits.",
+        "source": "https://www.indonesia.travel/id/id/destination/sulawesi/south-sulawesi/gunung-latimojong"
+      },
+      {
+        "title": "Deep moss forest",
+        "body": "Its moss forest is said to be one of the largest in Southeast Asia. It gets cold in the moss forest and at the summit.",
+        "source": "https://www.indonesia.travel/id/id/destination/sulawesi/south-sulawesi/gunung-latimojong"
+      },
+      {
+        "title": "Eight posts to the top",
+        "body": "From Karangan (1,450 m) the trail climbs through rainforest in 8 sections, each ending at a small signed clearing ('pos').",
+        "source": "https://www.summitpost.org/gunung-rantemario-mount-latimojong/154658"
+      }
+    ],
+    "stats": [
+      {
+        "value": "3,478 m",
+        "label": "Summit elevation",
+        "note": "Highest peak in Sulawesi"
+      },
+      {
+        "value": "~30 km",
+        "label": "Round trip",
+        "note": "From Karangan village, Enrekang"
+      },
+      {
+        "value": "3-4 days",
+        "label": "Typical expedition",
+        "note": "14-18 h of ascent in total"
+      },
+      {
+        "value": "8",
+        "label": "Trail posts",
+        "note": "Some have camping space and water"
+      }
+    ],
+    "packing": [
+      {
+        "item": "Water purification",
+        "why": "Streams exist lower down but are unreliable above Pos 2."
+      },
+      {
+        "item": "Leech gaiters",
+        "why": "Leeches are common in the wet rainforest."
+      },
+      {
+        "item": "Warm sleeping bag",
+        "why": "Temperatures drop sharply in the moss forest and at the summit."
+      },
+      {
+        "item": "GPS device",
+        "why": "The trail can disappear under moss; there is no signal."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "A real expedition",
+        "body": "Plan 3-4 days with all food and camping gear. Strong fitness and good logistics are needed."
+      },
+      {
+        "title": "Easy to lose the trail",
+        "body": "In the moss forest the path can vanish under moss. Use a GPS and a local guide."
+      },
+      {
+        "title": "Cold, exposed summit",
+        "body": "The final approach is an exposed rocky ridge. Bring warm clothes for the cold nights and summit."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Gunung Latimojong - Indonesia Travel",
+        "url": "https://www.indonesia.travel/id/id/destination/sulawesi/south-sulawesi/gunung-latimojong"
+      },
+      {
+        "title": "Gunung Rantemario (Mount Latimojong) - SummitPost",
+        "url": "https://www.summitpost.org/gunung-rantemario-mount-latimojong/154658"
+      },
+      {
+        "title": "Latimojong - Bulu Rantemario - Gunung Bagging",
+        "url": "https://www.gunungbagging.com/rantemario/"
+      },
+      {
+        "title": "Jalur Pendakian Gunung Latimojong Ditutup Selama Ramadan 2026 - Mounture",
+        "url": "https://mounture.com/berita/jalur-pendakian-gunung-latimojong-ditutup-sementara-selama-ramadan-2026/"
+      }
+    ],
+    "unknown": []
+  },
+  "lompobattang": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "A quiet, forested old volcano in South Sulawesi, for experienced hikers.",
+    "highlights": [
+      {
+        "title": "A sleeping volcano",
+        "body": "Lompobattang is an inactive stratovolcano made of Pleistocene volcanic rock.",
+        "source": "https://www.traveloka.com/id-id/explore/destination/pesona-keindahan-puncak-gunung-lompobattang-di-sulawesi-selatan/1008623"
+      },
+      {
+        "title": "Forest and mist",
+        "body": "The Lembang Bune route climbs through thick forest and light mist. It is one of the official and most-used routes.",
+        "source": "https://www.sekeluargahealing.com/2025/08/jalur-pendakian-gunung-lompobattang-via.html"
+      }
+    ],
+    "stats": [
+      {
+        "value": "2,871 m",
+        "label": "Summit elevation",
+        "note": "Second-highest in Sulawesi (our record)"
+      },
+      {
+        "value": "4-5 L",
+        "label": "Water to carry",
+        "note": "Water only at the early posts"
+      }
+    ],
+    "packing": [
+      {
+        "item": "4-5 L water",
+        "why": "Water is found only at the early trail posts."
+      },
+      {
+        "item": "Leech gaiters",
+        "why": "Leeches and wet conditions are common in the forest."
+      },
+      {
+        "item": "GPS device",
+        "why": "Trail documentation is limited and the forest is dense."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Plan your water",
+        "body": "Water is only at the early posts. Carry enough for the upper trail and summit."
+      },
+      {
+        "title": "Thin information",
+        "body": "Few trail details are published. Go with a local guide who knows the route."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Wisata Gunung Lompobattang - Traveloka",
+        "url": "https://www.traveloka.com/id-id/explore/destination/pesona-keindahan-puncak-gunung-lompobattang-di-sulawesi-selatan/1008623"
+      },
+      {
+        "title": "Jalur Pendakian Gunung Lompobattang via Lembang Bune - Sekeluarga Healing",
+        "url": "https://www.sekeluargahealing.com/2025/08/jalur-pendakian-gunung-lompobattang-via.html"
+      },
+      {
+        "title": "Informasi Gunung Lompobattang - datagunung",
+        "url": "https://datagunung.com/gunung/Lompobattang/info"
+      }
+    ],
+    "unknown": []
+  },
+  "bawakaraeng": {
+    "origin": "research",
+    "updated": "2026-09",
+    "tagline": "The sacred 'Mouth of God' mountain above Malino, near Makassar.",
+    "highlights": [
+      {
+        "title": "'Mouth of God'",
+        "body": "The name comes from Makassar and means 'mouth of God' or 'mouth of the king'.",
+        "source": "https://voi.id/en/lifestyle/383495"
+      },
+      {
+        "title": "A mountain pilgrimage",
+        "body": "Some Bugis-Makassar people climb to the summit at Eid al-Adha for a local 'hajj' ritual, carrying offerings.",
+        "source": "https://arrow.tudublin.ie/ijrtp/vol9/iss1/15/"
+      },
+      {
+        "title": "Scar of the 2004 landslide",
+        "body": "Between Pos 7 and 9 the trail passes the site of a large 2004 landslide. It made the route longer.",
+        "source": "https://datagunung.com/gunung/Bawakaraeng/pendakian"
+      }
+    ],
+    "stats": [
+      {
+        "value": "2,845 m",
+        "label": "Summit elevation",
+        "note": "Some sources give 2,830 m"
+      },
+      {
+        "value": "~20 km",
+        "label": "Round trip",
+        "note": "From Lembanna, Malino"
+      },
+      {
+        "value": "8-10 h",
+        "label": "Ascent time",
+        "note": "Descent takes 5-7 h"
+      },
+      {
+        "value": "3-4 L",
+        "label": "Water to carry",
+        "note": "Springs lower down only"
+      }
+    ],
+    "packing": [
+      {
+        "item": "Rain gear",
+        "why": "Fog and slippery trail sections are common."
+      },
+      {
+        "item": "Warm layers",
+        "why": "It is cold near the summit."
+      },
+      {
+        "item": "3-4 L water",
+        "why": "Springs are at lower elevations; carry water for the upper trail."
+      },
+      {
+        "item": "Trekking poles",
+        "why": "The trail is slippery and the crater area is unstable."
+      }
+    ],
+    "assessment": [
+      {
+        "title": "Unstable crater rim",
+        "body": "The summit area has a history of major collapse. Stay on the trail and away from the edge."
+      },
+      {
+        "title": "Long but manageable",
+        "body": "About 8-10 hours up from Lembanna. Fit hikers can do it with good planning."
+      },
+      {
+        "title": "Fog and wet trail",
+        "body": "Dense fog and slippery ground are common. Hike in the drier June-September window."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Getting to know Mount Bawakaraeng - VOI",
+        "url": "https://voi.id/en/lifestyle/383495"
+      },
+      {
+        "title": "Pilgrimage to Bawakaraeng Mountain among the Bugis-Makassar - IJRTP",
+        "url": "https://arrow.tudublin.ie/ijrtp/vol9/iss1/15/"
+      },
+      {
+        "title": "Catatan Pendakian Gunung Bawakaraeng - datagunung",
+        "url": "https://datagunung.com/gunung/Bawakaraeng/pendakian"
+      },
+      {
+        "title": "Gunung Bawakaraeng - SUPERLIVE",
+        "url": "https://superlive.id/superadventure/artikel/place-gears/gunung-bawakaraeng-dari-jalur-pendakian-hingga-kisah-menarik"
+      },
+      {
+        "title": "Jalur Pendakian Gunung Bawakaraeng Ditutup hingga 31 Januari 2026 - Mounture",
+        "url": "https://mounture.com/berita/jalur-pendakian-gunung-bawakaraeng-ditutup-sementara-hingga-31-januari-2026/"
+      },
+      {
+        "title": "Pendakian Gunung Bawakaraeng via Tassoso dibuka 27 Maret 2026 - Sekeluarga Healing",
+        "url": "https://www.sekeluargahealing.com/2026/03/pendakian-gunung-bawakaraeng-via.html"
+      }
+    ],
+    "unknown": []
   }
 }
