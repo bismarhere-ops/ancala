@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EMPTY_TRAIL_LIST, TRAIL_PAGE_SIZE, listTrails } from "@/lib/api";
+import { fallback } from "@/lib/server-fallback";
 import { TrailCard } from "@/components/trail-card";
 import { TrailFilter } from "@/components/trail-filter";
 import { Button } from "@/components/ui/button";
@@ -26,7 +27,7 @@ export default async function TrailsPage({
     sort: searchParams.sort || "popular",
     limit: TRAIL_PAGE_SIZE,
     offset,
-  }).catch(() => EMPTY_TRAIL_LIST);
+  }).catch(fallback(EMPTY_TRAIL_LIST, "trails"));
 
   const totalPages = Math.max(1, Math.ceil(res.pagination.total / TRAIL_PAGE_SIZE));
 

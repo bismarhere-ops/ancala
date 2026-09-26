@@ -11,9 +11,11 @@ import type {
 // Client-side requests hit same-origin and get rewritten by next.config.mjs.
 // A host without a scheme (e.g. Render's fromService `host`) defaults to https.
 // On Netlify the API is a function on the same site, so fall back to the
-// site's own URL (Netlify sets NETLIFY and URL).
+// site's own URL. NETLIFY_SITE_URL is inlined at build by next.config.mjs,
+// because Netlify's NETLIFY and URL variables may be missing at runtime.
 const RAW_SERVER_BASE =
   process.env.API_BASE_URL ||
+  process.env.NETLIFY_SITE_URL ||
   (process.env.NETLIFY && process.env.URL) ||
   "http://localhost:3000";
 const SERVER_BASE = /^https?:\/\//.test(RAW_SERVER_BASE)

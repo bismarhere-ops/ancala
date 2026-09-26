@@ -7,6 +7,7 @@ import { Separator } from "@/components/ui/separator";
 import { ReportForm } from "@/components/report-form";
 import { VolunteerForm } from "@/components/volunteer-form";
 import { listAllTrails, listReports } from "@/lib/api";
+import { fallback } from "@/lib/server-fallback";
 import { cn, riskColor } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -19,8 +20,8 @@ export const revalidate = 30;
 export default async function CommunityPage() {
   const [trails, reportsRes] = await Promise.all([
     // Every trail must be reportable, so page through the whole set.
-    listAllTrails({ sort: "name" }).catch(() => []),
-    listReports({ limit: 6 }).catch(() => ({ data: [] })),
+    listAllTrails({ sort: "name" }).catch(fallback([], "trails")),
+    listReports({ limit: 6 }).catch(fallback({ data: [] }, "reports")),
   ]);
 
   return (

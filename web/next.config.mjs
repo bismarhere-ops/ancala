@@ -10,6 +10,10 @@ const RAW_API_BASE =
 const API_BASE = /^https?:\/\//.test(RAW_API_BASE) ? RAW_API_BASE : `https://${RAW_API_BASE}`;
 
 const nextConfig = {
+  // Netlify sets NETLIFY and URL during the build but not necessarily in the
+  // runtime function that regenerates pages. Bake the site URL in so server
+  // components can still reach the API after deploy.
+  env: process.env.NETLIFY && process.env.URL ? { NETLIFY_SITE_URL: process.env.URL } : {},
   reactStrictMode: true,
   poweredByHeader: false,
   images: {

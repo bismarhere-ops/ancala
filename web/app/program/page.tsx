@@ -7,6 +7,7 @@ import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { ImpactStats } from "@/components/impact-stats";
 import { getImpact } from "@/lib/api";
+import { fallback } from "@/lib/server-fallback";
 
 export const metadata: Metadata = {
   title: "The Forest Guardian Program",
@@ -55,7 +56,7 @@ const SCHEDULE = [
 ];
 
 export default async function ProgramPage() {
-  const impact = await getImpact().catch(() => null);
+  const impact = await getImpact().catch(fallback(null, "impact"));
 
   const treesPct = Math.round(
     ((impact?.data.metrics.find((m) => m.key === "trees_planted")?.value ?? 0) / 60_000) * 100

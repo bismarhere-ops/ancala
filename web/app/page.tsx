@@ -14,24 +14,27 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { TrailCard } from "@/components/trail-card";
 import { ImpactStats } from "@/components/impact-stats";
-import { getImpact, listTrails } from "@/lib/api";
+import { EMPTY_TRAIL_LIST, getImpact, listTrails } from "@/lib/api";
+import { fallback } from "@/lib/server-fallback";
 import { formatNumber } from "@/lib/utils";
 
 export const revalidate = 300;
 
 export default async function HomePage() {
   const [trailsRes, impact] = await Promise.all([
-    listTrails({ sort: "popular", limit: 3 }).catch(() => ({ data: [], pagination: { total: 0, limit: 3, offset: 0 } })),
-    getImpact().catch(() => null),
+    listTrails({ sort: "popular", limit: 3 }).catch(fallback(EMPTY_TRAIL_LIST, "featured trails")),
+    getImpact().catch(fallback(null, "impact")),
   ]);
 
   const featured = trailsRes.data;
 
   // Only `measured` metrics belong in the hero — these are facts about the
-  // platform, not programme aspirations. Falls back to 0, never to an
-  // invented figure.
+  // platform, not programme aspirations. When the API is unreachable the
+  // figure is unknown (null → "—"), never 0 or an invented number.
   const metric = (key: string) =>
-    impact?.data.metrics.find((m) => m.key === key && m.kind === "measured")?.value ?? 0;
+    impact
+      ? impact.data.metrics.find((m) => m.key === key && m.kind === "measured")?.value ?? 0
+      : null;
 
   const mountains = metric("mountains_mapped");
   const guardians = metric("active_guardians");
@@ -74,7 +77,7 @@ export default async function HomePage() {
               ].map((s) => (
                 <div key={s.l}>
                   <dt className="font-display text-2xl font-semibold md:text-3xl">
-                    {formatNumber(s.n)}
+                    {s.n == null ? "—" : formatNumber(s.n)}
                   </dt>
                   <dd className="text-xs text-muted-foreground">{s.l}</dd>
                 </div>

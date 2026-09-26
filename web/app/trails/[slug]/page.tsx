@@ -49,8 +49,11 @@ export default async function TrailDetailPage({
   let trail;
   try {
     trail = await getTrail(params.slug);
-  } catch {
-    notFound();
+  } catch (err) {
+    // Only a real 404 means "no such trail". Anything else (API down,
+    // network) is rethrown so an error page shows and nothing is cached.
+    if (err instanceof Error && err.message.startsWith("API 404")) notFound();
+    throw err;
   }
   if (!trail) notFound();
 

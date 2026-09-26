@@ -5,6 +5,7 @@ import { EmergencyPanel } from "@/components/emergency-panel";
 import { WeatherCard } from "@/components/weather-card";
 import { PlanProvider } from "@/components/plan-provider";
 import { getWeather, listAllTrails } from "@/lib/api";
+import { fallback } from "@/lib/server-fallback";
 
 export const metadata: Metadata = {
   title: "Hiker Dashboard",
@@ -15,7 +16,7 @@ export const revalidate = 60;
 
 export default async function DashboardPage() {
   // The planner needs every trail, not the first page of them.
-  const trails = await listAllTrails({ sort: "popular" }).catch(() => []);
+  const trails = await listAllTrails({ sort: "popular" }).catch(fallback([], "trails"));
 
   const weather = trails[0]
     ? await getWeather({ slug: trails[0].slug }).catch(() => null)
