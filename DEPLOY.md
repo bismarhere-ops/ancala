@@ -1,5 +1,36 @@
 # Deploying Forest Guardian to a public URL
 
+Two supported hosts, both configured in the repo:
+
+- **Netlify** (`netlify.toml`): one site. The Next.js frontend runs on
+  Netlify's Next.js runtime and the Express API runs as a Netlify Function.
+- **Render** (`render.yaml`): two services, the frontend and the API.
+
+## Netlify (about 5 minutes)
+
+1. Go to **https://app.netlify.com** → **Add new site** → **Import an
+   existing project** → **GitHub**.
+2. Pick **`bismarhere-ops/ancala`**, branch
+   **`claude/forest-guardian-website-XwOXh`**.
+3. Leave the build settings as Netlify fills them in. It reads
+   `netlify.toml` (base `web`, build command, functions, redirects). Click
+   **Deploy**.
+4. When the deploy finishes, trigger **one more deploy** (Deploys → Trigger
+   deploy). The first build prerenders the home and dashboard pages before
+   the API function exists, so they start out empty. The second build fills
+   them in. They would also refresh on their own within about 5 minutes.
+
+How it works: `/api/*` and `/uploads/*` are routed to `web/netlify/functions/api.js`,
+which wraps the Express app with `serverless-http`. The SQLite database lives
+in `/tmp` and rebuilds from `server/data/mountains.csv` on every cold start, so
+the trail catalogue and advisories are always present. **Reports, photos and
+volunteer sign-ups are not durable on Netlify**: they last only as long as a
+function instance and are not shared between instances. Durable writes would
+need an external database. The Render setup below keeps them until the next
+redeploy.
+
+## Render
+
 The repo ships a **Render Blueprint** (`render.yaml`) that turns it into two
 live web services. Render's free tier needs no credit card.
 

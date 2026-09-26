@@ -1,0 +1,40 @@
+# Netlify: Next.js site (web/) + the Express API as a Netlify Function.
+#
+# Paths below are relative to `base` (web/). The whole repo is cloned on
+# Netlify's build servers, so ../server is available at build time.
+
+[build]
+  base = "web"
+  # Root install provides the API's dependencies (better-sqlite3, express, …)
+  # for the function; web install + build produce the Next.js site.
+  command = "npm --prefix .. ci && npm ci && npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[functions]
+  directory = "netlify/functions"
+  # zisi copies files with their directory layout intact (no bundling), so the
+  # server's __dirname-relative data paths keep working and the native
+  # better-sqlite3 binary ships as-is.
+  node_bundler = "zisi"
+  included_files = ["../server/data/**"]
+
+# Send API and upload traffic to the function. `force` makes these win over
+# the Next.js handler. The original path is kept after the function prefix;
+# the function strips the prefix.
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/api/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/uploads/*"
+  to = "/.netlify/functions/api/uploads/:splat"
+  status = 200
+  force = true
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
