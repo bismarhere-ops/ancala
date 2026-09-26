@@ -18,6 +18,10 @@ const nextConfig = {
     ],
   },
   async rewrites() {
+    // On Netlify, netlify.toml routes /api/* and /uploads/* to the API
+    // function. A rewrite here would point back at the site itself and could
+    // loop if Next's handler ever answered first, so add none.
+    if (process.env.NETLIFY) return [];
     // Proxy /api/* and /uploads/* to the Express backend during dev and prod.
     return [
       { source: '/api/:path*', destination: `${API_BASE}/api/:path*` },
