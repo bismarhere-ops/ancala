@@ -1197,9 +1197,7 @@
         "url": "https://beritajatim.com/pendakian-bukit-cendono-ditutup-sementara-akibat-kebakaran-hutan"
       }
     ],
-    "unknown": [
-      "packing"
-    ]
+    "unknown": []
   },
   "wilis": {
     "origin": "research",
@@ -1802,9 +1800,7 @@
         "url": "https://timesindonesia.co.id/peristiwa-daerah/610153/usai-kebakaran-twa-kawah-ijen-kembali-dibuka-28-september-2026"
       }
     ],
-    "unknown": [
-      "packing"
-    ]
+    "unknown": []
   },
   "lawu": {
     "origin": "research",
@@ -2031,9 +2027,9 @@
     ],
     "stats": [
       {
-        "value": "2,930 m",
+        "value": "~2,910 m",
         "label": "Summit elevation",
-        "note": "Height changes as the lava dome grows and collapses"
+        "note": "Summit height shifts with dome growth"
       },
       {
         "value": "5-7 h",
@@ -2143,9 +2139,9 @@
         "note": "Taller than its twin, Sindoro"
       },
       {
-        "value": "8-10 h",
+        "value": "6-8 h",
         "label": "Ascent time",
-        "note": "Long day with big elevation gain"
+        "note": "Ascent via Garung; long day with big elevation gain"
       },
       {
         "value": "-5°C",
@@ -2451,7 +2447,7 @@
     ],
     "stats": [
       {
-        "value": "2,590 m",
+        "value": "2,565 m",
         "label": "Summit elevation",
         "note": "On the edge of the Dieng Plateau"
       },
@@ -2827,7 +2823,7 @@
     ],
     "stats": [
       {
-        "value": "2,263 m",
+        "value": "2,463 m",
         "label": "Viewpoint elevation",
         "note": "Above the Dieng Plateau"
       },
@@ -3462,9 +3458,9 @@
         "note": "Fourth-highest mountain in West Java"
       },
       {
-        "value": "6-8 h",
+        "value": "5-6 h",
         "label": "Ascent time",
-        "note": "Steep, slippery upper forest"
+        "note": "From Pos Pemancar; steep, slippery upper forest"
       },
       {
         "value": "~14 km",
@@ -3563,20 +3559,7 @@
         "note": "The complex lies about 10 km NW of the city"
       }
     ],
-    "packing": [
-      {
-        "item": "Gas mask",
-        "why": "Sulfur gas collects around the crater area."
-      },
-      {
-        "item": "Sturdy boots",
-        "why": "Loose volcanic ground is hard on ankles, going up and coming down."
-      },
-      {
-        "item": "3 L of water",
-        "why": "There is no water on the trail. Carry all you need."
-      }
-    ],
+    "packing": [],
     "assessment": [
       {
         "title": "Check if it's legal first",
@@ -3651,9 +3634,9 @@
         "note": "Above Bandung Barat"
       },
       {
-        "value": "4-5 h",
+        "value": "3-4 h",
         "label": "Ascent time",
-        "note": "Doable as a day hike"
+        "note": "Via Legok Haji; doable as a day hike"
       },
       {
         "value": "~10 km",
@@ -4007,9 +3990,7 @@
         "url": "https://www.techtimes.com/articles/326185/20260901/sinabung-erupts-first-time-five-years-authorities-warn-larger-blast.htm"
       }
     ],
-    "unknown": [
-      "packing"
-    ]
+    "unknown": []
   },
   "dempo": {
     "origin": "research",
@@ -4261,9 +4242,9 @@
         "note": "Highest point in Bali"
       },
       {
-        "value": "5-7 h",
+        "value": "3-4 h",
         "label": "Ascent via Pasar Agung",
-        "note": "8-12 h via Besakih"
+        "note": "To the crater rim only; 6-7 h to the summit via Besakih"
       },
       {
         "value": "~12 km",
@@ -4450,14 +4431,14 @@
     ],
     "stats": [
       {
-        "value": "2,722 m",
+        "value": "2,851 m",
         "label": "Summit elevation",
-        "note": "Once about 4,300 m before 1815"
+        "note": "Summit height after the 1815 eruption"
       },
       {
-        "value": "~28 km",
+        "value": "~32 km",
         "label": "Round trip",
-        "note": "2 days recommended"
+        "note": "Round trip via Pancasila; 3-5 days suggested"
       },
       {
         "value": "5-6 L",
@@ -4722,7 +4703,7 @@
     ],
     "stats": [
       {
-        "value": "2,871 m",
+        "value": "2,874 m",
         "label": "Summit elevation",
         "note": "Second-highest in Sulawesi (our record)"
       },

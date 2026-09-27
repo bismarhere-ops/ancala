@@ -52,16 +52,18 @@ test('GET /api/trails every trail carries an access status', async () => {
   assert.deepStrictEqual(missing.map((t) => t.slug), []);
 });
 
-test('GET /api/trails?access=closed isolates the exclusion zone', async () => {
-  const { body } = await request('/api/trails?access=closed');
-  assert.strictEqual(body.data.length, 1);
-  assert.strictEqual(body.data[0].slug, 'sinabung');
+test('GET /api/trails?access=closed isolates the closed mountains', async () => {
+  const { body } = await request('/api/trails?access=closed&limit=100');
+  const slugs = body.data.map((t) => t.slug).sort();
+  // Sinabung's exclusion zone, plus two nature reserves and a closed
+  // conservation forest (corrected in the Sept 2026 research review).
+  assert.deepStrictEqual(slugs, ['anjasmoro', 'guntur', 'merapi-ungup', 'sinabung']);
 });
 
 test('GET /api/trails?access=conditional finds the alert-gated volcanoes', async () => {
   const { body } = await request('/api/trails?access=conditional&limit=100');
   const slugs = body.data.map((t) => t.slug).sort();
-  assert.deepStrictEqual(slugs, ['agung', 'guntur', 'kelud', 'merapi', 'slamet']);
+  assert.deepStrictEqual(slugs, ['agung', 'kelud', 'merapi', 'slamet']);
 });
 
 test('GET /api/trails?reliability=high uses the normalised tier', async () => {
