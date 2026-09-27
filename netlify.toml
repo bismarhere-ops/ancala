@@ -9,6 +9,11 @@
   # for the function; web install + build produce the Next.js site.
   command = "npm --prefix .. ci && npm ci && npm run build"
   publish = ".next"
+  # Netlify's default skips a build when nothing under `base` (web/) changed.
+  # The API function is built from ../server, so data-only commits (stories,
+  # advisories from the sync agents, mountains.csv) must deploy too. Exit 1 =
+  # build, exit 0 = skip. Paths are relative to web/.
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- . ../server ../netlify.toml ../package.json ../package-lock.json"
 
 [build.environment]
   NODE_VERSION = "22"
