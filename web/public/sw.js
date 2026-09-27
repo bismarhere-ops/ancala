@@ -69,6 +69,23 @@ async function cacheFirst(request) {
   return res;
 }
 
+const TILES = `${CACHE_VERSION}-tiles`;
+const MAX_TILES = 1500;
+
+async function cacheFirstTile(request) {
+  const cache = await caches.open(TILES);
+  const cached = await cache.match(request);
+  if (cached) return cached;
+  const res = await fetch(request);
+  if (res && (res.ok || res.type === 'opaque')) {
+    await cache.put(request, res.clone());
+    // Keep the tile cache bounded (oldest first).
+    const keys = await cache.keys();
+    if (keys.length > MAX_TILES) await Promise.all(keys.slice(0, keys.length - MAX_TILES).map((k) => cache.delete(k)));
+  }
+  return res;
+}
+
 async function networkFirst(request, { fallbackToOffline = false } = {}) {
   const cache = await caches.open(RUNTIME);
   try {
@@ -91,7 +108,16 @@ self.addEventListener('fetch', (event) => {
   if (request.method !== 'GET') return;
 
   const url = new URL(request.url);
+  // Topo map tiles you've already looked at stay available with no signal.
+  // Cached as viewed only (OpenTopoMap's policy discourages bulk downloads).
+  if (url.hostname.endsWith('tile.opentopomap.org')) {
+    event.respondWith(cacheFirstTile(request));
+    return;
+  }
   if (url.origin !== self.location.origin) return; // let cross-origin pass through
+  // Offline-pack downloads (lib/offline.ts) must reach the network, not an
+  // older cached copy; the page stores the fresh response itself.
+  if (request.headers.get('x-fg-refresh')) return;
 
   if (request.mode === 'navigate') {
     event.respondWith(networkFirst(request, { fallbackToOffline: true }));

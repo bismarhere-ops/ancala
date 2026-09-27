@@ -65,6 +65,18 @@ const config: Config = {
         amber: {
           DEFAULT: "#D4A574",
         },
+        // Night-vision field HUD (mobile companion / telemetry panels).
+        hud: {
+          950: "#0e1813",
+          900: "#13241b",
+          800: "#1b3024",
+          line: "#2a4435",
+        },
+        telemetry: {
+          DEFAULT: "#22c55e",
+          soft: "#10b981",
+          warn: "#dc2626",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",

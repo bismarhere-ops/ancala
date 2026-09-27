@@ -142,6 +142,9 @@ function mapTrail(row, checkpoints = [], profile = null, advisories = []) {
     risk: row.risk,
     popularity: row.popularity,
     coordinates: coords(row.lat, row.lng),
+    // Summit position and height, for the archipelago map and cards.
+    summitCoordinates: coords(row.summit_lat, row.summit_lng),
+    elevationM: row.summit_elevation_m ?? null,
     tags: parseJson(row.tags),
     hazards: parseJson(row.hazards),
     // First gallery photo, for cards. Null until the mountain has photos.
@@ -190,7 +193,8 @@ const listQuery = z.object({
 // sort combination, of which there is a small finite set, so it is memoised by
 // its own text.
 const SELECT_TRAIL_BY_SLUG = db.prepare(`
-  SELECT t.*, p.access_status, p.data_reliability, p.data_reliability_tier
+  SELECT t.*, p.access_status, p.data_reliability, p.data_reliability_tier,
+         p.summit_lat, p.summit_lng, p.elevation_m AS summit_elevation_m
   FROM trails t
   LEFT JOIN mountain_profiles p ON p.trail_id = t.id
   WHERE t.slug = ?
@@ -282,7 +286,8 @@ router.get('/', (req, res) => {
   `;
 
   const rows = cachedPrepare(`
-    SELECT t.*, p.access_status, p.data_reliability, p.data_reliability_tier
+    SELECT t.*, p.access_status, p.data_reliability, p.data_reliability_tier,
+         p.summit_lat, p.summit_lng, p.elevation_m AS summit_elevation_m
     ${from}
     ORDER BY ${orderBy}
     LIMIT @limit OFFSET @offset

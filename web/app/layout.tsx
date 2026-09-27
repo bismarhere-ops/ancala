@@ -3,6 +3,8 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Toaster } from "@/components/ui/sonner";
 import { ServiceWorkerRegister } from "@/components/service-worker-register";
+import { ChromeGate } from "@/components/chrome-gate";
+import { DevPreviewSwitcher } from "@/components/dev-preview-switcher";
 import "./globals.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3001";
@@ -51,11 +53,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen bg-background font-sans">
-        <SiteHeader />
+        <ChromeGate>
+          <SiteHeader />
+        </ChromeGate>
         <main id="main">{children}</main>
-        <SiteFooter />
+        <ChromeGate>
+          <SiteFooter />
+        </ChromeGate>
         <Toaster position="bottom-right" richColors />
         <ServiceWorkerRegister />
+        <DevPreviewSwitcher />
       </body>
     </html>
   );

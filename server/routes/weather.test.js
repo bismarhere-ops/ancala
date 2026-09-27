@@ -60,3 +60,10 @@ test('GET /api/weather rejects out-of-range coordinates', async () => {
   const { status } = await request('/api/weather?lat=999&lng=0');
   assert.strictEqual(status, 400);
 });
+
+test('GET /api/weather?slug= falls back to summit coordinates when no basecamp GPS', async () => {
+  // Rinjani has a sourced summit coordinate but no basecamp GPS.
+  const res = await request('/api/weather?slug=rinjani');
+  assert.strictEqual(res.status, 200);
+  assert.ok(res.body.data.current);
+});

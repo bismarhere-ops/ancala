@@ -207,3 +207,19 @@ test('list items carry coverImage but not the full story', async () => {
   assert.ok(bromo.coverImage);
   assert.strictEqual(bromo.story, undefined);
 });
+
+test('checkpoints carry sourced elevations only where the source names the point', async () => {
+  const { body } = await request('/api/trails/rinjani');
+  const byName = Object.fromEntries(body.data.checkpoints.map((c) => [c.name, c.elevationM]));
+  assert.strictEqual(byName.Sembalun, 1150);
+  assert.strictEqual(byName['Pelawangan Sembalun (crater rim)'], 2639);
+  assert.strictEqual(byName.Summit, 3726);
+  assert.strictEqual(byName['Pos 1'], null, 'unnamed points must not be interpolated');
+});
+
+test('list items carry summit coordinates and elevation for the map', async () => {
+  const { body } = await request('/api/trails?limit=100');
+  const rinjani = body.data.find((t) => t.slug === 'rinjani');
+  assert.ok(rinjani.summitCoordinates.lat < 0);
+  assert.strictEqual(rinjani.elevationM, 3726);
+});

@@ -19,6 +19,8 @@ const nextConfig = {
   images: {
     remotePatterns: [
       { protocol: 'http', hostname: 'localhost' },
+      // Card photos from the design spec (lib/cover-photos.ts).
+      { protocol: 'https', hostname: 'images.unsplash.com' },
     ],
   },
   async rewrites() {

@@ -1,0 +1,260 @@
+{
+ "_about": "Where each summit_gps coordinate in mountains.csv comes from (Sept 2026). Values were read from search-result summaries of the cited pages; some are only to the nearest arc-minute (~1.8 km).",
+ "excluded": {
+  "pangrango": "Cited coordinate lands on Gede, not Pangrango."
+ },
+ "coordinates": {
+  "semeru": {
+   "lat": -8.1078,
+   "lng": 112.9219,
+   "source": "https://en.wikipedia.org/wiki/Semeru",
+   "note": "Wikipedia infobox 08°06'28\"S 112°55'19\"E; input -8.108/112.922 agrees to 3 decimals."
+  },
+  "arjuno": {
+   "lat": -7.7644,
+   "lng": 112.5894,
+   "source": "https://en.wikipedia.org/wiki/Arjuno-Welirang",
+   "note": "Wikipedia infobox highest point (Arjuno, 3339 m) 07°45'52\"S 112°35'22\"E."
+  },
+  "raung": {
+   "lat": -8.125,
+   "lng": 114.0417,
+   "source": "https://en.wikipedia.org/wiki/Raung",
+   "note": "Wikipedia infobox highest point 8°07'30\"S 114°02'30\"E (3332 m). Seconds-level precision is coarse (30\" steps)."
+  },
+  "argopuro": {
+   "lat": -7.9667,
+   "lng": 113.5667,
+   "source": "https://en.wikipedia.org/wiki/Iyang-Argapura",
+   "note": "Wikipedia infobox 7°58'S 113°34'E (3088 m) is only minute precision (~1.8 km); treat as approximate for the Argopuro summit."
+  },
+  "bromo": {
+   "lat": -7.9417,
+   "lng": 112.95,
+   "source": "https://en.wikipedia.org/wiki/Mount_Bromo",
+   "note": "Wikipedia infobox 7°56'30\"S 112°57'00\"E; input -7.942/112.95 agrees."
+  },
+  "ijen": {
+   "lat": -8.058,
+   "lng": 114.242,
+   "source": "https://volcano.si.edu/volcano.cfm?vn=263350",
+   "note": "Input matches the GVP Ijen coordinate 8.058S 114.242E, but GVP states this refers to the approximate centre of the Kawah Ijen crater lake, NOT the 2799 m rim high point. Wikipedia's Ijen infobox 'highest point' (8°3'46\"S 114°15'43\"E = -8.0628, 114.2619) is Gunung Merapi, a different peak (see merapi-ungup). No cited coordinate for the Kawah Ijen rim summit found."
+  },
+  "penanggungan": {
+   "lat": -7.6167,
+   "lng": 112.6333,
+   "source": "https://en.wikipedia.org/wiki/Mount_Penanggungan",
+   "note": "Wikipedia infobox 7°37'S 112°38'E (1653 m) is only minute precision (~1.8 km); treat as approximate."
+  },
+  "butak": {
+   "lat": -7.9226,
+   "lng": 112.4517,
+   "source": "https://id.wikipedia.org/wiki/Gunung_Butak",
+   "note": "Indonesian Wikipedia: Gunung Butak at -7.922566, 112.451688, 2868 m (highest point of the Kawi massif)."
+  },
+  "liman": {
+   "lat": -7.8081,
+   "lng": 111.7581,
+   "source": "https://en.wikipedia.org/wiki/Mount_Wilis",
+   "note": "CAUTION: this is the Wikipedia Mount Wilis infobox coordinate 7°48'29\"S 111°45'29\"E listed with elevation 2563 m (= Liman/Puncak Trogati, highest point of the Wilis massif per id.wikipedia Gunung Liman). It appears to be the GVP volcano coordinate (7.808S 111.758E) and may be a massif reference point rather than the surveyed Liman summit. Verify before using as a hiking pin, or treat as null."
+  },
+  "kelud": {
+   "lat": -7.93,
+   "lng": 112.3081,
+   "source": "https://en.wikipedia.org/wiki/Kelud",
+   "note": "Wikipedia infobox 7°55'48\"S 112°18'29\"E (1731 m); volcano coordinate, likely crater area rather than a specific rim summit."
+  },
+  "lemongan": {
+   "lat": -7.9789,
+   "lng": 113.3419,
+   "source": "https://en.wikipedia.org/wiki/Mount_Lamongan",
+   "note": "Wikipedia infobox 7°58'44\"S 113°20'31\"E (Wikipedia lists 1641 m; input 1651 m)."
+  },
+  "merapi-ungup": {
+   "lat": -8.0628,
+   "lng": 114.2619,
+   "source": "https://en.wikipedia.org/wiki/Ijen",
+   "note": "Wikipedia Ijen infobox 'highest point' (Gunung Merapi, Ijen complex) 8°3'46\"S 114°15'43\"E; Wikipedia gives 2769 m vs input 2800 m."
+  },
+  "lawu": {
+   "lat": -7.625,
+   "lng": 111.1917,
+   "source": "https://en.wikipedia.org/wiki/Mount_Lawu",
+   "note": "Wikipedia infobox 07°37'30\"S 111°11'30\"E (3265 m); 30\"-step precision."
+  },
+  "merbabu": {
+   "lat": -7.455,
+   "lng": 110.44,
+   "source": "https://en.wikipedia.org/wiki/Mount_Merbabu",
+   "note": "Wikipedia infobox 07°27'18\"S 110°26'24\"E (3145 m, Kenteng Songo)."
+  },
+  "merapi": {
+   "lat": -7.5414,
+   "lng": 110.4461,
+   "source": "https://en.wikipedia.org/wiki/Mount_Merapi",
+   "note": "Wikipedia infobox 07°32'29\"S 110°26'46\"E (2910 m); active summit dome changes shape."
+  },
+  "sumbing": {
+   "lat": -7.385,
+   "lng": 110.0725,
+   "source": "https://en.wikipedia.org/wiki/Mount_Sumbing",
+   "note": "Wikipedia infobox 7°23'06\"S 110°04'21\"E (3371 m)."
+  },
+  "sindoro": {
+   "lat": -7.3008,
+   "lng": 109.9962,
+   "source": "https://en.wikipedia.org/wiki/Mount_Sindoro",
+   "note": "Wikipedia infobox 7°18'02.91\"S 109°59'46.34\"E (3153 m)."
+  },
+  "slamet": {
+   "lat": -7.2392,
+   "lng": 109.22,
+   "source": "https://en.wikipedia.org/wiki/Mount_Slamet",
+   "note": "Wikipedia infobox 7°14'21\"S 109°13'12\"E (Wikipedia lists 3432 m; input 3428 m)."
+  },
+  "prau": {
+   "lat": -7.1869,
+   "lng": 109.9228,
+   "source": "https://id.wikipedia.org/wiki/Gunung_Parahu",
+   "note": "id.wikipedia infobox 7°11′13″S 109°55′22″E (2,590 m). Do NOT use the en.wikipedia 'Dieng Volcanic Complex' infobox value (7.3117, 109.9924) that appears under 'Prahu': it lies ~14 km SE, at Sindoro, not on the Prau ridge."
+  },
+  "ungaran": {
+   "lat": -7.1833,
+   "lng": 110.3333,
+   "source": "https://volcano.si.edu/volcano.cfm?vn=263230",
+   "note": "GVP and en.wikipedia (https://en.wikipedia.org/wiki/Mount_Ungaran) both give only 7°11′S 110°20′E (arc-minute precision, roughly +/-1 km). No precise Puncak Botak summit coordinate was quotable from search results; replace it with a precise value if you can get one."
+  },
+  "andong": {
+   "lat": -7.5285,
+   "lng": 110.1837,
+   "source": "https://en.wikipedia.org/wiki/Mount_Andong",
+   "note": "Wikipedia gives 7°31′43″S 110°11′01″E (7.528520, 110.183650). Wikipedia lists the elevation as 1,463 m, against 1,726 m in the input. It is the same mountain (Magelang, between Ngablak and Grabag)."
+  },
+  "telomoyo": {
+   "lat": -7.3613,
+   "lng": 110.3998,
+   "source": "https://peakvisor.com/peak/gunung-telomoyo.html",
+   "note": "PeakVisor -7.361271, 110.399825 (1,894 m). This agrees with the GVP/Wikipedia value of 7.37S 110.40E (low precision)."
+  },
+  "sikunir": {
+   "lat": -7.2384,
+   "lng": 109.9247,
+   "source": "https://peakvisor.com/peak/gunung-sikunir.html",
+   "note": "PeakVisor 'Gunung Sikunir' -7.238385, 109.924722 (2,258 m), which is next to Sembungan village. The input elevation of 2,463 m looks wrong: local sources (id.wikipedia Bukit_Sikunir, Wonosobo tourism office) give about 2,263 m. The coordinate came from a search-result summary, not from the page itself."
+  },
+  "gede": {
+   "lat": -6.7833,
+   "lng": 106.9833,
+   "source": "https://en.wikipedia.org/wiki/Mount_Gede",
+   "note": "Wikipedia 6°47′S 106°59′E (arc-minute precision, +/-1 km). GVP Gede-Pangrango gives the same point, 6.78S 106.98E. No precise summit-rim coordinate was found."
+  },
+  "ciremai": {
+   "lat": -6.8919,
+   "lng": 108.4,
+   "source": "https://en.wikipedia.org/wiki/Mount_Ciremai",
+   "note": "Wikipedia 6°53′31″S 108°24′00″E."
+  },
+  "papandayan": {
+   "lat": -7.3167,
+   "lng": 107.7333,
+   "source": "https://en.wikipedia.org/wiki/Mount_Papandayan",
+   "note": "Wikipedia 7°19′S 107°44′E (GVP gives 7.32S 107.73E). Low precision: this is roughly the active crater, not necessarily the 2,665 m summit (Tegal Alun area). No precise summit coordinate was found."
+  },
+  "salak": {
+   "lat": -6.7158,
+   "lng": 106.7336,
+   "source": "https://en.wikipedia.org/wiki/Mount_Salak",
+   "note": "Wikipedia 06°42′57″S 106°44′01″E (2,211 m, Salak I)."
+  },
+  "cikuray": {
+   "lat": -7.3225,
+   "lng": 107.8599,
+   "source": "https://www.wikidata.org/wiki/Q7343871",
+   "note": "Wikidata/ceb.wikipedia 7°19′21.00″S 107°51′35.64″E. English Wikipedia has no article."
+  },
+  "guntur": {
+   "lat": -7.1431,
+   "lng": 107.84,
+   "source": "https://en.wikipedia.org/wiki/Mount_Guntur",
+   "note": "Wikipedia 7°08′35″S 107°50′24″E (2,249 m)."
+  },
+  "burangrang": {
+   "lat": -6.7353,
+   "lng": 107.5847,
+   "source": "https://www.wikidata.org/wiki/Q13405081",
+   "note": "Wikidata/ceb.wikipedia 6°44′07″S 107°35′05″E. This figure comes from the GEOnet Names Server, so it is a named-feature point rather than a surveyed summit."
+  },
+  "kerinci": {
+   "lat": -1.6967,
+   "lng": 101.2656,
+   "source": "https://en.wikipedia.org/wiki/Mount_Kerinci",
+   "note": "Wikipedia 1°41′48″S 101°15′56″E."
+  },
+  "sibayak": {
+   "lat": 3.2392,
+   "lng": 98.5056,
+   "source": "https://en.wikipedia.org/wiki/Mount_Sibayak",
+   "note": "Wikipedia 3°14′21″N 98°30′20″E (north of the equator, so the latitude is positive)."
+  },
+  "sinabung": {
+   "lat": 3.17,
+   "lng": 98.3919,
+   "source": "https://en.wikipedia.org/wiki/Mount_Sinabung",
+   "note": "Wikipedia 3°10′12″N 98°23′31″E (latitude positive)."
+  },
+  "dempo": {
+   "lat": -4.0158,
+   "lng": 103.1283,
+   "source": "https://en.wikipedia.org/wiki/Mount_Dempo",
+   "note": "Wikipedia 4°00′57″S 103°07′42″E. Wikipedia gives the elevation as 3,142 m; the input says 3,173 m, the common figure."
+  },
+  "rinjani": {
+   "lat": -8.4144,
+   "lng": 116.4598,
+   "source": "https://en.wikipedia.org/wiki/Mount_Rinjani",
+   "note": "Wikipedia 8°24′52″S 116°27′35″E (8.414414, 116.459767)."
+  },
+  "agung": {
+   "lat": -8.3408,
+   "lng": 115.5033,
+   "source": "https://en.wikipedia.org/wiki/Mount_Agung",
+   "note": "Wikipedia 8°20′27″S 115°30′12″E."
+  },
+  "batur": {
+   "lat": -8.2389,
+   "lng": 115.3775,
+   "source": "https://en.wikipedia.org/wiki/Mount_Batur",
+   "note": "Wikipedia 8°14′20″S 115°22′39″E (1,717 m)."
+  },
+  "tambora": {
+   "lat": -8.25,
+   "lng": 118.0,
+   "source": "https://en.wikipedia.org/wiki/Mount_Tambora",
+   "note": "LOW PRECISION, verify before use. Wikipedia and GVP give only 8°15′S 118°0′E, which is roughly the caldera centre. The caldera is about 6 km across, so this point is NOT the hikeable rim summit. No precise rim-summit coordinate was found."
+  },
+  "inerie": {
+   "lat": -8.875,
+   "lng": 120.95,
+   "source": "https://en.wikipedia.org/wiki/Inierie",
+   "note": "Wikipedia (article 'Inierie') 8°52′30″S 120°57′00″E (2,245 m)."
+  },
+  "latimojong": {
+   "lat": -3.385,
+   "lng": 120.0242,
+   "source": "https://en.wikipedia.org/wiki/Mount_Latimojong",
+   "note": "Wikipedia 3°23′06″S 120°01′27″E (Rante Mario summit, 3,478 m)."
+  },
+  "lompobattang": {
+   "lat": -5.3467,
+   "lng": 119.9317,
+   "source": "https://en.wikipedia.org/wiki/Moncong_Lompobattang",
+   "note": "Wikipedia 05°20′48″S 119°55′54″E (2,874 m)."
+  },
+  "bawakaraeng": {
+   "lat": -5.32,
+   "lng": 119.94,
+   "source": "https://www.wikidata.org/wiki/Q3067438",
+   "note": "Wikidata 5°19′12″S 119°56′24″E. English Wikipedia has no infobox coordinate. This lies about 3 km N of Lompobattang, which is consistent with the massif."
+  }
+ }
+}

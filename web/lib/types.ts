@@ -137,6 +137,9 @@ export interface Trail {
   risk: Risk;
   popularity: number;
   coordinates: Coordinates | null;
+  /** Summit position (null until sourced) and summit height in metres. */
+  summitCoordinates: Coordinates | null;
+  elevationM: number | null;
   tags: string[];
   hazards: string[];
   /** First gallery photo, or null when the mountain has no photos yet. */

@@ -192,6 +192,45 @@ function segmentsToCheckpoints(segments) {
   return checkpoints;
 }
 
+/**
+ * Named elevations from an elevation_gain_segments cell, e.g.
+ * "Sembalun(1150m)>Pelawangan(2639m): +1489m" -> Map { sembalun: 1150, ... }.
+ */
+function namedElevations(cell) {
+  const out = new Map();
+  const s = clean(cell);
+  if (!s) return out;
+  for (const m of s.matchAll(/([A-Za-z][^()>:;]*?)\s*\(~?(\d{3,4})\s*m\)/g)) {
+    out.set(m[1].trim().toLowerCase(), Number(m[2]));
+  }
+  return out;
+}
+
+/**
+ * Fills checkpoint elevations only where the source names that exact point
+ * (a checkpoint "Pelawangan Sembalun (crater rim)" matches a segment named
+ * "Pelawangan"), plus "Summit" from the mountain's elevation. Everything else
+ * stays null: no interpolation is stored.
+ */
+function withElevations(checkpoints, row) {
+  const named = namedElevations(row.elevation_gain_segments);
+  const summit = num(row.elevation_m);
+  return checkpoints.map((cp) => {
+    const key = cp.name.toLowerCase();
+    let elevationM = named.get(key) ?? null;
+    if (elevationM == null) {
+      for (const [name, m] of named) {
+        if (key.startsWith(name) || name.startsWith(key)) {
+          elevationM = m;
+          break;
+        }
+      }
+    }
+    if (elevationM == null && /^summit\b/i.test(cp.name) && summit != null) elevationM = summit;
+    return { ...cp, elevationM };
+  });
+}
+
 // --- Import ----------------------------------------------------------------
 
 // Derived from buildProfile so the column list and the object can never drift.
@@ -303,7 +342,7 @@ function importMountains({ db, dryRun = false, csvPath = CSV_PATH } = {}) {
   const prepared = rows.map((row) => ({
     trail: buildTrail(row),
     profile: buildProfile(row),
-    checkpoints: segmentsToCheckpoints(parseSegments(row.pos_breakdown)),
+    checkpoints: withElevations(segmentsToCheckpoints(parseSegments(row.pos_breakdown)), row),
   }));
 
   const warnings = rows.map(checkAccessStatus).filter(Boolean);
@@ -345,7 +384,7 @@ function importMountains({ db, dryRun = false, csvPath = CSV_PATH } = {}) {
   const clearCheckpoints = db.prepare('DELETE FROM checkpoints WHERE trail_id = ?');
   const insertCheckpoint = db.prepare(`
     INSERT INTO checkpoints (trail_id, position, name, km, elevation_m, eta_min, notes)
-    VALUES (?, ?, ?, ?, NULL, ?, NULL)
+    VALUES (?, ?, ?, ?, ?, ?, NULL)
   `);
 
   const cols = ['trail_id', ...PROFILE_COLUMNS];
@@ -363,7 +402,7 @@ function importMountains({ db, dryRun = false, csvPath = CSV_PATH } = {}) {
 
       clearCheckpoints.run(trailId);
       checkpoints.forEach((c, i) => {
-        insertCheckpoint.run(trailId, i, c.name, c.km, c.etaMin);
+        insertCheckpoint.run(trailId, i, c.name, c.km, c.elevationM, c.etaMin);
       });
 
       insertProfile.run({ trail_id: trailId, ...profile });

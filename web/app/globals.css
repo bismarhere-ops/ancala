@@ -4,7 +4,8 @@
 
 @layer base {
   :root {
-    --background: 40 20% 97%;
+    /* Grounded Trail System: surface #f7faf7, cards #ffffff */
+    --background: 120 23% 97%;
     --foreground: 140 20% 10%;
 
     --card: 0 0% 100%;
@@ -13,10 +14,10 @@
     --popover: 0 0% 100%;
     --popover-foreground: 140 20% 10%;
 
-    --primary: 146 34% 26%;
+    --primary: 141 33% 26%; /* #2d5a3d */
     --primary-foreground: 40 30% 97%;
 
-    --secondary: 144 20% 94%;
+    --secondary: 136 23% 91%; /* #e2ede5 container */
     --secondary-foreground: 146 34% 20%;
 
     --muted: 144 15% 94%;
@@ -25,12 +26,12 @@
     --accent: 30 45% 70%;
     --accent-foreground: 140 30% 15%;
 
-    --destructive: 0 65% 45%;
+    --destructive: 0 72% 51%; /* #dc2626 telemetry warning */
     --destructive-foreground: 40 30% 97%;
 
-    --border: 140 12% 86%;
+    --border: 105 12% 89%; /* #e2e8e0 */
     --input: 140 12% 88%;
-    --ring: 146 34% 32%;
+    --ring: 141 33% 32%;
 
     --radius: 0.75rem;
   }

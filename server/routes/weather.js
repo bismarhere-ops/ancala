@@ -111,7 +111,14 @@ router.get('/', async (req, res, next) => {
 
     let coords = null;
     if (slug) {
-      const row = db.prepare('SELECT lat, lng FROM trails WHERE slug = ?').get(slug);
+      // Basecamp position when known, otherwise the summit (most trails only
+      // have a sourced summit coordinate).
+      const row = db
+        .prepare(`
+          SELECT COALESCE(t.lat, p.summit_lat) AS lat, COALESCE(t.lng, p.summit_lng) AS lng
+          FROM trails t LEFT JOIN mountain_profiles p ON p.trail_id = t.id
+          WHERE t.slug = ?`)
+        .get(slug);
       if (!row) throw new HttpError(404, `Trail not found: ${slug}`);
       if (row.lat != null && row.lng != null) coords = { lat: row.lat, lng: row.lng };
     } else if (lat != null && lng != null) {

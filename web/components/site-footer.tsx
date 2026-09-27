@@ -36,17 +36,36 @@ export function SiteFooter() {
         </div>
         <div>
           <h4 className="mb-3 font-display text-sm font-semibold uppercase tracking-wider text-white">
-            Offline-ready
+            Leave No Trace
           </h4>
-          <p className="text-sm text-forest-200">
-            Every trail page ships a downloadable JSON guide for low-signal hiking — save it to
-            your phone before you go.
-          </p>
+          <ul className="space-y-1.5 text-sm text-forest-200">
+            <li>Plan ahead and check live closures</li>
+            <li>Stay on marked trails and camps</li>
+            <li>Carry out all rubbish</li>
+            <li>Leave what you find</li>
+            <li>Minimise fire; none in dry season</li>
+            <li>Respect wildlife and sacred sites</li>
+          </ul>
+        </div>
+      </div>
+      <div className="container pb-8">
+        <div className="flex flex-col gap-3 rounded-xl border border-forest-800 bg-forest-800/40 p-4 text-sm md:flex-row md:items-center md:justify-between">
+          <div className="flex items-center gap-3">
+            <span className="rounded-md bg-telemetry/15 px-2 py-1 font-mono text-[11px] font-semibold uppercase tracking-wider text-telemetry">
+              Low-bandwidth field protocol
+            </span>
+            <span className="text-forest-200">
+              Pages, guides and maps are saved on your phone with offline packs. No signal needed on the trail.
+            </span>
+          </div>
+          <Link href="/community#volunteer" className="shrink-0 font-semibold text-white hover:underline">
+            Volunteer as a ranger →
+          </Link>
         </div>
       </div>
       <div className="border-t border-forest-800">
         <div className="container flex flex-col items-start justify-between gap-2 py-6 text-xs text-forest-200 md:flex-row md:items-center">
-          <span>© {new Date().getFullYear()} Forest Guardian CSR</span>
+          <span>© 2026 Forest Guardian CSR · Alpine stewardship</span>
           <span>Hike. Protect. Restore.</span>
         </div>
       </div>

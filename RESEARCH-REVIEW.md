@@ -72,3 +72,24 @@ figure was kept and the reason is given. Changed rows carry `last_updated = 2026
 | lompobattang | elevation_m | 2871 | 2,874 m (triangulation point); official figures cited 2,874-2,886 m | Fixed. | [link](https://www.traveloka.com/id-id/explore/destination/pesona-keindahan-puncak-gunung-lompobattang-di-sulawesi-selatan/1008623) |
 | lompobattang | basecamp_name | Basecamp via Malino area | Easiest route via Dusun Lembang Bune, Kelurahan Cikoro, Kec. Tompobulu, Kab. Gowa; mountain located in Kab. Bantaeng | Fixed. | [link](https://www.traveloka.com/id-id/explore/destination/pesona-keindahan-puncak-gunung-lompobattang-di-sulawesi-selatan/1008623) |
 | bawakaraeng | elevation_m | 2845 | Several route guides give 2,830 m | Kept 2,845 m: only some route guides give 2,830 m. | [link](https://www.sekeluargahealing.com/2024/10/peta-dan-rute-pendakian-gunung.html) |
+
+## Open items (found 2026-09-27 while sourcing summit coordinates)
+
+Not changed. Sources still disagree, so these need a check against an official
+figure (TN/BKSDA, PVMBG or a survey) before the CSV is edited.
+
+| Mountain | Ours | Other source | Note |
+|---|---|---|---|
+| sikunir | 2,463 m | 2,258-2,263 m (PeakVisor) | The lower figure would put the hilltop below Sembungan village (~2,300 m), where the walk starts, so 2,463 m was kept. |
+| andong | 1,726 m | 1,463 m (Wikipedia) | 1,726 m is the common figure in Indonesian hiking sources. |
+| dempo | 3,173 m | 3,142 m (Wikipedia) | PeakVisor agrees with ours. |
+| lemongan | 1,651 m | 1,641 m (Wikipedia) | |
+| slamet | 3,428 m | 3,432 m (Wikipedia) | |
+| ranti | 2,626 m | 2,601 m (id.wikipedia) | 2,626 m is Gunung Bagging's true summit. |
+| pundak | 1,585 m | 1,553 m (PeakVisor) | |
+| panderman | 2,045 m | 2,037 m (PeakVisor) | |
+| merapi-ungup | 2,800 m | 2,769 m (Wikipedia) | |
+
+Summit coordinates: 42 of 50 are sourced (`server/data/summit-coordinates.sources.json`).
+Missing: Welirang, Panderman, Kawi, Anjasmoro, Wilis, Pundak, Ranti (no
+cited coordinate for that specific peak) and Pangrango (the cited value lands on Gede).
