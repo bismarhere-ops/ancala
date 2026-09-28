@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import {
+  Activity,
   AlertTriangle,
+  ClipboardCheck,
   ArrowRight,
   Clock,
   Download,
@@ -21,6 +23,7 @@ import { AccessBanner } from "@/components/access-banner";
 import { AdvisoryBanner } from "@/components/advisory-banner";
 import { TrailProfile } from "@/components/trail-profile";
 import { MountainStory } from "@/components/mountain-story";
+import { Checklists } from "@/components/checklists";
 import { getTrail, getWeather } from "@/lib/api";
 import { cn, difficultyColor, formatMinutes, riskColor } from "@/lib/utils";
 
@@ -100,6 +103,16 @@ export default async function TrailDetailPage({
               </div>
             </div>
             <div className="flex flex-wrap gap-3">
+              <Button asChild variant="secondary">
+                <Link href={`/trails/${trail.slug}/telemetry`}>
+                  <Activity /> Telemetry
+                </Link>
+              </Button>
+              <Button asChild variant="secondary">
+                <a href="#checklist">
+                  <ClipboardCheck /> Checklist
+                </a>
+              </Button>
               <Button asChild variant="secondary">
                 <a href={`/api/trails/${trail.slug}/guide`} download>
                   <Download /> Offline guide
@@ -264,6 +277,10 @@ export default async function TrailDetailPage({
             </CardContent>
           </Card>
         </aside>
+      </section>
+
+      <section id="checklist" className="container scroll-mt-20 pb-12">
+        <Checklists trail={trail} />
       </section>
     </>
   );

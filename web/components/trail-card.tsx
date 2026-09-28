@@ -47,10 +47,8 @@ export function TrailCard({
             />
             {/* Keeps white text readable over bright photos. */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
-            {cover.illustrative && (
-              <span className="absolute bottom-1.5 right-2 text-[9px] uppercase tracking-wider text-white/60">
-                Illustrative photo
-              </span>
+            {cover.credit && (
+              <span className="absolute bottom-1 right-2 max-w-[70%] truncate text-[9px] text-white/60">{cover.credit}</span>
             )}
           </>
         ) : (

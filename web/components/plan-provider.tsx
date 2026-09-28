@@ -90,6 +90,11 @@ export function PlanProvider({
   return <PlanContext.Provider value={value}>{children}</PlanContext.Provider>;
 }
 
+/** Like usePlan, but null outside a PlanProvider (e.g. on a trail page). */
+export function usePlanOptional() {
+  return React.useContext(PlanContext);
+}
+
 export function usePlan() {
   const ctx = React.useContext(PlanContext);
   if (!ctx) throw new Error("usePlan must be used inside a PlanProvider");
