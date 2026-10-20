@@ -6,6 +6,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { ReportForm } from "@/components/report-form";
 import { VolunteerForm } from "@/components/volunteer-form";
+import { InstagramFeed } from "@/components/instagram-feed";
+import { INSTAGRAM_ACCOUNT, instagramPosts } from "@/lib/instagram";
 import { listAllTrails, listReports } from "@/lib/api";
 import { fallback } from "@/lib/server-fallback";
 import { cn, riskColor } from "@/lib/utils";
@@ -134,6 +136,8 @@ export default async function CommunityPage() {
           )}
         </div>
       </section>
+
+      <InstagramFeed posts={instagramPosts()} account={INSTAGRAM_ACCOUNT} />
 
       {/* Volunteer */}
       <section id="volunteer" className="container py-16">
