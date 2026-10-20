@@ -333,5 +333,38 @@
     "status": "active",
     "effectiveFrom": "2026-08-23",
     "source": "https://mounture.com/berita/gunung-sumbing-via-banaran-ditutup-sementara-pendaki-diminta-pilih-jalur-lain/"
+  },
+  {
+    "id": "2026-10-arjuno",
+    "trail": "arjuno",
+    "type": "fire",
+    "severity": "danger",
+    "headline": "Closed again from 17 Oct: forest fire",
+    "detail": "UPT Tahura Raden Soerjo closed all Arjuno-Welirang hiking from 17 Oct 2026 (announcement 500.4.6.10/1886/123.7.2/2026) after a fire that started on 16 Oct near Prigen, Pasuruan. No reopening date.",
+    "status": "active",
+    "effectiveFrom": "2026-10-17",
+    "source": "https://jatim.antaranews.com/berita/1108009/pendakian-arjuno-welirang-ditutup-imbas-kebakaran-hutan"
+  },
+  {
+    "id": "2026-10-welirang",
+    "trail": "welirang",
+    "type": "fire",
+    "severity": "danger",
+    "headline": "Closed again from 17 Oct: forest fire",
+    "detail": "UPT Tahura Raden Soerjo closed all Arjuno-Welirang hiking from 17 Oct 2026 (announcement 500.4.6.10/1886/123.7.2/2026) after a fire that started on 16 Oct near Prigen, Pasuruan. No reopening date.",
+    "status": "active",
+    "effectiveFrom": "2026-10-17",
+    "source": "https://jatim.antaranews.com/berita/1108009/pendakian-arjuno-welirang-ditutup-imbas-kebakaran-hutan"
+  },
+  {
+    "id": "2026-10-sumbing",
+    "trail": "sumbing",
+    "type": "fire",
+    "severity": "warning",
+    "headline": "Forest fire: Wonosobo routes and Batursari closed",
+    "detail": "A forest fire started on 19 Oct 2026 and hikers were evacuated. Wonosobo police said all routes on the Wonosobo side are closed until the fire is out; the Batursari route is also closed. Status of other routes unconfirmed: check with the basecamp before going.",
+    "status": "active",
+    "effectiveFrom": "2026-10-20",
+    "source": "https://regional.kompas.com/read/2026/10/20/122040078/imbas-kebakaran-hutan-jalur-pendakian-gunung-sumbing-ditutup-sementara"
   }
 ]
