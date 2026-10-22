@@ -5,6 +5,7 @@ import geo from "@/lib/archipelago.json";
 import { ISLANDS, type IslandId } from "@/lib/regions";
 import type { Trail } from "@/lib/types";
 import { cn } from "@/lib/utils";
+import { STATUS_TONE, trailStatus } from "@/lib/trail-status";
 
 /**
  * Indonesian archipelago with a pin per summit. Coastlines are Natural Earth
@@ -50,12 +51,6 @@ function useAnimatedViewBox(target: [number, number, number, number]) {
   return vb;
 }
 
-const PIN_TONE = {
-  danger: "fill-red-600",
-  warning: "fill-amber-500",
-  info: "fill-sky-500",
-  none: "fill-primary",
-} as const;
 
 export function ArchipelagoMap({
   trails,
@@ -101,7 +96,8 @@ export function ArchipelagoMap({
           const isSel = t.slug === selected;
           const isHover = t.slug === hover;
           const r = (isSel ? 6 : 4.2) * unit;
-          const tone = PIN_TONE[t.advisoryLevel ?? "none"];
+          // Closed comes from plannable, so access-closed trails are red too.
+          const tone = STATUS_TONE[trailStatus(t)].fill;
           const showLabel = isSel || isHover || zoomed;
           return (
             <g
@@ -150,8 +146,9 @@ export function ArchipelagoMap({
 
       <div className="pointer-events-none absolute bottom-2 left-3 flex flex-wrap gap-3 text-[10px] font-medium text-foreground/70">
         <Legend tone="bg-primary" label="Open" />
+        <Legend tone="bg-sky-500" label="Check alert level" />
         <Legend tone="bg-amber-500" label="Warning" />
-        <Legend tone="bg-red-600" label="Closed / danger" />
+        <Legend tone="bg-red-600" label="Closed" />
       </div>
       <div className="pointer-events-none absolute right-3 top-2 font-mono text-[10px] text-foreground/50">
         WGS 84 · Natural Earth 1:50m

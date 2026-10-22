@@ -17,7 +17,8 @@ import {
 import { ArchipelagoMap } from "@/components/archipelago-map";
 import { OfflinePackPanel } from "@/components/offline-pack-panel";
 import { TrailCard } from "@/components/trail-card";
-import { AdvisoryBadge } from "@/components/advisory-banner";
+import { StatusBadge } from "@/components/status-badge";
+import { trailStatus } from "@/lib/trail-status";
 import { Button } from "@/components/ui/button";
 import { ISLANDS, islandOf, provinceLabel, type IslandId } from "@/lib/regions";
 import { TRAIL_LIST_URL, fetchJsonCached, useOfflineSim } from "@/lib/offline";
@@ -93,8 +94,9 @@ export function TrailDirectory({ initialTrails }: { initialTrails: Trail[] }) {
 
   // --- Real KPIs --------------------------------------------------------------
   const totalKm = trails.reduce((s, t) => s + (t.distanceKm || 0), 0);
-  const danger = trails.filter((t) => t.advisoryLevel === "danger").length;
-  const warning = trails.filter((t) => t.advisoryLevel === "warning").length;
+  // Closed = not plannable (access closed or a live danger advisory).
+  const danger = trails.filter((t) => trailStatus(t) === "closed").length;
+  const warning = trails.filter((t) => trailStatus(t) === "warning").length;
   const pinned = trails.filter((t) => t.summitCoordinates).length;
 
   const counts = {
@@ -336,6 +338,7 @@ function Chip({ active, onClick, children }: { active: boolean; onClick: () => v
 
 function Inspector({ trail }: { trail: Trail }) {
   const headline = trail.advisories[0];
+  const closed = trailStatus(trail) === "closed";
   return (
     <div className="absolute bottom-3 right-3 w-64 rounded-xl border bg-card/95 p-3 text-sm shadow-lg backdrop-blur max-sm:static max-sm:mt-3 max-sm:w-full">
       <div className="flex items-start justify-between gap-2">
@@ -343,7 +346,7 @@ function Inspector({ trail }: { trail: Trail }) {
           <div className="text-[10px] uppercase tracking-wider text-muted-foreground">{trail.region}</div>
           <div className="font-display font-semibold leading-tight">{trail.name}</div>
         </div>
-        <AdvisoryBadge level={trail.advisoryLevel} />
+        <StatusBadge trail={trail} />
       </div>
       <div className="mt-2 grid grid-cols-3 gap-1 font-mono text-xs tabular-nums">
         <div>
@@ -359,12 +362,19 @@ function Inspector({ trail }: { trail: Trail }) {
           {formatMinutes(trail.estimatedMinutes)}
         </div>
       </div>
-      {headline && <p className="mt-2 line-clamp-2 text-xs text-red-700">{headline.headline}</p>}
-      <Button asChild size="sm" className="mt-3 w-full">
-        <Link href={`/trails/${trail.slug}/telemetry`}>
-          <Activity /> Open topo telemetry
-        </Link>
-      </Button>
+      {closed && <p className="mt-2 text-xs font-semibold text-red-700">Closed. Do not climb.</p>}
+      {headline && <p className="mt-1 line-clamp-2 text-xs text-red-700">{headline.headline}</p>}
+      {closed ? (
+        <Button asChild size="sm" variant="outline" className="mt-3 w-full">
+          <Link href={`/trails/${trail.slug}`}>Why it is closed</Link>
+        </Button>
+      ) : (
+        <Button asChild size="sm" className="mt-3 w-full">
+          <Link href={`/trails/${trail.slug}/telemetry`}>
+            <Activity /> Open topo telemetry
+          </Link>
+        </Button>
+      )}
     </div>
   );
 }
