@@ -1,52 +1,65 @@
-# Session Handoff — Forest Guardian web (next workstream: Instagram feed)
-_Updated: 2026-10-20 · end of the main build session_
+# Session Handoff — Forest Guardian: code review findings
+_Updated: 2026-10-22 · paused by owner (switching to another project)_
 
 ## State
-Site built and pushed (`b8c33bc`, CI green); Instagram feed not started. Nothing about it is decided yet, not even the account.
+Multi-agent code review paused: 74 distinct findings; 31 checked by 2 independent verifiers (30 confirmed, 1 rejected); 29 medium unchecked; 14 low set aside unchecked. Nothing fixed yet except #3.
 
 ## Done this session (verified)
-- Branch `claude/forest-guardian-website-XwOXh`: local and origin both at `b8c33bc`, working tree clean (checked 2026-10-20).
-- CI (`ci.yml`) passed on `b8c33bc` (run 36404825499, 2026-09-28): server tests and the web typecheck/lint/build.
-- Last Netlify deploy I confirmed live: `fc8283d` (redesign), published 2026-09-27 03:50 UTC on https://ancala.netlify.app.
-- 129 server tests passed locally on `b8c33bc`.
-- Preparation checklist (71 items, from the owner's "Journey of Jejak Ancala" sheet): saves progress per trail; checked in a browser on the trail page and the dashboard.
-- React hydration error (Badge `<div>` inside `<p>`) fixed; dev build showed zero hydration warnings on `/`, `/trails`, `/trails/arjuno`, `/dashboard`.
+- `af77005` (pushed): home page filled with real content (Bromo featured card with the owner's photos, "Conditions now" map + counts + closures list); `web/lib/trail-status.ts` gives one status per trail (closed = !plannable). Typecheck, lint, 129 tests, build, desktop+mobile screenshots all OK.
+- Review finding #3 (closed trails shown amber) is FIXED in `af77005`.
+- Another session pushed `7a312b8` (Instagram feed on /community) and `ac75b9b` (advisories: Arjuno-Welirang closed again, Sumbing fire). My work is rebased on top; no conflicts.
+
+## Confirmed findings, not yet fixed (2/2 verifiers each, most severe first)
+1. Upload keeps the client's file extension, so .html/.svg is served from the site origin (stored XSS) — `server/middleware/upload.js:17`
+2. Offline lookup serves the OLDEST cached copy (precache/runtime) over the fresh pack; "Update packs" has no effect offline — `web/public/sw.js:96`
+3. Offline packs save page HTML but not its JS/CSS chunks; offline trail page never hydrates (SOS dead), telemetry crashes — `web/lib/offline.ts:105`
+4. GPS altitude noise is counted as climb; "ETA by your climb rate" hours too short — `web/lib/use-gps.ts:86`
+5. Sync workflow commits with "[skip ci]", so Netlify never deploys auto volcano/fire advisories — `.github/workflows/sync-advisories.yml:45`
+6. Public GET /api/reports exposes reporter name + email — `server/routes/reports.js:44`
+7. Review-agent workflow: unrestricted Bash/WebFetch + write token on the unprotected production branch — `.github/workflows/review-advisories.yml:46`
+8. Advisory date validator accepts non-ISO dates that are compared as text, so a closure can be hidden — `server/lib/advisories.js:39`
+9. Advisory windows use the UTC date; local-date closures start 7–9 h late — `server/routes/trails.js:226`
+10. Unknown distance/time/gain stored as 0 and shown as "0.0 km", "0 min" — `server/import-mountains.js:245`
+11. Saved plan for a since-closed trail silently becomes another mountain (and its rescue contact) — `web/components/plan-provider.tsx:78`
+12. Dashboard weather always shows the most popular trail (Andong), unlabelled — `web/app/dashboard/page.tsx:21`
+13. Walked distance never builds up (small steps discarded but still become the anchor) — `web/lib/use-gps.ts:84`
+14. No-checkpoint fallback halves the ascent time and shows it as "Guide ETA" — `web/lib/telemetry.ts:39`
+15. Raung's final crater-rim traverse segment is dropped (timeline 3 h short) — `server/import-mountains.js:160`
+16. Andong summit coordinate is ~27–30 km from the real mountain — `server/data/mountains.csv:29`
+17. Pack download reports "Packs saved"/OFFLINE READY even when files failed — `web/lib/offline.ts:152`
+18. Offline, any directory filter/search/island tab/Topo Map link lands on offline.html — `web/components/trail-directory.tsx:67`
+19. Netlify build never loads server data; a malformed advisories.json ships and crashes the API — `netlify.toml:10`
+20. Planner ignores the planned date; future-dated closures are hidden (medium) — `server/routes/trails.js:211`
+21. Telemetry never shows "check PVMBG alert level" for conditional volcanoes (medium) — `web/components/telemetry/telemetry-view.tsx:279`
+22. Render: every user shares one rate-limit bucket (medium) — Render deploy only
+23. SW caches opaque OpenTopoMap tile responses incl. errors forever (medium) — `web/public/sw.js`
+24. Uploads written before validation, never deleted on rejection, no quota (medium) — `server/routes/reports.js`
+25. Weather cache is an unbounded Map keyed by caller coordinates (medium) — `server/routes/weather.js`
+26. Multer client errors become 500s; raw internal messages returned (medium) — `server/middleware/error.js`
+27. data_reliability_tier added without a migration; old DBs crash at boot (medium) — `server/db.js`
+28. Advisory with an unmatched trail slug is silently dropped at boot (medium) — `server/lib/advisories.js`
+29. Live grade always "—" at hiking speed (30-fix window can't span 40 m) (medium) — `web/lib/use-gps.ts`
+Rejected (1/2): "no staleness handling for advisories" — but the owner should still re-verify the 26 Sep advisories manually.
 
 ## In progress
-- Nothing half-built in code. The Instagram feed exists only as the owner's request ("make another session for this web instagram feed").
+- Review verification paused at finding index r1-31 of 60 (sorted by severity). Resume only works in THIS session:
+  `Workflow({scriptPath: "/root/.claude/projects/-home-user-ancala/d27dc35a-0141-5fa2-b931-4896d49c3413/workflows/scripts/forest-guardian-review-wf_49963ac7-ee8.js", resumeFromRunId: "wf_49963ac7-ee8", args: {"today":"2026-10-20"}})`. Each 5-hour quota window verifies ~10–17 findings.
 
 ## Next action
-Ask the owner (one AskUserQuestion) for: (1) the Instagram account to show (handle); (2) whether it is a Business/Creator account they can log in to; (3) where the feed goes (Community page, home page, or per-trail). Build nothing before these answers.
+Ask the owner which to do first: fix confirmed findings 1–6 (security + offline + deploy) or resume the review for the remaining 29 medium findings. Do not start either without a yes.
 
 ## Open decisions / blockers
-- **Instagram integration method** (not chosen). Re-check Meta's current rules before building; this list is from memory, not verified this session:
-  - Official Instagram API (Business/Creator account, Meta app, long-lived token that must be refreshed). Needs the token stored as a Netlify env var and a refresh job.
-  - Embedding individual posts with Instagram's embed script (no token, but posts are picked by hand).
-  - A hosted widget service (Behold, LightWidget, Elfsight…): least code, third-party dependency.
-  - Hand-curated JSON of post URLs + our own cards (works offline, needs manual updates).
-- **Can't test from this sandbox:** instagram.com, graph.instagram.com, the Instagram image CDN and *.netlify.app are very likely blocked like Wikipedia was (unconfirmed for Instagram, so check first: `curl -sS -o /dev/null -w "%{http_code}" https://graph.instagram.com/`). If blocked, the owner must add the hosts under environment Network access and start a fresh session (last time the setting didn't reach the running session).
-- **Netlify deploy of `b8c33bc` is unverified.** The owner declined the Netlify API call on 2026-09-29. Ask before calling any Netlify tool again; otherwise ask the owner to check the Deploys page.
-- **Safety: advisories are stale.** All 30 hand-written closure advisories in `server/data/advisories.json` were sourced on 2026-09-26. Fire-season closures (Kemenhut SE.4/KSDAE, West Java governor circular No. 116) may have lifted. The daily sync jobs never touch hand-written entries. Re-verify before any other work goes live.
-- Carried over, owner action needed: card photos (allow `e52111db-pop-up-mountain-trail-map.netlify.app`, `upload.wikimedia.org`, `commons.wikimedia.org`, `en.wikipedia.org`, or share a Drive folder); `ANTHROPIC_API_KEY` secret (advisory review agent still failing weekly, most recently 2026-10-20); NASA FIRMS key for the wildfire feed.
-- Carried over, data: 8 mountains without sourced summit coordinates and open elevation disputes, listed at the end of `RESEARCH-REVIEW.md`.
+- Fix-first vs finish-review: owner's call (both share the same 5-hour usage limit).
+- Advisories are from 2026-09-26 (plus ac75b9b updates); re-verify closures before relying on them.
+- Photos for other mountains still blocked (owner's photo site / Wikimedia hosts not reachable from the sandbox).
 
 ## Decisions already made (do not relitigate)
-- Site name stays **Forest Guardian**: owner chose it over "Ancala Trails".
-- Never invent data: unknown values show as "Unknown"/"—" or the section is hidden. Owner's rule since the dataset brief.
-- Telemetry: real phone GPS by default plus a Demo mode labelled DEMO on every panel; owner chose "Both".
-- SOS: `tel:112`, `tel:115` (Basarnas), SMS with coordinates; owner chose it.
-- Photos: owner's photo site first, then Wikipedia/Wikimedia with credit, otherwise the drawn outline. Spec Unsplash photos removed (unverified, several were other mountains).
-- Advisories: `danger` only for official closures or bans; `warning` for partial limits; each needs a source URL.
-- Checklist uses only item lists from the owner's sheet; no member names, prices, vendors or the member/MBTI tabs.
-- Push only to `claude/forest-guardian-website-XwOXh`; Netlify auto-deploys from it. No PRs unless the owner asks.
+- Never invent data; unknown → "—" or hidden. Owner rule.
+- Site name stays Forest Guardian; push only to `claude/forest-guardian-website-XwOXh`; no PRs unless asked.
+- Telemetry = real GPS + labelled Demo; SOS = tel:112/115 + SMS.
 
 ## Gotchas / do-not-touch
-- Netlify builds only when `web/`, `server/`, `netlify.toml` or the root `package*.json` change (the `ignore` rule in `netlify.toml`).
-- Remote images need their host in `web/next.config.mjs` `images.remotePatterns` (currently only `upload.wikimedia.org`).
-- `web/public/sw.js` lets cross-origin requests through (it only caches OpenTopoMap tiles), so remote feed images won't work offline unless handled.
-- On Netlify the API is a function with a `/tmp` SQLite DB that resets on cold start. Store any token in Netlify env vars and keep anything durable out of the DB. Never commit secrets.
-- Never `pkill -f "node server"` / `pkill -f "next dev"`: the pattern matches the shell running it and kills it (exit 144). Free ports with `fuser -k <port>/tcp`.
-- Server components reach the API through `NETLIFY_SITE_URL`, baked in at build (`web/next.config.mjs`). Don't remove it, or pages render empty on Netlify.
-- Route tests use their own empty advisories file (`ADVISORIES_PATH` in `server/routes/trails.test.js`); keep new route tests isolated from live data the same way.
-- "File changed on disk" notices showed up repeatedly this session while `git status` stayed clean. Trust git.
-- Commit trailer: `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>` + `Claude-Session: …` link from the system reminder.
+- Another session also pushes to this branch (Instagram feed, advisories): always `git fetch` + rebase before pushing.
+- Never `pkill -f "node server"`/`"next dev"` (kills the calling shell); use `fuser -k <port>/tcp`.
+- Netlify rebuilds only when `web/`, `server/`, `netlify.toml` or root `package*.json` change.
+- Owner declined Netlify API calls on 2026-09-29: ask before using Netlify tools.
