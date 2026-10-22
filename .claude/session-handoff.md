@@ -1,8 +1,8 @@
 # Session Handoff — Forest Guardian: code review findings
-_Updated: 2026-10-22 · paused by owner (switching to another project)_
+_Updated: 2026-10-22 · review finished_
 
 ## State
-Multi-agent code review paused: 74 distinct findings; 31 checked by 2 independent verifiers (30 confirmed, 1 rejected); 29 medium unchecked; 14 low set aside unchecked. Nothing fixed yet except #3.
+Code review FINISHED: 60 findings verified (58 confirmed, 2 rejected), 14 low unchecked. Full list with fixes in `REVIEW-FINDINGS.md` (R1–R58, ranked by verifier consensus severity). Only R11 is fixed (af77005).
 
 ## Done this session (verified)
 - `af77005` (pushed): home page filled with real content (Bromo featured card with the owner's photos, "Conditions now" map + counts + closures list); `web/lib/trail-status.ts` gives one status per trail (closed = !plannable). Typecheck, lint, 129 tests, build, desktop+mobile screenshots all OK.
@@ -42,14 +42,13 @@ Multi-agent code review paused: 74 distinct findings; 31 checked by 2 independen
 Rejected (1/2): "no staleness handling for advisories" — but the owner should still re-verify the 26 Sep advisories manually.
 
 ## In progress
-- Review verification paused at finding index r1-31 of 60 (sorted by severity). Resume only works in THIS session:
-  `Workflow({scriptPath: "/root/.claude/projects/-home-user-ancala/d27dc35a-0141-5fa2-b931-4896d49c3413/workflows/scripts/forest-guardian-review-wf_49963ac7-ee8.js", resumeFromRunId: "wf_49963ac7-ee8", args: {"today":"2026-10-20"}})`. Each 5-hour quota window verifies ~10–17 findings.
+— none (review complete; the completeness-critic and synthesis agents failed on quota, so REVIEW-FINDINGS.md was assembled from the verifier journal).
 
 ## Next action
-Ask the owner which to do first: fix confirmed findings 1–6 (security + offline + deploy) or resume the review for the remaining 29 medium findings. Do not start either without a yes.
+Ask the owner whether to start fixing, beginning with R1 (upload XSS), R2 + R5 + R10 (offline packs), R3 (sync never deploys), R4 (climb-rate ETA), R7 (reporter emails public).
 
 ## Open decisions / blockers
-- Fix-first vs finish-review: owner's call (both share the same 5-hour usage limit).
+- Which fixes first: owner's call (see REVIEW-FINDINGS.md). R43-type finding: program page shows made-up figures — conflicts with the no-invented-data rule.
 - Advisories are from 2026-09-26 (plus ac75b9b updates); re-verify closures before relying on them.
 - Photos for other mountains still blocked (owner's photo site / Wikimedia hosts not reachable from the sandbox).
 
