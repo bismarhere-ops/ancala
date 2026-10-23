@@ -3,6 +3,7 @@
 const path = require('path');
 const express = require('express');
 const helmet = require('helmet');
+const { isServableUpload, setUploadHeaders } = require('./middleware/upload');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 
@@ -63,10 +64,15 @@ app.use('/api/impact',     impactRouter);
 app.use('/api/advisories', advisoriesRouter);
 
 // --- Uploaded photos (public) --------------------------------------------
-app.use('/uploads', express.static(config.uploads.dir, {
+// Only image files the API itself named are served, as inert images.
+app.use('/uploads', (req, res, next) => {
+  if (!isServableUpload(req.path)) return res.status(404).json({ error: 'not_found' });
+  next();
+}, express.static(config.uploads.dir, {
   fallthrough: true,
   immutable: true,
   maxAge: '30d',
+  setHeaders: setUploadHeaders,
 }));
 
 // --- Root --------------------------------------------------------------

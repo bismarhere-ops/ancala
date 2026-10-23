@@ -16,6 +16,9 @@ const request = require('./test-helper');
 
 test.after(() => fs.rmSync(tmpDir, { recursive: true, force: true }));
 
+// Smallest valid-looking JPEG header (signature FF D8 FF) for upload tests.
+const JPEG = Buffer.from([0xff, 0xd8, 0xff, 0xe0, 0, 0x10, 0x4a, 0x46, 0x49, 0x46, 0, 1]);
+
 const postJson = (body) => request('/api/reports', { method: 'POST', body });
 
 /** Builds a multipart/form-data body from string fields and file parts. */
@@ -91,11 +94,40 @@ test('POST /api/reports strips reporter details when anonymous', async () => {
 test('POST /api/reports accepts an allowed image type', async () => {
   const { status, body } = await postMultipart(
     { type: 'Landslide' },
-    [{ filename: 'a.jpg', contentType: 'image/jpeg', content: 'fake-jpeg-bytes' }]
+    [{ filename: 'a.jpg', contentType: 'image/jpeg', content: JPEG }]
   );
   assert.strictEqual(status, 201);
   assert.strictEqual(body.data.photos.length, 1);
-  assert.match(body.data.photos[0], /^\/uploads\//);
+  assert.match(body.data.photos[0], /^\/uploads\/\d+-[\w-]{8}\.jpg$/);
+});
+
+test('POST /api/reports rejects HTML disguised as an image (stored XSS)', async () => {
+  const before = fs.readdirSync(process.env.UPLOAD_DIR).length;
+  const { status } = await postMultipart(
+    { type: 'Trash' },
+    [{ filename: 'evil.html', contentType: 'image/png', content: '<script>alert(1)</script>' }]
+  );
+  assert.strictEqual(status, 415);
+  assert.strictEqual(fs.readdirSync(process.env.UPLOAD_DIR).length, before, 'rejected file must be deleted');
+});
+
+test('saved photo extension comes from the image type, not the client filename', async () => {
+  const { status, body } = await postMultipart(
+    { type: 'Trash' },
+    [{ filename: 'pic.svg', contentType: 'image/jpeg', content: JPEG }]
+  );
+  assert.strictEqual(status, 201);
+  assert.match(body.data.photos[0], /\.jpg$/);
+});
+
+test('uploads are served inert, and only our own image filenames', async () => {
+  const { body } = await postMultipart({ type: 'Trash' }, [{ filename: 'a.jpg', contentType: 'image/jpeg', content: JPEG }]);
+  const res = await request(body.data.photos[0]);
+  assert.strictEqual(res.status, 200);
+  assert.strictEqual(res.headers['x-content-type-options'], 'nosniff');
+  assert.match(res.headers['content-security-policy'], /sandbox/);
+  fs.writeFileSync(path.join(process.env.UPLOAD_DIR, 'planted.html'), '<script></script>');
+  assert.strictEqual((await request('/uploads/planted.html')).status, 404);
 });
 
 test('POST /api/reports rejects a disallowed file type with 415', async () => {
@@ -131,4 +163,12 @@ test('GET /api/reports lists reports, newest first', async () => {
 test('GET /api/reports/:id 404s for an unknown id', async () => {
   const { status } = await request('/api/reports/rep_doesnotexist');
   assert.strictEqual(status, 404);
+});
+
+test('GET /api/reports never publishes reporter emails', async () => {
+  await postJson({ type: 'Trash', reporterName: 'Rina', reporterEmail: 'rina@example.com' });
+  const { body } = await request('/api/reports?limit=100');
+  const raw = JSON.stringify(body);
+  assert.ok(!raw.includes('rina@example.com'));
+  assert.ok(body.data.some((r) => r.reporter && r.reporter.name === 'Rina'));
 });

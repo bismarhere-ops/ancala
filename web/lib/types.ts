@@ -223,7 +223,7 @@ export interface Report {
   severity: Risk;
   status: "new" | "ack" | "resolved";
   location: { lat: number; lng: number } | null;
-  reporter: { name: string; email: string } | null;
+  reporter: { name: string } | null;
   anonymous: boolean;
   photos: string[];
   createdAt: string;

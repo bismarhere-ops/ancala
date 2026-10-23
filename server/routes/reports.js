@@ -4,7 +4,7 @@ const express = require('express');
 const { z } = require('zod');
 const { nanoid } = require('nanoid');
 const { db } = require('../db');
-const { upload, photoUrl } = require('../middleware/upload');
+const { upload, photoUrl, hasImageSignature, removeFiles } = require('../middleware/upload');
 const { HttpError } = require('../middleware/error');
 
 const router = express.Router();
@@ -41,7 +41,8 @@ function mapReport(r, trailName) {
     severity: r.severity,
     status: r.status,
     location: r.lat != null && r.lng != null ? { lat: r.lat, lng: r.lng } : null,
-    reporter: r.anonymous ? null : { name: r.reporter_name, email: r.reporter_email },
+    // Public endpoint: the email is kept for the team but never published.
+    reporter: r.anonymous || !r.reporter_name ? null : { name: r.reporter_name },
     anonymous: !!r.anonymous,
     photos,
     createdAt: r.created_at,
@@ -51,7 +52,22 @@ function mapReport(r, trailName) {
 // --- Routes ---------------------------------------------------------------
 
 // POST /api/reports  (multipart: photos[]) — create a new report
-router.post('/', upload.array('photos', 4), (req, res) => {
+router.post('/', upload.array('photos', 4), (req, res, next) => {
+  // Any rejection below must not leave the uploaded files on disk.
+  try {
+    for (const f of req.files || []) {
+      if (!hasImageSignature(f.path, f.mimetype)) {
+        throw new HttpError(415, 'Photo content does not match its image type');
+      }
+    }
+    createReport(req, res);
+  } catch (err) {
+    removeFiles(req.files);
+    next(err);
+  }
+});
+
+function createReport(req, res) {
   const body = createSchema.parse(req.body);
 
   let trailId = null;
@@ -94,7 +110,7 @@ router.post('/', upload.array('photos', 4), (req, res) => {
       message: 'Report received. Thank you for keeping the forest safer.',
     },
   });
-});
+}
 
 // GET /api/reports — list (most recent first)
 router.get('/', (req, res) => {

@@ -8,7 +8,7 @@ Status column: blank = open.
 
 ## Critical
 
-### R1. Photo upload stores the client's file extension and serves .html/.svg from the site origin (stored XSS that can rewrite offline trail packs)
+### R1. Photo upload stores the client's file extension and serves .html/.svg from the site origin (stored XSS that can rewrite offline trail packs)  — **Fixed (this commit)**
 - **Where:** `server/middleware/upload.js:17`, `server/middleware/upload.js:23`, `server/server.js:66`, `server/server.js:28`, `netlify.toml:38`  ·  verified 2/2
 - **What:** The saved filename keeps the extension from the client-supplied originalname (L17). fileFilter (L22-23) only checks the client-declared part Content-Type (file.mimetype), never the extension or the file bytes. express.static serves /uploads with a Content-Type chosen by extension, helmet CSP is disabled (server.js:28), and on Netlify /uploads/* is proxied through the function on the same origin as the Next.js site. Attacker HTML or SVG therefore runs on the site's own origin.
 - **Failure:** POST /api/reports with a photo part filename=evil.html, Content-Type: image/png, body <script>…</script>. The response is 201 with /uploads/<ts>-<id>.html, and a GET on it returns text/html with the script intact (.svg is served as image/svg+xml the same way). A hiker who opens the shared link runs the script on the real origin. It can overwrite Cache Storage 'fg-v1-packs'/'fg-v1-runtime' entries (e.g. /api/trails/semeru with advisories:[] and plannable:true) and set localStorage, so later, with no signal, the offline guide shows a closed trail as open with attacker-supplied emergency contacts. It also serves as a phishing page on the trusted domain.
@@ -22,7 +22,7 @@ Status column: blank = open.
 
 ## High
 
-### R3. Daily advisory sync commits with "[skip ci]", so Netlify never deploys the auto-generated volcano/fire advisories
+### R3. Daily advisory sync commits with "[skip ci]", so Netlify never deploys the auto-generated volcano/fire advisories  — **Fixed (this commit)**
 - **Where:** `.github/workflows/sync-advisories.yml:45`, `netlify.toml:13-16`, `ADVISORIES.md:70-76`  ·  verified 2/2
 - **What:** The scheduled sync rebuilds the auto-pvmbg-/auto-fire- advisories in server/data/advisories.json and pushes to claude/forest-guardian-website-XwOXh, which is both the default branch and the Netlify production branch. The commit message contains "[skip ci]", and Netlify skips Git-triggered builds for such commits. The API reads advisories.json only from the deployed bundle at function boot, so the regenerated advisories never go live until some unrelated commit triggers a build. That defeats the stated intent in the workflow header, netlify.toml ('advisories from the sync agents … must deploy too') and ADVISORIES.md. The marker gains nothing on the GitHub side either, because GITHUB_TOKEN pushes don't trigger workflows.
 - **Failure:** The owner sets "semeru": 3 (or agung/merapi) in volcano-levels.json and pushes. That deploy has no new advisory yet. At 21:00 UTC the sync job writes auto-pvmbg-<slug> (severity danger) and pushes it with [skip ci]. Netlify skips the build, and the live site keeps the volcano plannable/trackable with no advisory for days or weeks. A lowered level likewise leaves a stale danger advisory up.
@@ -46,7 +46,7 @@ Status column: blank = open.
 - **Failure:** A user plans Rinjani (3,726 m). The adjacent Weather card shows Andong's current conditions and 5-day forecast (1,726 m, Central Java), which are read as conditions for the planned trip.
 - **Fix:** Fetch weather client-side for usePlan().trail (a client child of PlanProvider keyed by slug), and show the mountain name on the card.
 
-### R7. Public GET /api/reports returns every signed reporter's name and email
+### R7. Public GET /api/reports returns every signed reporter's name and email  — **Fixed (this commit)**
 - **Where:** `server/routes/reports.js:44`, `server/routes/reports.js:100-128`, `server/server.js:34-35`  ·  verified 2/2
 - **What:** mapReport adds reporter:{name, email} to every non-anonymous report. GET /api/reports (up to 100 per page, with offset paging) and GET /api/reports/:id are unauthenticated, and CORS reflects any origin. The UI never shows the email, and the form never says it will be published.
 - **Failure:** After a report submitted with reporterName=Alice and reporterEmail=alice@example.com, GET /api/reports returns "reporter":{"name":"Alice","email":"alice@example.com"}. A scraper on any website can page through and collect every reporter's name, email, trail and GPS position.
