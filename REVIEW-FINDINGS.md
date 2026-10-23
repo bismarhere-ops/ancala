@@ -28,7 +28,7 @@ Status column: blank = open.
 - **Failure:** The owner sets "semeru": 3 (or agung/merapi) in volcano-levels.json and pushes. That deploy has no new advisory yet. At 21:00 UTC the sync job writes auto-pvmbg-<slug> (severity danger) and pushes it with [skip ci]. Netlify skips the build, and the live site keeps the volcano plannable/trackable with no advisory for days or weeks. A lowered level likewise leaves a stale danger advisory up.
 - **Fix:** Drop "[skip ci]" from the commit message, or use "[skip actions]" if you want to skip CI only. Optionally call a Netlify build hook after the push, and add a test that fails if the workflow's commit message contains a skip marker.
 
-### R4. GPS altitude noise is counted as climb, so 'ETA summit by your climb rate' comes out far too short
+### R4. GPS altitude noise is counted as climb, so 'ETA summit by your climb rate' comes out far too short  — **Fixed (GPS tracker rewrite)**
 - **Where:** `web/lib/use-gps.ts:86`, `web/lib/use-gps.ts:33`, `web/lib/use-gps.ts:94`, `web/lib/telemetry.ts:155-158`  ·  verified 2/2
 - **What:** Gain ignores altitude changes under 3 m (ALT_NOISE_M) and otherwise adds every upward wobble and moves the baseline. altitudeAccuracy is never checked, and altitude is taken even from fixes with poor horizontal accuracy. Phone GPS altitude wanders 5–15 m, so gain is greatly inflated. liveReadout switches to the climb-rate ETA once gainM ≥ 50 and elapsed ≥ 10 min, giving a falsely fast climb rate.
 - **Failure:** Simulated 1 Hz fixes with correlated vertical noise (σ 6 m): standing still for 30 min gave +300 to +560 m of 'gain', and a true +300 m hour gave +756 to +1,173 m. At Rinjani after 30 min stationary the HUD shows 'ETA summit 2h 18m by your climb rate' against a 10 h guidebook time. A hiker can push on expecting to reach the top hours earlier than they will.
@@ -102,7 +102,7 @@ Status column: blank = open.
 - **Failure:** A user planned Semeru, Lawu or Ijen while it was open, and it then got a danger advisory. Back on /dashboard, the trail selector is blank, and Andong's timeline, 'Local rescue — Andong' and 'For Andong' appear. Nothing says the planned mountain is closed.
 - **Fix:** When plan.slug is set but not plannable, look it up in the full trails list, keep it selected, and show a blocking 'Your planned trail <name> is closed: <advisory headline>' state. Never fall back to plannable[0] silently. Add a component test.
 
-### R16. Walked distance never builds up: a too-small step is discarded but still becomes the new anchor
+### R16. Walked distance never builds up: a too-small step is discarded but still becomes the new anchor  — **Fixed (GPS tracker rewrite)**
 - **Where:** `web/lib/use-gps.ts:84`, `web/lib/use-gps.ts:95`  ·  verified 2/2
 - **What:** A step is added only if it is longer than accuracy/2 (L84), but last.current = fix runs for every good fix (L95) whether or not the step counted. At 1–5 s fix intervals, each walking step is below the threshold, so real movement never accumulates and only noise jumps get counted. Refs are also mutated inside the setState updater (double-invoked under StrictMode). web/ has no test runner.
 - **Failure:** Noise-free simulation with 10 m (or 8 m) accuracy at 1 Hz: a 1 h hike of about 2–2.5 km gives distanceKm 0.00 (also at 5 s intervals). The HUD shows 'Walked 0.0 km' and Pace '—' for real hikers, while noisy fixes can instead inflate it to 14 km.
@@ -272,7 +272,7 @@ Status column: blank = open.
 - **Failure:** Changing Semeru's trail to 'Semeru', or adding 'Prau' or 'gunung-rinjani', still gives npm test 129 pass. Only a warning line is printed, and the mountains stay plannable with no closure.
 - **Fix:** Add a test asserting every advisory slug exists in mountains.csv, make unknown slugs a hard error outside production, and optionally normalise slugs.
 
-### R44. Live grade is always '—' at hiking speeds: a 30-fix window can't span 40 m
+### R44. Live grade is always '—' at hiking speeds: a 30-fix window can't span 40 m  — **Fixed (GPS tracker rewrite)**
 - **Where:** `web/lib/use-gps.ts:96`, `web/lib/use-gps.ts:142-153`  ·  verified 2/2
 - **What:** recent keeps 30 fixes (about 30 s at 1 Hz), but recentGrade needs a fix at least 40 m away, which takes about 5 km/h.
 - **Failure:** Simulated at 1.5, 2 and 4 km/h, recentGrade returned null 100% of the time, so the Grade card always reads '—'.

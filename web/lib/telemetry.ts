@@ -140,28 +140,47 @@ export function demoReadout(trail: Trail, fraction = 0.613): TelemetryReadout {
   };
 }
 
+/** Climb-rate ETA needs this much real progress before it replaces guidebook times. */
+export const MIN_NET_CLIMB_M = 100;
+export const MIN_CLIMB_MINUTES = 20;
+
 /** Live readout from real GPS session values. */
 export function liveReadout(
   trail: Trail,
-  gps: { altitude: number | null; distanceKm: number; gainM: number; elapsedMin: number; gradePct: number | null }
+  gps: {
+    altitude: number | null;
+    distanceKm: number;
+    gainM: number;
+    /** Net climb since the first trustworthy altitude; null when unknown. */
+    netGainM?: number | null;
+    elapsedMin: number;
+    gradePct: number | null;
+  }
 ): TelemetryReadout {
   const { points, ascentKm } = ascentProfile(trail);
   const alt = gps.altitude;
   const profileKm = alt != null ? kmAtAltitude(points, alt) : null;
   const toSummit = alt != null && trail.elevationM != null ? Math.max(0, trail.elevationM - alt) : null;
 
-  let etaMin: number | null = null;
-  let etaBasis: TelemetryReadout["etaBasis"] = null;
-  if (toSummit != null && gps.gainM >= 50 && gps.elapsedMin >= 10) {
-    const rate = gps.gainM / gps.elapsedMin; // m per minute, observed
-    etaMin = toSummit / rate;
-    etaBasis = "your climb rate";
-  } else if (profileKm != null) {
+  // Guidebook remaining time from where the altitude puts the hiker.
+  let guideEta: number | null = null;
+  if (profileKm != null) {
     const total = etaMinAt(points, ascentKm);
     const now = etaMinAt(points, profileKm);
-    if (total != null && now != null) {
-      etaMin = total - now;
-      etaBasis = "guidebook times";
+    if (total != null && now != null) guideEta = Math.max(0, total - now);
+  }
+
+  // Own climb rate from NET gain (GPS noise cancels out), only after real
+  // progress, and never trusted when it beats the guidebook by more than half:
+  // an over-optimistic summit time is the dangerous error.
+  let etaMin: number | null = guideEta;
+  let etaBasis: TelemetryReadout["etaBasis"] = guideEta != null ? "guidebook times" : null;
+  const net = gps.netGainM ?? null;
+  if (toSummit != null && net != null && net >= MIN_NET_CLIMB_M && gps.elapsedMin >= MIN_CLIMB_MINUTES) {
+    const own = toSummit / (net / gps.elapsedMin);
+    if (guideEta == null || own >= guideEta * 0.5) {
+      etaMin = own;
+      etaBasis = "your climb rate";
     }
   }
 
@@ -171,7 +190,9 @@ export function liveReadout(
     progressKm: gps.distanceKm,
     ascentKm,
     gradePct: gps.gradePct,
-    gainM: gps.gainM,
+    // Net height change: GPS altitude noise cancels out here, while a summed
+    // gross climb keeps growing even when the hiker stands still.
+    gainM: gps.netGainM ?? null,
     paceMinPerKm: gps.distanceKm >= 0.1 ? gps.elapsedMin / gps.distanceKm : null,
     etaMin,
     etaBasis,

@@ -127,9 +127,10 @@ export function TelemetryView({ trail, weather }: { trail: Trail; weather: Weath
   const readout: TelemetryReadout = demo
     ? demoReadout(trail)
     : liveReadout(trail, {
-        altitude: gps.fix?.altitude ?? null,
+        altitude: gps.smoothAltM ?? null,
         distanceKm: gps.distanceKm,
         gainM: gps.gainM,
+        netGainM: gps.netGainM,
         elapsedMin,
         gradePct: recentGrade(gps.recent),
       });
@@ -234,7 +235,13 @@ function metrics(s: Shared) {
       value: r.gradePct == null ? "—" : `${r.gradePct >= 0 ? "+" : ""}${Math.round(r.gradePct)}%`,
       sub: s.demo ? "profile at position" : "last 40+ m",
     },
-    { icon: Activity, label: "Vertical gain", value: r.gainM == null ? "—" : `+${Math.round(r.gainM).toLocaleString("en-US")} m`, sub: s.demo ? "from start" : "this session" },
+    {
+      icon: Activity,
+      label: "Vertical gain",
+      // Sign comes from the number itself (a descent shows "-", never "+-").
+      value: r.gainM == null ? "—" : `${r.gainM >= 0 ? "+" : ""}${Math.round(r.gainM).toLocaleString("en-US")} m`,
+      sub: s.demo ? "from start" : "net, this session",
+    },
     { icon: Gauge, label: "Pace", value: `${fmtPace(r.paceMinPerKm)}`, sub: "min / km" },
     { icon: Timer, label: "ETA summit", value: fmtEta(r.etaMin), sub: r.etaBasis ? `by ${r.etaBasis}` : "needs a position" },
   ];

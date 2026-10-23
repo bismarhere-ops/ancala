@@ -2,12 +2,15 @@
 
 import * as React from "react";
 import { distanceKm } from "./geo";
+import { advance, emptyTrack, type TrackState } from "./gps-track";
 
 export interface GpsFix {
   lat: number;
   lng: number;
   /** Metres above sea level; null on devices that don't report it (most laptops). */
   altitude: number | null;
+  /** Vertical accuracy (m), when the device reports it. */
+  altitudeAccuracy?: number | null;
   accuracy: number;
   /** m/s, null when the device doesn't report it. */
   speed: number | null;
@@ -27,10 +30,12 @@ export interface GpsState {
   error: string | null;
   /** Last accurate fixes, newest last (for grade over the recent stretch). */
   recent: GpsFix[];
+  /** Smoothed altitude (median of recent good readings), or null. */
+  smoothAltM: number | null;
+  /** Net climb since the first trustworthy altitude (noise cancels out). */
+  netGainM: number | null;
 }
 
-const MAX_ACCURACY_M = 50;
-const ALT_NOISE_M = 3;
 
 /**
  * Live position from the phone's GPS. Nothing here is estimated: when there
@@ -47,9 +52,10 @@ export function useGps(active: boolean): GpsState {
     startedAt: null,
     error: null,
     recent: [],
+    smoothAltM: null,
+    netGainM: null,
   });
-  const last = React.useRef<GpsFix | null>(null);
-  const altBase = React.useRef<number | null>(null);
+  const track = React.useRef<TrackState>(emptyTrack());
 
   React.useEffect(() => {
     if (!active) return;
@@ -70,32 +76,24 @@ export function useGps(active: boolean): GpsState {
           lat: c.latitude,
           lng: c.longitude,
           altitude: c.altitude,
+          altitudeAccuracy: c.altitudeAccuracy,
           accuracy: c.accuracy,
           speed: c.speed,
           t: pos.timestamp,
         };
-        setState((s) => {
-          let dist = s.distanceKm;
-          let gain = s.gainM;
-          const prev = last.current;
-          if (prev && fix.accuracy <= MAX_ACCURACY_M) {
-            const step = distanceKm(prev, fix);
-            // Ignore movement smaller than the fix's own uncertainty.
-            if (step * 1000 > fix.accuracy / 2) dist += step;
-          }
-          if (fix.altitude != null) {
-            if (altBase.current == null) altBase.current = fix.altitude;
-            const delta = fix.altitude - altBase.current;
-            if (Math.abs(delta) >= ALT_NOISE_M) {
-              if (delta > 0) gain += delta;
-              altBase.current = fix.altitude;
-            }
-          }
-          const good = fix.accuracy <= MAX_ACCURACY_M;
-          if (good) last.current = fix;
-          const recent = good ? [...s.recent, fix].slice(-30) : s.recent;
-          return { ...s, status: "tracking", fix, distanceKm: dist, gainM: gain, error: null, recent };
-        });
+        track.current = advance(track.current, fix);
+        const t = track.current;
+        setState((s) => ({
+          ...s,
+          status: "tracking",
+          fix,
+          distanceKm: t.distanceKm,
+          gainM: t.gainM,
+          recent: t.recent as GpsFix[],
+          smoothAltM: t.smoothAltM,
+          netGainM: t.netGainM,
+          error: null,
+        }));
       },
       (err) => {
         setState((s) => ({
