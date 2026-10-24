@@ -43,6 +43,7 @@ export function OfflinePackPanel({ slugs, className }: { slugs: string[]; classN
   };
 
   const pct = Math.round((progress.done / progress.total) * 100);
+  const incomplete = !!pack && !pack.complete;
 
   return (
     <div
@@ -60,7 +61,9 @@ export function OfflinePackPanel({ slugs, className }: { slugs: string[]; classN
           <div className="font-semibold">Offline field packs</div>
           <p className="text-sm text-muted-foreground">
             {pack
-              ? `Saved on this device: ${pack.trails} routes, ${formatBytes(pack.bytes)} · ${new Date(pack.savedAt).toLocaleDateString()}`
+              ? pack.complete
+                ? `Saved on this device: ${pack.trails} routes, ${formatBytes(pack.bytes)} · ${new Date(pack.savedAt).toLocaleDateString()}`
+                : `Incomplete: ${pack.failed} file(s) failed on ${new Date(pack.savedAt).toLocaleDateString()}. Download again.`
               : `Save all ${slugs.length} routes (data, offline guides and pages) for no-signal use.`}
           </p>
         </div>
@@ -89,12 +92,16 @@ export function OfflinePackPanel({ slugs, className }: { slugs: string[]; classN
       <Dialog open={open} onOpenChange={(o) => !running && setOpen(o)}>
         <DialogContent className="max-w-sm">
           <DialogHeader>
-            <DialogTitle>{running ? "Downloading field packs…" : error ? "Download stopped" : "Packs saved"}</DialogTitle>
+            <DialogTitle>
+              {running ? "Downloading field packs…" : error ? "Download stopped" : incomplete ? "Some files failed" : "Packs saved"}
+            </DialogTitle>
             <DialogDescription>
               {error ??
                 (running
                   ? "Keep this page open. Each route's data, offline guide and pages are saved to this device."
-                  : "Routes are now readable with no signal. Update them before each trip for the latest conditions.")}
+                  : incomplete
+                    ? `${pack?.failed} file(s) could not be saved. Routes may be missing offline. Try "Update packs" again with a better connection.`
+                    : "Routes are now readable with no signal. Update them before each trip for the latest conditions.")}
             </DialogDescription>
           </DialogHeader>
           <Progress value={pct} />
@@ -104,7 +111,7 @@ export function OfflinePackPanel({ slugs, className }: { slugs: string[]; classN
             </span>
             <span>{formatBytes(progress.bytes)}</span>
           </div>
-          {!running && !error && (
+          {!running && !error && !incomplete && (
             <div className="flex items-center gap-2 text-sm text-primary">
               <CheckCircle2 className="size-4" /> {pack ? formatBytes(pack.bytes) : ""} stored offline
             </div>

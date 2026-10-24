@@ -55,6 +55,8 @@ export function TopoMap({ summit, summitLabel, basecamp, position, positionIsDem
   const me = React.useRef<{ dot: L.Marker; ring: L.Circle } | null>(null);
   const [layer, setLayer] = React.useState<LayerKey>("topo");
   const [ready, setReady] = React.useState(false);
+  // The map's own code chunk can be missing offline; say so instead of failing.
+  const [unavailable, setUnavailable] = React.useState(false);
 
   // Create the map once (Leaflet touches `window`, so load it in the browser).
   React.useEffect(() => {
@@ -89,6 +91,8 @@ export function TopoMap({ summit, summitLabel, basecamp, position, positionIsDem
       }
       map.current = m;
       setReady(true);
+    }).catch(() => {
+      if (!cancelled) setUnavailable(true);
     });
     return () => {
       cancelled = true;
@@ -152,6 +156,13 @@ export function TopoMap({ summit, summitLabel, basecamp, position, positionIsDem
             "bg-hud-950 [&.leaflet-container]:bg-hud-950 [&_.leaflet-tile-pane]:[filter:invert(1)_hue-rotate(180deg)_brightness(0.85)_saturate(0.6)]")}
         aria-label={`Topographic map around ${summitLabel}`}
       />
+      {unavailable && (
+        <div className="absolute inset-0 z-[450] flex items-center justify-center p-6 text-center text-sm">
+          <p className={cn("rounded-lg px-4 py-3", night ? "bg-hud-900 text-emerald-100" : "bg-white/90 text-forest-900")}>
+            The map can&apos;t load without signal. Telemetry, checkpoints and SOS still work.
+          </p>
+        </div>
+      )}
 
       {/* Controls */}
       <div className="absolute right-3 top-3 z-[400] flex flex-col gap-1.5">

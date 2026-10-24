@@ -11,9 +11,34 @@
  * Only GET is handled; POSTs (reports, volunteer sign-ups) always go to the
  * network. Bump CACHE_VERSION to invalidate old caches on the next visit.
  */
-const CACHE_VERSION = 'fg-v1';
+// Bumped to fg-v2 so phones pick up the newest-copy lookup; the activate
+// step below deletes the old fg-v1 caches (packs included, see offline.ts).
+const CACHE_VERSION = 'fg-v2';
 const PRECACHE = `${CACHE_VERSION}-precache`;
 const RUNTIME = `${CACHE_VERSION}-runtime`;
+// Written by the page's "Download packs" (web/lib/offline.ts PACK_CACHE).
+const PACKS = `${CACHE_VERSION}-packs`;
+
+/**
+ * The NEWEST cached copy across our caches, by the response Date header.
+ * A bare caches.match() searches caches in creation order, which returns the
+ * install-time precache (or an old runtime copy) over a freshly downloaded
+ * pack: exactly the stale data a hiker must not see offline.
+ */
+async function freshest(request) {
+  let best = null;
+  let bestT = -1;
+  for (const name of [PACKS, RUNTIME, PRECACHE]) {
+    const hit = await (await caches.open(name)).match(request);
+    if (!hit) continue;
+    const t = Date.parse(hit.headers.get('date') || '') || 0;
+    if (t > bestT) {
+      best = hit;
+      bestT = t;
+    }
+  }
+  return best;
+}
 
 // App shell precached on install. Pages are best-effort — a failed fetch
 // (e.g. API down at build) must not abort the whole install.
@@ -93,7 +118,7 @@ async function networkFirst(request, { fallbackToOffline = false } = {}) {
     if (res && res.ok) cache.put(request, res.clone());
     return res;
   } catch (err) {
-    const cached = await caches.match(request);
+    const cached = await freshest(request);
     if (cached) return cached;
     if (fallbackToOffline) {
       const offline = await caches.match('/offline.html');
@@ -131,7 +156,5 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(networkFirst(request));
     return;
   }
-  event.respondWith(
-    caches.match(request).then((cached) => cached || fetch(request))
-  );
+  event.respondWith(freshest(request).then((cached) => cached || fetch(request)));
 });

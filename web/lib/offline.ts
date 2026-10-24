@@ -17,7 +17,11 @@ import * as React from "react";
  */
 
 // Prefixed with the service worker's CACHE_VERSION so its cleanup keeps it.
-export const PACK_CACHE = "fg-v1-packs";
+// Must match the service worker's CACHE_VERSION (public/sw.js) so its
+// cleanup keeps the packs and its newest-copy lookup searches them.
+export const PACK_CACHE = "fg-v2-packs";
+const RUNTIME_CACHE = "fg-v2-runtime";
+const PRECACHE_CACHE = "fg-v2-precache";
 const META_KEY = "fg-offline-pack";
 const SIM_KEY = "fg-offline-sim";
 const CHANGE_EVENT = "fg-offline-change";
@@ -28,8 +32,14 @@ export const TRAIL_LIST_URL = "/api/trails?limit=100&sort=popular";
 export interface PackMeta {
   trails: number;
   files: number;
+  /** Files that could not be saved after retries. */
+  failed: number;
+  /** True only when every file in the pack was saved. */
+  complete: boolean;
   bytes: number;
   savedAt: string;
+  /** Cache the files live in; a record for an older cache is ignored. */
+  cache: string;
 }
 
 function readJson<T>(key: string): T | null {
@@ -65,7 +75,12 @@ function useOfflineStore<T>(read: () => T, initial: T): T {
   return value;
 }
 
-const readMeta = () => readJson<PackMeta>(META_KEY);
+// A service-worker version bump deletes the old pack cache, so a record that
+// points at another cache describes files that no longer exist.
+const readMeta = () => {
+  const m = readJson<PackMeta>(META_KEY);
+  return m && m.cache === PACK_CACHE ? m : null;
+};
 const readSim = () => readJson<boolean>(SIM_KEY) === true;
 
 export function usePackMeta() {
@@ -106,6 +121,7 @@ function packUrls(slugs: string[]) {
   return [
     TRAIL_LIST_URL,
     "/api/advisories",
+    "/",
     "/trails",
     ...slugs.flatMap((s) => [
       `/api/trails/${s}`,
@@ -116,40 +132,106 @@ function packUrls(slugs: string[]) {
   ];
 }
 
+/** Newest cached copy across our caches (same rule as the service worker). */
+export async function freshestCached(url: string): Promise<Response | null> {
+  if (typeof caches === "undefined") return null;
+  let best: Response | null = null;
+  let bestT = -1;
+  for (const name of [PACK_CACHE, RUNTIME_CACHE, PRECACHE_CACHE]) {
+    const hit = await (await caches.open(name)).match(url);
+    if (!hit) continue;
+    const t = Date.parse(hit.headers.get("date") || "") || 0;
+    if (t > bestT) {
+      best = hit;
+      bestT = t;
+    }
+  }
+  return best;
+}
+
+/** Script and stylesheet URLs a saved page needs to run offline. */
+function assetUrls(html: string): string[] {
+  const out = new Set<string>();
+  for (const m of html.matchAll(/["'(](\/_next\/static\/[^"'()\s>]+)/g)) out.add(m[1].replace(/&amp;/g, "&"));
+  return [...out];
+}
+
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+/** Fetch with retries for rate limits (429) and server errors, honouring Retry-After. */
+async function fetchWithRetry(url: string, tries = 4): Promise<Response | null> {
+  for (let i = 0; i < tries; i++) {
+    try {
+      const res = await fetch(url, { cache: "no-store", headers: { "x-fg-refresh": "1" } });
+      if (res.ok) return res;
+      if (res.status !== 429 && res.status < 500) return null;
+      const retryAfter = Number(res.headers.get("retry-after"));
+      await sleep(Number.isFinite(retryAfter) && retryAfter > 0 ? retryAfter * 1000 : 1500 * 2 ** i);
+    } catch {
+      await sleep(1500 * 2 ** i);
+    }
+  }
+  return null;
+}
+
 /**
- * Downloads every pack. Resolves with the real totals; `onProgress` gets
- * (done, total, bytesSoFar). Failed files are skipped and not counted.
+ * Downloads every pack, including the scripts and styles each saved page
+ * needs to work offline. Resolves with honest totals: `complete` is true only
+ * when every file was saved. `onProgress` gets (done, total, bytesSoFar).
  */
 export async function downloadAllPacks(
   slugs: string[],
   onProgress: (done: number, total: number, bytes: number) => void
 ): Promise<PackMeta> {
   const cache = await caches.open(PACK_CACHE);
-  const urls = packUrls(slugs);
+  const queue = packUrls(slugs);
+  const seen = new Set(queue);
+  let total = queue.length;
   let done = 0;
   let bytes = 0;
   let files = 0;
+  let failed = 0;
 
-  const queue = [...urls];
   async function worker() {
     for (let url = queue.shift(); url; url = queue.shift()) {
-      try {
-        const res = await fetch(url, { cache: "no-store", headers: { "x-fg-refresh": "1" } });
-        if (res.ok) {
-          bytes += (await res.clone().arrayBuffer()).byteLength;
+      const res = await fetchWithRetry(url);
+      if (res) {
+        try {
+          const body = await res.clone().arrayBuffer();
+          bytes += body.byteLength;
+          if ((res.headers.get("content-type") || "").includes("text/html")) {
+            // Queue the page's own scripts and styles so it can run offline.
+            for (const asset of assetUrls(new TextDecoder().decode(body))) {
+              if (!seen.has(asset)) {
+                seen.add(asset);
+                queue.push(asset);
+                total += 1;
+              }
+            }
+          }
           await cache.put(url, res);
           files += 1;
+        } catch {
+          failed += 1;
         }
-      } catch {
-        /* offline mid-download: skip, the pack reports what it saved */
+      } else {
+        failed += 1;
       }
       done += 1;
-      onProgress(done, urls.length, bytes);
+      onProgress(done, total, bytes);
     }
   }
   await Promise.all(Array.from({ length: 4 }, worker));
 
-  const meta: PackMeta = { trails: slugs.length, files, bytes, savedAt: new Date().toISOString() };
+  const meta: PackMeta = {
+    trails: slugs.length,
+    files,
+    failed,
+    complete: failed === 0,
+    bytes,
+    savedAt: new Date().toISOString(),
+    cache: PACK_CACHE,
+  };
   try {
     localStorage.setItem(META_KEY, JSON.stringify(meta));
   } catch {
@@ -182,7 +264,7 @@ export async function fetchJsonCached<T>(url: string, sim: boolean): Promise<{ d
       /* fall through to cache */
     }
   }
-  const cached = typeof caches !== "undefined" ? await caches.match(url) : undefined;
+  const cached = await freshestCached(url);
   if (!cached) throw new Error(sim ? "Not in the offline pack yet." : "No connection and no cached copy.");
   return { data: (await cached.json()) as T, fromCache: true };
 }

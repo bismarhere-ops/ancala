@@ -19,14 +19,20 @@ export function OfflinePill({ className }: { className?: string }) {
       ? pack
         ? { label: "OFFLINE · PACK", tone: "bg-amber-100 text-amber-900 ring-amber-300", dot: "bg-amber-500" }
         : { label: "OFFLINE", tone: "bg-red-100 text-red-800 ring-red-300", dot: "bg-red-500" }
-      : pack
+      : pack?.complete
         ? { label: "OFFLINE READY", tone: "bg-secondary text-primary ring-primary/20", dot: "bg-telemetry" }
         : { label: "ONLINE", tone: "bg-muted text-muted-foreground ring-border", dot: "bg-muted-foreground/60" };
 
   return (
     <Link
       href="/trails#offline"
-      title={pack ? `Offline packs saved for ${pack.trails} trails` : "Download trail packs for offline use"}
+      title={
+        pack
+          ? pack.complete
+            ? `Offline packs saved for ${pack.trails} trails`
+            : `Offline packs incomplete: ${pack.failed} file(s) failed. Download again.`
+          : "Download trail packs for offline use"
+      }
       className={cn(
         "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-semibold tracking-wider ring-1",
         state.tone,
