@@ -7,7 +7,7 @@ const { HttpError } = require('../middleware/error');
 
 const { splitList } = require('../lib/csv');
 const { coords } = require('../lib/geo');
-const { SEVERITY_RANK } = require('../lib/advisories');
+const { SEVERITY_RANK, advisoryDays } = require('../lib/advisories');
 const { readStories, mapStory } = require('../lib/stories');
 const config = require('../config');
 
@@ -208,8 +208,8 @@ const SELECT_PROFILE = db.prepare('SELECT * FROM mountain_profiles WHERE trail_i
 // Ordered most-severe first so index 0 is the headline condition.
 const ADVISORY_ACTIVE = `
   status = 'active'
-  AND (effective_from IS NULL OR effective_from <= @today)
-  AND (effective_until IS NULL OR effective_until >= @today)
+  AND (effective_from IS NULL OR effective_from <= @fromDay)
+  AND (effective_until IS NULL OR effective_until >= @untilDay)
 `;
 const ADVISORY_ORDER = `
   ORDER BY CASE severity WHEN 'danger' THEN 3 WHEN 'warning' THEN 2 ELSE 1 END DESC,
@@ -222,10 +222,8 @@ const SELECT_ACTIVE_ADVISORIES_FOR_TRAIL = db.prepare(
   `SELECT * FROM advisories WHERE trail_id = @trail_id AND ${ADVISORY_ACTIVE} ${ADVISORY_ORDER}`
 );
 
-/** Today as YYYY-MM-DD, used to evaluate advisory effective windows. */
-function today() {
-  return new Date().toISOString().slice(0, 10);
-}
+/** Day bounds for advisory windows (Indonesian dates; see lib/advisories.js). */
+const today = () => advisoryDays();
 
 const statementCache = new Map();
 function cachedPrepare(sql) {
@@ -298,7 +296,7 @@ router.get('/', (req, res) => {
   // One query for every active advisory, grouped in memory — the table is
   // small and this avoids a per-trail query on the list path.
   const byTrail = new Map();
-  for (const a of SELECT_ACTIVE_ADVISORIES.all({ today: today() })) {
+  for (const a of SELECT_ACTIVE_ADVISORIES.all(today())) {
     const arr = byTrail.get(a.trail_id);
     if (arr) arr.push(a);
     else byTrail.set(a.trail_id, [a]);
@@ -319,7 +317,7 @@ function loadTrail(slug) {
     row,
     checkpoints: SELECT_CHECKPOINTS.all(row.id),
     profile: SELECT_PROFILE.get(row.id),
-    advisories: SELECT_ACTIVE_ADVISORIES_FOR_TRAIL.all({ trail_id: row.id, today: today() }),
+    advisories: SELECT_ACTIVE_ADVISORIES_FOR_TRAIL.all({ trail_id: row.id, ...today() }),
   };
 }
 

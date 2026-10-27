@@ -3,7 +3,7 @@
 const test = require('node:test');
 const assert = require('node:assert');
 
-const { isActive, validate } = require('./advisories');
+const { isActive, validate, advisoryDays } = require('./advisories');
 
 // --- isActive -------------------------------------------------------------
 
@@ -61,7 +61,7 @@ test('validate: rejects a missing trail slug', () => {
 });
 
 test('validate: rejects an invalid date', () => {
-  assert.throws(() => validate({ ...base(), effectiveFrom: 'soon' }, 0), /not a valid date/);
+  assert.throws(() => validate({ ...base(), effectiveFrom: 'soon' }, 0), /YYYY-MM-DD/);
 });
 
 // --- loadAdvisories against a real DB -------------------------------------
@@ -95,4 +95,35 @@ test('loadAdvisories: replaces the table and skips unknown trails', () => {
   assert.deepStrictEqual(rows, [{ id: 'a1', trail_slug: 'semeru' }]);
 
   fs.rmSync(dir, { recursive: true, force: true });
+});
+
+// --- Indonesian dates (UTC+7..+9) and strict date format ------------------------------
+
+test('a closure starting today is active at 04:00 WIB (21:00 UTC the day before)', () => {
+  // 2026-10-01 04:00 WIB == 2026-09-30 21:00 UTC: pre-dawn summit start.
+  const now = new Date('2026-09-30T21:00:00Z');
+  assert.strictEqual(isActive({ status: 'active', effectiveFrom: '2026-10-01' }, now), true);
+});
+
+test('a closure ending today stays active until the day is over in WIB (UTC+7)', () => {
+  // 2026-10-01 23:30 WIB == 2026-10-01 16:30 UTC.
+  assert.strictEqual(isActive({ status: 'active', effectiveUntil: '2026-10-01' }, new Date('2026-10-01T16:30:00Z')), true);
+  // 2026-10-02 00:30 WIB == 2026-10-01 17:30 UTC: over everywhere.
+  assert.strictEqual(isActive({ status: 'active', effectiveUntil: '2026-10-01' }, new Date('2026-10-01T17:30:00Z')), false);
+});
+
+test('advisoryDays uses UTC+9 for starts and UTC+7 for ends', () => {
+  assert.deepStrictEqual(advisoryDays(new Date('2026-09-30T15:30:00Z')), { fromDay: '2026-10-01', untilDay: '2026-09-30' });
+});
+
+for (const bad of ['2026-9-1', '2026/10/01', 'Sep 1, 2026', '2026-10-21T06:00:00+07:00', '2026-02-30']) {
+  test(`validate rejects non-ISO or impossible date "${bad}"`, () => {
+    const a = { id: 'x', trail: 'semeru', type: 'fire', severity: 'danger', headline: 'h', effectiveFrom: bad };
+    assert.throws(() => validate(a, 0), /YYYY-MM-DD/);
+  });
+}
+
+test('validate rejects an end date before the start date', () => {
+  const a = { id: 'x', trail: 'semeru', type: 'fire', severity: 'danger', headline: 'h', effectiveFrom: '2026-10-05', effectiveUntil: '2026-10-01' };
+  assert.throws(() => validate(a, 0), /before effectiveFrom/);
 });

@@ -3,6 +3,7 @@
 const express = require('express');
 const { z } = require('zod');
 const { db } = require('../db');
+const { advisoryDays } = require('../lib/advisories');
 
 const router = express.Router();
 
@@ -11,9 +12,7 @@ const listQuery = z.object({
   type: z.string().trim().max(20).optional(),
 });
 
-function today() {
-  return new Date().toISOString().slice(0, 10);
-}
+
 
 function mapAdvisory(a) {
   return {
@@ -43,9 +42,9 @@ router.get('/', (req, res) => {
 
   if (status === 'active') {
     where.push(`status = 'active'
-      AND (effective_from IS NULL OR effective_from <= @today)
-      AND (effective_until IS NULL OR effective_until >= @today)`);
-    params.today = today();
+      AND (effective_from IS NULL OR effective_from <= @fromDay)
+      AND (effective_until IS NULL OR effective_until >= @untilDay)`);
+    Object.assign(params, advisoryDays());
   } else if (status === 'resolved') {
     where.push("status = 'resolved'");
   }

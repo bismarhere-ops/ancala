@@ -36,8 +36,31 @@ function validate(a, index) {
   const status = a.status || 'active';
   if (!STATUSES.has(status)) bad(`status must be one of ${[...STATUSES].join(', ')}`);
   for (const k of ['effectiveFrom', 'effectiveUntil']) {
-    if (a[k] != null && Number.isNaN(Date.parse(a[k]))) bad(`${k} "${a[k]}" is not a valid date`);
+    // Dates are compared as text against YYYY-MM-DD, so anything else (e.g.
+    // "2026-9-1" or "Sep 1, 2026") would silently hide a closure. Reject it.
+    if (a[k] != null && !isIsoDate(a[k])) bad(`${k} "${a[k]}" must be a real date written YYYY-MM-DD`);
   }
+  if (a.effectiveFrom && a.effectiveUntil && a.effectiveUntil < a.effectiveFrom) {
+    bad(`effectiveUntil ${a.effectiveUntil} is before effectiveFrom ${a.effectiveFrom}`);
+  }
+}
+
+function isIsoDate(v) {
+  if (typeof v !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(v)) return false;
+  const d = new Date(`${v}T00:00:00Z`);
+  return !Number.isNaN(d.getTime()) && d.toISOString().slice(0, 10) === v;
+}
+
+/**
+ * Advisory dates are local Indonesian dates, and Indonesia spans UTC+7 (WIB)
+ * to UTC+9 (WIT). To err on the side of safety a closure STARTS as soon as its
+ * date has begun anywhere in Indonesia (UTC+9) and ENDS only once its last
+ * date is over everywhere (UTC+7). Using the UTC date instead started
+ * closures 7-9 hours late, right when pre-dawn summit pushes begin.
+ */
+function advisoryDays(now = new Date()) {
+  const shift = (h) => new Date(now.getTime() + h * 3600 * 1000).toISOString().slice(0, 10);
+  return { fromDay: shift(9), untilDay: shift(7) };
 }
 
 /**
@@ -47,9 +70,9 @@ function validate(a, index) {
 function isActive(a, now = new Date()) {
   if ((a.status || a.active) === 'resolved') return false;
   if (a.status && a.status !== 'active') return false;
-  const today = now.toISOString().slice(0, 10);
-  if (a.effectiveFrom && a.effectiveFrom > today) return false;
-  if (a.effectiveUntil && a.effectiveUntil < today) return false;
+  const { fromDay, untilDay } = advisoryDays(now);
+  if (a.effectiveFrom && a.effectiveFrom > fromDay) return false;
+  if (a.effectiveUntil && a.effectiveUntil < untilDay) return false;
   return true;
 }
 
@@ -125,6 +148,8 @@ function loadAdvisories(db, filePath) {
 }
 
 module.exports = {
+  advisoryDays,
+  isIsoDate,
   loadAdvisories,
   readFile,
   isActive,

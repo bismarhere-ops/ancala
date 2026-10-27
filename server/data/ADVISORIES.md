@@ -44,7 +44,7 @@ pushes; the live site updates in a few minutes.
 | `headline` | One line, shown in the alert. |
 | `detail` | Optional paragraph. |
 | `status` | `active` or `resolved`. Set to `resolved` instead of deleting — it keeps a record. |
-| `effectiveFrom` / `effectiveUntil` | Optional `YYYY-MM-DD`. Outside this window the advisory is hidden automatically, so a flood warning can expire on its own. `null` means no bound. |
+| `effectiveFrom` / `effectiveUntil` | Optional `YYYY-MM-DD` (any other format stops the load with an error). Dates are local Indonesian dates: a closure starts when its date begins anywhere in Indonesia (WIT) and ends when its last day is over everywhere (WIB). Outside this window the advisory is hidden automatically, so a flood warning can expire on its own. `null` means no bound. |
 | `source` | Who reported it — a park office, ranger, news. Shown to build trust. |
 
 ## What each severity does

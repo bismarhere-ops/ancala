@@ -72,7 +72,8 @@ export function PlanProvider({
 
   const [plan, setPlan] = useLocalStorageState<Plan>(STORAGE_KEY, {
     slug: plannable[0]?.slug || "",
-    date: new Date().toISOString().slice(0, 10),
+    // The phone's local date (toISOString would give the UTC date: yesterday before 07:00 WIB).
+    date: new Date().toLocaleDateString("en-CA"),
     start: "06:30",
     group: 2,
   });
