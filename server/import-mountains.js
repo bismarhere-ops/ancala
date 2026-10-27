@@ -66,7 +66,22 @@ function totalGain(v) {
   // Fall back to summing explicit "+NNNm" increments.
   const incs = [...s.matchAll(/\+\s*(\d+(?:\.\d+)?)\s*m/g)].map((x) => parseFloat(x[1]));
   if (incs.length) return Math.round(incs.reduce((a, b) => a + b, 0));
-  return null;
+  // "A(..)>B(..): ~1000m; B>Summit: ~310m": sum the FIRST connected route only.
+  // Cells can list alternative routes ("Pasar Agung>Summit: ~1531m; Besakih>
+  // Summit: ~2031m"), which must not be added together.
+  let total = 0;
+  let prevEnd = null;
+  let found = false;
+  for (const part of s.split(';')) {
+    const m = part.match(/^\s*([^>(:]+?)\s*(?:\([^)]*\))?\s*>\s*([^>(:]+?)\s*(?:\([^)]*\))?\s*:\s*~?\s*(\d+(?:\.\d+)?)\s*m\b/i);
+    if (!m) continue;
+    const [, from, to, metres] = m;
+    if (prevEnd !== null && from.trim().toLowerCase() !== prevEnd) break;
+    total += parseFloat(metres);
+    prevEnd = to.trim().toLowerCase();
+    found = true;
+  }
+  return found ? Math.round(total) : null;
 }
 
 /**

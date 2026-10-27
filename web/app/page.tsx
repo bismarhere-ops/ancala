@@ -24,7 +24,7 @@ import { getImpact, getTrail, listAllTrails } from "@/lib/api";
 import { fallback } from "@/lib/server-fallback";
 import { STATUS_LABEL, STATUS_TONE, trailStatus, type TrailStatus } from "@/lib/trail-status";
 import type { Trail } from "@/lib/types";
-import { cn, formatMinutes, formatNumber } from "@/lib/utils";
+import { cn, formatMinutes, formatNumber, fmtKm, fmtDuration } from "@/lib/utils";
 
 export const revalidate = 300;
 
@@ -154,14 +154,14 @@ export default async function HomePage() {
                         <Mountain className="size-3.5" /> {bromoTrail.elevationM.toLocaleString("en-US")} m
                       </span>
                     )}
-                    {bromoTrail.distanceKm > 0 && (
+                    {!!bromoTrail.distanceKm && (
                       <span className="inline-flex items-center gap-1">
-                        <Route className="size-3.5" /> {bromoTrail.distanceKm.toFixed(1)} km
+                        <Route className="size-3.5" /> {fmtKm(bromoTrail.distanceKm)}
                       </span>
                     )}
-                    {bromoTrail.estimatedMinutes > 0 && (
+                    {!!bromoTrail.estimatedMinutes && (
                       <span className="inline-flex items-center gap-1">
-                        <Clock className="size-3.5" /> {formatMinutes(bromoTrail.estimatedMinutes)}
+                        <Clock className="size-3.5" /> {fmtDuration(bromoTrail.estimatedMinutes)}
                       </span>
                     )}
                   </div>

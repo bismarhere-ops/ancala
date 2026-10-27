@@ -255,3 +255,10 @@ test('dataset: difficulty and risk use the documented vocabulary', () => {
     assert.ok(/Low|Medium|High|Extreme/i.test(r), `${row.id}: unexpected risk "${r}"`);
   }
 });
+
+test('totalGain sums a chained "~NNNm" route but not alternative routes', () => {
+  const { totalGain } = require('./import-mountains');
+  assert.strictEqual(totalGain('New Selo(~1600m)>Pasar Bubrah(~2600m): ~1000m; Pasar Bubrah>Summit(~2910m): ~310m'), 1310);
+  assert.strictEqual(totalGain('Pasar Agung(~1500m)>Summit(3031m): ~1531m; Besakih(~1000m)>Summit: ~2031m'), 1531);
+  assert.strictEqual(totalGain('Unknown'), null);
+});

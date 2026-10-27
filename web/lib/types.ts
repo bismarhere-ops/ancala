@@ -130,9 +130,10 @@ export interface Trail {
   name: string;
   region: string;
   summary: string;
-  distanceKm: number;
-  elevationGainM: number;
-  estimatedMinutes: number;
+  /** Null when the source data says "Unknown" (never shown as 0). */
+  distanceKm: number | null;
+  elevationGainM: number | null;
+  estimatedMinutes: number | null;
   difficulty: Difficulty;
   risk: Risk;
   popularity: number;

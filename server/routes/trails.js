@@ -135,9 +135,11 @@ function mapTrail(row, checkpoints = [], profile = null, advisories = []) {
     name: row.name,
     region: row.region,
     summary: row.summary,
-    distanceKm: row.distance_km,
-    elevationGainM: row.elevation_gain_m,
-    estimatedMinutes: row.estimated_min,
+    // The columns are NOT NULL and store 0 when the source says "Unknown";
+    // publish that as null so clients show "—" instead of a fake 0.
+    distanceKm: row.distance_km || null,
+    elevationGainM: row.elevation_gain_m || null,
+    estimatedMinutes: row.estimated_min || null,
     difficulty: row.difficulty,
     risk: row.risk,
     popularity: row.popularity,
@@ -266,9 +268,10 @@ router.get('/', (req, res) => {
 
   const sortMap = {
     popular:   't.popularity DESC, t.name ASC',
-    distance:  't.distance_km ASC',
-    elevation: 't.elevation_gain_m ASC',
-    time:      't.estimated_min ASC',
+    // Unknown (stored 0) sorts last, not as the shortest/quickest hike.
+    distance:  't.distance_km = 0, t.distance_km ASC',
+    elevation: 't.elevation_gain_m = 0, t.elevation_gain_m ASC',
+    time:      't.estimated_min = 0, t.estimated_min ASC',
     name:      't.name ASC',
   };
   const orderBy = sortMap[q.sort] || sortMap.popular;

@@ -249,7 +249,8 @@ function metrics(s: Shared) {
 
 function climbFraction(s: Shared) {
   const r = s.readout;
-  if (s.demo) return r.progressKm != null ? r.progressKm / r.ascentKm : null;
+  // No known ascent length (unknown distance): no progress bar, never "NaN%".
+  if (s.demo) return r.progressKm != null && r.ascentKm > 0 ? r.progressKm / r.ascentKm : null;
   const start = s.points.find((p) => p.elevationM != null)?.elevationM;
   const top = s.trail.elevationM;
   if (r.altitudeM == null || start == null || top == null || top <= start) return null;

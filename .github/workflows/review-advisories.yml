@@ -12,12 +12,17 @@ name: Advisory review agent
 #      variables -> Actions), from https://platform.claude.com.
 # Until the secret exists the workflow runs but the Claude step fails clearly.
 #
+# Safety: the agent reads untrusted web content, so its tools are limited to
+# editing advisories.json, running the tests and opening a PR. Also turn on
+# branch protection for the deploy branch (require a PR review) so nothing it
+# writes can reach the live site without a person approving it.
+#
 # Run it on demand from the Actions tab ("Run workflow") to test before the
 # schedule. Scheduled runs fire only from the repository's default branch.
 
 on:
   schedule:
-    - cron: '0 22 * * 1' # 05:00 WIB (UTC+7) every Monday
+    - cron: '0 22 * * 0' # Sunday 22:00 UTC = 05:00 WIB (UTC+7) every Monday
   workflow_dispatch:
 
 permissions:
@@ -37,13 +42,16 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
+          # Don't leave a push token in .git/config: the agent reads untrusted
+          # web pages, so changes must go through the PR, never a direct push.
+          persist-credentials: false
 
       - uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           claude_args: |
             --max-turns 20
-            --allowedTools "WebSearch,WebFetch,Read,Edit,Write,Bash,mcp__github__create_pull_request,mcp__github__search_code,mcp__github__list_commits"
+            --allowedTools "WebSearch,WebFetch,Read,Edit(server/data/advisories.json),Write(server/data/advisories.json),Bash(npm ci),Bash(npm install),Bash(npm test),Bash(git status),Bash(git diff:*),mcp__github__create_pull_request,mcp__github__search_code,mcp__github__list_commits"
           prompt: |
             You maintain live trail advisories for the Forest Guardian hiking
             platform. Read server/data/ADVISORIES.md for the advisory format and

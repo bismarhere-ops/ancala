@@ -25,7 +25,7 @@ import { TrailProfile } from "@/components/trail-profile";
 import { MountainStory } from "@/components/mountain-story";
 import { Checklists } from "@/components/checklists";
 import { getTrail, getWeather } from "@/lib/api";
-import { cn, difficultyColor, formatMinutes, riskColor } from "@/lib/utils";
+import { cn, difficultyColor, formatMinutes, riskColor, fmtKm, fmtGain, fmtDuration } from "@/lib/utils";
 
 export const revalidate = 60;
 
@@ -137,19 +137,19 @@ export default async function TrailDetailPage({
               <dt className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider text-forest-100">
                 <Route className="size-3.5" /> Distance
               </dt>
-              <dd className="font-display text-2xl font-semibold">{trail.distanceKm.toFixed(1)} km</dd>
+              <dd className="font-display text-2xl font-semibold">{fmtKm(trail.distanceKm)}</dd>
             </div>
             <div>
               <dt className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider text-forest-100">
                 <Mountain className="size-3.5" /> Elevation
               </dt>
-              <dd className="font-display text-2xl font-semibold">{trail.elevationGainM} m</dd>
+              <dd className="font-display text-2xl font-semibold">{fmtGain(trail.elevationGainM)}</dd>
             </div>
             <div>
               <dt className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider text-forest-100">
                 <Clock className="size-3.5" /> Est. time
               </dt>
-              <dd className="font-display text-2xl font-semibold">{formatMinutes(trail.estimatedMinutes)}</dd>
+              <dd className="font-display text-2xl font-semibold">{fmtDuration(trail.estimatedMinutes)}</dd>
             </div>
           </dl>
         </div>

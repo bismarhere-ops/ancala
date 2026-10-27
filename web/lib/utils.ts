@@ -12,6 +12,11 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+/** "—" for unknown values; never a made-up 0. */
+export const fmtKm = (km: number | null | undefined) => (km ? `${km.toFixed(1)} km` : "—");
+export const fmtGain = (m: number | null | undefined) => (m ? `+${m.toLocaleString("en-US")} m` : "—");
+export const fmtDuration = (min: number | null | undefined) => (min ? formatMinutes(min) : "—");
+
 export function formatMinutes(minutes: number) {
   if (!Number.isFinite(minutes)) return "—";
   const h = Math.floor(minutes / 60);

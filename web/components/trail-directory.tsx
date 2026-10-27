@@ -23,7 +23,7 @@ import { Button } from "@/components/ui/button";
 import { ISLANDS, islandOf, provinceLabel, type IslandId } from "@/lib/regions";
 import { TRAIL_LIST_URL, fetchJsonCached, useOfflineSim } from "@/lib/offline";
 import type { Trail, TrailListResponse } from "@/lib/types";
-import { cn, formatMinutes } from "@/lib/utils";
+import { cn, formatMinutes, fmtKm, fmtDuration } from "@/lib/utils";
 
 type DifficultyFilter = "all" | "easy" | "moderate" | "hard";
 
@@ -355,11 +355,11 @@ function Inspector({ trail }: { trail: Trail }) {
         </div>
         <div>
           <div className="text-[9px] uppercase text-muted-foreground">Route</div>
-          {trail.distanceKm.toFixed(1)} km
+          {fmtKm(trail.distanceKm)}
         </div>
         <div>
           <div className="text-[9px] uppercase text-muted-foreground">Time</div>
-          {formatMinutes(trail.estimatedMinutes)}
+          {fmtDuration(trail.estimatedMinutes)}
         </div>
       </div>
       {closed && <p className="mt-2 text-xs font-semibold text-red-700">Closed. Do not climb.</p>}

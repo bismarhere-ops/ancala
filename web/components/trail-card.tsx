@@ -9,7 +9,7 @@ import { AdvisoryBadge } from "@/components/advisory-banner";
 import { MountainArt } from "@/components/mountain-art";
 import { isLowReliability } from "@/lib/access";
 import { coverFor } from "@/lib/cover-photos";
-import { cn, difficultyColor, formatMinutes, riskColor } from "@/lib/utils";
+import { cn, difficultyColor, formatMinutes, riskColor, fmtKm, fmtGain, fmtDuration } from "@/lib/utils";
 
 export function TrailCard({
   trail,
@@ -52,7 +52,7 @@ export function TrailCard({
             )}
           </>
         ) : (
-          <MountainArt slug={trail.slug} elevationGainM={trail.elevationGainM} />
+          <MountainArt slug={trail.slug} elevationGainM={trail.elevationGainM ?? 0} />
         )}
         <div className="relative">
           <div className="text-[11px] uppercase tracking-wider text-forest-100/80">{trail.region}</div>
@@ -87,9 +87,9 @@ export function TrailCard({
 
       <CardContent className="space-y-4">
         <div className="grid grid-cols-3 gap-2 text-sm">
-          <Stat icon={Route} value={`${trail.distanceKm.toFixed(1)} km`} label="Distance" />
-          <Stat icon={Mountain} value={trail.elevationGainM ? `+${trail.elevationGainM} m` : "—"} label="Gain" />
-          <Stat icon={Clock} value={formatMinutes(trail.estimatedMinutes)} label="Est. time" />
+          <Stat icon={Route} value={fmtKm(trail.distanceKm)} label="Distance" />
+          <Stat icon={Mountain} value={fmtGain(trail.elevationGainM)} label="Gain" />
+          <Stat icon={Clock} value={fmtDuration(trail.estimatedMinutes)} label="Est. time" />
         </div>
         {!compact && (
           <div className="flex items-center justify-between border-t pt-3 text-sm">

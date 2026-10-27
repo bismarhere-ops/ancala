@@ -223,3 +223,13 @@ test('list items carry summit coordinates and elevation for the map', async () =
   assert.ok(rinjani.summitCoordinates.lat < 0);
   assert.strictEqual(rinjani.elevationM, 3726);
 });
+
+test('unknown distance/time/gain are null (never a fake 0) and sort last', async () => {
+  const { body } = await request('/api/trails/lompobattang');
+  assert.strictEqual(body.data.distanceKm, null);
+  assert.strictEqual(body.data.estimatedMinutes, null);
+  const list = (await request('/api/trails?sort=distance&limit=100')).body.data;
+  const firstUnknown = list.findIndex((t) => t.distanceKm == null);
+  assert.ok(firstUnknown > 0, 'known distances come first');
+  assert.ok(list.slice(firstUnknown).every((t) => t.distanceKm == null), 'all unknowns are at the end');
+});

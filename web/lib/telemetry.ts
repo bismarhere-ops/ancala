@@ -27,16 +27,18 @@ export function ascentProfile(trail: Trail): { points: ProfilePoint[]; ascentKm:
     if (last.elevationM == null && /summit/i.test(last.name) && trail.elevationM != null) {
       points[points.length - 1] = { ...last, elevationM: trail.elevationM };
     }
-    return { points, ascentKm: last.km || trail.distanceKm / 2, partial: false };
+    return { points, ascentKm: last.km || (trail.distanceKm ?? 0) / 2, partial: false };
   }
   // No checkpoints: start and summit only.
-  const ascentKm = trail.distanceKm / 2;
+  // distanceKm is the round trip; the ascent is half of it.
+  const ascentKm = (trail.distanceKm ?? 0) / 2;
   const top = trail.elevationM;
   const start = top != null && trail.elevationGainM ? top - trail.elevationGainM : null;
   return {
     points: [
       { km: 0, elevationM: start, name: "Start", etaMin: 0 },
-      { km: ascentKm, elevationM: top, name: "Summit", etaMin: trail.estimatedMinutes ? Math.round(trail.estimatedMinutes / 2) : null },
+      { km: ascentKm, elevationM: top, name: "Summit", // estimatedMinutes is already the ASCENT time (ascent_time_hours), not a round trip.
+      etaMin: trail.estimatedMinutes ?? null },
     ],
     ascentKm,
     partial: true,
