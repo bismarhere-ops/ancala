@@ -15,9 +15,12 @@ function iconFor(condition: string) {
 export function WeatherCard({
   weather,
   compact = false,
+  place,
 }: {
   weather: WeatherResponse;
   compact?: boolean;
+  /** Which mountain the forecast is for, shown in the title. */
+  place?: string;
 }) {
   const { current, daily, source } = weather.data;
   const CurrentIcon = iconFor(current.condition);
@@ -25,7 +28,7 @@ export function WeatherCard({
   return (
     <Card className="overflow-hidden">
       <CardHeader className="flex-row items-center justify-between">
-        <CardTitle>Weather</CardTitle>
+        <CardTitle>{place ? `Weather · ${place}` : "Weather"}</CardTitle>
         <span className="text-xs text-muted-foreground capitalize">{source}</span>
       </CardHeader>
       <CardContent>

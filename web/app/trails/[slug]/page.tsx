@@ -126,7 +126,7 @@ export default async function TrailDetailPage({
                 </span>
               ) : (
                 <Button asChild variant="outline" className="border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white">
-                  <Link href="/dashboard">Plan this hike</Link>
+                  <Link href={`/dashboard?trail=${trail.slug}`}>Plan this hike</Link>
                 </Button>
               )}
             </div>

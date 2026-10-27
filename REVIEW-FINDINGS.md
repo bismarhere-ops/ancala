@@ -40,7 +40,7 @@ Status column: blank = open.
 - **Failure:** Real next build, fresh Chromium profile: visit /trails, save packs, go offline. /trails/rinjani renders HTML, but its chunks fail with ERR_FAILED, so the page never hydrates: the SOS button does nothing and the pill shows 'ONLINE'. /trails/rinjani/telemetry shows 'Application error: a client-side exception has occurred', with no map or SOS.
 - **Fix:** Parse each saved page's HTML for /_next/static script/link URLs (or use the app-build-manifest) and cache them. Precache the dynamic route chunks, and mark a page offline-ready only after its assets are stored.
 
-### R6. Dashboard weather card shows the most popular trail's forecast, unlabelled, next to a planner for a different trail
+### R6. Dashboard weather card shows the most popular trail's forecast, unlabelled, next to a planner for a different trail  — **Fixed (dashboard)**
 - **Where:** `web/app/dashboard/page.tsx:21`, `web/components/weather-card.tsx:143`  ·  verified 2/2
 - **What:** Weather is fetched server-side for trails[0] (sort=popular, so Andong) regardless of the plan. WeatherCard's title is just 'Weather', with no mountain name, and it sits in the same grid as the planner and emergency panel, which do follow the selected trail.
 - **Failure:** A user plans Rinjani (3,726 m). The adjacent Weather card shows Andong's current conditions and 5-day forecast (1,726 m, Central Java), which are read as conditions for the planned trip.
@@ -96,7 +96,7 @@ Status column: blank = open.
 - **Failure:** Lompobattang (open, plannable, 2,874 m, all values Unknown) shows 'Distance 0.0 km · Elevation 0 m · Est. time 0 min' on its page, card, inspector and offline guide. 21 of 50 trails show 'Elevation 0 m', including Dempo, Liman and Bawakaraeng. GET /api/trails?sort=time lists merapi-ungup, sinabung and lompobattang as the quickest. The Ranti/Lompobattang demo shows 'Summit 0.0 km', 'ETA summit 0m' and 'Ascent progress NaN%'.
 - **Fix:** Make distance_km, elevation_gain_m and estimated_min nullable (with a migration), store NULL for unknown and return null from the API and guide, and sort NULLS LAST. Render null or non-positive values as '—' through one shared formatter. Guard telemetry against ascentKm <= 0 or non-finite fractions, and show KPIs as '—' when the fetch fails.
 
-### R15. A saved plan for a trail that has since closed silently becomes another mountain, with no closure notice
+### R15. A saved plan for a trail that has since closed silently becomes another mountain, with no closure notice  — **Fixed (dashboard)**
 - **Where:** `web/components/plan-provider.tsx:78`, `web/components/trip-planner.tsx:41`  ·  verified 2/2
 - **What:** `summary = plannable.find(t => t.slug === plan.slug) || plannable[0]`. When the slug saved in localStorage (fg.plan.v1) is no longer plannable, the provider substitutes plannable[0]. The Radix Select keeps value=plan.slug, which matches no item, so its trigger renders blank. The timeline, AdvisoryBanner, checklist and EmergencyPanel ('Local rescue — <name>') switch to the substitute mountain, and the planned trail's closure is never shown.
 - **Failure:** A user planned Semeru, Lawu or Ijen while it was open, and it then got a danger advisory. Back on /dashboard, the trail selector is blank, and Andong's timeline, 'Local rescue — Andong' and 'For Andong' appear. Nothing says the planned mountain is closed.
@@ -302,7 +302,7 @@ Status column: blank = open.
 - **Failure:** With about 1 s RTT, typing 'mer', pausing, then 'babu' snaps back to 'mer'. Tapping 'Easy' then 'Java' quickly loses the difficulty filter.
 - **Fix:** Make local state the source of truth and mirror it to the URL with history.replaceState.
 
-### R49. 'Plan this hike' opens the dashboard without selecting that trail
+### R49. 'Plan this hike' opens the dashboard without selecting that trail  — **Fixed (dashboard)**
 - **Where:** `web/app/trails/[slug]/page.tsx:129`  ·  verified 2/2
 - **What:** The button links to plain /dashboard, and PlanProvider reads no query param.
 - **Failure:** From /trails/rinjani, the dashboard opens planning Andong.

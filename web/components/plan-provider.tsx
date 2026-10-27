@@ -51,6 +51,8 @@ type PlanContextValue = {
   plannable: Trail[];
   /** The selected trail, loaded in full (checkpoints + profile) once available. */
   trail: Trail | undefined;
+  /** The saved plan's trail when it has since closed (the planner must say so). */
+  closedPlan: Trail | null;
 };
 
 const PlanContext = React.createContext<PlanContextValue | null>(null);
@@ -75,6 +77,21 @@ export function PlanProvider({
     group: 2,
   });
 
+  // "Plan this hike" links here as /dashboard?trail=<slug>: select that trail.
+  React.useEffect(() => {
+    const wanted = new URLSearchParams(window.location.search).get("trail");
+    if (wanted && plannable.some((t) => t.slug === wanted)) setPlan((p) => ({ ...p, slug: wanted }));
+    // Run once on arrival; later picks come from the planner itself.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // A saved plan for a trail that has since closed must not silently become
+  // another mountain: keep the closed trail visible so the planner can warn.
+  const closedPlan = React.useMemo(
+    () => (plan.slug && !plannable.some((t) => t.slug === plan.slug) ? trails.find((t) => t.slug === plan.slug) ?? null : null),
+    [plan.slug, plannable, trails]
+  );
+
   const summary = plannable.find((t) => t.slug === plan.slug) || plannable[0];
   const detail = useTrailDetail(summary?.slug ?? "");
 
@@ -83,8 +100,8 @@ export function PlanProvider({
   const trail = detail?.slug === summary?.slug ? detail : summary;
 
   const value = React.useMemo(
-    () => ({ plan, setPlan, plannable, trail }),
-    [plan, setPlan, plannable, trail]
+    () => ({ plan, setPlan, plannable, trail, closedPlan }),
+    [plan, setPlan, plannable, trail, closedPlan]
   );
 
   return <PlanContext.Provider value={value}>{children}</PlanContext.Provider>;

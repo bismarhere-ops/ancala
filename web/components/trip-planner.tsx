@@ -22,7 +22,7 @@ function addMinutes(time: string, minutesToAdd: number) {
 export function TripPlanner() {
   // Plan state lives in PlanProvider so the emergency panel can react to the
   // selected mountain.
-  const { plan, setPlan, plannable, trail } = usePlan();
+  const { plan, setPlan, plannable, trail, closedPlan } = usePlan();
 
   return (
     <Card>
@@ -31,6 +31,16 @@ export function TripPlanner() {
         <Badge variant="secondary">Auto-saved</Badge>
       </CardHeader>
       <CardContent className="space-y-5">
+        {closedPlan && (
+          <div role="alert" className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-800 ring-1 ring-red-200">
+            <div className="font-semibold">Your saved plan for {closedPlan.name} is closed.</div>
+            <div className="text-xs">
+              {(closedPlan.advisories[0]?.headline ?? "This mountain is closed to hiking").replace(/[.!]?$/, ".")} The planner
+              below now shows{" "}
+              {trail?.name ?? "another trail"}; pick the trail you want.
+            </div>
+          </div>
+        )}
         {trail?.advisories && trail.advisories.length > 0 && (
           <AdvisoryBanner advisories={trail.advisories} />
         )}
@@ -38,7 +48,7 @@ export function TripPlanner() {
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="space-y-1.5">
             <Label htmlFor="plan-trail">Trail</Label>
-            <Select value={plan.slug} onValueChange={(v) => setPlan((p) => ({ ...p, slug: v }))}>
+            <Select value={trail?.slug ?? ""} onValueChange={(v) => setPlan((p) => ({ ...p, slug: v }))}>
               <SelectTrigger id="plan-trail">
                 <SelectValue placeholder="Choose a trail" />
               </SelectTrigger>
