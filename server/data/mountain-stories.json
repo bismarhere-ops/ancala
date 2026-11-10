@@ -722,7 +722,27 @@
         "url": "https://mounture.com/berita/jalur-pendakian-gunung-raung-via-sumberwringin-ditutup-sementara-hingga-25-maret-2026/"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/raung/wiki-3.jpg",
+        "caption": "Raung's jagged summit ridge",
+        "credit": "Photo: Avrian Priyono, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Raung_Mountain_View.jpg"
+      },
+      {
+        "src": "/mountains/raung/wiki-1.jpg",
+        "caption": "Raung in haze, seen from Kawah Ijen",
+        "credit": "Photo: Jakub Hałun, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Raung_-_view_from_Kawah_Ijen,_East_Java,_Indonesia,_20220821_0643_9778.jpg"
+      },
+      {
+        "src": "/mountains/raung/wiki-2.jpg",
+        "caption": "Raung above a sea of clouds from Kawah Ijen",
+        "credit": "Photo: Jakub Hałun, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Raung_-_view_from_Kawah_Ijen,_East_Java,_Indonesia,_20220821_0648_9786.jpg"
+      }
+    ]
   },
   "argopuro": {
     "origin": "research",
@@ -936,7 +956,27 @@
         "url": "https://www.idntimes.com/travel/destination/daftar-gunung-yang-ditutup-akibat-karhutla-per-september-2026-00-mk1yf-lb5zkz"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/ijen/wiki-2.jpg",
+        "caption": "Kawah Ijen crater lake and rim",
+        "credit": "Photo: Thomas Fuhrmann, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kawah_Ijen_crater_-_Indonesia_1.jpg"
+      },
+      {
+        "src": "/mountains/ijen/wiki-1.jpg",
+        "caption": "Sulphur fumes beside the turquoise crater lake",
+        "credit": "Photo: CEphoto, Uwe Aranas, CC BY-SA 3.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kawah-Ijen_Indonesia_Acidious-Lake-at_the-floor-of-the-crater-01.jpg"
+      },
+      {
+        "src": "/mountains/ijen/wiki-3.jpg",
+        "caption": "Sulphur vents and miners by the crater lake",
+        "credit": "Photo: Oakenchips, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kawah_Ijen_crater.jpg"
+      }
+    ]
   },
   "penanggungan": {
     "origin": "research",
@@ -1031,7 +1071,97 @@
         "url": "https://www.jelajahlagi.id/2021/04/update-info-buka-tutup-jalur-pendakian-gunung.html"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/penanggungan/wiki-1.jpg",
+        "caption": "Penanggungan above rice terraces at Sukoreno",
+        "credit": "Photo: Rizal Febri, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gn_Penanggungan_Sukoreno.jpg"
+      },
+      {
+        "src": "/mountains/penanggungan/lurah-temple.jpg",
+        "caption": "Hikers at Candi Lurah on the trail",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/penanggungan/lurah-temple-2.jpg",
+        "caption": "Stone stairway of Candi Lurah",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/penanggungan/caruk-temple.jpg",
+        "caption": "Candi Carik ruins on the trail",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/penanggungan/murid-temple.jpg",
+        "caption": "Murid temple ruins on the trail",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/penanggungan/guru-temple.jpg",
+        "caption": "Candi Guru with hikers climbing behind",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/penanggungan/shady-track.jpg",
+        "caption": "Shady forest section of the trail",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/penanggungan/summit-track.jpg",
+        "caption": "Rocky climb toward the summit",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/penanggungan/summit-track-2.jpg",
+        "caption": "Steep summit track above the clouds",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/penanggungan/summit-track-3.jpg",
+        "caption": "Grassy summit track with valley views",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/penanggungan/summit-track-4.jpg",
+        "caption": "Grassy ridges seen from near the summit",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/penanggungan/summit-track-5.jpg",
+        "caption": "Grassy hill below the summit ridge",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/penanggungan/peak-view.jpg",
+        "caption": "Hikers at the peak facing distant mountains",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/penanggungan/peak-view-2.jpg",
+        "caption": "Clouds over the plains from the peak",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/penanggungan/peak-view-3.jpg",
+        "caption": "Lone hiker on the summit slope",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/penanggungan/wiki-2.jpg",
+        "caption": "Penanggungan from Puncak Phutok Kembang",
+        "credit": "Photo: consigliere ivan from Bontang, Indonesia, CC BY 2.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Penanggungan_dari_Puncak_Phutok_Kembang.jpg"
+      },
+      {
+        "src": "/mountains/penanggungan/wiki-3.jpg",
+        "caption": "Penanggungan silhouette at dusk",
+        "credit": "Photo: consigliere ivan from Bontang, Indonesia, CC BY 2.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Penanggungan_Sore_Hari_2016-12-30.jpg"
+      }
+    ]
   },
   "panderman": {
     "origin": "research",
@@ -1257,7 +1387,21 @@
         "url": "https://yoursay.suara.com/news/2026/09/20/095000/memahami-bencana-karhutla-di-kawi-butak-saat-eksotisme-alam-berubah-jadi-tantangan-berbahaya"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/butak/wiki-2.jpg",
+        "caption": "Tents on the Butak savanna at dusk",
+        "credit": "Photo: Nanok Kaesan, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Padang_Sabana_Gunung_Butak.jpg"
+      },
+      {
+        "src": "/mountains/butak/wiki-1.jpg",
+        "caption": "Panderman, Kawi and Butak massif from Brakseng",
+        "credit": "Photo: consigliere ivan from Bontang, Indonesia, CC BY 2.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Batu_city_and_Mount_Panderman-Kawi-Butak_from_Brakseng_2019-01-12.jpg"
+      }
+    ]
   },
   "kawi": {
     "origin": "research",
@@ -1363,7 +1507,21 @@
         "url": "https://teropongrakyat.co/kebakaran-gunung-kawi-capai-1-534-hektare-tim-gabungan-terus-pantau-dan-lakukan-pendinginan/"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/kawi/wiki-2.jpg",
+        "caption": "Kawi seen from Maduarjo, Ngajum",
+        "credit": "Photo: Javanesecode, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunung_Kawi_dilihat_dari_maduarjo_ngajum.jpg"
+      },
+      {
+        "src": "/mountains/kawi/wiki-1.jpg",
+        "caption": "Kawi in fog from Mount Penanjakan",
+        "credit": "Photo: Hugo van den Bos, CC BY 2.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kawi_in_fog_from_Mount_Penanjakan.jpg"
+      }
+    ]
   },
   "anjasmoro": {
     "origin": "research",
@@ -1652,7 +1810,15 @@
         "url": "https://www.gunungbagging.com/liman/"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/liman/wiki-1.jpg",
+        "caption": "Wilis massif, home of Liman, from Madiun",
+        "credit": "Photo: Masrangsang18, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:PEMANDANGAN_GUNUNG_WILIS_DARI_DESA_DI_MADIUN.jpg"
+      }
+    ]
   },
   "kelud": {
     "origin": "research",
@@ -1743,7 +1909,27 @@
         "url": "https://memo.co.id/gempa-tektonik-jauh-terekam-dua-kali-di-gunung-kelud-kediri-wisatawan-dilarang-dekati-kawah-dalam-radius-1-kilometer-99253/"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/kelud/wiki-3.jpg",
+        "caption": "Kelud's jagged peaks above rice fields",
+        "credit": "Photo: GusJuned, CC BY-SA 3.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunung_Kelud_(Kelud_Mountain)_-_panoramio.jpg"
+      },
+      {
+        "src": "/mountains/kelud/wiki-1.jpg",
+        "caption": "Rocky peak and ash slopes of Kelud, Kediri",
+        "credit": "Photo: Lutfi adn, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunung_Kelud,_Kediri.jpg"
+      },
+      {
+        "src": "/mountains/kelud/wiki-2.jpg",
+        "caption": "Puncak Sumbing of Kelud in the mist",
+        "credit": "Photo: Lokesywara, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:PUNCAK_SUMBING-GUNUNG_KELUD.jpg"
+      }
+    ]
   },
   "lemongan": {
     "origin": "research",
@@ -1838,7 +2024,21 @@
         "url": "https://www.sobathiking.com/2021/05/informasi-pendakian-gunung-lemongan-lumajang.html"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/lemongan/wiki-1.jpg",
+        "caption": "Lemongan above Ranu Pakis lake",
+        "credit": "Photo: Wibowo Djatmiko (Wie146), CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ranu_Pakis_250614-105904_klk.jpg"
+      },
+      {
+        "src": "/mountains/lemongan/wiki-2.jpg",
+        "caption": "Lemongan behind Ranu Klakah lake",
+        "credit": "Photo: Wibowo Djatmiko (Wie146), CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ranu_Klakah_250614-115238_klk.jpg"
+      }
+    ]
   },
   "pundak": {
     "origin": "research",
@@ -2093,7 +2293,15 @@
         "url": "https://timesindonesia.co.id/peristiwa-daerah/610153/usai-kebakaran-twa-kawah-ijen-kembali-dibuka-28-september-2026"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/merapi-ungup/wiki-1.jpg",
+        "caption": "Merapi peak of the Ijen complex",
+        "credit": "Photo: Ben Tubby. Bearbeitet durch Geoethno (aufgehellt)., CC BY 2.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Merapi_Kawah_Ijen.jpg"
+      }
+    ]
   },
   "lawu": {
     "origin": "research",
@@ -4959,7 +5167,47 @@
         "url": "https://greenrinjani.com/mount-rinjani-booking-update/"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/rinjani/wiki-3.jpg",
+        "caption": "Crater lake and inner cone below Rinjani summit",
+        "credit": "Photo: Dhmlombok, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rinjani_mount.jpg"
+      },
+      {
+        "src": "/mountains/rinjani/img-20240409-wa0020.jpg",
+        "caption": "Hiker with the summit sign above the crater lake",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/rinjani/img-20240409-wa0031.jpg",
+        "caption": "Hiker at the summit above the crater lake",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/rinjani/20240408-093512.jpg",
+        "caption": "Hikers on a ridge above the clouds",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/rinjani/img-0263.jpg",
+        "caption": "Cloud-capped slopes above the village at dusk",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/rinjani/wiki-1.jpg",
+        "caption": "Rinjani summit cone from the Sembalun route",
+        "credit": "Photo: Giovari max, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunung_Rinjani_dari_Jalur_Sembalun.jpg"
+      },
+      {
+        "src": "/mountains/rinjani/wiki-2.jpg",
+        "caption": "Rinjani caldera lake under a glowing sky",
+        "credit": "Photo: César González Palomo, CC BY-SA 2.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Rinjani_(20097616551).jpg"
+      }
+    ]
   },
   "agung": {
     "origin": "research",
