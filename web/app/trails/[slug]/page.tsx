@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
+import { coverFor } from "@/lib/cover-photos";
 import {
   Activity,
+  Camera,
+  MountainSnow,
   AlertTriangle,
   ClipboardCheck,
   ArrowRight,
@@ -62,12 +66,32 @@ export default async function TrailDetailPage({
   if (!trail) notFound();
 
   const weather = await getWeather({ slug: trail.slug }).catch(() => null);
+  const cover = coverFor(trail.slug, trail.coverImage, trail.coverCredit ?? null);
+  const photoCount = trail.story?.gallery.length ?? 0;
 
   return (
     <>
       {/* Hero */}
-      <section className="bg-forest-900 text-white">
-        <div className="container py-10 md:py-14">
+      <section className="relative isolate overflow-hidden bg-forest-900 text-white">
+        {cover && (
+          <>
+            <Image
+              src={cover.src}
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className="-z-10 object-cover"
+            />
+            {/* Readable text on the left, the mountain still visible on the right. */}
+            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-forest-900/95 via-forest-900/70 to-black/20" />
+            <div className="absolute inset-x-0 bottom-0 -z-10 h-1/2 bg-gradient-to-t from-forest-900/90 to-transparent" />
+            {cover.credit && (
+              <span className="absolute bottom-2 right-3 max-w-[50%] truncate text-[10px] text-white/55">{cover.credit}</span>
+            )}
+          </>
+        )}
+        <div className={cn("container py-10 md:py-14", cover && "md:pb-16 md:pt-20")}>
           <div className="mb-3 flex items-center gap-2 text-xs text-forest-100">
             <Link href="/trails" className="hover:text-white">Trails</Link>
             <ArrowRight className="size-3" />
@@ -132,7 +156,15 @@ export default async function TrailDetailPage({
             </div>
           </div>
 
-          <dl className="mt-10 grid grid-cols-3 gap-6 border-t border-white/10 pt-6 md:max-w-xl">
+          <dl className="mt-10 grid grid-cols-2 gap-6 border-t border-white/15 pt-6 sm:grid-cols-4 md:max-w-3xl">
+            <div>
+              <dt className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider text-forest-100">
+                <MountainSnow className="size-3.5" /> Summit
+              </dt>
+              <dd className="font-display text-2xl font-semibold">
+                {trail.elevationM != null ? `${trail.elevationM.toLocaleString("en-US")} m` : "—"}
+              </dd>
+            </div>
             <div>
               <dt className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider text-forest-100">
                 <Route className="size-3.5" /> Distance
@@ -152,6 +184,14 @@ export default async function TrailDetailPage({
               <dd className="font-display text-2xl font-semibold">{fmtDuration(trail.estimatedMinutes)}</dd>
             </div>
           </dl>
+          {photoCount > 1 && (
+            <a
+              href="#gallery"
+              className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-xs font-medium backdrop-blur hover:bg-white/20"
+            >
+              <Camera className="size-3.5" /> See all {photoCount} photos
+            </a>
+          )}
         </div>
       </section>
 

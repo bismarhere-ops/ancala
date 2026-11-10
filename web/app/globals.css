@@ -76,6 +76,13 @@
 }
 
 @layer utilities {
+  /* Horizontal photo strips scroll by touch or trackpad; hide the bar. */
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
   .text-balance {
     text-wrap: balance;
   }

@@ -55,6 +55,10 @@ export default async function HomePage() {
   ]);
 
   const featured = trails.slice(0, 3);
+  // Every mountain with a photo, tallest first, for the scrolling strip.
+  const stripTrails = trails
+    .filter((t) => t.coverImage)
+    .sort((a, b) => (b.elevationM ?? 0) - (a.elevationM ?? 0));
   const hasTrails = trails.length > 0;
 
   // Only `measured` metrics belong in the hero. Unknown -> "—", never 0.
@@ -251,30 +255,87 @@ export default async function HomePage() {
         )}
       </section>
 
+      {/* Mountain photo strip */}
+      {stripTrails.length > 0 && (
+        <section className="mt-16 md:mt-20">
+          <div className="container flex items-end justify-between gap-4">
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">From Sumatra to Sulawesi</div>
+              <h2 className="mt-1 font-display text-3xl font-semibold tracking-tight md:text-4xl">
+                {stripTrails.length} mountains, one archipelago.
+              </h2>
+              <p className="mt-1 text-sm text-muted-foreground">Highest first. Scroll sideways, tap one to open its field guide.</p>
+            </div>
+            <Link href="/trails" className="hidden shrink-0 items-center gap-1 text-sm font-medium text-primary hover:underline sm:inline-flex">
+              All trails <ArrowRight className="size-4" />
+            </Link>
+          </div>
+          <ul className="no-scrollbar mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 md:px-[max(1rem,calc((100vw-1400px)/2+2rem))]">
+            {stripTrails.map((t) => {
+              return (
+                <li key={t.slug} className="w-[220px] shrink-0 snap-start md:w-[260px]">
+                  <Link
+                    href={`/trails/${t.slug}`}
+                    className="group relative block aspect-[3/4] overflow-hidden rounded-2xl bg-forest-800 shadow-sm"
+                  >
+                    <Image
+                      src={t.coverImage!}
+                      alt={`${t.name}, ${t.region}`}
+                      fill
+                      sizes="260px"
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent" />
+                    <span className="absolute left-3 top-3">
+                      <StatusBadge trail={t} className="bg-white/90" />
+                    </span>
+                    <div className="absolute inset-x-0 bottom-0 p-4 text-white">
+                      <div className="text-[11px] uppercase tracking-wider text-white/70">{t.region}</div>
+                      <div className="font-display text-xl font-semibold leading-tight">{t.name}</div>
+                      {t.elevationM != null && (
+                        <div className="mt-1 font-mono text-sm text-amber-200">{t.elevationM.toLocaleString("en-US")} m</div>
+                      )}
+                    </div>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      )}
+
       {/* Quick actions */}
-      <section className="container mt-12">
+      <section className="container mt-10">
         <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
           {[
-            { href: "/trails?view=map", icon: MapIcon, title: "Trails & map", desc: "All mountains with live status." },
-            { href: "/telemetry", icon: Activity, title: "Topo telemetry", desc: "Your GPS on a contour map." },
-            { href: "/dashboard", icon: ClipboardCheck, title: "Preparation checklist", desc: "Gear, documents and first aid." },
-            { href: "/community#report", icon: Megaphone, title: "Report a condition", desc: "Damage, waste, hazards." },
-          ].map(({ href, icon: Icon, title, desc }) => (
-            <Link key={href} href={href} className="group">
-              <Card className="h-full transition-all hover:-translate-y-0.5 hover:shadow-md">
-                <CardContent className="flex flex-col gap-3 p-5">
-                  <div className="flex size-10 items-center justify-center rounded-full bg-forest-50 text-primary">
-                    <Icon className="size-5" />
-                  </div>
-                  <div>
-                    <div className="font-display text-base font-semibold">{title}</div>
-                    <div className="text-sm text-muted-foreground">{desc}</div>
-                  </div>
-                  <div className="flex items-center gap-1 text-sm font-medium text-primary opacity-0 transition-opacity group-hover:opacity-100">
-                    Open <ArrowRight className="size-4" />
-                  </div>
-                </CardContent>
-              </Card>
+            { href: "/trails?view=map", icon: MapIcon, title: "Trails & map", desc: "All mountains with live status.", photo: "/mountains/rinjani/20240408-093512.jpg" },
+            { href: "/telemetry", icon: Activity, title: "Topo telemetry", desc: "Your GPS on a contour map.", photo: "/mountains/penanggungan/summit-track-2.jpg" },
+            { href: "/dashboard", icon: ClipboardCheck, title: "Preparation checklist", desc: "Gear, documents and first aid.", photo: "/mountains/semeru/img-20180826-052802.jpg" },
+            { href: "/community#report", icon: Megaphone, title: "Report a condition", desc: "Damage, waste, hazards.", photo: "/mountains/semeru/img-20180825-162556.jpg" },
+          ].map(({ href, icon: Icon, title, desc, photo }) => (
+            <Link
+              key={href}
+              href={href}
+              className="group relative flex h-44 flex-col justify-end overflow-hidden rounded-2xl bg-forest-800 p-5 text-white shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
+            >
+              <Image
+                src={photo}
+                alt=""
+                fill
+                sizes="(min-width: 768px) 25vw, (min-width: 640px) 50vw, 100vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-forest-900/95 via-forest-900/50 to-forest-900/10" />
+              <div className="relative flex size-9 items-center justify-center rounded-full bg-white/20 ring-1 ring-white/30">
+                <Icon className="size-4" />
+              </div>
+              <div className="relative mt-3 flex items-end justify-between gap-2">
+                <div>
+                  <div className="font-display text-lg font-semibold leading-tight">{title}</div>
+                  <div className="text-sm text-white/75">{desc}</div>
+                </div>
+                <ArrowRight className="size-5 shrink-0 transition-transform group-hover:translate-x-1" />
+              </div>
             </Link>
           ))}
         </div>
@@ -357,7 +418,16 @@ export default async function HomePage() {
       {/* CTA */}
       <section className="container mt-24">
         <div className="relative overflow-hidden rounded-3xl bg-forest-900 p-10 text-white md:p-14">
-          <div className="absolute inset-0 bg-topo opacity-20" />
+          <Image
+            src="/mountains/semeru/img-20180827-055936.jpg"
+            alt=""
+            fill
+            sizes="(min-width: 1400px) 1340px, 100vw"
+            className="object-cover"
+            style={{ objectPosition: "center 40%" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-forest-900/95 via-forest-900/75 to-forest-900/30" />
+          <span className="absolute bottom-2 right-4 z-10 text-[10px] text-white/55">Photo: Jejak Ancala · Mahameru summit</span>
           <div className="relative z-10 flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
             <div>
               <h2 className="font-display text-3xl font-semibold">Become a Forest Guardian.</h2>

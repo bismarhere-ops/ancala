@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import {
@@ -132,15 +133,26 @@ export function TrailDirectory({ initialTrails }: { initialTrails: Trail[] }) {
   return (
     <>
       {/* Hero + KPIs */}
-      <section className="border-b bg-[#f7faf7]">
-        <div className="container py-10 md:py-14">
-          <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-secondary px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary">
-            Forest Guardian CSR <span className="text-primary/40">•</span> Trail Information System
+      <section className="relative isolate overflow-hidden border-b bg-forest-900">
+        <Image
+          src="/mountains/semeru/img-20180827-053517.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="-z-10 object-cover"
+          style={{ objectPosition: "center 70%" }}
+        />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/20 via-black/30 to-black/75" />
+        <span className="absolute right-3 top-2 text-[10px] text-white/55">Photo: Jejak Ancala · sunrise from Mahameru</span>
+        <div className="container py-12 md:py-20">
+          <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-amber-200 backdrop-blur">
+            Forest Guardian CSR <span className="text-white/40">•</span> Trail Information System
           </div>
-          <h1 className="font-display text-4xl font-semibold tracking-tight md:text-5xl">
+          <h1 className="font-display text-4xl font-semibold tracking-tight text-white drop-shadow md:text-6xl">
             Find the right trail, prepared.
           </h1>
-          <p className="mt-3 max-w-3xl text-muted-foreground">
+          <p className="mt-3 max-w-3xl text-white/85">
             Distances, elevations, checkpoints, risk and live conditions in one field guide built for
             low-signal mountains.
           </p>
@@ -310,7 +322,7 @@ function Kpi({
   tone?: "alert";
 }) {
   return (
-    <div className={cn("rounded-xl border bg-card p-4", tone === "alert" && "border-red-200 bg-red-50/60")}>
+    <div className={cn("rounded-xl border bg-card p-4", tone === "alert" && "border-red-200 bg-red-50")}>
       <dt className={cn("flex items-center gap-1.5 text-xs font-medium text-muted-foreground", tone === "alert" && "text-red-700")}>
         <Icon className="size-3.5" /> {label}
       </dt>

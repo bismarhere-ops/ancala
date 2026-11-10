@@ -5,6 +5,8 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { ReportForm } from "@/components/report-form";
+import { PhotoHero } from "@/components/photo-hero";
+import { CaptionedPhoto } from "@/components/captioned-photo";
 import { VolunteerForm } from "@/components/volunteer-form";
 import { InstagramFeed } from "@/components/instagram-feed";
 import { INSTAGRAM_ACCOUNT, instagramPosts } from "@/lib/instagram";
@@ -28,20 +30,16 @@ export default async function CommunityPage() {
 
   return (
     <>
-      <section className="bg-forest-50">
-        <div className="container py-12 md:py-16">
-          <div className="mb-2 text-xs font-medium uppercase tracking-wider text-primary">
-            Community &amp; Reporting
-          </div>
-          <h1 className="font-display text-4xl font-semibold tracking-tight md:text-5xl">
-            The forest needs eyes on the ground.
-          </h1>
-          <p className="mt-3 max-w-2xl text-muted-foreground">
-            Report a hazard, share a sighting, or register to volunteer. Every contribution makes
-            the next hiker safer and the forest stronger.
-          </p>
-        </div>
-      </section>
+      <PhotoHero
+        src="/mountains/semeru/img-20180827-060033.jpg"
+        credit="Photo: Jejak Ancala · Mahameru summit, Semeru"
+        position="center 60%"
+        eyebrow="Community & Reporting"
+        title="The forest needs eyes on the ground."
+      >
+        Report a hazard, share a sighting, or register to volunteer. Every contribution makes the next
+        hiker safer and the forest stronger.
+      </PhotoHero>
 
       {/* Report */}
       <section id="report" className="container py-12">
@@ -68,6 +66,11 @@ export default async function CommunityPage() {
                 </li>
               ))}
             </ul>
+            <CaptionedPhoto
+              src="/mountains/semeru/img-20180825-162556.jpg"
+              caption="Our hikers collecting litter on the Semeru trail"
+              className="mt-8 hidden aspect-[4/5] max-w-md md:block"
+            />
           </div>
           <Card>
             <CardContent className="p-6">
@@ -159,6 +162,11 @@ export default async function CommunityPage() {
                 <Badge key={b} variant="secondary">{b}</Badge>
               ))}
             </div>
+            <CaptionedPhoto
+              src="/mountains/penanggungan/lurah-temple.jpg"
+              caption="Guardians at Candi Lurah, Penanggungan"
+              className="mt-8 hidden aspect-[4/5] max-w-md md:block"
+            />
           </div>
           <Card>
             <CardContent className="p-6">

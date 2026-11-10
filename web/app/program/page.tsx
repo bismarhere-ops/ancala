@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Leaf, Sprout, Users, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -6,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { ImpactStats } from "@/components/impact-stats";
+import { PhotoHero } from "@/components/photo-hero";
 import { getImpact } from "@/lib/api";
 import { fallback } from "@/lib/server-fallback";
 
@@ -49,10 +51,10 @@ const PILLARS = [
  * but the dates are illustrative and the page says so.
  */
 const SCHEDULE = [
-  { when: "Dates TBC", where: "Ranu Pani (Semeru)", status: "planned" as const },
-  { when: "Dates TBC", where: "Cemoro Lawang (Bromo)", status: "planned" as const },
-  { when: "Dates TBC", where: "Paltuding (Ijen)", status: "planned" as const },
-  { when: "Dates TBC", where: "Tamiajeng (Penanggungan)", status: "planned" as const },
+  { when: "Dates TBC", where: "Ranu Pani", mountain: "Semeru", slug: "semeru", photo: "/mountains/semeru/img-20180826-052802.jpg", credit: "Photo: Jejak Ancala" },
+  { when: "Dates TBC", where: "Cemoro Lawang", mountain: "Bromo", slug: "bromo", photo: "/mountains/bromo/penanjakan-sunrise.jpg", credit: "Photo: Jejak Ancala" },
+  { when: "Dates TBC", where: "Paltuding", mountain: "Ijen", slug: "ijen", photo: "/mountains/ijen/wiki-2.jpg", credit: "Photo: Thomas Fuhrmann, CC BY-SA 4.0, via Wikimedia Commons" },
+  { when: "Dates TBC", where: "Tamiajeng", mountain: "Penanggungan", slug: "penanggungan", photo: "/mountains/penanggungan/guru-temple.jpg", credit: "Photo: Jejak Ancala" },
 ];
 
 export default async function ProgramPage() {
@@ -64,22 +66,22 @@ export default async function ProgramPage() {
 
   return (
     <>
-      <section className="bg-forest-50">
-        <div className="container py-14 md:py-20">
-          <div className="mb-2 text-xs font-medium uppercase tracking-wider text-primary">
-            The Forest Guardian Program
-          </div>
-          <h1 className="font-display text-4xl font-semibold leading-[1.05] tracking-tight text-balance md:text-6xl">
+      <PhotoHero
+        src="/mountains/penanggungan/peak-view.jpg"
+        credit="Photo: Jejak Ancala · Penanggungan peak"
+        position="center 35%"
+        eyebrow="The Forest Guardian Program"
+        title={
+          <>
             Every trail walked,
             <br />
-            <span className="italic text-primary">a forest restored.</span>
-          </h1>
-          <p className="mt-4 max-w-2xl text-muted-foreground">
-            Our CSR program connects hikers, local communities and our furniture craftspeople
-            around one mission: restore more forest than we take.
-          </p>
-        </div>
-      </section>
+            <span className="italic text-amber-200">a forest restored.</span>
+          </>
+        }
+      >
+        Our CSR program connects hikers, local communities and our furniture craftspeople around one
+        mission: restore more forest than we take.
+      </PhotoHero>
 
       {/* Pillars */}
       <section className="container py-16">
@@ -158,14 +160,29 @@ export default async function ProgramPage() {
             Two days in the field with certified rangers and our sustainability team. Open to
             guardians and community members.
           </p>
-          <ul className="mt-6 divide-y rounded-xl border">
+          <ul className="mt-6 grid grid-cols-2 gap-3">
             {SCHEDULE.map((s) => (
-              <li key={s.where} className="flex items-center justify-between gap-3 p-4">
-                <div>
-                  <div className="font-medium">{s.where}</div>
-                  <div className="text-xs text-muted-foreground">{s.when}</div>
-                </div>
-                <Badge variant="outline">Planned</Badge>
+              <li key={s.where}>
+                <Link
+                  href={`/trails/${s.slug}`}
+                  className="group relative block aspect-[4/3] overflow-hidden rounded-xl bg-forest-800"
+                >
+                  <Image
+                    src={s.photo}
+                    alt={`${s.mountain} near ${s.where}`}
+                    fill
+                    sizes="(min-width: 768px) 25vw, 50vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  <Badge className="absolute right-2 top-2 bg-white/90 text-forest-900 hover:bg-white/90">Planned</Badge>
+                  <div className="absolute inset-x-0 bottom-0 p-3 text-white">
+                    <div className="text-[11px] uppercase tracking-wider text-amber-200">{s.mountain}</div>
+                    <div className="font-display text-lg font-semibold leading-tight">{s.where}</div>
+                    <div className="text-xs text-white/75">{s.when}</div>
+                  </div>
+                  <span className="absolute bottom-1 right-2 max-w-[60%] truncate text-[9px] text-white/55">{s.credit}</span>
+                </Link>
               </li>
             ))}
           </ul>
@@ -177,15 +194,22 @@ export default async function ProgramPage() {
             <Link href="/community#volunteer">Apply to the bootcamp</Link>
           </Button>
         </div>
-        <Card className="bg-forest-900 text-white">
-          <CardContent className="p-8">
-            <Quote className="size-8 text-amber/80" />
-            <p className="mt-3 font-display text-xl leading-snug">
-              We measure our success not by what we sell, but by the forest we leave behind.
-            </p>
-            <p className="mt-4 text-sm text-forest-200">— The founding team</p>
-          </CardContent>
-        </Card>
+        <figure className="relative isolate flex min-h-[420px] flex-col justify-end overflow-hidden rounded-2xl bg-forest-900 p-8 text-white">
+          <Image
+            src="/mountains/semeru/img-20180826-054500.jpg"
+            alt="Sunrise over the lake camp on the Semeru trail"
+            fill
+            sizes="(min-width: 768px) 50vw, 100vw"
+            className="-z-10 object-cover"
+          />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black/85 via-black/40 to-black/10" />
+          <Quote className="size-8 text-amber-300" />
+          <blockquote className="mt-3 font-display text-2xl leading-snug">
+            We measure our success not by what we sell, but by the forest we leave behind.
+          </blockquote>
+          <figcaption className="mt-4 text-sm text-forest-100">— The founding team</figcaption>
+          <span className="absolute bottom-2 right-3 text-[10px] text-white/55">Photo: Jejak Ancala · Semeru</span>
+        </figure>
       </section>
 
       {/* Impact */}

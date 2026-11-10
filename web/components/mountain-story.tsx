@@ -71,7 +71,7 @@ export function MountainStory({ story, name }: { story: Story; name: string }) {
       )}
 
       {gallery.length > 0 && (
-        <section>
+        <section id="gallery" className="scroll-mt-24">
           <SectionTitle icon={Camera}>Gallery</SectionTitle>
           <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
             {gallery.map((g, i) => (
