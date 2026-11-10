@@ -2422,7 +2422,27 @@
         "url": "https://tabloidelemen.com/jalur-pendakian-gunung-slamet-via-bambangan-dan-dipajaya-tutup-sementara-15-17-september-2026/"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/slamet/wiki-1.jpg",
+        "caption": "Gunung Slamet above farm fields",
+        "credit": "Photo: Aziedane, CC BY-SA 3.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunung_Slamet,_Jawa_Tengah.jpg"
+      },
+      {
+        "src": "/mountains/slamet/wiki-3.jpg",
+        "caption": "Gunung Slamet seen from Rawa Kembang",
+        "credit": "Photo: Irfanayam, CC BY 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunung_Slamet_dan_Pegunungan_Serayu_Selatan_dilihat_dari_Rawa_Kembang.jpg"
+      },
+      {
+        "src": "/mountains/slamet/wiki-2.jpg",
+        "caption": "Gunung Slamet behind rice fields at Limpakuwus",
+        "credit": "Photo: Fajarbanyumas, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunung_Slamet_dari_Sawah_Limpakuwus.jpg"
+      }
+    ]
   },
   "prau": {
     "origin": "research",
@@ -2521,7 +2541,27 @@
         "url": "https://travel.kompas.com/read/2026/01/02/130916227/pendakian-gunung-prau-ditutup-mulai-19-januari-2026-hingga-maret-2026"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/prau/wiki-2.jpg",
+        "caption": "Tent at a campsite on Mount Prau",
+        "credit": "Photo: Muhammad Rinandar, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:FileView_of_Mount_Prahu,_Central_Java,_Indonesia.jpg"
+      },
+      {
+        "src": "/mountains/prau/wiki-1.jpg",
+        "caption": "Morning light on Gunung Prau's grassy ridge",
+        "credit": "Photo: Hadiwibowo, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pagi_Hari_Di_Gunung_Prau.jpg"
+      },
+      {
+        "src": "/mountains/prau/wiki-3.jpg",
+        "caption": "View from Mount Prau above the clouds",
+        "credit": "Photo: Tritanto, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mountain_Prau,_Wonosobo,_24072016.jpg"
+      }
+    ]
   },
   "ungaran": {
     "origin": "research",
@@ -2608,7 +2648,27 @@
         "url": "https://www.eigeradventure.com/blog/jalur-pendakian-gunung-ungaran/"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/ungaran/wiki-3.jpg",
+        "caption": "Grassy summit ridge of Gunung Ungaran at dawn",
+        "credit": "Photo: Risanprasetyo/Febri Ady Prasetyo, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Puncak_Ungaran.jpg"
+      },
+      {
+        "src": "/mountains/ungaran/wiki-2.jpg",
+        "caption": "Mount Ungaran seen from Ungaran town",
+        "credit": "Photo: M.akbar.raf, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Ungaran_from_Town_of_Ungaran.jpg"
+      },
+      {
+        "src": "/mountains/ungaran/wiki-1.jpg",
+        "caption": "Gunung Ungaran on the horizon",
+        "credit": "Photo: Mrgostuquwh, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunung_Ungaran.jpg"
+      }
+    ]
   },
   "andong": {
     "origin": "research",
@@ -2707,7 +2767,27 @@
         "url": "https://jogja.tribunnews.com/news/1208583/seluruh-jalur-pendakian-gunung-andong-ditutup-selama-ramadan-2026"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/andong/wiki-1.jpg",
+        "caption": "Summit hut of Gunung Andong above the clouds",
+        "credit": "Photo: Bellabangsa23, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_Gunung_Andong.jpg"
+      },
+      {
+        "src": "/mountains/andong/wiki-2.jpg",
+        "caption": "Hiker on the summit trail of Gunung Andong",
+        "credit": "Photo: Ahmad Makarim, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pemandangan_Gunung_Andong_Magelang.jpg"
+      },
+      {
+        "src": "/mountains/andong/wiki-3.jpg",
+        "caption": "Andong and Telomoyo seen from Merbabu",
+        "credit": "Photo: Shohib36, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Andong_telomoyo_dari_merbabu.jpg"
+      }
+    ]
   },
   "telomoyo": {
     "origin": "research",
@@ -2798,7 +2878,27 @@
         "url": "https://www.backindo.com/mount-telomoyo/"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/telomoyo/wiki-2.jpg",
+        "caption": "Telomoyo and Merbabu behind rice fields",
+        "credit": "Photo: Febrianti wukirasih, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Telomoyo_And_Merbabu_Mountains.jpg"
+      },
+      {
+        "src": "/mountains/telomoyo/wiki-1.jpg",
+        "caption": "Mount Telomoyo and Mount Merbabu",
+        "credit": "Photo: Rizky derian, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Telomoyo_and_Mount_Merbabu.jpg"
+      },
+      {
+        "src": "/mountains/telomoyo/wiki-3.jpg",
+        "caption": "Andong and Telomoyo seen from Merbabu",
+        "credit": "Photo: Shohib36, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Andong_telomoyo_dari_merbabu.jpg"
+      }
+    ]
   },
   "sikunir": {
     "origin": "research",
@@ -2889,7 +2989,27 @@
         "url": "https://en.wikipedia.org/wiki/Sembungan"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/sikunir/wiki-3.jpg",
+        "caption": "Dawn view from the top of Sikunir",
+        "credit": "Photo: Bidara26, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Puncak_Sikunir.jpg"
+      },
+      {
+        "src": "/mountains/sikunir/wiki-2.jpg",
+        "caption": "Sunrise from Sikunir on the Dieng Plateau",
+        "credit": "Photo: Rachmayantos, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sikunir_Dieng.jpg"
+      },
+      {
+        "src": "/mountains/sikunir/wiki-1.jpg",
+        "caption": "Lake and farm terraces below Bukit Sikunir",
+        "credit": "Photo: Cloudvalkyrie, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bukit_Sikunir_Dieng_Plateau.jpg"
+      }
+    ]
   },
   "gede": {
     "origin": "research",
@@ -2996,7 +3116,27 @@
         "url": "https://www.detik.com/jabar/wisata/d-8624477/pendakian-gede-pangrango-ditutup-hingga-31-agustus-2026"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/gede/wiki-1.jpg",
+        "caption": "Gunung Gede above rice fields near Cilaku",
+        "credit": "Photo: Afrogindahood, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gede_seen_from_Cilaku.jpg"
+      },
+      {
+        "src": "/mountains/gede/wiki-2.jpg",
+        "caption": "Mount Gede seen from Cianjur",
+        "credit": "Photo: Afrogindahood, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Gede_from_Cianjur.jpg"
+      },
+      {
+        "src": "/mountains/gede/wiki-3.jpg",
+        "caption": "Forested slopes of Gunung Gede from Puncak",
+        "credit": "Photo: Jones Averino, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kebun_Teh_%26_Gunung_Gede,_Puncak,_Bogor.jpg"
+      }
+    ]
   },
   "pangrango": {
     "origin": "research",
@@ -3107,7 +3247,27 @@
         "url": "https://gorontalo.antaranews.com/berita/421873/menhut-tutup-sementara-pendakian-9-taman-nasional-rawan-karhutla"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/pangrango/wiki-1.jpg",
+        "caption": "Pangrango's forested cone from a rocky ridge",
+        "credit": "Photo: Afrogindahood, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pangrango,_West_Java.jpg"
+      },
+      {
+        "src": "/mountains/pangrango/wiki-2.jpg",
+        "caption": "Pangrango from the summit of Gunung Gede",
+        "credit": "Photo: Iqbal Ishlahiddin, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pangrango_Mountain_from_the_Summit_of_Mountain_Gede.jpg"
+      },
+      {
+        "src": "/mountains/pangrango/wiki-3.jpg",
+        "caption": "Forested slopes of Gunung Pangrango, Puncak",
+        "credit": "Photo: Jones Averino, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunung_Pangrango,_Puncak,_Bogor.jpg"
+      }
+    ]
   },
   "ciremai": {
     "origin": "research",
@@ -3210,7 +3370,27 @@
         "url": "https://gorontalo.antaranews.com/berita/421873/menhut-tutup-sementara-pendakian-9-taman-nasional-rawan-karhutla"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/ciremai/wiki-1.jpg",
+        "caption": "Gunung Ciremai seen from Kuningan",
+        "credit": "Photo: Achmad Hikam, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_Ciremai_Mount_from_Kuningan.jpg"
+      },
+      {
+        "src": "/mountains/ciremai/wiki-2.jpg",
+        "caption": "Gunung Ciremai from Lapangan Pataraksa",
+        "credit": "Photo: 2025kfac, CC0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunung_Ciremai_dari_Lapangan_Pataraksa.jpg"
+      },
+      {
+        "src": "/mountains/ciremai/wiki-3.jpg",
+        "caption": "Mount Ciremai seen from Jatiwangi, Majalengka",
+        "credit": "Photo: Ajaxx79, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Cereme,_Jatiwangi_-_Majalengka.jpg"
+      }
+    ]
   },
   "papandayan": {
     "origin": "research",
@@ -3317,7 +3497,27 @@
         "url": "https://mediaindonesia.com/jabar/berita/937497/fenomena-api-biru-muncul-di-kawah-jalur-pendakian-gunung-papandayan-ditutup-sementara"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/papandayan/wiki-1.jpg",
+        "caption": "Steaming crater of Mount Papandayan",
+        "credit": "Photo: Yanson Ferdinand Kurniadi, CC BY 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_Mount_Papandayan.jpg"
+      },
+      {
+        "src": "/mountains/papandayan/wiki-3.jpg",
+        "caption": "Sunrise above the clouds on Papandayan",
+        "credit": "Photo: Dadi Hernada12, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Panorama_Gunung_Papandayan_di_Pagi_Hari.jpg"
+      },
+      {
+        "src": "/mountains/papandayan/wiki-2.jpg",
+        "caption": "Hikers crossing Papandayan's crater",
+        "credit": "Photo: Gamma Abdul-Jabbar, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Papandayan_Volcano.jpg"
+      }
+    ]
   },
   "salak": {
     "origin": "research",
