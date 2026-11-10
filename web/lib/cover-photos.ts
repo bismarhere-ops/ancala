@@ -20,8 +20,12 @@ export interface VerifiedPhoto {
 
 export const VERIFIED_PHOTOS: Record<string, VerifiedPhoto> = {};
 
-export function coverFor(slug: string, ownCover: string | null): { src: string; credit: string | null } | null {
-  if (ownCover) return { src: ownCover, credit: null };
+export function coverFor(
+  slug: string,
+  ownCover: string | null,
+  ownCredit: string | null = null
+): { src: string; credit: string | null } | null {
+  if (ownCover) return { src: ownCover, credit: ownCredit };
   const v = VERIFIED_PHOTOS[slug];
   return v ? { src: v.src, credit: v.credit } : null;
 }

@@ -23,7 +23,7 @@ const LIMITS = {
   stats: { max: 4, value: 20, label: 30, note: 70 },
   packing: { max: 4, item: 30, why: 120 },
   assessment: { max: 3, title: 40, body: 220 },
-  gallery: { max: 12, caption: 60 },
+  gallery: { max: 30, caption: 60 },
 };
 
 const isStr = (v) => typeof v === 'string' && v.trim().length > 0;
@@ -55,6 +55,13 @@ function validate(slug, s) {
       }
       if (section === 'gallery' && !/^\/mountains\/[a-z0-9-]+\/[a-z0-9-]+\.(jpg|webp|png)$/.test(item.src || '')) {
         bad(`gallery[${i}].src must be a /mountains/<slug>/<file> image path`);
+      }
+      // Optional attribution: Wikimedia photos need author + licence shown.
+      if (section === 'gallery') {
+        if (item.credit != null) str(item.credit, 120, `gallery[${i}].credit`);
+        if (item.sourceUrl != null && !/^https:\/\//.test(item.sourceUrl)) {
+          bad(`gallery[${i}].sourceUrl must be an https URL`);
+        }
       }
     });
   }

@@ -94,10 +94,32 @@ export function MountainStory({ story, name }: { story: Story; name: string }) {
                 />
                 <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3 text-xs font-semibold uppercase tracking-wide text-white">
                   {g.caption}
+                  {g.credit && (
+                    <span className="mt-0.5 block truncate text-[10px] font-normal normal-case tracking-normal text-white/70">
+                      {g.credit}
+                    </span>
+                  )}
                 </span>
               </a>
             ))}
           </div>
+          {gallery.some((g) => g.sourceUrl) && (
+            <details className="mt-3 text-xs text-muted-foreground">
+              <summary className="cursor-pointer select-none">Photo credits and licences</summary>
+              <ul className="mt-2 space-y-1">
+                {gallery
+                  .filter((g) => g.sourceUrl)
+                  .map((g) => (
+                    <li key={g.src}>
+                      {g.caption}: {g.credit}{" "}
+                      <a href={g.sourceUrl!} target="_blank" rel="noopener noreferrer" className="underline">
+                        source
+                      </a>
+                    </li>
+                  ))}
+              </ul>
+            </details>
+          )}
         </section>
       )}
 

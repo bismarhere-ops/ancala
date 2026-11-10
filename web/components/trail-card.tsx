@@ -20,7 +20,7 @@ export function TrailCard({
   compact?: boolean;
   highlighted?: boolean;
 }) {
-  const cover = coverFor(trail.slug, trail.coverImage);
+  const cover = coverFor(trail.slug, trail.coverImage, trail.coverCredit ?? null);
 
   return (
     <Card

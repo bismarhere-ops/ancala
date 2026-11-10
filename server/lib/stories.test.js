@@ -44,6 +44,26 @@ test('validate: gallery paths must point under /mountains/', () => {
   assert.throws(() => validate('x', bad), /gallery\[0\]\.src/);
 });
 
+test('validate: gallery credit is optional but bounded, sourceUrl must be https', () => {
+  const g = { src: '/mountains/x/a.jpg', caption: 'C' };
+  assert.doesNotThrow(() => validate('x', { ...base(), gallery: [g] }));
+  assert.doesNotThrow(() =>
+    validate('x', { ...base(), gallery: [{ ...g, credit: 'Photo: A, CC BY-SA 4.0', sourceUrl: 'https://commons.wikimedia.org/wiki/File:A.jpg' }] })
+  );
+  assert.throws(() => validate('x', { ...base(), gallery: [{ ...g, credit: 'a'.repeat(121) }] }), /credit/);
+  assert.throws(() => validate('x', { ...base(), gallery: [{ ...g, sourceUrl: 'javascript:alert(1)' }] }), /sourceUrl/);
+});
+
+test('mountain-stories.json: Wikimedia gallery photos carry a credit and source', () => {
+  for (const [slug, s] of readStories(STORIES_PATH)) {
+    for (const g of s.gallery ?? []) {
+      if (/\/wiki-\d+\.jpg$/.test(g.src)) {
+        assert.ok(g.credit && g.sourceUrl, `${slug}: ${g.src} needs credit + sourceUrl`);
+      }
+    }
+  }
+});
+
 test('mapStory: fills absent sections with empty arrays', () => {
   const m = mapStory({ origin: 'owner' });
   assert.deepStrictEqual(m.packing, []);

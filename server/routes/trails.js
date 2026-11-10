@@ -151,6 +151,8 @@ function mapTrail(row, checkpoints = [], profile = null, advisories = []) {
     hazards: parseJson(row.hazards),
     // First gallery photo, for cards. Null until the mountain has photos.
     coverImage: STORIES.get(row.slug)?.gallery?.[0]?.src ?? null,
+    // Shown on the card when the cover is someone else's photo.
+    coverCredit: STORIES.get(row.slug)?.gallery?.[0]?.credit ?? null,
     // Denormalised onto the trail so list views can badge without the full
     // profile payload. Both queries LEFT JOIN the profile, so there is one
     // input contract; null only when a trail has no profile at all.

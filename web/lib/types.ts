@@ -117,7 +117,8 @@ export interface MountainStory {
   stats: { value: string; label: string; note?: string }[];
   packing: { item: string; why: string }[];
   assessment: { title: string; body: string }[];
-  gallery: { src: string; caption: string }[];
+  /** credit/sourceUrl are set for photos that need attribution (e.g. Wikimedia). */
+  gallery: { src: string; caption: string; credit?: string | null; sourceUrl?: string | null }[];
   sources: { title: string; url?: string }[];
   /** Sections that could not be verified and are intentionally empty. */
   unknown: string[];
@@ -145,6 +146,8 @@ export interface Trail {
   hazards: string[];
   /** First gallery photo, or null when the mountain has no photos yet. */
   coverImage: string | null;
+  /** Attribution for the cover photo, when it needs one. */
+  coverCredit?: string | null;
   /** Only on the detail endpoint; null when no story has been written. */
   story?: MountainStory | null;
   /** Null for trails with no imported profile. */
