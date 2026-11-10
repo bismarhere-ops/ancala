@@ -4021,7 +4021,27 @@
         "url": "https://mounture.com/berita/pendakian-gunung-salak-dibuka-kembali-juli-2026/"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/salak/wiki-1.jpg",
+        "caption": "Salak's jagged summit ridge above a misty valley",
+        "credit": "Photo: Muhammad Rusdi, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:MT._SALAK_-_INDONESIA_-_2019.jpg"
+      },
+      {
+        "src": "/mountains/salak/wiki-2.jpg",
+        "caption": "Salak in the morning beyond town rooftops",
+        "credit": "Photo: Vitaium, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Salak_at_morning.jpg"
+      },
+      {
+        "src": "/mountains/salak/wiki-3.jpg",
+        "caption": "Salak seen from a ripening rice field",
+        "credit": "Photo: Hiroshi sanjuro, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Salak_Seen_From_a_Rice_Field.jpg"
+      }
+    ]
   },
   "cikuray": {
     "origin": "research",
@@ -4112,7 +4132,27 @@
         "url": "https://mounture.com/berita/gunung-cikuray-jalur-cintanagara-ditutup-16-februari-20-maret-2026-ini-alasannya/"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/cikuray/wiki-1.jpg",
+        "caption": "Cikuray's cone above farmland near Cisurupan",
+        "credit": "Photo: Gunawan Kartapranata, CC BY-SA 3.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Cikuray_from_Cisurupan.JPG"
+      },
+      {
+        "src": "/mountains/cikuray/wiki-2.jpg",
+        "caption": "Cikuray silhouetted at sunrise above clouds",
+        "credit": "Photo: Pudyatmoko, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunung_Cikuray,_Papandayan,_Garut,_19032016.jpg"
+      },
+      {
+        "src": "/mountains/cikuray/wiki-3.jpg",
+        "caption": "Cikuray rising behind rooftops and rice fields",
+        "credit": "Photo: Apri DAV, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Cikuray_2025.jpg"
+      }
+    ]
   },
   "guntur": {
     "origin": "research",
@@ -4197,7 +4237,27 @@
         "url": "https://www.kabaralam.com/wisata-alam/59316893412/pendakian-gunung-guntur-disebut-buka-kembali-h1-lebaran-2026-ini-informasi-lengkapnya"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/guntur/wiki-1.jpg",
+        "caption": "Guntur's bare slopes above golden rice fields",
+        "credit": "Photo: Reyhansavero11, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Guntur_in_Western_Java,_Indonesia.jpg"
+      },
+      {
+        "src": "/mountains/guntur/wiki-2.jpg",
+        "caption": "Close view of Guntur's grassy, eroded slopes",
+        "credit": "Photo: Galeri ega, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Megahnya_Gunung_Guntur.jpg"
+      },
+      {
+        "src": "/mountains/guntur/wiki-3.jpg",
+        "caption": "Guntur's bare cone seen from Tarogong Kaler",
+        "credit": "Photo: Afrogindahood, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Guntur_Tarogong_Kaler.jpg"
+      }
+    ]
   },
   "burangrang": {
     "origin": "research",
@@ -4300,7 +4360,27 @@
         "url": "https://www.liputan6.com/lifestyle/read/6264864/longsor-cisarua-bandung-barat-2-jalur-pendakian-gunung-burangrang-ditutup"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/burangrang/wiki-1.jpg",
+        "caption": "Burangrang's forested peaks above a hillside village",
+        "credit": "Photo: Victory33, CC BY 3.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunung_burangrang_@_Villa_Alabare_-_panoramio.jpg"
+      },
+      {
+        "src": "/mountains/burangrang/wiki-2.jpg",
+        "caption": "Burangrang's ridge under an overcast sky",
+        "credit": "Photo: Devitapra, CC BY-SA 3.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gn_burangrang_-_tangkuban_parahu_-_panoramio.jpg"
+      },
+      {
+        "src": "/mountains/burangrang/wiki-3.jpg",
+        "caption": "Highland view with Burangrang on the skyline",
+        "credit": "Photo: Afrogindahood, CC BY 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Burangrang_Tangkuban_Parahu_Pacet_2022.jpg"
+      }
+    ]
   },
   "kerinci": {
     "origin": "research",
@@ -4407,7 +4487,27 @@
         "url": "https://www.suarasurabaya.net/kelanakota/2026/jalur-pendakian-gunung-kerinci-ditutup-mulai-1-september-2026-untuk-antisipasi-karhutla/"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/kerinci/wiki-1.jpg",
+        "caption": "Kerinci's cone above fields and a village",
+        "credit": "Photo: Attomy, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunung_kerinci_-_Jambi.jpg"
+      },
+      {
+        "src": "/mountains/kerinci/wiki-2.jpg",
+        "caption": "Kerinci above the tea plantations",
+        "credit": "Photo: Muhamad Izzul Fiqih, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunung_Kerinci_dari_kebun_teh.jpg"
+      },
+      {
+        "src": "/mountains/kerinci/wiki-3.jpg",
+        "caption": "Kerinci's summit rising above morning cloud",
+        "credit": "Photo: Hendypernando, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kerinci_Mountain.jpg"
+      }
+    ]
   },
   "sibayak": {
     "origin": "research",
@@ -4502,7 +4602,27 @@
         "url": "https://www.traveloka.com/id-id/explore/activities/panduan-lengkap-gunung-sibayak-ta/1004988"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/sibayak/wiki-1.jpg",
+        "caption": "Sibayak's craggy peak with steaming vents",
+        "credit": "Photo: swifant, CC BY-SA 2.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunung_Sibayak_2009_(5502394580).jpeg"
+      },
+      {
+        "src": "/mountains/sibayak/wiki-3.jpg",
+        "caption": "Hiker above Sibayak's yellow sulphur crater",
+        "credit": "Photo: Bisajunisa, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sibayak_crater_landscape.jpg"
+      },
+      {
+        "src": "/mountains/sibayak/wiki-2.jpg",
+        "caption": "Cloud-capped Sibayak from Semangat Gunung",
+        "credit": "Photo: Christian Advs Sltg, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Sibayak_from_Semangat_Gunung_01.jpg"
+      }
+    ]
   },
   "sinabung": {
     "origin": "research",
@@ -4583,7 +4703,27 @@
         "url": "https://www.techtimes.com/articles/326185/20260901/sinabung-erupts-first-time-five-years-authorities-warn-larger-blast.htm"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/sinabung/wiki-2.jpg",
+        "caption": "Sinabung with an ash plume over farmland",
+        "credit": "Photo: Pavel Kirillov from St.Petersburg, Russia, CC BY-SA 2.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Sinabung_2017_(33117536845).jpg"
+      },
+      {
+        "src": "/mountains/sinabung/wiki-3.jpg",
+        "caption": "Sinabung at night under drifting clouds",
+        "credit": "Photo: Jefri Tarigan, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Keindahan_Sinabung.jpg"
+      },
+      {
+        "src": "/mountains/sinabung/wiki-1.jpg",
+        "caption": "Sinabung's ash-scarred slopes from the savanna",
+        "credit": "Photo: IHLubis, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunung_Sinabung_terlihat_dari_Sabana_Sinabung_02.jpg"
+      }
+    ]
   },
   "dempo": {
     "origin": "research",
@@ -4686,7 +4826,21 @@
         "url": "https://koran-jakarta.com/2026-05-24/jalur-pendakian-gunung-dempo-kembali-dibuka"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/dempo/wiki-1.jpg",
+        "caption": "Dempo looming over a busy recreation park",
+        "credit": "Photo: Febi andika valendra, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunung_dempo_(cropped).jpg"
+      },
+      {
+        "src": "/mountains/dempo/wiki-2.jpg",
+        "caption": "Dempo beyond rice paddies near Pagaralam",
+        "credit": "Photo: Susansumi, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scenery_of_dempo_mountain_pagaralam_south_sumatra_indonesia.jpg"
+      }
+    ]
   },
   "rinjani": {
     "origin": "research",
@@ -4900,7 +5054,27 @@
         "url": "https://balitravelguideplus.com/activities/agung-hike"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/agung/wiki-3.jpg",
+        "caption": "Agung at dawn above rice fields and a canal",
+        "credit": "Photo: Tri Arya Dhyana K., CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Suasana_Pagi_dan_Kemegahan_Gunung_Agung.jpg"
+      },
+      {
+        "src": "/mountains/agung/wiki-1.jpg",
+        "caption": "Agung's summit above a band of cloud",
+        "credit": "Photo: Slleong, CC0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunung_Agung_1.jpg"
+      },
+      {
+        "src": "/mountains/agung/wiki-2.jpg",
+        "caption": "Agung's peak wreathed in cloud",
+        "credit": "Photo: Suhaasps3, CC0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Agung_June_2025.jpg"
+      }
+    ]
   },
   "batur": {
     "origin": "research",
@@ -4999,7 +5173,27 @@
         "url": "https://gobaligo.id/en/blog/bali-news-2026-08-31/"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/batur/wiki-1.jpg",
+        "caption": "Batur above a misty valley at dawn",
+        "credit": "Photo: Arthamade, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunung_Batur_yang_Cerah.jpg"
+      },
+      {
+        "src": "/mountains/batur/wiki-2.jpg",
+        "caption": "Batur's summit cone above black lava fields",
+        "credit": "Photo: Jorge Franganillo, CC BY 2.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kintamani_-_Gunung_Batur_-_49817610343.jpg"
+      },
+      {
+        "src": "/mountains/batur/wiki-3.jpg",
+        "caption": "Batur, lava fields and the caldera lake",
+        "credit": "Photo: Philip Nalangan, CC BY 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Batur_Bali.jpg"
+      }
+    ]
   },
   "tambora": {
     "origin": "research",
@@ -5090,7 +5284,27 @@
         "url": "https://www.malaymail.com/news/world/2026/09/01/indonesia-temporarily-closes-hiking-trails-in-nine-national-parks-over-wildfire-risk/233449"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/tambora/wiki-1.jpg",
+        "caption": "Tambora's vast caldera seen from the rim",
+        "credit": "Photo: Fauzanmrafi, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Keabadian_dan_kegagahan.jpg"
+      },
+      {
+        "src": "/mountains/tambora/wiki-3.jpg",
+        "caption": "Tambora's crater rim in early light",
+        "credit": "Photo: Paul Hessels, CC BY 2.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tambora_crater_rim_2.jpg"
+      },
+      {
+        "src": "/mountains/tambora/wiki-2.jpg",
+        "caption": "Grassy ridges on Tambora's slopes",
+        "credit": "Photo: Iqbal Ishlahiddin, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Landscape_of_Tambora.jpg"
+      }
+    ]
   },
   "inerie": {
     "origin": "research",
@@ -5181,7 +5395,27 @@
         "url": "https://portal.ngadakab.go.id/gunung-inerie/"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/inerie/wiki-1.jpg",
+        "caption": "Inerie's near-perfect cone above the forest",
+        "credit": "Photo: Felix Dance, CC BY 2.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Inerie_(25528630454).jpg"
+      },
+      {
+        "src": "/mountains/inerie/wiki-2.jpg",
+        "caption": "Clouds drifting across Inerie's steep flank",
+        "credit": "Photo: MireilleRozeboom, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vulkaan_Inierie_op_Flores.jpg"
+      },
+      {
+        "src": "/mountains/inerie/wiki-3.jpg",
+        "caption": "Inerie's peak above morning mist",
+        "credit": "Photo: Petter Lindgren, CC BY-SA 3.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Inierie.jpg"
+      }
+    ]
   },
   "latimojong": {
     "origin": "research",
@@ -5276,7 +5510,15 @@
         "url": "https://mounture.com/berita/jalur-pendakian-gunung-latimojong-ditutup-sementara-selama-ramadan-2026/"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/latimojong/wiki-1.jpg",
+        "caption": "Latimojong range on a hazy, sunny morning",
+        "credit": "Photo: Hamka Rasufit, CC0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Misty_Morning_Mount_Latimojong.jpg"
+      }
+    ]
   },
   "lompobattang": {
     "origin": "research",
@@ -5344,7 +5586,21 @@
         "url": "https://datagunung.com/gunung/Lompobattang/info"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/lompobattang/wiki-1.jpg",
+        "caption": "Jagged ridges high on Lompobattang",
+        "credit": "Photo: Syarullah, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lompobattang._jpeg.jpg"
+      },
+      {
+        "src": "/mountains/lompobattang/wiki-2.jpg",
+        "caption": "Lompobattang summit marker and sign",
+        "credit": "Photo: muhammad ilham, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tringulasi_gunung_lompobattang.jpg"
+      }
+    ]
   },
   "bawakaraeng": {
     "origin": "research",
@@ -5447,6 +5703,7 @@
         "url": "https://www.sekeluargahealing.com/2026/03/pendakian-gunung-bawakaraeng-via.html"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": []
   }
 }
