@@ -107,6 +107,24 @@
       {
         "src": "/mountains/bromo/crater-ganesha.jpg",
         "caption": "Ganesha statue at the crater"
+      },
+      {
+        "src": "/mountains/bromo/wiki-1.jpg",
+        "caption": "Bromo, Batok and Semeru above morning mist",
+        "credit": "Photo: Thomas Hirsch (user Ravn), CC BY-SA 3.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Bromo_at_sunrise,_showing_its_volcanoes_and_Mount_Semeru_(background).jpg"
+      },
+      {
+        "src": "/mountains/bromo/wiki-2.jpg",
+        "caption": "Tengger caldera glowing pink at sunrise",
+        "credit": "Photo: Thomas Fuhrmann, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunung_Bromo_sunrise_-_Indonesia.jpg"
+      },
+      {
+        "src": "/mountains/bromo/wiki-3.jpg",
+        "caption": "Bromo, Batok and Semeru over the Tengger caldera",
+        "credit": "Photo: Jakub Hałun, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bromo,_Semeru,_Batok_-_view_of_Tengger_caldera,_East_Java,_Indonesia,_20220820_0709_9507.jpg"
       }
     ],
     "sources": [
@@ -220,7 +238,152 @@
         "url": "https://travel.kompas.com/read/2026/04/26/091000427/awas-kecele-ini-jadwal-penutupan-gunung-semeru-dan-gunung-bromo-2026"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/semeru/wiki-1.jpg",
+        "caption": "Semeru puffing ash, seen from Bromo",
+        "credit": "Photo: Hugo van den Bos, CC BY 2.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Semeru_Closeup_from_Bromo_01.jpg"
+      },
+      {
+        "src": "/mountains/semeru/img-20180825-145826.jpg",
+        "caption": "Ranu Kumbolo lake from the hillside trail",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/semeru/img-20180825-145829.jpg",
+        "caption": "Ranu Kumbolo lake and campsite under blue sky",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/semeru/img-20180825-154729.jpg",
+        "caption": "Hiker in a golden savanna valley in hazy sun",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/semeru/img-20180825-154748.jpg",
+        "caption": "Hiker looking up in the savanna valley",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/semeru/img-20180825-162556.jpg",
+        "caption": "Hikers collecting litter along the trail",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/semeru/img-20180825-162622.jpg",
+        "caption": "Ranu Kumbolo mirroring the forested hills",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/semeru/img-20180825-162806.jpg",
+        "caption": "Still water of Ranu Kumbolo under a clear sky",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/semeru/img-20180826-051247.jpg",
+        "caption": "Ranu Kumbolo at dawn between two hills",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/semeru/img-20180826-052802.jpg",
+        "caption": "Tents along the Ranu Kumbolo shore at daybreak",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/semeru/img-20180826-054500.jpg",
+        "caption": "Sunrise between the hills over Ranu Kumbolo",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/semeru/img-20180826-173741.jpg",
+        "caption": "Full moon rising over the savanna at dusk",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/semeru/img-20180827-050240.jpg",
+        "caption": "Pre-dawn glow on the horizon during the summit climb",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/semeru/img-20180827-051527.jpg",
+        "caption": "First light over ridges and clouds from the summit slope",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/semeru/img-20180827-053510.jpg",
+        "caption": "Sunrise above the clouds from the Mahameru summit",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/semeru/img-20180827-053517.jpg",
+        "caption": "Hikers watching sunrise over a sea of clouds",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/semeru/img-20180827-055936.jpg",
+        "caption": "Hiking group with flags on the Mahameru summit",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/semeru/img-20180827-060033.jpg",
+        "caption": "Summit group silhouetted against the morning sun",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/semeru/img-20180827-060047.jpg",
+        "caption": "Group with the Indonesian flag on the summit",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/semeru/img-20180827-063613.jpg",
+        "caption": "Hiker on the rocky summit above a sea of clouds",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/semeru/img-20180827-063628-burst001-cover.jpg",
+        "caption": "Hiker on the gravelly summit with distant peaks",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/semeru/img-20180827-063919.jpg",
+        "caption": "Hiker gazing over the cloud sea from the summit",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/semeru/img-20180827-064531-burst001-cover.jpg",
+        "caption": "Hikers on the summit under the bright morning sun",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/semeru/img-20180827-074532.jpg",
+        "caption": "Descending the rocky summit trail above forested ridges",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/semeru/img-20180827-075734.jpg",
+        "caption": "Hikers descending the dusty scree slope",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/semeru/img-20180827-084744.jpg",
+        "caption": "Hiker on the loose volcanic scree slope",
+        "credit": "Photo: Jejak Ancala"
+      },
+      {
+        "src": "/mountains/semeru/wiki-2.jpg",
+        "caption": "Mahameru summit cone above Kalimati camp",
+        "credit": "Photo: Eko Raharjo, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Puncak_Mahameru,_Kalimati,_Gunung_Semeru,_Malang,_Jawa_Timur,_13092015.jpg"
+      },
+      {
+        "src": "/mountains/semeru/wiki-3.jpg",
+        "caption": "Smoking Bromo crater with Semeru on the skyline",
+        "credit": "Photo: Jakub Hałun, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bromo_and_Semeru_volcanoes,_Java,_Indonesia,_20220820_0758_9553.jpg"
+      }
+    ]
   },
   "arjuno": {
     "origin": "research",
@@ -319,7 +482,27 @@
         "url": "https://www.idntimes.com/travel/destination/daftar-gunung-yang-ditutup-akibat-karhutla-per-september-2026-00-mk1yf-lb5zkz"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/arjuno/wiki-1.jpg",
+        "caption": "Arjuno-Welirang massif above the valley",
+        "credit": "Photo: firdazjanuar, CC BY-SA 3.0, via Wikimedia Commons (cropped)",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Arjuno_-_Welirang_-_panoramio.jpg"
+      },
+      {
+        "src": "/mountains/arjuno/wiki-2.jpg",
+        "caption": "Mount Arjuno with a cloud cap on its summit",
+        "credit": "Photo: Elhama02, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunung_Arjuno.jpg"
+      },
+      {
+        "src": "/mountains/arjuno/wiki-3.jpg",
+        "caption": "Mount Arjuno seen from rice fields in Singosari",
+        "credit": "Photo: Samudera Purwadi, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Arjuno_seen_from_Singosari,_Malang.jpg"
+      }
+    ]
   },
   "welirang": {
     "origin": "research",
@@ -418,7 +601,21 @@
         "url": "https://malangtimes.com/baca/3331350819/20260924/125800/mulai-26-september-pendakian-arjuno-welirang-kembali-dibuka-pasca-karhutla"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/welirang/wiki-1.jpg",
+        "caption": "Steaming Welirang summit seen from Arjuno",
+        "credit": "Photo: Lasthib, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:2018-05-20_View_of_Welirang_volcano_from_Arjuno_volcano.jpg"
+      },
+      {
+        "src": "/mountains/welirang/wiki-2.jpg",
+        "caption": "Hiker crossing the grassy Tanah Lapang on Welirang",
+        "credit": "Photo: Hammam Aulia, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tanah_Lapang_di_Gunung_Welirang.jpg"
+      }
+    ]
   },
   "raung": {
     "origin": "research",
@@ -620,7 +817,15 @@
         "url": "https://surabaya.kompas.com/read/2026/09/02/211924978/antisipasi-karhutla-pendaftaran-pendakian-gunung-argopuro-dihentikan-1"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/argopuro/wiki-1.jpg",
+        "caption": "Argopuro range seen from a school in Bondowoso",
+        "credit": "Photo: Muhammad zaizeno, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pemandangan_Gunung_Argopuro_dari_SMAN_Grujugan_Bondowoso.jpg"
+      }
+    ]
   },
   "ijen": {
     "origin": "research",
@@ -925,7 +1130,27 @@
         "url": "https://malang.disway.id/malang-melintang/read/22580/kebakaran-gunung-kawi-meluas-jalur-pendakian-panderman-masih-ditutup-total"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/panderman/wiki-1.jpg",
+        "caption": "Panderman rising above town on a clear day",
+        "credit": "Photo: Moel81, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunung_Panderman.jpg"
+      },
+      {
+        "src": "/mountains/panderman/wiki-3.jpg",
+        "caption": "Forested Panderman ridges under a blue sky",
+        "credit": "Photo: Mardiansyah Nugraha, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunung_Pandemanan_Malang.jpg"
+      },
+      {
+        "src": "/mountains/panderman/wiki-2.jpg",
+        "caption": "Grassy slope and forested peak in golden light",
+        "credit": "Photo: Christophorus Ardi Nugraha, CC0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Panderman.jpg"
+      }
+    ]
   },
   "butak": {
     "origin": "research",
@@ -1197,7 +1422,27 @@
         "url": "https://beritajatim.com/pendakian-bukit-cendono-ditutup-sementara-akibat-kebakaran-hutan"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/anjasmoro/wiki-1.jpg",
+        "caption": "Anjasmoro seen from Pujon in morning mist",
+        "credit": "Photo: Takhul Ilmi, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunung_Anjasmoro_dari_Pujon.jpg"
+      },
+      {
+        "src": "/mountains/anjasmoro/wiki-3.jpg",
+        "caption": "Anjasmoro range in the distance from a summit",
+        "credit": "Photo: Suryabhinay, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunung_Anjasmoro_di_kejauhan.jpg"
+      },
+      {
+        "src": "/mountains/anjasmoro/wiki-2.jpg",
+        "caption": "Cloud-capped Anjasmoro above Ngoro rice fields",
+        "credit": "Photo: Indonesiagood, CC BY 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pemandangan_Gunung_Anjasmoro_dan_Area_Pesawahan_di_Ngoro.jpg"
+      }
+    ]
   },
   "wilis": {
     "origin": "research",
@@ -1292,7 +1537,27 @@
         "url": "https://www.gunungbagging.com/liman/"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/wilis/wiki-1.jpg",
+        "caption": "Wilis massif above dry rice fields",
+        "credit": "Photo: Indonesiagood, CC BY 3.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Indahnya_Pemandangan_Gunung_Wilis.jpg"
+      },
+      {
+        "src": "/mountains/wilis/wiki-3.jpg",
+        "caption": "Jagged Wilis skyline beyond harvested fields",
+        "credit": "Photo: Narotama Abiyyu, CC0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunung_Wilis.jpg"
+      },
+      {
+        "src": "/mountains/wilis/wiki-2.jpg",
+        "caption": "Wilis range on the horizon beyond farmland",
+        "credit": "Photo: Mohamad Farouq Arifin, CC BY-SA 3.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Wilis_view.jpg"
+      }
+    ]
   },
   "liman": {
     "origin": "research",
@@ -1656,7 +1921,15 @@
         "url": "https://www.kelumajang.com/wisata/98115484067/ketinggian-sekitar-1585-mdpl-gunung-pundak-mojokerto-ramai-dikunjungi-pendaki-pemula-saat-liburan-sekolah"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/pundak/wiki-1.jpg",
+        "caption": "Hiker gazing at misty peaks from Pundak",
+        "credit": "Photo: Arif Heryanto Halili, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pundak.jpg"
+      }
+    ]
   },
   "ranti": {
     "origin": "research",
@@ -1746,7 +2019,27 @@
         "url": "https://timesindonesia.co.id/peristiwa-daerah/610153/usai-kebakaran-twa-kawah-ijen-kembali-dibuka-28-september-2026"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/ranti/wiki-1.jpg",
+        "caption": "Mount Ranti above a sea of clouds, from Ijen",
+        "credit": "Photo: Jakub Hałun, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ijen,_Mount_Ranti,_East_Java,_Indonesia,_20220821_0635_9759.jpg"
+      },
+      {
+        "src": "/mountains/ranti/wiki-2.jpg",
+        "caption": "Forested cone of Mount Ranti seen from Ijen",
+        "credit": "Photo: Jakub Hałun, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ijen,_Mount_Ranti,_East_Java,_Indonesia,_20220821_0654_9790.jpg"
+      },
+      {
+        "src": "/mountains/ranti/wiki-3.jpg",
+        "caption": "Mount Ranti's green slopes on a clear day",
+        "credit": "Photo: Abrori Wafiq, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunung_Ranti.png"
+      }
+    ]
   },
   "merapi-ungup": {
     "origin": "research",
@@ -1903,7 +2196,27 @@
         "url": "https://www.antaranews.com/berita/5744620/perhutani-tutup-jalur-pendakian-gunung-lawu-karena-kebakaran-hutan"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/lawu/wiki-1.jpg",
+        "caption": "Lawu above green rice fields",
+        "credit": "Photo: Ahmadafif1995, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunung_lawu.jpg"
+      },
+      {
+        "src": "/mountains/lawu/wiki-3.jpg",
+        "caption": "Lawu above Telaga Sarangan lake",
+        "credit": "Photo: Ivoryenze, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Telaga_Sarangan_dan_Gunung_Lawu_-_Maret_2026.jpg"
+      },
+      {
+        "src": "/mountains/lawu/wiki-2.jpg",
+        "caption": "Lawu silhouette at dusk, seen from Ngawi",
+        "credit": "Photo: Dede2008, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Lawu_viewed_from_Ngawi_railway.jpg"
+      }
+    ]
   },
   "merbabu": {
     "origin": "research",
@@ -2002,7 +2315,27 @@
         "url": "https://mounture.com/berita/kuota-gunung-merbabu-september-2026-dibuka-ini-rincian-tiap-jalur/"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/merbabu/wiki-2.jpg",
+        "caption": "Merbabu's ridged cone from rocky high ground",
+        "credit": "Photo: LiburanBoongan, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Si_cantik_Merbabu.jpg"
+      },
+      {
+        "src": "/mountains/merbabu/wiki-1.jpg",
+        "caption": "Merbabu seen from Selo farmland",
+        "credit": "Photo: Eonk e, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunung_Merbabu_dilihat_dari_Selo.jpg"
+      },
+      {
+        "src": "/mountains/merbabu/wiki-3.jpg",
+        "caption": "Merbabu at dawn above terraced villages",
+        "credit": "Photo: DopadamPanyrab, CC BY 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunung_Merbabu_2018.jpg"
+      }
+    ]
   },
   "merapi": {
     "origin": "research",
@@ -2109,7 +2442,27 @@
         "url": "https://radarjogja.jawapos.com/sleman/2609240011/status-siaga-bertahan-merapi-catat-68-kali-luncuran-dan-guguran-lava-pijar-sehari"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/merapi/wiki-2.jpg",
+        "caption": "Merapi summit seen from Bukit Klangon",
+        "credit": "Photo: Kennf1, CC BY 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Merapi_dari_Bukit_Klangon_tahun_2024.jpg"
+      },
+      {
+        "src": "/mountains/merapi/wiki-1.jpg",
+        "caption": "Cloud drifting over Merapi's summit",
+        "credit": "Photo: Crisco 1492, CC BY-SA 3.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Merapi_in_2014.jpg"
+      },
+      {
+        "src": "/mountains/merapi/wiki-3.jpg",
+        "caption": "Merapi's grey upper slopes venting steam",
+        "credit": "Photo: Kang Henry Irawan, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gagahnya_Merapi.jpg"
+      }
+    ]
   },
   "sumbing": {
     "origin": "research",
@@ -2212,7 +2565,27 @@
         "url": "https://mounture.com/berita/jalur-pendakian-gunung-sumbing-via-gajah-mungkur-ditutup-sementara-mulai-18-mei-2026/"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/sumbing/wiki-1.jpg",
+        "caption": "Sumbing above tobacco fields",
+        "credit": "Photo: Rokok Indonesia from Jawa Tengah, INDONESIA, CC BY 2.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Sumbing_2013-09-18_(15854172378).jpg"
+      },
+      {
+        "src": "/mountains/sumbing/wiki-2.jpg",
+        "caption": "Sumbing's summit rising through clouds",
+        "credit": "Photo: CEphoto, Uwe Aranas, CC BY-SA 3.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Indonesia_Mount-Sumbing-volcano-01.jpg"
+      },
+      {
+        "src": "/mountains/sumbing/wiki-3.jpg",
+        "caption": "Sumbing at dusk from Garung, Wonosobo",
+        "credit": "Photo: Purnomowahyu94, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunung_Sumbing,_Garung,_Wonosobo,_Jawa_Tengah.jpg"
+      }
+    ]
   },
   "sindoro": {
     "origin": "research",
@@ -2319,7 +2692,27 @@
         "url": "https://mounture.com/berita/info-pendakian-jalur-gunung-sindoro-via-sigedang-ditutup-untuk-perawatan/"
       }
     ],
-    "unknown": []
+    "unknown": [],
+    "gallery": [
+      {
+        "src": "/mountains/sindoro/wiki-3.jpg",
+        "caption": "Sindoro framed by trees above the clouds",
+        "credit": "Photo: Rifmoe, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sindoro_Mount.jpg"
+      },
+      {
+        "src": "/mountains/sindoro/wiki-2.jpg",
+        "caption": "Sindoro from Pasar Watu on Mount Sumbing",
+        "credit": "Photo: Hendrojkson, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Sindoro_viewed_from_Pasar_Watu,_Mount_Sumbing.jpg"
+      },
+      {
+        "src": "/mountains/sindoro/wiki-1.jpg",
+        "caption": "Sindoro seen from Sumbing's summit",
+        "credit": "Photo: Hendrojkson, CC BY-SA 4.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunung_Sindoro_terlihat_dari_puncak_Gunung_Sumbing.jpg"
+      }
+    ]
   },
   "slamet": {
     "origin": "research",
